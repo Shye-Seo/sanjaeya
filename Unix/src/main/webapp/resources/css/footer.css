@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+footer {
+	background-color: rgb(208, 208, 208);
+}
+
+footer div {
+	padding: 15px 0px 15px 200px;
+}
+
+#footer_2 {
+	line-height: 25px;
+}
+
+hr {
+	border: 0;
+	height: 1px;
+	background-color: rgb(116, 116, 116);
+}
