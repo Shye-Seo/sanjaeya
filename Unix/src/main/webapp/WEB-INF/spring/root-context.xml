@@ -1,8 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
-	
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName" value="${spring.datasource.driverClassName}" />
+    <property name="url" value="${spring.datasource.url}" />
+    <property name="username" value="${spring.datasource.username}" />
+    <property name="password" value="${spring.datasource.password}" />   
+</bean>
+
+<!-- mybatis SqlSessionFactoryBean -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property value="classpath:/mybatis-config.xml"
+             name="configLocation" />
+        <property value="classpath:mapper/**/*.xml" name="mapperLocations" />
+        <!-- <property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"></property> -->
+    </bean>
+
+<!-- SQL 실행 객체 생성 -->
+     <bean class="org.mybatis.spring.SqlSessionTemplate"
+         id="sqlSession" destroy-method="clearCache">
+         <constructor-arg name="sqlSessionFactory"
+             ref="sqlSessionFactory" />
+     </bean>
+     
+     <!-- MultipartResolver 설정 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="100000000" />
+        <property name="maxInMemorySize" value="100000000" />
+
+        <!-- defaultEncoding -->
+        <property name="defaultEncoding" value="utf-8" />
+    </bean>
+    <!-- config파일 자동 로드 location="classpath:database.properties"  /!-->
+    <context:property-placeholder location="/config/*.properties" /> 
+   
 </beans>
