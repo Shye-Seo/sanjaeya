@@ -1,0 +1,259 @@
+ *,html,body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #wrap {
+            width:100%;
+        }
+        a {
+            text-decoration: none;
+        }
+
+        .nav {
+            position: relative;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            width:100%;
+            height:150px;
+            background-color: #333333;
+            margin-bottom: 70px;
+        }
+        .nav .title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin-bottom: 20px;
+        }
+        .nav .title span {
+            font-size: 30px;
+        }
+
+
+        ul {
+            list-style:none;
+
+/*             content:"";
+            display: block;
+            clear:both;  */
+        }
+        .tabmenu {
+            max-width:1024px; 
+            margin: 0 auto; 
+            position:relative; 
+        }
+        
+        .tabmenu ul li {
+            /* display:inline-block; */
+            width:50%; 
+            float:left;  
+            text-align:center; 
+            /* background :#f9f9f9; */
+            line-height:40px;
+            height: 60px; /* 탭 높이 조절할때 */
+        }
+       
+        .tabmenu label {
+            display:block;
+            width:100%; 
+            height:60px; /* 탭 높이 조절할때 */
+            line-height:60px;
+            font-size: 20px;
+            border: 1px solid black;
+            font-weight: 600;
+
+        }
+        label[for=tabmenu1] {
+            border-radius: 5px 0 0 5px;
+        }
+        label[for=tabmenu2] {
+            border-radius: 0 5px 5px 0;
+        }
+        .tabmenu #tabmenu1, #tabmenu2 {
+            display: none;
+        }
+
+        .tabCon {
+            width:1024px;
+            display:none; 
+            text-align:left; 
+            padding: 20px 0;
+            position:absolute; 
+            left:0; top:60px; /* 탭 높이 조절할때 */
+            box-sizing: border-box; 
+            /* border : 5px solid #f9f9f9; */
+        }
+        .tabmenu input:checked ~ label{
+            background:#0080FF;
+            color:white;
+            font-weight: 900;
+        }
+        .tabmenu input:checked ~ .tabCon{
+            display:block;
+        }
+
+
+        #join {
+            width:100%;
+            margin: 4% auto;
+            color: #444343;
+            /* border:1px solid red; */
+        }
+        #join p {
+            margin: 0;
+            padding: 0;
+        }
+        #join span {
+            color: #EA933C;
+        }
+
+        .text_area {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            margin-top: 3%;
+            font-weight: 600;
+            margin-bottom: 3%;
+        }
+        .text_area .item_1 {
+            font-size: 1.3rem;
+        }
+        .text_area .item_2 {
+            position: relative;
+            font-size: 1.1rem;
+        }
+        .text_area .item_2 span {
+            position: absolute;
+            left:-15px;
+        }
+
+        #updateform {
+           
+            background-color: #F4F2F2;
+        }
+
+        #join .infomation_item {
+            border-top: solid;
+            border-width:1px; /* top하고 width 위치 바뀌면 이상? */
+            border-color: #707070;
+           
+            display: flex;
+            align-items: center;
+            height:130px;
+        }
+      
+     
+
+        #join .infomation_item .name_item {
+            position: relative;
+            width: 25%;
+            background-color: #F4F2F2;
+            display: flex;
+            font-size: 1.2rem;
+            font-weight: 600;
+            justify-content: flex-end;
+           
+        }
+        #join .infomation_item .name_item span {
+            position: absolute;
+            left: 20%;
+        }
+        #join .infomation_item .name_item p {
+            width: 70%;
+        }
+        #join .infomation_item .value_item {
+            width:75%;
+            height:100%;
+            padding: 3% 5%;
+            background-color: white;
+            box-sizing: border-box;
+            display: flex; /* 세로 센터 정렬*/
+            align-items: center; /* 세로 센터 정렬*/
+            /* border:1px solid red; */
+            position: relative;
+        }
+        #join .infomation_item .value_item .pw_wrap {
+            width:100%;
+        }
+
+        #join .infomation_item .value_item p:nth-child(2){ /* 두번째에 있는 p */
+            font-size:12px;
+            font-weight: bold;
+            /* border:1px solid red; */
+            height:25px;
+            line-height: 25px;
+            /* padding-top: 1%; */
+        }
+        #join .infomation_item .value_item input {
+            width:80%;
+            border:none;
+            border-bottom: solid;
+            border-width: 1px;
+            border-color:#707070;
+            height:30px;
+            text-indent: 2%;
+            font-size:1rem;
+        }
+        #join .infomation_item .value_item span {
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+        #join .infomation_item .value_item .mail_item_1 {
+            width:33%;
+            margin-right: 10px;
+        }
+        #join .infomation_item .value_item .mail_item_2 {
+            width:33%;
+            margin-left: 10px;
+            margin-right: 10px;
+        } 
+        #join .infomation_item .value_item .mail_item_3 {
+            width:20%;
+            height: 30px;
+            text-indent: 3%;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        #join .infomation_item .value_item #tel {
+            width: 54%;
+            margin-right: 10px;
+        }
+        #join .infomation_item .value_item .certification_button{
+            width: 16%;
+            background: white;
+            border: solid 1px #707070;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        #join .infomation_item .value_item #sms_certification{
+            display: none;
+        }
+
+        #join .member_submit {
+            background-color: white;
+            text-align: center;
+            padding-top:50px;
+            
+        }
+
+        #join .member_submit input {
+            background-color: #0080FF;
+            border: none;
+            color: white;
+            padding:10px 30px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            border-radius: 10px;
+            margin-right: 15px;
+        }
+        #join .member_submit .reset {
+            box-sizing: border-box;
+            background-color: white;
+            border:1px solid #0080FF;
+            color: #0080FF;
+            
+        }
