@@ -17,10 +17,10 @@
 		<div id="header_right">
 			<c:choose>
 				<c:when test="${sessionScope.id == null}">
-					<a href="Login.do">로그인</a>&nbsp;|&nbsp;<a href="MemInsert.do">회원가입</a>
+					<a href="Login">로그인</a>&nbsp;|&nbsp;<a href="MemInsert">회원가입</a>
 				</c:when>
 				<c:otherwise>
-					<a href="Logout.do">로그아웃</a>&nbsp;|&nbsp;<a href="MyPage.do">마이페이지</a>
+					<a href="Logout">로그아웃</a>&nbsp;|&nbsp;<a href="MyPage">마이페이지</a>
 				</c:otherwise>
 			</c:choose>
 		</div>

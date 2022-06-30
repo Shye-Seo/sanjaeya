@@ -12,28 +12,28 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+<!-- 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
     <property name="driverClassName" value="${spring.datasource.driverClassName}" />
     <property name="url" value="${spring.datasource.url}" />
     <property name="username" value="${spring.datasource.username}" />
     <property name="password" value="${spring.datasource.password}" />   
-</bean>
+</bean> -->
 
 <!-- mybatis SqlSessionFactoryBean -->
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+<!--     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"></property>
         <property value="classpath:/mybatis-config.xml"
              name="configLocation" />
-        <property value="classpath:mapper/**/*.xml" name="mapperLocations" />
+        <property value="classpath:mapper/**/*.xml" name="mapperLocations" /> -->
         <!-- <property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"></property> -->
-    </bean>
+<!--     </bean> -->
 
 <!-- SQL 실행 객체 생성 -->
-     <bean class="org.mybatis.spring.SqlSessionTemplate"
+<!--      <bean class="org.mybatis.spring.SqlSessionTemplate"
          id="sqlSession" destroy-method="clearCache">
          <constructor-arg name="sqlSessionFactory"
              ref="sqlSessionFactory" />
-     </bean>
+     </bean> -->
      
      <!-- MultipartResolver 설정 -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
