@@ -20,17 +20,17 @@ public class HomeController {
 	
 	@RequestMapping("Login") // 로그인 페이지
 	public String login() {
-		return "login";
+		return "/login";
 	}
 	
 	@RequestMapping("MemInsert") // 회원가입 페이지
 	public String join() {
-		return "join";
+		return "/join";
 	}
 	
 	@RequestMapping("MyPage") // 마이페이지
 	public String mypage() {
-		return "mypage";
+		return "/mypage";
 	}
 	
 
