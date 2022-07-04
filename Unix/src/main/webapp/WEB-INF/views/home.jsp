@@ -35,11 +35,22 @@
 			<h2>나의 산재승인 가능성은?</h2>
 			<h4>몇 번의 클릭으로 산재 승인 가능성을 알아보세요.</h4>
 		</div>
-		<ul class="category">
-			<li>뇌심혈관질환/과로</li>
-			<li>직업성 암</li>
-			<li>근골결계 질환</li>
-		</ul>
+		<div class="wrap_container">
+                <div class="category">
+                    <div class="category_1">
+                        <p class="cate_img1" src="#"></p>
+                        <p class="cate_p1">뇌심혈관질환/과로</p>
+                    </div>
+                    <div class="category_2">
+                        <p class="cate_img2" src="#"></p>
+                        <p class="cate_p2">직업성 암</p>
+                    </div>
+                    <div class="category_3">
+                        <p class="cate_img3" src=""></p>
+                        <p class="cate_p3">근골결계 질환</p>
+                    </div>
+                </div>
+            </div>
 	</section>
 	<section class="section_2">
 		<div class="wrap_container">

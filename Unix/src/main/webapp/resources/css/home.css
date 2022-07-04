@@ -55,6 +55,7 @@ header img {
     border-style: none;
     border-radius: 10px;
     box-shadow: -1px 3px 5px 0 rgb(0, 0, 0);
+    cursor:pointer;
 }
 .wrap_container {
     width: 1028px;
@@ -76,9 +77,100 @@ h4 {
     display: flex;
     justify-content: center;
 }
-.section_1 .category li {
-    background-color: #326DFB;
-    margin: 10px;
+.category_1,
+.category_2,
+.category_3 {
+    width: 220px;
+    height: 220px;
+    background-color: #fafafa;
+    margin: 30px;
+    text-align: center;
+    box-shadow: 0 3px 6px #00000029;
+    border-radius: 26px;
+    position: relative;
+    color: #888888;
+}
+.section_1 .category .cate_img1 {
+    background: url(../imgs/category_off1.svg) no-repeat;
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    margin-top: 40px;
+    margin-left: 60px;
+}
+.section_1 .category .cate_img2 {
+    background: url(../imgs/category_off2.svg) no-repeat;
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    margin-top: 40px;
+    margin-left: 70px;
+}
+.section_1 .category .cate_img3 {
+    background: url(../imgs/category_off3.svg) no-repeat;
+    background-size: cover;
+    width: 70px;
+    height: 107px;
+    margin-top: 40px;
+    margin-left: 75px;
+}
+.section_1 .category .cate_p1 {
+    position: absolute;
+    right: 19%;
+    top: 80%;
+    font: normal normal bold 18px/30px Pretendard;
+}
+.section_1 .category .cate_p2 {
+    position: absolute;
+    right: 33%;
+    top: 80%;
+    font: normal normal bold 18px/30px Pretendard;
+}
+.section_1 .category .cate_p3 {
+    position: absolute;
+    right: 26%;
+    top: 80%;
+    font: normal normal bold 18px/30px Pretendard;
+   
+}
+.category_1:hover {
+    outline: solid 1px #326DFB;
+    color: black;
+    cursor:pointer;
+}
+.category_2:hover {
+    outline: solid 1px #326DFB;
+    color: black;
+    cursor:pointer;
+}
+.category_3:hover {
+    outline: solid 1px #326DFB;
+    color: black;
+    cursor:pointer;
+}
+.category_1:hover > .cate_img1{
+    background: url(../imgs/category_on1.svg);
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    margin-top: 40px;
+    margin-left: 60px;
+}
+.category_2:hover > .cate_img2{
+    background: url(../imgs/category_on2.svg);
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    margin-top: 40px;
+    margin-left: 70px;
+}
+.category_3:hover > .cate_img3{
+    background: url(../imgs/category_on3.svg);
+    background-size: cover;
+    width: 70px;
+    height: 107px;
+    margin-top: 40px;
+    margin-left: 75px;
 }
 .wrap_container button {
     padding: 20px;
@@ -92,6 +184,7 @@ h4 {
     border-style: none;
     border-radius: 15px;
     box-shadow: -1px 1px 4px 1px rgb(0, 0, 0);
+    cursor:pointer;
 }
 .button_area {
     margin-top: 200px;
@@ -207,4 +300,5 @@ ul {
     background-color: transparent;
     color: white;
     font-size: 15px;
+    cursor: pointer;
 }
