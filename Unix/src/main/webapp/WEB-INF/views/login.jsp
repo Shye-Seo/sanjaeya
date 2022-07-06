@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ include file ="/WEB-INF/views/common.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>로그인</title>
 <link rel="stylesheet" href="resources/css/login.css">
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" src="resources/js/login.js"></script>
 <script>
 	$(function() {
@@ -19,7 +18,7 @@
 	<div id="wrap">
 		<jsp:include page="/WEB-INF/views/header/header.jsp"></jsp:include>
         <div class="nav">
-            <div class="title">
+            <div class="banner"> 
                 <span>로그인</span>
             </div>
         </div>

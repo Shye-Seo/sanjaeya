@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file ="/WEB-INF/views/common.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,12 +8,11 @@
 <title>회원가입</title>
 <link rel="stylesheet" href="resources/css/join.css">
 <script type="text/javascript" src="resources/js/join.js"></script>
-<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/header/header.jsp"></jsp:include>
     <div class="nav">
-		<div class="title">
+		<div class="banner">
 			<span>회원가입</span>
 		</div>
 	</div>
