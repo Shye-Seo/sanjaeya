@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="memberMappers">
+
+   <!-- 회원가입 -->
+   <insert id="insertMem">
+   		insert into testmember1 values 
+   		(#{user_id}, #{user_name}, #{user_pass}, #{user_phone}, CONCAT(#{user_mail_id},'@',#{user_mail_domain}), default)
+   </insert>
+   
+   <!-- 아이디 중복 체크 -->
+   <select id="idChk" resultType="Integer">
+   		select count(*) from testmember1
+   		where user_id = #{user_id}
+   </select>
+   
+   <!-- 이메일 중복 체크 -->
+<!--    <select id="emailChk" resultType="int">
+   		select count(*) from testmember1
+   		where email_id = #{email_id} and email_domain = #{email_domain}
+   </select> -->
+   
+   <!-- 휴대폰 중복 체크 -->
+<!--    <select id="telChk" resultType="int">
+   		select count(*) from testmember1
+   		where user_phone = #{user_phone}
+   </select> -->
+   
+   <!-- 로그인 -->
+<!--    <select id="selectLoginMem" resultType="String">
+   		select id from testmember1
+   		where user_id = #{user_id} and user_pass = #{user_pass}
+   </select> -->
+   
+
+   
+   
+<!--    <select id="viewMember" resultType="com.sh.app.membean.MemberDTO">
+   		select * from testmember1
+   		where user_id = #{user_id} and user_pw = #{user_pw}
+   </select> -->
+   
+   <!-- 마이페이지 폼 -->
+<!--    <select id="mypage" resultType="com.sh.app.membean.MemberDTO">
+   		select * from testmember1
+   		where user_id = #{user_id}
+   </select> -->
+   
+   <!-- 마이페이지 수정 -->
+<!--    <update id="mypageUpdate">
+   		update testmember1 set pw=#{pw}, repw=#{repw}, email_id=#{email_id},
+   		email_domain=#{email_domain}, tel=#{tel} where id=#{id}		
+   </update> -->
+   
+</mapper>

@@ -14,7 +14,7 @@
         .nav{
             position: relative;
             text-align: center;
-           /*  color: white; */
+            /* color: white; */
             font-weight: bold;
             width:100%;
             height:150px;
@@ -34,8 +34,9 @@
             line-height: 240px;
             letter-spacing: 4px;
         }
+        
 
- /*        .nav .title{
+/*         .nav .title{
             position: absolute;
             top: 50%;
             left: 50%;
@@ -170,9 +171,9 @@
             width:70%;
             /* border:1px solid blue; */
         }
-        #join .infomation_item .value_item .id_wrap #id {
+        #join .infomation_item .value_item .id_wrap #user_id {
            
-            width:76%;
+            width:70%;
             
         }
         #join .infomation_item .value_item .id_wrap .idchk_button {
@@ -188,7 +189,6 @@
         }
         #join .infomation_item .value_item .pw_wrap {
             width:100%;
-            /* border:1px solid red; */
         }
         
      
@@ -229,37 +229,67 @@
             margin: 4% 0;
         }
 
+		#join .infomation_item .value_item .mail_wrap {
+            position: absolute;
+            width:80%;
+        }
+        
         #join .infomation_item .value_item .mail_item_1{
-            width: 33%;
+            width: 30%;
             margin-right: 10px;
         }
 
         #join .infomation_item .value_item .mail_item_2{
-            width: 33%;
+            width: 30%;
             margin-left: 10px;
             margin-right: 10px;
         }
 
         #join .infomation_item .value_item .mail_item_3{
-            width: 20%;
+            width: 18%;
             height: 39px;
             text-indent: 5%;
             font-weight: 600;
             cursor: pointer;
             border: 1px solid #707070;
         }
-
-        #join .infomation_item .value_item #tel{
-            vertical-align: bottom;
-            width: 54%;
-            margin-right: 10px;
+        
+        #join .infomation_item .value_item .mail_wrap .emailChk_button{
+            width: 11%;
+            height: 39px;
+            background: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid #707070;
         }
-
-        #join .infomation_item .value_item #sms_certification{
+        
+        #join .infomation_item .value_item .mail_wrap #user_mail_number {
+        	vertical-align: bottom;
+            width: 53%;
+            margin-right: 10px;
+            
+            display: none;
+        }
+        #join .infomation_item .value_item .mail_wrap #emailChk2 {
+            width: 14%;
+            height: 39px;
+            background: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid #707070;
+        	
             display: none;
         }
 
-        #join .infomation_item .value_item .certification_button{
+        #join .infomation_item .value_item #user_phone{
+            vertical-align: bottom;
+            width: 60%;
+            margin-right: 10px;
+        }
+
+		 #join .infomation_item .value_item .certification_button{
             width: 16%;
             height: 39px;
             background: white;
@@ -268,6 +298,28 @@
             cursor: pointer;
             border: 1px solid #707070;
         }
+        
+         #join .infomation_item .value_item #user_phone2{
+            vertical-align: bottom;
+            width: 60%;
+            margin-right: 10px;
+            
+            display: none;
+         }
+        
+        #join .infomation_item .value_item #sms_send{
+        	width: 16%;
+            height: 39px;
+            background: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid #707070;
+        	
+            display: none;
+        }
+
+       
 
         #join .agreement {
             background-color: white;
@@ -298,6 +350,7 @@
         #join .agreement .agree_title_area .check_area #all_check_item {
         	width:18px;
         	height:18px;
+        	margin-right:10px;
         }
         
         #join .agreement .agree_title_area .check_area span {
@@ -311,14 +364,20 @@
             margin-left: 15px;
         }
 
+		#join .agreement .check_area label {
+			color: #333333;
+            font-size: 1rem;
+            font-weight: 600;
+		}
+
         #join .agreement .check_area input[type=checkbox] {
             transform: scale(1.5); /* 체크박스 사이즈 조절 */
             cursor: pointer;
         }
 
-        #join .agreement .check_area label img:nth-child(2) {
+    /*     #join .agreement .check_area label img:nth-child(2) {
             display: none;
-        }
+        } */
 
         #join .agreement .agreement_area {
             width: 100%;
@@ -364,7 +423,12 @@
             left: 3px;
         }
 
-
+		#join .agreement .agreement_area .check_area #check_item_1 {
+			margin-right:15px;
+		}
+		#join .agreement .agreement_area .check_area #check_item_2 {
+			margin-right:15px;
+		}
 
         #join .agreement .agreement_area .check_area span {
             color: #333333;
