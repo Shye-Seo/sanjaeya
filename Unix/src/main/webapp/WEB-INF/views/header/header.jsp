@@ -16,7 +16,7 @@
 		</div>
 		<div id="header_right">
 			<c:choose>
-				<c:when test="${sessionScope.id == null}">
+				<c:when test="${sessionScope.user_id == null}">
 					<a href="Login">로그인</a>&nbsp;|&nbsp;<a href="MemInsert">회원가입</a>
 				</c:when>
 				<c:otherwise>

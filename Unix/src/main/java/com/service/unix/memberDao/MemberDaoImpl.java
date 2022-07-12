@@ -6,6 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.service.unix.memberVo.MemberVo;
+
 @Repository // 현재 클래스를 스프링에서 관리하는 dao bean으로 등록
 public class MemberDaoImpl implements MemberDao {
 
@@ -26,5 +28,19 @@ public class MemberDaoImpl implements MemberDao {
 	@Override
 	public int idChk(String user_id) {
 		return sqlSession.selectOne("memberMappers.idChk", user_id);
+	}
+
+	// 로그인할때 회원확인
+	@Override
+	public boolean loginCheck(MemberVo memberVo) {
+		String name = sqlSession.selectOne("memberMappers.selectLoginMem",memberVo);
+		
+		return  (name == null) ? false : true;
+	}
+
+	// 로그인할때 회원정보 가져올때
+	@Override
+	public MemberVo viewMember(MemberVo memberVo) {
+		return sqlSession.selectOne("memberMappers.viewMember",memberVo);
 	}
 }

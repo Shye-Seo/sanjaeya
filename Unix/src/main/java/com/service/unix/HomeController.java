@@ -7,16 +7,19 @@ import java.util.Map;
 
 import javax.inject.Inject;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.service.unix.memberService.MemberService;
 import com.service.unix.memberVo.MemberVo;
@@ -41,6 +44,26 @@ public class HomeController {
 	@RequestMapping("Login") // 로그인 페이지
 	public String login() {
 		return "/login";
+	}
+	
+	// 로그인 처리
+	@RequestMapping("LoginProc")
+	public ModelAndView loginCheck(@ModelAttribute MemberVo memberVo, HttpSession session) {
+		boolean result = memberService.loginCheck(memberVo, session);
+		ModelAndView mav = new ModelAndView();
+		
+		if(result == true) { // 로그인 성공
+			// home.jsp로 이동
+			System.out.println("로그인성공");
+			mav.setViewName("home");
+			mav.addObject("msg", "succcess");
+		}else { // 로그인 실패
+			System.out.println("로그인실패");
+			mav.setViewName("login");
+			mav.addObject("msg", "failure");
+		}
+		
+		return mav;
 	}
 	
 	@RequestMapping("MemInsert") // 회원가입 페이지

@@ -16,6 +16,18 @@
    		where user_id = #{user_id}
    </select>
    
+   <!-- 로그인할때 -->
+   <select id="selectLoginMem" resultType="String">
+   		select user_id from testmember1
+   		where user_id = #{user_id} and user_pass = #{user_pass}
+   </select>
+   
+   <!-- 로그인할때 회원정보 가져올때 -->
+   <select id="viewMember" resultType="com.service.unix.memberVo.MemberVo">
+   		select * from testmember1
+   		where user_id = #{user_id} and user_pass = #{user_pass}
+   </select>
+   
    <!-- 이메일 중복 체크 -->
 <!--    <select id="emailChk" resultType="int">
    		select count(*) from testmember1
@@ -28,19 +40,12 @@
    		where user_phone = #{user_phone}
    </select> -->
    
-   <!-- 로그인 -->
-<!--    <select id="selectLoginMem" resultType="String">
-   		select id from testmember1
-   		where user_id = #{user_id} and user_pass = #{user_pass}
-   </select> -->
+
    
 
    
    
-<!--    <select id="viewMember" resultType="com.sh.app.membean.MemberDTO">
-   		select * from testmember1
-   		where user_id = #{user_id} and user_pw = #{user_pw}
-   </select> -->
+
    
    <!-- 마이페이지 폼 -->
 <!--    <select id="mypage" resultType="com.sh.app.membean.MemberDTO">

@@ -4,11 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
 import org.springframework.stereotype.Service;
 
 import com.service.unix.memberDao.MemberDaoImpl;
+import com.service.unix.memberVo.MemberVo;
 
 import net.nurigo.java_sdk.api.Message;
 import net.nurigo.java_sdk.exceptions.CoolsmsException;
@@ -57,5 +59,24 @@ public class MemberServiceImpl implements MemberService{
 			System.out.println(e.getMessage());
 			System.out.println(e.getCode());
 		}
+	}
+
+	// 로그인할때 회원확인
+	@Override
+	public boolean loginCheck(MemberVo memberVo, HttpSession session) {
+	boolean result = memberDao.loginCheck(memberVo);
+		
+		if(result) { // true일 경우 세션에 등록
+			MemberVo memberVo1 = viewMember(memberVo);
+			
+			session.setAttribute("user_id", memberVo1.getUser_id());
+		}
+		return result;
+	}
+
+	// 로그인할때 회원정보 가져올때
+	@Override
+	public MemberVo viewMember(MemberVo memberVo) {
+		return memberDao.viewMember(memberVo);
 	}
 }
