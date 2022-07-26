@@ -1,5 +1,6 @@
 package com.service.unix.memberDao;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -42,5 +43,43 @@ public class MemberDaoImpl implements MemberDao {
 	@Override
 	public MemberVo viewMember(MemberVo memberVo) {
 		return sqlSession.selectOne("memberMappers.viewMember",memberVo);
+	}
+	
+	// 아이디 찾기
+	@Override
+	public MemberVo findId(String user_mail) throws Exception {
+		return sqlSession.selectOne("memberMappers.findId",user_mail);
+	}
+
+	@Override
+	public int findIdCheck(String user_mail) throws Exception {
+		return sqlSession.selectOne("memberMappers.findIdCheck",user_mail);
+	}
+	
+	// 비밀번호 찾기
+	@Override
+	public int findPwCheck(MemberVo memberVo) throws Exception {
+		return sqlSession.selectOne("memberMappers.findPwCheck", memberVo);
+	}
+
+	@Override
+	public int findPw(String user_mail, String user_id, String user_pass) throws Exception {
+		Map<String,Object> map = new HashMap<String, Object>();
+		map.put("user_mail", user_mail);
+		map.put("user_id", user_id);
+		map.put("user_pass", user_pass);
+		
+		return sqlSession.update("memberMappers.findPw", map);
+	}
+	
+	// 마이페이지
+	@Override
+	public MemberVo mypage(String user_id) {
+		return sqlSession.selectOne("memberMappers.mypage",user_id);
+	}
+
+	@Override
+	public void mypageUpdate(MemberVo memberVo) {
+		sqlSession.update("memberMapper.mypageUpdate",memberVo);
 	}
 }

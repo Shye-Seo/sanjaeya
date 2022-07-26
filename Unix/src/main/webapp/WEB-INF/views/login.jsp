@@ -47,7 +47,7 @@
 		                </script>
 	                </c:if>
 	                <span>아직 회원이 아니세요?</span>
-	                <input type="button" value="지금 바로 회원가입하기" class="joinbtn" onclick="location.href='MemInsert.do'">
+	                <input type="button" value="지금 바로 회원가입하기" class="joinbtn" onclick="location.href='MemInsert'">
                 </form>
             </div>
         </div>

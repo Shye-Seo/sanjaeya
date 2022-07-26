@@ -41,31 +41,6 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping("Login") // 로그인 페이지
-	public String login() {
-		return "/login";
-	}
-	
-	// 로그인 처리
-	@RequestMapping("LoginProc")
-	public ModelAndView loginCheck(@ModelAttribute MemberVo memberVo, HttpSession session) {
-		boolean result = memberService.loginCheck(memberVo, session);
-		ModelAndView mav = new ModelAndView();
-		
-		if(result == true) { // 로그인 성공
-			// home.jsp로 이동
-			System.out.println("로그인성공");
-			mav.setViewName("home");
-			mav.addObject("msg", "succcess");
-		}else { // 로그인 실패
-			System.out.println("로그인실패");
-			mav.setViewName("login");
-			mav.addObject("msg", "failure");
-		}
-		
-		return mav;
-	}
-	
 	@RequestMapping("MemInsert") // 회원가입 페이지
 	public String meminsert() {
 		return "/join";
@@ -93,6 +68,94 @@ public class HomeController {
 	public int idChk(@RequestParam("user_id") String user_id) {
 		return memberService.idChk(user_id);
 	}
+	
+	@RequestMapping("Login") // 로그인 페이지
+	public String login() {
+		return "/login";
+	}
+	
+	// 로그인 처리
+	@RequestMapping("LoginProc")
+	public ModelAndView loginCheck(@ModelAttribute MemberVo memberVo, HttpSession session) {
+		boolean result = memberService.loginCheck(memberVo, session);
+		ModelAndView mav = new ModelAndView();
+		
+		if(result == true) { // 로그인 성공
+			// home.jsp로 이동
+			System.out.println("로그인성공");
+			mav.setViewName("home");
+			mav.addObject("msg", "succcess");
+		}else { // 로그인 실패
+			System.out.println("로그인실패");
+			mav.setViewName("login");
+			mav.addObject("msg", "failure");
+		}
+		
+		return mav;
+	}
+	
+	// 아이디 찾기 페이지인 findIdView 컨트롤러
+	@RequestMapping(value="findIdView.do", method=RequestMethod.GET)
+	public String findIdView() throws Exception {
+		return "findIdView";
+	}
+	
+	// 아이디 찾기 로직인 findId
+	@RequestMapping(value="findId", method=RequestMethod.POST)
+	public String findId(MemberVo memberVo, Model model) throws Exception {
+		System.out.println(memberVo.getUser_mail_id());
+		System.out.println(memberVo.getUser_mail_domain());
+		
+		if(memberService.findIdCheck(memberVo.getUser_mail_id()+"@"+memberVo.getUser_mail_domain()) == 0) {
+			// count한 값이 0이면 아이디찾기 페이지로 msg라는 String값을 보낸다
+			model.addAttribute("msg", "없는 이메일 입니다.");
+			return "findIdView";
+		}else {
+			model.addAttribute("member", memberService.findId(memberVo.getUser_mail_id()+"@"+memberVo.getUser_mail_domain()));
+			return "findId";
+		}
+	}
+	
+	// 로그아웃 처리
+	@RequestMapping("Logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		
+		return "home";
+	}
+	
+	@RequestMapping("MyPage") // 마이페이지
+	public String mypage(HttpSession session, Model model) {
+		String user_id = (String)session.getAttribute("user_id");
+		
+		MemberVo memberVo = memberService.mypage(user_id);
+		
+		String mail = memberVo.getUser_mail();
+		
+		// 먼저 @ 의 인덱스를 찾는다        
+		int idx = mail.indexOf("@");
+		
+		String mail_id = mail.substring(0, idx);
+		String mail_domain = mail.substring(idx+1);
+		
+		model.addAttribute("memberVo",memberVo);
+		model.addAttribute("mail_id",mail_id);
+		model.addAttribute("mail_domain",mail_domain);
+		
+		return "/mypage";
+	}
+	
+	// 내 회원정보 수정
+	@RequestMapping("MyPageUpdate.do")
+	public String myPageUpdate(MemberVo memberVo, HttpSession session) {
+		
+		memberService.mypageUpdate(memberVo);
+		session.invalidate();
+		
+		return "/";
+		
+	}
+
 	
 	// 이메일 인증
 	@RequestMapping(value = "/mailCheck", method = RequestMethod.GET)
@@ -134,12 +197,11 @@ public class HomeController {
 		return Integer.toString(randomNumber);
 	}
 	
+
 	
 	
-	@RequestMapping("MyPage") // 마이페이지
-	public String mypage() {
-		return "/mypage";
-	}
+	
+
 	
 
 }

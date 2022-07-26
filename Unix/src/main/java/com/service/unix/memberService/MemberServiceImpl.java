@@ -34,6 +34,60 @@ public class MemberServiceImpl implements MemberService{
 		return memberDao.idChk(user_id);
 	}
 	
+	// 로그인할때 회원확인
+	@Override
+	public boolean loginCheck(MemberVo memberVo, HttpSession session) {
+	boolean result = memberDao.loginCheck(memberVo);
+		
+		if(result) { // true일 경우 세션에 등록
+			MemberVo memberVo1 = viewMember(memberVo);
+			
+			session.setAttribute("user_id", memberVo1.getUser_id());
+		}
+		return result;
+	}
+	
+	// 로그인할때 회원정보 가져올때
+	@Override
+	public MemberVo viewMember(MemberVo memberVo) {
+		return memberDao.viewMember(memberVo);
+	}
+	
+	
+	// 아이디 찾기
+	@Override
+	public MemberVo findId(String user_mail) throws Exception {
+		return memberDao.findId(user_mail);
+	}
+
+	@Override
+	public int findIdCheck(String user_mail) throws Exception {
+		return memberDao.findIdCheck(user_mail);
+	}
+	
+	// 비밀번호 찾기
+	@Override
+	public void findPw(String user_mail, String user_id) throws Exception {
+		
+	}
+
+	@Override
+	public int findPwCheck(MemberVo memberVo) throws Exception {
+		return memberDao.findPwCheck(memberVo);
+	}
+		
+	// 마이페이지
+	@Override
+	public MemberVo mypage(String user_id) {
+		return memberDao.mypage(user_id);
+	}
+
+	@Override
+	public void mypageUpdate(MemberVo memberDto) {
+		memberDao.mypageUpdate(memberDto);
+	}
+	
+	
 	// DAO작업과 Mapper작업은 없음
 	// Service에서 coolsms에 정보를 보내 coolsms에서 입력자 번호로 문자가 전송됨
 	@Override
@@ -61,22 +115,7 @@ public class MemberServiceImpl implements MemberService{
 		}
 	}
 
-	// 로그인할때 회원확인
-	@Override
-	public boolean loginCheck(MemberVo memberVo, HttpSession session) {
-	boolean result = memberDao.loginCheck(memberVo);
-		
-		if(result) { // true일 경우 세션에 등록
-			MemberVo memberVo1 = viewMember(memberVo);
-			
-			session.setAttribute("user_id", memberVo1.getUser_id());
-		}
-		return result;
-	}
 
-	// 로그인할때 회원정보 가져올때
-	@Override
-	public MemberVo viewMember(MemberVo memberVo) {
-		return memberDao.viewMember(memberVo);
-	}
+
+
 }

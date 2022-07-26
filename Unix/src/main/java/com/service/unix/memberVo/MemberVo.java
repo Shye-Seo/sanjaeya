@@ -5,6 +5,7 @@ public class MemberVo {
 	private String user_name;
 	private String user_pass;
 	private String user_phone;
+	private String user_mail;
 	private String user_mail_id;
 	private String user_mail_domain;
 	private int authority;
@@ -32,6 +33,12 @@ public class MemberVo {
 	}
 	public void setUser_phone(String user_phone) {
 		this.user_phone = user_phone;
+	}
+	public String getUser_mail() {
+		return user_mail;
+	}
+	public void setUser_mail(String user_mail) {
+		this.user_mail = user_mail;
 	}
 	public String getUser_mail_id() {
 		return user_mail_id;
