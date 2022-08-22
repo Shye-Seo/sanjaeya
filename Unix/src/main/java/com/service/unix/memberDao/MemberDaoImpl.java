@@ -56,6 +56,12 @@ public class MemberDaoImpl implements MemberDao {
 		return sqlSession.selectOne("memberMappers.findIdCheck",user_mail);
 	}
 	
+	//비밀번호변경
+	@Override
+	public int updatePw(MemberVo memberVo) throws Exception {
+		return sqlSession.update("memberMappers.updatePw",memberVo);
+	}
+	
 	// 비밀번호 찾기
 	@Override
 	public int findPwCheck(MemberVo memberVo) throws Exception {
@@ -82,4 +88,6 @@ public class MemberDaoImpl implements MemberDao {
 	public void mypageUpdate(MemberVo memberVo) {
 		sqlSession.update("memberMapper.mypageUpdate",memberVo);
 	}
+
+
 }

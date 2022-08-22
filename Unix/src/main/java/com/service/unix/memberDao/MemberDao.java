@@ -23,6 +23,9 @@ public interface MemberDao {
 	
 	public int findIdCheck(String user_mail) throws Exception;
 	
+	// 비밀번호 변경 (임시 비밀번호를 발급하면서 해당 비밀번호를 DB에 update하는 메서드를 구현한다.)
+	public int updatePw(MemberVo memberVo) throws Exception;
+	
 	// 비밀번호 찾기
 	public int findPwCheck(MemberVo MemberVo)throws Exception; 
 	

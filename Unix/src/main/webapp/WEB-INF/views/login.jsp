@@ -35,9 +35,9 @@
 	                        <label for="chk_id"><span>아이디 저장</span></label>
 	                    </div>
 	                    <div class="idfind">
-	                        <span id="findIdBtn">아이디</span>
+	                        <span id="findIdBtn"><a href="findIdView">아이디 찾기</a></span>
 	                        <span>/</span>
-	                        <span><a href="#">비밀번호 찾기</a></span>
+	                        <span><a href="findPw">비밀번호 찾기</a></span>
 	                    </div>
 	                </div>
 	                <input type="button" value="로그인" class="loginbtn" onclick="loginform_check()">

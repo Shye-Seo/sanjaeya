@@ -2,6 +2,7 @@ package com.service.unix.memberService;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.service.unix.memberVo.MemberVo;
@@ -29,10 +30,14 @@ public interface MemberService {
 		
 	public int findIdCheck(String user_mail) throws Exception;
 	
+	
+	//이메일발송
+	public void sendEmail(MemberVo memberVo, String div) throws Exception;
+	
 	// 비밀번호 찾기
-	public void findPw(String user_mail, String user_id)throws Exception;
-
-	public int findPwCheck(MemberVo memberVo)throws Exception;
+	public void findPw(HttpServletResponse resp, MemberVo memberVo) throws Exception;
+	//public void findPw(String user_mail, String user_id)throws Exception;
+	//public int findPwCheck(MemberVo memberVo)throws Exception;
 	
 	// 회원 마이페이지 조회
 	public MemberVo mypage(String user_id);

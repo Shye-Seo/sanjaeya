@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.inject.Inject;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -95,7 +96,7 @@ public class HomeController {
 	}
 	
 	// 아이디 찾기 페이지인 findIdView 컨트롤러
-	@RequestMapping(value="findIdView.do", method=RequestMethod.GET)
+	@RequestMapping(value="findIdView", method=RequestMethod.GET)
 	public String findIdView() throws Exception {
 		return "findIdView";
 	}
@@ -114,6 +115,17 @@ public class HomeController {
 			model.addAttribute("member", memberService.findId(memberVo.getUser_mail_id()+"@"+memberVo.getUser_mail_domain()));
 			return "findId";
 		}
+	}
+	
+	/* 비밀번호 찾기 */
+	@RequestMapping(value = "findPw", method = RequestMethod.GET)
+	public String findPwGET() throws Exception{
+		return "findPw";
+	}
+
+	@RequestMapping(value = "findPw", method = RequestMethod.POST)
+	public void findPwPOST(@ModelAttribute MemberVo memberVo, HttpServletResponse response) throws Exception{
+		memberService.findPw(response, memberVo);
 	}
 	
 	// 로그아웃 처리

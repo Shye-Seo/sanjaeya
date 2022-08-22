@@ -1,11 +1,14 @@
 package com.service.unix.memberService;
 
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.mail.HtmlEmail;
 import org.json.simple.JSONObject;
 import org.springframework.stereotype.Service;
 
@@ -65,16 +68,87 @@ public class MemberServiceImpl implements MemberService{
 		return memberDao.findIdCheck(user_mail);
 	}
 	
-	// 비밀번호 찾기
+	//비밀번호 찾기 이메일발송
 	@Override
-	public void findPw(String user_mail, String user_id) throws Exception {
+	public void sendEmail(MemberVo memberVo, String div) throws Exception {
+		// Mail Server 설정
+		String charSet = "utf-8";
+		String hostSMTP = "smtp.naver.com"; //네이버 이용시 smtp.naver.com
+		String hostSMTPid = "algo0426"; // 본인의 아이디 입력
+		String hostSMTPpwd = "qwer1234"; // 본인의 비밀번호 입력
+
+		// 보내는 사람 EMail, 제목, 내용
+		String fromEmail = "algo0426@naver.com"; // 보내는 사람 email
+		String fromName = "이상훈";                // 보내는 사람 이름
+		String subject = "";                     // 제목
+		String msg = "";
+
+		if(div.equals("findpw")) {
+			subject = "임시 비밀번호 입니다.";
+			msg += "<div align='center' style='border:1px solid black; font-family:verdana'>";
+			msg += "<h3 style='color: blue;'>";
+			msg += memberVo.getUser_id() + "님의 임시 비밀번호 입니다. 비밀번호를 변경하여 사용하세요.</h3>";
+			msg += "<p>임시 비밀번호 : ";
+			msg += memberVo.getUser_pass() + "</p></div>";
+		}
+
+		// 받는 사람 E-Mail 주소
+		String mail = memberVo.getUser_mail();
+		
+		try {
+			HtmlEmail email = new HtmlEmail();
+			email.setDebug(true);
+			email.setCharset(charSet);
+			email.setSSLOnConnect(true); // SSL 사용
+			//email.setSSL(true);
+			email.setHostName(hostSMTP);
+			email.setSmtpPort(587); // 네이버 이용시 587
+
+			email.setAuthentication(hostSMTPid, hostSMTPpwd);
+			email.setStartTLSEnabled(true); // TLS 사용
+			//email.setTLS(true);
+			email.addTo(mail, charSet);
+			email.setFrom(fromEmail, fromName, charSet);
+			email.setSubject(subject);
+			email.setHtmlMsg(msg);
+			email.send();
+		} catch (Exception e) {
+			System.out.println("메일발송 실패 : " + e);
+		}
 		
 	}
 
 	@Override
-	public int findPwCheck(MemberVo memberVo) throws Exception {
-		return memberDao.findPwCheck(memberVo);
-	}
+	public void findPw(HttpServletResponse resp, MemberVo memberVo) throws Exception {
+		resp.setContentType("text/html;charset=utf-8");
+		MemberVo memberDto1 = memberDao.mypage(memberVo.getUser_id()); // mypage꺼 재사용
+		PrintWriter out = resp.getWriter();
+		// 가입된 아이디가 없으면
+		if(memberDao.idChk(memberVo.getUser_id()) == 0) {
+			out.print("등록되지 않은 아이디입니다.");
+			out.close();
+		}
+		// 가입된 이메일이 아니면
+		else if(!memberVo.getUser_mail().equals(memberDto1.getUser_mail())) {
+			out.print("등록되지 않은 이메일입니다.");
+			out.close();
+		}else {
+			// 임시 비밀번호 생성
+			String pw = "";
+			for (int i = 0; i < 12; i++) {
+				pw += (char) ((Math.random() * 26) + 97);
+			}
+			memberVo.setUser_pass(pw);
+			// 비밀번호 변경
+			memberDao.updatePw(memberVo);
+			// 비밀번호 변경 메일 발송
+			sendEmail(memberVo, "findpw");
+
+			out.print("이메일로 임시 비밀번호를 발송하였습니다.");
+			out.close();
+		}
+		
+	}	
 		
 	// 마이페이지
 	@Override
@@ -114,6 +188,8 @@ public class MemberServiceImpl implements MemberService{
 			System.out.println(e.getCode());
 		}
 	}
+
+
 
 
 
