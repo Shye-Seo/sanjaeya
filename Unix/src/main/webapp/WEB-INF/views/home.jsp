@@ -9,12 +9,12 @@
 <script>
 	$(function() {
 		
-	}
+	})
 	</script>
 <body>
 	<jsp:include page="/WEB-INF/views/header/header.jsp"></jsp:include>
 	<header>
-		<img src="/resources/imgs/main_background.png">
+		<img src="resources/imgs/main_background.png">
 		<div class="main_BackgrounArea">
 			<div class="Background_textArea">
 				<div class="textArea_p1">

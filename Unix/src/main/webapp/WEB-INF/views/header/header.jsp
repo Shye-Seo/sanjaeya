@@ -12,7 +12,7 @@
 <body>
 	<div class="header">
 		<div id="header_left">
-			<img src="/resources/imgs/logo.svg"alt="logo"/>
+			<img src="resources/imgs/logo.svg"alt="logo"/>
 		</div>
 		<div id="header_right">
 			<c:choose>
