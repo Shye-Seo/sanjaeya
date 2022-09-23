@@ -12,7 +12,7 @@
 <body>
 	<div class="header">
 		<div id="header_left">
-			<img src="resources/imgs/logo.svg"alt="logo"/>
+			<a href="Home"><img src="resources/imgs/logo.svg"alt="logo" /></a>
 		</div>
 		<div id="header_right">
 			<c:choose>

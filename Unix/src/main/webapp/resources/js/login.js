@@ -24,6 +24,12 @@ $(function() {
 	});
 });
     	
+//엔터키 처리
+function enterkey() {
+    if(window.event.keyCode == 13){
+    	loginform_check(); // 로그인 버튼 함수
+	}
+}
 
 
 $(document).ready(function(){

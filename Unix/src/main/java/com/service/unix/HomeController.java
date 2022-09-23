@@ -36,7 +36,7 @@ public class HomeController {
 	private JavaMailSender mailSender;
 	
 
-	@RequestMapping("/")
+	@RequestMapping("/Home")
 	public String home(Locale locale, Model model) {
 
 		return "home";
@@ -60,7 +60,7 @@ public class HomeController {
 		
 		memberService.memInsert(map);
 		
-		return "/";
+		return "/home";
 	}
 	
 	// 아이디 중복 체크
@@ -104,28 +104,41 @@ public class HomeController {
 	// 아이디 찾기 로직인 findId
 	@RequestMapping(value="findId", method=RequestMethod.POST)
 	public String findId(MemberVo memberVo, Model model) throws Exception {
-		System.out.println(memberVo.getUser_mail_id());
-		System.out.println(memberVo.getUser_mail_domain());
+		System.out.println(memberVo.getUser_phone()+"222222222222");
 		
-		if(memberService.findIdCheck(memberVo.getUser_mail_id()+"@"+memberVo.getUser_mail_domain()) == 0) {
+		if(memberService.findIdCheck(memberVo.getUser_phone()) == 0) {
+			System.out.println(memberVo.getUser_phone()+"3333333333333");
 			// count한 값이 0이면 아이디찾기 페이지로 msg라는 String값을 보낸다
-			model.addAttribute("msg", "없는 이메일 입니다.");
+			model.addAttribute("msg", "없는 전화번호 입니다.");
 			return "findIdView";
 		}else {
-			model.addAttribute("member", memberService.findId(memberVo.getUser_mail_id()+"@"+memberVo.getUser_mail_domain()));
+			model.addAttribute("member", memberService.findId(memberVo.getUser_phone()));
 			return "findId";
 		}
 	}
 	
 	/* 비밀번호 찾기 */
-	@RequestMapping(value = "findPw", method = RequestMethod.GET)
+	@RequestMapping(value = "findPwView", method = RequestMethod.GET)
 	public String findPwGET() throws Exception{
-		return "findPw";
+		return "findPwView";
 	}
 
 	@RequestMapping(value = "findPw", method = RequestMethod.POST)
-	public void findPwPOST(@ModelAttribute MemberVo memberVo, HttpServletResponse response) throws Exception{
-		memberService.findPw(response, memberVo);
+	public String findPwPOST(@ModelAttribute MemberVo memberVo, HttpServletResponse response, Model model) throws Exception{
+		System.out.println(memberVo.getUser_phone()+"222222222222");
+		System.out.println(memberVo.getUser_id()+"333333333333");
+		
+		if(memberService.findIdCheck(memberVo.getUser_id()) == 0) {
+			// count한 값이 0이면 아이디찾기 페이지로 msg라는 String값을 보낸다
+			model.addAttribute("msg", "없는 아이디 입니다.");
+			return "findPwView";
+		}else {
+			model.addAttribute("member", memberService.findId(memberVo.getUser_phone()));
+			model.addAttribute("id", memberVo.getUser_id());
+			System.out.println(memberVo.getUser_id()+"444444444444");
+			return "resetPw";
+		}
+//		memberService.findPw(response, memberVo);
 	}
 	
 	// 로그아웃 처리

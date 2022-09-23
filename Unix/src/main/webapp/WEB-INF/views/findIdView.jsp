@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>JSP Title</title>
 <link rel="stylesheet" href="resources/css/findIdView.css">
+<script type="text/javascript" src="resources/js/join.js"></script>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
 	var msg = "${msg}";
@@ -16,9 +17,9 @@
 		}
 		
 	    // 이메일 선택했을때 도메인 자동 입력되게
-	    function setEmailDomain(domain) {
+/* 	    function setEmailDomain(domain) {
 	        $("#user_mail_domain").val(domain);
-	    }
+	    } */
 </script>
 </head>
 <body>
@@ -29,24 +30,18 @@
 				<span>아이디 찾기</span>
 			</div>
 		</div>
-		
-		
 		   <form class="user" action="findId" method="POST">
   				<div class="infomation_item">
 					<div class="value_item form">
-						<div class="mail_wrap">
-							<input type="text" name="user_mail_id" class="mail_item_1" id="user_mail_id" placeholder="이메일을 입력" required>@
-			                      <input type="text" name="user_mail_domain" class="mail_item_2" id="user_mail_domain" maxlength="50"  placeholder="직접입력" required>
-							<select name="sel_email" id="sel_email" class="mail_item_3" onclick="setEmailDomain(this.value);return false;">
-								<option value="etc">직접입력</option>
-								<option value="naver.com">naver.com</option>
-								<option value="hanmail.net">hanmail.net</option>
-								<option value="gmail.com">gmail.com</option>
-								<option value="kakao.com">kakao.com</option>
-								<option value="nate.com">nate.com</option>
-							</select>
+						<div class="id_wrap">
+							<input type="text" name="user_phone" placeholder="연락처를 입력해주세요" class="input" id="user_phone" maxlength="11" required>
+							<input type="button" value="인증하기" class="certification_button" id="phoneChk">
+							<input type="text" name="user_phone2" placeholder="인증번호를 입력해주세요" id="user_phone2" disabled required/>
+							<input type="button" value="인증완료" name="sms_send" id="sms_send">
+							<p class="point successPhoneChk"></p>
+							<input type="hidden" id="phoneDoubleChk"/>
 						</div>
-				
+			
 					</div>
 				</div>
 		       <button type="submit">아이디 찾기</button>

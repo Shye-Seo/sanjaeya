@@ -13,6 +13,11 @@
 	$(function() {
 		
 	});
+	function enterkey() {
+	    if(window.event.keyCode == 13){
+	    	loginform_check(); // 로그인 버튼 함수
+		}
+	}
 </script>
 </head>
 <body>
@@ -27,8 +32,8 @@
             <div id="log">로그인</div>
             <div id="logwrap">
             	<form action="LoginProc" method="post" id="loginform" name="loginform">
-	                <input type="text" name="user_id" id="user_id" placeholder="아이디를 입력해주세요.">
-	                <input type="password" name="user_pass" id="user_pass" placeholder="비밀번호를 입력해주세요.">
+	                <input type="text" name="user_id" id="user_id" placeholder="아이디를 입력해주세요." onkeyup="enterkey()">
+	                <input type="password" name="user_pass" id="user_pass" placeholder="비밀번호를 입력해주세요." onkeyup="enterkey()">
 	                <div class="checkwrap">
 	                    <div class="idcheck">
 	                        <input type="checkbox" id="chk_id">
@@ -37,7 +42,7 @@
 	                    <div class="idfind">
 	                        <span id="findIdBtn"><a href="findIdView">아이디 찾기</a></span>
 	                        <span>/</span>
-	                        <span><a href="findPw">비밀번호 찾기</a></span>
+	                        <span><a href="findPwView">비밀번호 찾기</a></span>
 	                    </div>
 	                </div>
 	                <input type="button" value="로그인" class="loginbtn" onclick="loginform_check()">

@@ -26,9 +26,9 @@ public interface MemberService {
 	public MemberVo viewMember(MemberVo memberVo);
 	
 	// 아이디 찾기
-	public MemberVo findId(String user_mail) throws Exception;
+	public MemberVo findId(String user_phone) throws Exception;
 		
-	public int findIdCheck(String user_mail) throws Exception;
+	public int findIdCheck(String user_phone) throws Exception;
 	
 	
 	//이메일발송

@@ -37,8 +37,8 @@
 		</div>
 		<div class="wrap_container">
                 <div class="category">
-                    <div class="category_1">
-                        <p class="cate_img1" src="#"></p>
+                    <div class="category_1" onclick="location.href='Checklist'">
+                        <p class="cate_img1"></p>
                         <p class="cate_p1">뇌심혈관질환/과로</p>
                     </div>
                     <div class="category_2">

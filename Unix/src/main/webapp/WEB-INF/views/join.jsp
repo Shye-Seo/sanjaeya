@@ -95,18 +95,18 @@
 							<input type="text" name="user_mail_id" class="mail_item_1" id="user_mail_id" placeholder="이메일을 입력" required>@
 	                        <input type="text" name="user_mail_domain" class="mail_item_2" id="user_mail_domain" maxlength="50"  placeholder="직접입력" required>
 							<select name="sel_email" id="sel_email" class="mail_item_3" onclick="setEmailDomain(this.value);return false;">
-								<option value="etc">직접입력</option>
+								<option value="">직접입력</option>
 								<option value="naver.com">naver.com</option>
 								<option value="hanmail.net">hanmail.net</option>
 								<option value="gmail.com">gmail.com</option>
 								<option value="kakao.com">kakao.com</option>
 								<option value="nate.com">nate.com</option>
 							</select>
-							<input type="button" value="인증하기" class="emailChk_button" id="emailChk">
+<!-- 							<input type="button" value="인증하기" class="emailChk_button" id="emailChk">
 							<input type="text" name="user_mail_number" id="user_mail_number" placeholder="인증번호를 입력해주세요" disabled required>
 							<input type="button" value="인증완료" class="emailChk_button" id="emailChk2">
 						    <p class="point successMailChk"></p>
-							<input type="hidden" id="mailDoubleChk">
+							<input type="hidden" id="mailDoubleChk"> -->
 						</div>
 				
 					</div>

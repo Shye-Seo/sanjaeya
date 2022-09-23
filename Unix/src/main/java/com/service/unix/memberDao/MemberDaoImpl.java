@@ -22,19 +22,19 @@ public class MemberDaoImpl implements MemberDao {
 	// 회원 가입
 	@Override
 	public int memInsert(Map<String, String> map) {
-		return sqlSession.insert("memberMappers.insertMem",map);
+		return sqlSession.insert("user.insertUser",map);
 	}
 
 	// 아이디 중복 체크
 	@Override
 	public int idChk(String user_id) {
-		return sqlSession.selectOne("memberMappers.idChk", user_id);
+		return sqlSession.selectOne("user.idChk", user_id);
 	}
 
 	// 로그인할때 회원확인
 	@Override
 	public boolean loginCheck(MemberVo memberVo) {
-		String name = sqlSession.selectOne("memberMappers.selectLoginMem",memberVo);
+		String name = sqlSession.selectOne("user.selectLoginMem",memberVo);
 		
 		return  (name == null) ? false : true;
 	}
@@ -42,30 +42,30 @@ public class MemberDaoImpl implements MemberDao {
 	// 로그인할때 회원정보 가져올때
 	@Override
 	public MemberVo viewMember(MemberVo memberVo) {
-		return sqlSession.selectOne("memberMappers.viewMember",memberVo);
+		return sqlSession.selectOne("user.viewMember",memberVo);
 	}
 	
 	// 아이디 찾기
 	@Override
-	public MemberVo findId(String user_mail) throws Exception {
-		return sqlSession.selectOne("memberMappers.findId",user_mail);
+	public MemberVo findId(String user_phone) throws Exception {
+		return sqlSession.selectOne("user.findId",user_phone);
 	}
 
 	@Override
-	public int findIdCheck(String user_mail) throws Exception {
-		return sqlSession.selectOne("memberMappers.findIdCheck",user_mail);
+	public int findIdCheck(String user_phone) throws Exception {
+		return sqlSession.selectOne("user.findIdCheck",user_phone);
 	}
 	
 	//비밀번호변경
 	@Override
 	public int updatePw(MemberVo memberVo) throws Exception {
-		return sqlSession.update("memberMappers.updatePw",memberVo);
+		return sqlSession.update("user.updatePw",memberVo);
 	}
 	
 	// 비밀번호 찾기
 	@Override
 	public int findPwCheck(MemberVo memberVo) throws Exception {
-		return sqlSession.selectOne("memberMappers.findPwCheck", memberVo);
+		return sqlSession.selectOne("user.findPwCheck", memberVo);
 	}
 
 	@Override
@@ -75,18 +75,18 @@ public class MemberDaoImpl implements MemberDao {
 		map.put("user_id", user_id);
 		map.put("user_pass", user_pass);
 		
-		return sqlSession.update("memberMappers.findPw", map);
+		return sqlSession.update("user.findPw", map);
 	}
 	
 	// 마이페이지
 	@Override
 	public MemberVo mypage(String user_id) {
-		return sqlSession.selectOne("memberMappers.mypage",user_id);
+		return sqlSession.selectOne("user.mypage",user_id);
 	}
 
 	@Override
 	public void mypageUpdate(MemberVo memberVo) {
-		sqlSession.update("memberMapper.mypageUpdate",memberVo);
+		sqlSession.update("user.mypageUpdate",memberVo);
 	}
 
 

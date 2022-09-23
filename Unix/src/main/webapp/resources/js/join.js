@@ -107,7 +107,7 @@ $(document).ready(function(){
 	});
 	
 	// 이메일 인증번호 대조
-	$("#emailChk2").click(function() {
+/*	$("#emailChk2").click(function() {
 		if($("#user_mail_number").val() == code) {
 			$(".successMailChk").text("인증번호가 일치합니다.");
 			$(".successMailChk").css("color","green");
@@ -119,7 +119,7 @@ $(document).ready(function(){
 			$("#mailDoubleChk").val("false");
 			$("#user_mail_number").attr("autofocus",true);
 		}
-	});
+	});*/
 	
 	
 	
@@ -303,10 +303,11 @@ $(document).ready(function(){
         }
         */
         
+        /*&& $("#mailDoubleChk").val() == "true" */
         
         if($("#check_item_1").prop("checked") && $("#check_item_2").prop("checked") &&
            $("#idDoubleChk").val() == "true" && $("#pwDoubleChk").val() == "true" &&
-           $("#nameDoubleChk").val() == "true" && $("#mailDoubleChk").val() == "true" && $("#phoneDoubleChk").val() == "true") {
+           $("#nameDoubleChk").val() == "true" && $("#phoneDoubleChk").val() == "true") {
 	
 		   alert($('#user_id').val() + "님 환영합니다.\n가입해주셔서 감사합니다.");
 		}else {

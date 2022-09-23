@@ -59,13 +59,13 @@ public class MemberServiceImpl implements MemberService{
 	
 	// 아이디 찾기
 	@Override
-	public MemberVo findId(String user_mail) throws Exception {
-		return memberDao.findId(user_mail);
+	public MemberVo findId(String user_phone) throws Exception {
+		return memberDao.findId(user_phone);
 	}
 
 	@Override
-	public int findIdCheck(String user_mail) throws Exception {
-		return memberDao.findIdCheck(user_mail);
+	public int findIdCheck(String user_phone) throws Exception {
+		return memberDao.findIdCheck(user_phone);
 	}
 	
 	//비밀번호 찾기 이메일발송
@@ -128,9 +128,9 @@ public class MemberServiceImpl implements MemberService{
 			out.print("등록되지 않은 아이디입니다.");
 			out.close();
 		}
-		// 가입된 이메일이 아니면
-		else if(!memberVo.getUser_mail().equals(memberDto1.getUser_mail())) {
-			out.print("등록되지 않은 이메일입니다.");
+		// 가입된 전화번호가 아니면
+		else if(!memberVo.getUser_phone().equals(memberDto1.getUser_phone())) {
+			out.print("등록되지 않은 전화번호입니다.");
 			out.close();
 		}else {
 			// 임시 비밀번호 생성

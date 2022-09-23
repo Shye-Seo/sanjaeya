@@ -19,9 +19,9 @@ public interface MemberDao {
 	public MemberVo viewMember(MemberVo memberVo);
 	
 	// 아이디 찾기
-	public MemberVo findId(String user_mail) throws Exception;
+	public MemberVo findId(String user_phone) throws Exception;
 	
-	public int findIdCheck(String user_mail) throws Exception;
+	public int findIdCheck(String user_phone) throws Exception;
 	
 	// 비밀번호 변경 (임시 비밀번호를 발급하면서 해당 비밀번호를 DB에 update하는 메서드를 구현한다.)
 	public int updatePw(MemberVo memberVo) throws Exception;
