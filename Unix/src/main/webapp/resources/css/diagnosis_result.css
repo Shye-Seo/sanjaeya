@@ -194,19 +194,23 @@ a {
 	display:block;
 	position:relative;
 	margin:30px auto 150px;	
+
 	padding:50px;
+	padding-top:0;
 }
 
 .example1 .example2 {
-	position:absolute;
-	display:inline-block;
-	top:1%;
-	left:1%;
+	position:relative;
+	
 	margin:0 auto;
 	width: 250px;
 	height: 50px;
+}
 
-	
+.example1 .example2 h1 {
+	position:absolute;
+	top:1%;
+	left:-150%;
 }
 
 .example1 .example2 a {
