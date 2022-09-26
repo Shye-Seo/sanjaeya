@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class BoardDaoImpl implements BoardDao{
 
-//	@Autowired
-//	private SqlSession sqlsession;
+	@Autowired
+	private SqlSession sqlsession;
 
 }

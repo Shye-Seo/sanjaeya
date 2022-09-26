@@ -6,7 +6,16 @@
 <meta charset="UTF-8">
 <title>Diagnosis_start</title>
 <link rel="stylesheet" href="resources/css/diagnosis_start.css">
+<%@ include file ="/WEB-INF/views/common.jsp" %>
 </head>
+<script>
+	$(function() {
+		var pageNum = sessionStorage.getItem("pageNum");
+		console.log(pageNum);
+		$('#aaaaa').attr('src',pageNum); 
+	});
+
+</script>
 <body>
 	<div id="wrap">
 		<jsp:include page="/WEB-INF/views/header/header.jsp"></jsp:include>
@@ -17,7 +26,8 @@
 			</div>
 		</div>
 		<section>
-			<h4 class="a">&lt;소음청 난청&gt;</h4>
+			<h4 class="aaaaa">&lt;${category[3].category_name}&gt;</h4>
+
 			<div class="category">
 				<ul>
 					<li class="active"><p>재해자 정보 입력</p></li>
@@ -44,8 +54,8 @@
 				</div>
 			</div>
 			<div class="next">
-				<input type="button" value="이전" id="before" onclick="">
-				<input type="button" value="다음" onclick="">
+				<input type="button" value="이전" id="before" onclick="location.href='Home'">
+				<input type="button" value="다음" onclick="location.href='Checklist_3'">
 			</div>
 		</section>
 		<jsp:include page="/WEB-INF/views/footer/footer.jsp"></jsp:include>

@@ -8,8 +8,14 @@
 </head>
 <script>
 	$(function() {
-		
+		$('.category_1').click(function () {
+			var pageNum = 1;
+			sessionStorage.setItem("pageNum", pageNum);
+			location.href = "Checklist_s1";
+			
+			});
 	})
+	
 	</script>
 <body>
 	<jsp:include page="/WEB-INF/views/header/header.jsp"></jsp:include>
@@ -37,16 +43,16 @@
 		</div>
 		<div class="wrap_container">
                 <div class="category">
-                    <div class="category_1" onclick="location.href='Checklist'">
+                    <div class="category_1">
                         <p class="cate_img1"></p>
                         <p class="cate_p1">뇌심혈관질환/과로</p>
                     </div>
                     <div class="category_2">
-                        <p class="cate_img2" src="#"></p>
+                        <p class="cate_img2" onclick="location.href='Checklist_s2'"></p>
                         <p class="cate_p2">직업성 암</p>
                     </div>
                     <div class="category_3">
-                        <p class="cate_img3" src=""></p>
+                        <p class="cate_img3" onclick="location.href='Checklist_s3'"></p>
                         <p class="cate_p3">근골결계 질환</p>
                     </div>
                 </div>

@@ -59,7 +59,7 @@
 				</div>
 			</div>
 			<div class="next">
-				<input type="button" value="이전" id="before" onclick="">
+				<input type="button" value="이전" id="before" onclick="history.back()">
 				<input type="button" value="다음" onclick="">
 			</div>
 		</section>
