@@ -18,7 +18,7 @@
 		</div>
 		
 		<section>
-			<h4 class="a">&lt;소음청 난청&gt;</h4>
+			<h4 class="a">&lt;${category[0].category_name}&gt;</h4>
 			<div class="category">
 				<ul>
 					<li><p>재해자 정보 입력</p></li>
