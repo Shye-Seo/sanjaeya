@@ -327,3 +327,202 @@
             color: #0080FF;
             
         }
+        
+
+        
+.tab2_content h4 {
+    margin:3% auto 3%;
+    text-align:center;
+}
+
+.memo_table {
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:space-around;
+}
+
+.memo_table .memo_add_box {
+	margin-top:3%;
+    width:233px;
+    height:297px;
+    
+    border:1px solid #326DFB;
+    border-radius:10px;
+    box-shadow:0px 3px 6px #00000029;
+    background:#FFFFFF 0% 0% no-repeat padding-box;
+    
+}
+
+
+
+.memo_table .memo_add_box input[type=button] {
+	width:49px;
+	height:49px;
+	margin:50% 40%;
+    cursor:pointer;
+	border:0px;
+	background:url("../imgs/add_memo_icon.svg") center / contain no-repeat;
+}
+
+.memo_table .memo_box {
+	margin-top:3%;
+	width:233px;
+	height:297px;
+	
+	overflow:hidden;
+	background:#EFEFEF 0% 0% no-repeat padding-box;
+	border:1px solid #326DFB;
+	border-radius:10px;
+}
+
+.memo_table .memo_box input[type=button] {
+	
+	margin:10px;
+	margin-left:85%;
+	width:23px;
+    height:23px;
+    
+    border:0px;
+    cursor:pointer;
+	background:url("../imgs/delete_memo_icon.svg") center / contain no-repeat;
+}
+
+.memo_table .memo_box h3 {
+	padding-bottom:7%;
+	text-align:center;
+	
+}
+
+.memo_table .memo_box p {
+	margin:auto 5%;
+}
+
+.memo_table .memo_box hr {
+	width:90%;
+	margin:1% auto;
+
+}
+
+#add_memo_form {
+    display:none;
+    
+}
+
+
+#add_memo_form .memo_form > input[type=button] {
+    margin:3% 91%;
+    width:42px;
+    height:42px;
+    cursor:pointer;
+    border:0px;
+    background:url("../imgs/delete_memo_icon.svg") center / contain no-repeat;
+}
+
+#add_memo_form .memo_form h1 {
+    margin:0 auto 3% 7%;
+    font-size:1.7em;
+}
+
+#add_memo_form .memo_form hr {
+    margin:auto;
+    width:600px;
+}
+
+.memo_form {
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    border:1px solid;
+    border-radius:17px;
+    width:627px;
+    height:665px;
+
+
+    background:#FFFFFF 0% 0% no-repeat padding-box;
+    border-radius:17px;
+}
+
+.memo_form .memo_form_detail {
+	margin-left:25px;
+}
+
+
+.memo_form .memo_form_detail p {
+    margin:4%;
+}
+
+.memo_form .memo_form_detail span {
+	margin:3%;
+}
+
+.memo_form .memo_form_detail #arg {
+    position: relative;
+    top: -80px;
+}
+
+.memo_form .memo_form_detail input[type=text] {
+    width:450px;
+    height:54px;
+
+    border:2px solid #707070;
+    border-radius:7px;
+}
+
+.memo_form .memo_form_detail input[type=time], input[type=date] {
+    width:225px;
+    height:54px;
+
+    border:2px solid #707070;
+    border-radius:7px;
+}
+
+.memo_form .memo_form_detail textarea {
+    width:450px;
+    height:118px;
+	resize:none;
+    border:2px solid #707070;
+    border-radius:7px;
+}
+
+#memo .member_submit {
+    background-color: white;
+    text-align: center;
+    padding-top:25px;
+    
+}
+
+#memo .member_submit input {
+    background-color: #326DFB;
+    border: none;
+    color: white;
+   /*  padding:10px 30px; */
+    width:106px;
+    height:40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 7px;
+    margin-right: 15px;
+}
+#memo .member_submit .reset {
+    box-sizing: border-box;
+    background-color: white;
+    border:1px solid #0080FF;
+    color: #0080FF;
+    
+}
+
+#memo .pageInfo_area {
+	margin:5%;
+}
+
+.modal_layer {
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background:rgba(0,0,0,0.3);
+	z-index:-1;
+}

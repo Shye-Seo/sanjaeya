@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mypage">
+	
+	<select id="countBoard" resultType="int">
+		SELECT COUNT(*) FROOM nm_notice WHERE writer=#{writer }
+	</select>
+	
+	<select id="boardList" resultType="com.service.unix.mypageVo.MypageVo">
+		SELECT * FROM nm_notice WHERE writer=#{writer } ORDER BY id DESC
+	</select>
+	
+	<insert id="create" parameterType="com.service.unix.mypageVo.MypageVo">
+		INSERT INTO nm_notice (title, content, writer, date, time) VALUES (#{title}, #{content}, #{writer}, #{date}, #{time})
+	</insert>
+	
+	<select id="read" resultType="com.service.unix.mypageVo.MypageVo">
+		SELECT (title, content, data, time) FROM nm_notice WHERE id=#{bid}
+	</select>
+	
+	<update id="update">
+		UPDATE nm_notice SET title=#{title}, content=#{content}, date=#{date} time=#{time} WHERE id=#{bid}
+	</update>
+	
+	<delete id="delete" parameterType="com.service.unix.mypageVo.MypageVo">
+		DELETE FROM nm_notice WHERE title=#{title} AND date=#{date} AND time=#{time} AND content=#{content} AND writer=#{writer}
+	</delete>
+</mapper>
