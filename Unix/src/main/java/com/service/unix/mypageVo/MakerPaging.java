@@ -2,7 +2,7 @@ package com.service.unix.mypageVo;
 
 public class MakerPaging {
 	private int totalCount;     // 게시판 전체 데이터 개수
-	private int displayPageNum = 10;   // 게시판 화면에서 한번에 보여질 페이지 번호의 개수 ( 1,2,3,4,5,6,7,9,10)
+	private int displayPageNum = 4;   // 게시판 화면에서 한번에 보여질 페이지 번호의 개수 (1,2,3,4)
 	
 	private int startPage;      // 현재 화면에서 보이는 startPage 번호
 	private int endPage;        // 현재 화면에 보이는 endPage 번호
@@ -20,8 +20,8 @@ public class MakerPaging {
 		calcData();
 	}
 	
+	// 보여줄 페이지 번호(page)와 페이지당 보여줄 게시물 개수(perPageNum)를 토대로 각 변수들 값 설정 
 	private void calcData() {
-		// 이 함수가 하는 역할이 무엇일까? 
 		endPage = (int) (Math.ceil(cri.getPage() / (double) displayPageNum) * displayPageNum);
 		startPage = (endPage - displayPageNum) + 1;
 		

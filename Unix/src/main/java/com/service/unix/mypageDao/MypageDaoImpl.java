@@ -4,8 +4,11 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import com.service.unix.mypageVo.Criteria;
 import com.service.unix.mypageVo.MypageVo;
 
 @Repository
@@ -44,9 +47,16 @@ public class MypageDaoImpl implements MypageDao{
 	}
 
 	@Override
-	public int countBoard() throws Exception {
+	public int countBoard(String writer) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlsession.selectOne("mypage.countBoard");
+		return sqlsession.selectOne("mypage.countBoard", writer);
+	}
+
+	@Override
+	public List<MypageVo> listCriteria(Criteria criteria, String writer) throws Exception {
+		// TODO Auto-generated method stub
+
+		return sqlsession.selectList("mypage.listCriteria", criteria);
 	}
  
 }

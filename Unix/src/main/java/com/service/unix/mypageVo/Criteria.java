@@ -7,7 +7,7 @@ public class Criteria {
 	public Criteria() {
 		// 최조 게시판에 진입할 때를 위한 기본값
 		this.page=1;
-		this.perPageNum=10;
+		this.perPageNum=7;
 	}
 	
 	public int getPage() {
@@ -26,7 +26,7 @@ public class Criteria {
 	}
 	public void setPerPageNum(int perPageNum) {
 		if(perPageNum<=0||perPageNum>100) {
-			this.perPageNum=10;
+			this.perPageNum=7;
 			return;
 		}
 		this.perPageNum=perPageNum;

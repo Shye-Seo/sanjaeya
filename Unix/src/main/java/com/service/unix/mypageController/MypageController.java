@@ -2,6 +2,7 @@ package com.service.unix.mypageController;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,6 +16,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import com.service.unix.mypageVo.Criteria;
+import com.service.unix.mypageVo.MakerPaging;
 import com.service.unix.mypageVo.MypageVo;
 
 @Controller
@@ -24,15 +27,20 @@ public class MypageController {
 	MypageService mypageservice;
 	
 	@RequestMapping(value="MyPage", method=RequestMethod.GET)
-	public ModelAndView boardList(@ModelAttribute MemberVo membervo, HttpSession session) throws Exception {
+	public ModelAndView boardList(@ModelAttribute MemberVo membervo, HttpSession session, Criteria criteria) throws Exception {
 		
+		MakerPaging makerPaging = new MakerPaging();
 		String str = (String) session.getAttribute("user_id");
 		System.out.println(str);
 		
 		ModelAndView model = new ModelAndView();
 		model.setViewName("mypage");
 		
-		List<MypageVo> boardList = mypageservice.getBoardList(str);
+		makerPaging.setCri(criteria);
+		makerPaging.setTotalCount(mypageservice.count(str));
+		model.addObject("makerpaging", makerPaging);
+		
+		List<MypageVo> boardList = mypageservice.listCriteria(criteria, str);
 		model.addObject("boardList", boardList);
 		
 		model.addObject("user_id", str);
@@ -46,16 +54,11 @@ public class MypageController {
 		return "redirect:/MyPage";
 	}
 	
-	@RequestMapping(value="Delmemo.do")
+	@RequestMapping(value="Delmemo.do", method=RequestMethod.DELETE)
 	public String deletememo(@ModelAttribute MypageVo mypagevo) throws Exception {
 		
 		mypageservice.delete(mypagevo);
 		return "redirect:/MyPage";
 	}
 	
-	// 페이징 처리 
-	public String listPage() throws Exception {
-		
-		return "";
-	}
 }

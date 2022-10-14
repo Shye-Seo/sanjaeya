@@ -5,11 +5,18 @@
 <mapper namespace="mypage">
 	
 	<select id="countBoard" resultType="int">
-		SELECT COUNT(*) FROOM nm_notice WHERE writer=#{writer }
+		SELECT COUNT(*) FROM nm_notice WHERE writer=#{writer}
 	</select>
 	
 	<select id="boardList" resultType="com.service.unix.mypageVo.MypageVo">
 		SELECT * FROM nm_notice WHERE writer=#{writer } ORDER BY id DESC
+	</select>
+	
+	<select id="listCriteria" parameterType="hashMap" resultType="com.service.unix.mypageVo.MypageVo">
+		<![CDATA[
+			SELECT * FROM nm_notice ORDER BY id DESC
+			LIMIT #{page }, #{perPageNum }
+		]]>
 	</select>
 	
 	<insert id="create" parameterType="com.service.unix.mypageVo.MypageVo">

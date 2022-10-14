@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.service.unix.mypageDao.MypageDao;
 import java.util.List;
 
-
+import com.service.unix.mypageVo.Criteria;
 import com.service.unix.mypageVo.MypageVo;
 
 @Service // 이 객체가 서비스 클래스라는 것을 알려줌 
@@ -46,9 +46,15 @@ public class MypageServiceImpl implements MypageService{
 	}
 
 	@Override
-	public int count() throws Exception {
+	public int count(String writer) throws Exception {
 		// TODO Auto-generated method stub
-		return mypageDao.countBoard();
+		return mypageDao.countBoard(writer);
+	}
+
+	@Override
+	public List<MypageVo> listCriteria(Criteria criteria, String writer) throws Exception {
+		// TODO Auto-generated method stub
+		return mypageDao.listCriteria(criteria, writer);
 	}
 
 }

@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>마이페이지</title>
-<link rel="stylesheet" href="resources/css/mypage.css?4332">
-<script type="text/javascript" src="resources/js/mypage.js?1133"></script>
+<link rel="stylesheet" href="resources/css/mypage.css?45">
+<script type="text/javascript" src="resources/js/mypage.js?14433"></script>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
@@ -145,6 +145,7 @@
 					</div>
 					<form method="post" action="Addmemo.do">
 						<div id="add_memo_form">
+							<div class="modal_layer"></div>
 							<div class="memo_form">
 								<input type="button" id="close">
 								<h1>Add</h1>
@@ -162,19 +163,26 @@
 	                                <input type="reset" value="취소"  id="close1" class="reset">
 	                            </div>
 							</div>
-							<div class="modal_layer"></div>
 						</div>
 					</form>
 					<!-- 페이징 기능 -->
 					
 					<div class="pageInfo_area">
 						<ul id="pageInfo" class="pageInfo">
-							<li>a</li>
+							<!-- 이전 -->
+								<li><a href="${makerpaging.startPage-1 }">&lsaquo;</a></li>
+							
+							<!-- 번호 -->
+							<c:forEach var="num" begin="${makerpaging.startPage }" end="${makerpaging.endPage }">
+								<li><a href="MyPage?page=${num }">${num }</a></li>
+							</c:forEach>
+							
+							<!-- 다음 -->
+								<li><a href="${makerpaging.endPage+1 }">&rsaquo;</a></li>
 						</ul>
 					</div>
 					
 				</section>
-				
             </div>
         </div>
         <jsp:include page="/WEB-INF/views/footer/footer.jsp"></jsp:include>

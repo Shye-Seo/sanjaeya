@@ -515,6 +515,19 @@
 
 #memo .pageInfo_area {
 	margin:5%;
+	margin-left:40.5%;
+	padding:2%;
+}
+
+.pageInfo_area .pageInfo ul {
+	list-style:none;
+	text-align:center;
+}
+
+.pageInfo_area .pageInfo li {
+	margin-left:3%;
+	float:left;
+	
 }
 
 .modal_layer {
@@ -523,6 +536,6 @@
 	left:0;
 	width:100%;
 	height:100%;
-	background:rgba(0,0,0,0.3);
+	background:rgba(0,0,0,0.4);
 	z-index:-1;
 }
