@@ -26,7 +26,7 @@
 			</div>
 		</div>
 		<section>
-			<h4 class="aaaaa">&lt;${category[1].category_name}&gt;</h4>
+			<h4 class="a">&lt;${category[1].category_name}&gt;</h4>
 
 			<div class="category">
 				<ul>

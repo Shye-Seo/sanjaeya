@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <html>
 <head>
-<title>Home</title>
+<title>산재야</title>
 <link rel="stylesheet" href="resources/css/home.css">
 <%@ include file ="/WEB-INF/views/common.jsp" %>
 </head>
@@ -14,7 +14,33 @@
 			location.href = "Checklist_s1";
 			
 			});
+		$('.category_2').click(function () {
+			var pageNum = 1;
+			sessionStorage.setItem("pageNum", pageNum);
+			location.href = "Checklist_s2";
+			
+			});
+		$('.category_3').click(function () {
+			var pageNum = 1;
+			sessionStorage.setItem("pageNum", pageNum);
+			location.href = "Checklist_s3";
+			
+			});
+		
+		
+		
 	})
+	
+	$("button").click(function() {
+    $('html,body').animate({
+        scrollTop: $(".category").offset().top},
+        'slow');
+});
+	const btnArr = document.getElementsByTagName('button');
+		 btnArr.addEventListener('click',function(e){
+			    e.preventDefault();
+			    document.querySelector('.category').scrollIntoView(true);
+			  });
 	
 	</script>
 <body>
@@ -32,13 +58,13 @@
 					다년간의 실무경험과 전문성을 보유한 공인노무사가<br> 속해 있는 인사노무 전문 그룹으로서<br>
 					귀사와 귀하의 노동법률 문제 해결에 최선의 방안을 제시하겠습니다.
 				</div>
-				<button type="button" onclick="">진단 시작하기</button>
+				<a id="categoryscroll" href="#category"><button type="button">진단 시작하기</button></a>
 			</div>
 		</div>
 	</header>
 	<section class="section_1">
 		<div class="wrap_container">
-			<h2>나의 산재승인 가능성은?</h2>
+			<h2 id="category">나의 산재승인 가능성은?</h2>
 			<h4>몇 번의 클릭으로 산재 승인 가능성을 알아보세요.</h4>
 		</div>
 		<div class="wrap_container">
@@ -48,7 +74,7 @@
                         <p class="cate_p1">뇌심혈관질환/과로</p>
                     </div>
                     <div class="category_2">
-                        <p class="cate_img2" onclick="location.href='Checklist_s2'"></p>
+                        <p class="cate_img2"></p>
                         <p class="cate_p2">직업성 암</p>
                     </div>
                     <div class="category_3">
@@ -64,7 +90,7 @@
 			<h4>산재 승인 여부를 통화없이 간편하게 확인하세요.</h4>
 			<img src="resources/imgs/manual_img.svg">
 			<div class="button_area">
-				<button type="button" onclick="">진단 시작하기</button>
+				<a id="categoryscroll" href="#category"><button type="button">진단 시작하기</button></a>
 			</div>
 		</div>
 	</section>

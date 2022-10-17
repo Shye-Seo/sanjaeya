@@ -1,7 +1,5 @@
 package com.service.unix.checklistVo;
 
-import java.util.Date;
-
 import lombok.Data;
 
 @Data

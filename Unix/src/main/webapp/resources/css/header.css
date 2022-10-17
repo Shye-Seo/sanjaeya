@@ -13,7 +13,9 @@
 	display: flex;
 	justify-content: space-between;
 }
-
+#header_left img {
+	width:50%;
+}
 .header a {
 	text-decoration: none;
 	color: white;

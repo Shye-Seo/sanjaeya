@@ -129,12 +129,16 @@
 	margin-top:60px;
 	margin-bottom:10px;
 }
+.a .h3_2, .h3_3, .h3_4, .h3_5, .h3_6, .h3_7, .h3_8, .h3_9, .h3_10,
+.h3_11, .h3_12, .h3_13, .h3_14, .h3_15, .h3_16, .h3_17 {
+	display:none;
+}
 
-.lst1 .lst2 {
-	
+.lst1 .lst2 .answer1, .answer2, .answer3, .answer4, .answer5, .answer6, .answer7,
+ .answer8, .answer9, .answer10, .answer11, .answer12, .answer13, .answer14,
+ .answer15, .answer16, .answer17 {	
 	margin:auto;
 	margin-bottom:20px;
-	
 	width: 770px;
 	height: 81px;
 	/* UI Properties */
@@ -153,6 +157,7 @@
     border: 0.699999988079071px solid #707070;
     border-radius: 2px;
     opacity: 1;
+    margin-right: 20px;
 }
 
 .lst1 .lst2 label {
@@ -161,6 +166,9 @@
     left:2%;
     color: #393737;
     cursor: pointer;
+    display:inline-block;
+    width: 770px;
+    height: 9px;
 }
 
 .lst1 .lst2 input {
@@ -172,16 +180,27 @@
     border-radius: 2px;
     opacity: 1;
 }
+.answerpoint{
+	text-align: right;
+	padding-right: 40px;
+}
 
+.lst1 .lst2 .answer2, .answer3, .answer4, .answer5, .answer6, .answer7,
+ .answer8, .answer9, .answer10, .answer11, .answer12, .answer13, .answer14,
+ .answer15, .answer16, .answer17   {
+    display: none;
+}
 
 .next {
 	background-color: white;
     text-align: center;
     padding: 3%;
+    display:flex;
+    justify-content: center;
     
 }
 
-.next #before {
+.next #prev {
 	background-color: white;
     border: solid 1px #326DFB;
     color: #326DFB;

@@ -4,9 +4,29 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="checklist">
 
-   <!-- 아이디 중복 체크 -->
+   <!-- 카테고리 -->
    <select id="selectCategory" resultType="com.service.unix.checklistVo.CheckCategoryVo">
    		select * from nm_category
    </select>
+   
+   <!-- 질문 -->
+   <select id="selectQuestion" resultType="com.service.unix.checklistVo.CheckQuestionVo">
+   		select * from nm_question where nm_category_id = #{category_id} order by seq asc
+   </select>
+   
+   <!-- 질문(contents) -->
+   <select id="selectQuestionContents" resultType="String">
+   		select contents from nm_question where nm_category_id = #{category_id} order by seq asc
+   </select>
+   <!-- 답변 -->
+   <select id="selectAnswer" resultType="com.service.unix.checklistVo.CheckAnswerVo">
+   		select * from nm_answer where nm_question_id = #{question_id} and flag ='Y' order by seq asc
+   </select>
+   
+   <!-- 답변 갯수-->
+   <select id="selectAnswerPoint" resultType="int">
+	select point from nm_answer where id = #{answer_id} order by seq asc
+   </select>
+   
 
-</mapper>
+</mapper> 

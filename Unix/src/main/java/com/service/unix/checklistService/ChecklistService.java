@@ -2,10 +2,22 @@ package com.service.unix.checklistService;
 
 import java.util.List;
 
+import com.service.unix.checklistVo.CheckAnswerVo;
 import com.service.unix.checklistVo.CheckCategoryVo;
+import com.service.unix.checklistVo.CheckQuestionVo;
 
 public interface ChecklistService {
 
 	// 체크리스트 카테고리
 	public List<CheckCategoryVo> categoryName ();
+
+	public List<CheckQuestionVo> questionName(int categoryNum);
+
+	public List<CheckAnswerVo> answerName(int categoryNum);
+
+	public List<Integer> selectAnswerPoint(int answerNum);
+
+	public List<String> selectQuestionContents(int categoryNum);
+
+
 }

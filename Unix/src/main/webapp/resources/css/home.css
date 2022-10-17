@@ -6,6 +6,10 @@
 a {
     text-decoration: none;
 }
+
+#categoryscroll {
+    color: #ffffff;
+}
 header img {
     height: 650px;
     width: 100%;
