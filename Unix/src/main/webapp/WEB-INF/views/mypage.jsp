@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>마이페이지</title>
 <link rel="stylesheet" href="resources/css/mypage.css?45">
-<script type="text/javascript" src="resources/js/mypage.js?14433"></script>
+<script type="text/javascript" src="resources/js/mypage.js?4443"></script>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
@@ -128,7 +128,7 @@
             </div>
             <div class="tab2_content">
 				<section id="memo">
-					<h4><a href="#">&lsaquo;</a>&nbsp;&nbsp;2022년 11월&nbsp;&nbsp;<a href="#">&rsaquo;</a></h4>
+					<h4><a href="#">&lsaquo;</a>&nbsp;&nbsp;<span id="this_month"></span>&nbsp;&nbsp;<a href="#">&rsaquo;</a></h4>
 					<div class="memo_table"> <!-- 메모장 테이블 -->
 						<div class="memo_add_box"><input type="button" id="add_memo"></div>
 						<c:forEach var="board" items="${boardList }">
@@ -187,6 +187,7 @@
         </div>
         <jsp:include page="/WEB-INF/views/footer/footer.jsp"></jsp:include>
     </div>
-    <script type="text/javascript" src="resources/js/memo.js?133"></script>
+    <script type="text/javascript" src="resources/js/memo.js?343"></script>
+    
 </body>
 </html>
