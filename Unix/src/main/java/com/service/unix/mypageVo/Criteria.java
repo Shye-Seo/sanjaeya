@@ -14,8 +14,8 @@ public class Criteria {
 		return page;
 	}
 	public void setPage(int page) {
-		if(page<=0) {
-			this.page=1;
+		if(page<0) {
+			this.page=0;
 			return;
 		}
 		this.page=page;
@@ -35,6 +35,6 @@ public class Criteria {
 	// sql의 limit 구문에서 시작 위치를 지정할 때 사용된다. 예를 들어 10개씩 출력하는 경우, 3페이지의 데이터는 limit 20, 10과 같은 형태가 되어야 한다.
 	// this.page가 1이면 0이 되어야 한다. mysql limit 0, 10 해야 처음부터 10개씩 나온다. 
 	public int getPageStart() {
-		return (this.page-1) * perPageNum;
+		return (page-1) * perPageNum;
 	}
 }

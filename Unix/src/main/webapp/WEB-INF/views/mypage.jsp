@@ -128,7 +128,7 @@
             </div>
             <div class="tab2_content">
 				<section id="memo">
-					<h4><a href="#">&lsaquo;</a>&nbsp;&nbsp;<span id="this_month"></span>&nbsp;&nbsp;<a href="#">&rsaquo;</a></h4>
+					<h4>&lsaquo;&nbsp;&nbsp;<span id="this_month"></span>&nbsp;&nbsp;&rsaquo;</h4>
 					<div class="memo_table"> <!-- 메모장 테이블 -->
 						<div class="memo_add_box"><input type="button" id="add_memo"></div>
 						<c:forEach var="board" items="${boardList }">
@@ -170,15 +170,18 @@
 					<div class="pageInfo_area">
 						<ul id="pageInfo" class="pageInfo">
 							<!-- 이전 -->
-								<li><a href="${makerpaging.startPage-1 }">&lsaquo;</a></li>
-							
+							<c:if test="${makerpaging.prev}">
+								<li><a href="MyPage?page=${makerpaging.cri.page-1 }">&lsaquo;</a></li>
+							</c:if>
 							<!-- 번호 -->
 							<c:forEach var="num" begin="${makerpaging.startPage }" end="${makerpaging.endPage }">
 								<li><a href="MyPage?page=${num }">${num }</a></li>
 							</c:forEach>
 							
 							<!-- 다음 -->
-								<li><a href="${makerpaging.endPage+1 }">&rsaquo;</a></li>
+							<c:if test="${makerpaging.next}">
+								<li><a href="MyPage?page=${makerpaging.endPage+1 }">&rsaquo;</a></li>
+							</c:if>
 						</ul>
 					</div>
 					

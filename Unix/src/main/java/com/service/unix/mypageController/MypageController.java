@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.service.unix.memberVo.MemberVo;
 import com.service.unix.mypageService.MypageService;
@@ -25,11 +26,11 @@ public class MypageController {
 	
 	@Autowired
 	MypageService mypageservice;
+	MakerPaging makerPaging = new MakerPaging();
 	
 	@RequestMapping(value="MyPage", method=RequestMethod.GET)
 	public ModelAndView boardList(@ModelAttribute MemberVo membervo, HttpSession session, Criteria criteria) throws Exception {
 		
-		MakerPaging makerPaging = new MakerPaging();
 		String str = (String) session.getAttribute("user_id");
 		System.out.println(str);
 		
@@ -38,6 +39,9 @@ public class MypageController {
 		
 		makerPaging.setCri(criteria);
 		makerPaging.setTotalCount(mypageservice.count(str));
+		
+		criteria.setPage(criteria.getPageStart());
+		System.out.println(criteria.getPage());
 		model.addObject("makerpaging", makerPaging);
 		
 		List<MypageVo> boardList = mypageservice.listCriteria(criteria, str);
@@ -46,14 +50,15 @@ public class MypageController {
 		model.addObject("user_id", str);
 		return model;
 	}
-	
+	  
 	@RequestMapping(value="Addmemo.do", method=RequestMethod.POST) 
 	public String addmemo(@ModelAttribute MypageVo mypagevo) throws Exception {
-		
+
 		mypageservice.create(mypagevo);
+		
 		return "redirect:/MyPage";
-	}
-	
+	} 
+	  
 	@RequestMapping(value="Delmemo.do", method=RequestMethod.DELETE)
 	public String deletememo(@ModelAttribute MypageVo mypagevo) throws Exception {
 		

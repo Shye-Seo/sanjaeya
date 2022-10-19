@@ -22,16 +22,16 @@ public class MakerPaging {
 	
 	// 보여줄 페이지 번호(page)와 페이지당 보여줄 게시물 개수(perPageNum)를 토대로 각 변수들 값 설정 
 	private void calcData() {
-		endPage = (int) (Math.ceil(cri.getPage() / (double) displayPageNum) * displayPageNum);
-		startPage = (endPage - displayPageNum) + 1;
+		this.endPage = (int) (Math.ceil(cri.getPage() / (double) this.displayPageNum) * this.displayPageNum);
+		this.startPage = (this.endPage - this.displayPageNum) + 1;
 		
 		int tempEndPage = (int) (Math.ceil(totalCount / (double) cri.getPerPageNum()));
-		if(endPage > tempEndPage) {
-			endPage = tempEndPage;
+		if(this.endPage > tempEndPage) {
+			this.endPage = tempEndPage;
 		}
 		
-		prev = startPage == 1 ? false : true;
-		next = endPage * cri.getPerPageNum() >= totalCount ? false : true;
+		this.prev = this.startPage <= 0 ? false : true;
+		this.next = this.endPage * cri.getPerPageNum() < this.totalCount ? false : true;
 	}
 
 	public int getDisplayPageNum() {
@@ -81,6 +81,4 @@ public class MakerPaging {
 	public void setCri(Criteria cri) {
 		this.cri = cri;
 	}
-	
-	
 }
