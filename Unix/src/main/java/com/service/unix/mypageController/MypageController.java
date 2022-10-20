@@ -68,7 +68,7 @@ public class MypageController {
 		return "redirect:/MyPage";
 	} 
 	  
-	@RequestMapping(value="Delmemo.do", method=RequestMethod.DELETE)
+	@RequestMapping(value="Delmemo.do", method=RequestMethod.GET)
 	public String deletememo(@ModelAttribute MypageVo mypagevo) throws Exception {
 		
 		mypageservice.delete(mypagevo);
