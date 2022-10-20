@@ -1,5 +1,6 @@
 package com.service.unix.mypageService;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.service.unix.mypageVo.Criteria;
@@ -14,5 +15,5 @@ public interface MypageService {
 	public int update(MypageVo mypagevo) throws Exception;
 	public int delete(MypageVo mypagevo) throws Exception;
 	public int count(String writer) throws Exception;
-	public List<MypageVo> listCriteria(Criteria criteria, String writer) throws Exception;
+	public List<MypageVo> listCriteria(HashMap<String, Object> map) throws Exception;
 }

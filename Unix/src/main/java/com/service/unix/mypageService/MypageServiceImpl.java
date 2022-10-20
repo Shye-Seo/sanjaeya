@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.service.unix.mypageDao.MypageDao;
+
+import java.util.HashMap;
 import java.util.List;
 
 import com.service.unix.mypageVo.Criteria;
@@ -52,9 +54,9 @@ public class MypageServiceImpl implements MypageService{
 	}
 
 	@Override
-	public List<MypageVo> listCriteria(Criteria criteria, String writer) throws Exception {
+	public List<MypageVo> listCriteria(HashMap<String, Object> map) throws Exception {
 		// TODO Auto-generated method stub
-		return mypageDao.listCriteria(criteria, writer);
+		return mypageDao.listCriteria(map);
 	}
 
 }

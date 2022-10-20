@@ -6,15 +6,14 @@ public class MakerPaging {
 	
 	private int startPage;      // 현재 화면에서 보이는 startPage 번호
 	private int endPage;        // 현재 화면에 보이는 endPage 번호
-	private boolean prev;       // 페이징 이전 버튼 활성화 여부
-	private boolean next;       // 페이징 다음 버튼 활서화 여부
 	
 	private Criteria cri;       // 앞서 생성한 Criteria를 주입받는다.
-
+	private int tempEndPage;
+	
 	public int getTotalCount() {
 		return totalCount;
 	}
-
+ 
 	public void setTotalCount(int totalCount) {
 		this.totalCount = totalCount;
 		calcData();
@@ -24,14 +23,10 @@ public class MakerPaging {
 	private void calcData() {
 		this.endPage = (int) (Math.ceil(cri.getPage() / (double) this.displayPageNum) * this.displayPageNum);
 		this.startPage = (this.endPage - this.displayPageNum) + 1;
-		
-		int tempEndPage = (int) (Math.ceil(totalCount / (double) cri.getPerPageNum()));
-		if(this.endPage > tempEndPage) {
-			this.endPage = tempEndPage;
+		this.tempEndPage = (int) (Math.ceil(totalCount / (double) cri.getPerPageNum()));
+		if(this.endPage >= this.tempEndPage) {
+			this.endPage = this.tempEndPage;
 		}
-		
-		this.prev = this.startPage <= 0 ? false : true;
-		this.next = this.endPage * cri.getPerPageNum() < this.totalCount ? false : true;
 	}
 
 	public int getDisplayPageNum() {
@@ -58,22 +53,6 @@ public class MakerPaging {
 		this.endPage = endPage;
 	}
 
-	public boolean isPrev() {
-		return prev;
-	}
-
-	public void setPrev(boolean prev) {
-		this.prev = prev;
-	}
-
-	public boolean isNext() {
-		return next;
-	}
-
-	public void setNext(boolean next) {
-		this.next = next;
-	}
-
 	public Criteria getCri() {
 		return cri;
 	}
@@ -81,4 +60,9 @@ public class MakerPaging {
 	public void setCri(Criteria cri) {
 		this.cri = cri;
 	}
+	
+	public int getTempEndPage() {
+		return tempEndPage;
+	}
+	
 }

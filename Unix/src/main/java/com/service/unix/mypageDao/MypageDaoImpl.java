@@ -50,13 +50,13 @@ public class MypageDaoImpl implements MypageDao{
 	public int countBoard(String writer) throws Exception {
 		// TODO Auto-generated method stub
 		return sqlsession.selectOne("mypage.countBoard", writer);
-	}
+	} 
 
 	@Override
-	public List<MypageVo> listCriteria(Criteria criteria, String writer) throws Exception {
+	public List<MypageVo> listCriteria(HashMap<String, Object> map) throws Exception {
 		// TODO Auto-generated method stub
 
-		return sqlsession.selectList("mypage.listCriteria", criteria);
+		return sqlsession.selectList("mypage.listCriteria", map);
 	}
  
 }

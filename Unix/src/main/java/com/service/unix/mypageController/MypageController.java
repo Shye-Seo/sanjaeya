@@ -13,7 +13,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.service.unix.memberVo.MemberVo;
 import com.service.unix.mypageService.MypageService;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -31,6 +33,7 @@ public class MypageController {
 	@RequestMapping(value="MyPage", method=RequestMethod.GET)
 	public ModelAndView boardList(@ModelAttribute MemberVo membervo, HttpSession session, Criteria criteria) throws Exception {
 		
+		HashMap<String, Object> map = new HashMap<String, Object>();
 		String str = (String) session.getAttribute("user_id");
 		System.out.println(str);
 		
@@ -39,18 +42,24 @@ public class MypageController {
 		
 		makerPaging.setCri(criteria);
 		makerPaging.setTotalCount(mypageservice.count(str));
-		
+		 
 		criteria.setPage(criteria.getPageStart());
-		System.out.println(criteria.getPage());
+		System.out.println("page : " + criteria.getPage());
+		System.out.println("startPage : " + makerPaging.getStartPage());
+		System.out.println("endPage : " + makerPaging.getEndPage());
+		System.out.println("tempEndPage : " + makerPaging.getTempEndPage());
 		model.addObject("makerpaging", makerPaging);
-		
-		List<MypageVo> boardList = mypageservice.listCriteria(criteria, str);
+		 
+		map.put("page", criteria.getPage());
+		map.put("perPageNum", criteria.getPerPageNum());
+		map.put("wrtier", "test");
+		List<MypageVo> boardList = mypageservice.listCriteria(map);
 		model.addObject("boardList", boardList);
 		
 		model.addObject("user_id", str);
 		return model;
 	}
-	  
+	 
 	@RequestMapping(value="Addmemo.do", method=RequestMethod.POST) 
 	public String addmemo(@ModelAttribute MypageVo mypagevo) throws Exception {
 

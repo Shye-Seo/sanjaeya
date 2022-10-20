@@ -170,18 +170,34 @@
 					<div class="pageInfo_area">
 						<ul id="pageInfo" class="pageInfo">
 							<!-- 이전 -->
-							<c:if test="${makerpaging.prev}">
-								<li><a href="MyPage?page=${makerpaging.cri.page-1 }">&lsaquo;</a></li>
-							</c:if>
+							<c:choose>
+								<c:when test="${makerpaging.startPage==1 }">
+									<li><a href="MyPage?page=1">&lsaquo;</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="MyPage?page=${makerpaging.startPage-1 }">&lsaquo;</a></li>
+								</c:otherwise>
+							</c:choose>
+							
+							
 							<!-- 번호 -->
 							<c:forEach var="num" begin="${makerpaging.startPage }" end="${makerpaging.endPage }">
 								<li><a href="MyPage?page=${num }">${num }</a></li>
 							</c:forEach>
 							
 							<!-- 다음 -->
-							<c:if test="${makerpaging.next}">
-								<li><a href="MyPage?page=${makerpaging.endPage+1 }">&rsaquo;</a></li>
-							</c:if>
+							
+							<c:set var="num" value="${makerpaging.endPage }" />
+							<c:choose>
+								<c:when test="${makerpaging.endPage == makerpaging.tempEndPage}">
+									<li><a href="MyPage?page=${makerpaging.endPage }">&rsaquo;</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="MyPage?page=${makerpaging.endPage+1 }">&rsaquo;</a></li>
+								</c:otherwise>
+							</c:choose>
+							
+							
 						</ul>
 					</div>
 					
