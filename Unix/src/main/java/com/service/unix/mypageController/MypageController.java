@@ -52,14 +52,14 @@ public class MypageController {
 		 
 		map.put("page", criteria.getPage());
 		map.put("perPageNum", criteria.getPerPageNum());
-		map.put("wrtier", "test");
+		map.put("writer", str);
 		List<MypageVo> boardList = mypageservice.listCriteria(map);
 		model.addObject("boardList", boardList);
 		
 		model.addObject("user_id", str);
 		return model;
 	}
-	 
+	
 	@RequestMapping(value="Addmemo.do", method=RequestMethod.POST) 
 	public String addmemo(@ModelAttribute MypageVo mypagevo) throws Exception {
 

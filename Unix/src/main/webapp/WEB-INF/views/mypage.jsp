@@ -6,9 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>마이페이지</title>
-<link rel="stylesheet" href="resources/css/mypage.css?45">
-<script type="text/javascript" src="resources/js/mypage.js?4443"></script>
+<link rel="stylesheet" href="resources/css/mypage.css?4">
+<script type="text/javascript" src="resources/js/mypage.js?453"></script>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </head>
 <body>
 	<div id="wrap">
@@ -143,6 +144,8 @@
 							</div>
 						</c:forEach>
 					</div>
+					
+					<!-- 메모장 입력 -->
 					<form method="post" action="Addmemo.do">
 						<div id="add_memo_form">
 							<div class="modal_layer"></div>
@@ -153,7 +156,7 @@
 								<div class="memo_form_detail">
 									<p><span>제목</span>  <input type="text" name="title"></p>
 									<p><span>시간</span> <input type="time" name="time"></p>
-									<p><span>날짜</span> <input type="date" name="date"></p>
+									<p><span>날짜</span> <input type="date" id="date_form" name="date" data-date="" data-date-format="YYYY년 MM월 DD일" value=""></p>
 									<p><span id="arg">메모</span> <textarea rows="10" cols="54" name="content"></textarea></p>
 									<input type="text" name="writer" value="${user_id }" hidden>
 								</div>
@@ -165,8 +168,8 @@
 							</div>
 						</div>
 					</form>
-					<!-- 페이징 기능 -->
 					
+					<!-- 페이징 기능 -->
 					<div class="pageInfo_area">
 						<ul id="pageInfo" class="pageInfo">
 							<!-- 이전 -->
@@ -186,8 +189,6 @@
 							</c:forEach>
 							
 							<!-- 다음 -->
-							
-							<c:set var="num" value="${makerpaging.endPage }" />
 							<c:choose>
 								<c:when test="${makerpaging.endPage == makerpaging.tempEndPage}">
 									<li><a href="MyPage?page=${makerpaging.endPage }">&rsaquo;</a></li>
@@ -196,8 +197,6 @@
 									<li><a href="MyPage?page=${makerpaging.endPage+1 }">&rsaquo;</a></li>
 								</c:otherwise>
 							</c:choose>
-							
-							
 						</ul>
 					</div>
 					

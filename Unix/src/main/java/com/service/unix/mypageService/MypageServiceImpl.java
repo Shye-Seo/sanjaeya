@@ -18,12 +18,6 @@ public class MypageServiceImpl implements MypageService{
 	MypageDao mypageDao;
 
 	@Override
-	public List<MypageVo> getBoardList(String writer) throws Exception {
-		// TODO Auto-generated method stub
-		return mypageDao.getBoardList(writer);
-	}
-
-	@Override
 	public void create(MypageVo mypagevo) throws Exception {
 		// TODO Auto-generated method stub
 		mypageDao.create(mypagevo);

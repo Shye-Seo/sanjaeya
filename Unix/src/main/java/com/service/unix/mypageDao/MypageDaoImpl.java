@@ -16,11 +16,6 @@ public class MypageDaoImpl implements MypageDao{
 
 	@Autowired
 	private SqlSession sqlsession;
-	
-	@Override
-	public List<MypageVo> getBoardList(String writer) throws Exception {
-		return sqlsession.selectList("mypage.boardList", writer);
-	}
 
 	@Override
 	public void create(MypageVo mypageVo) throws Exception {

@@ -14,7 +14,7 @@
 	
 	<select id="listCriteria" parameterType="hashMap" resultType="com.service.unix.mypageVo.MypageVo">
 		<![CDATA[
-			SELECT * FROM nm_notice ORDER BY id DESC
+			SELECT * FROM nm_notice WHERE writer=#{writer } ORDER BY id DESC
 			LIMIT #{page }, #{perPageNum }
 		]]>
 	</select>

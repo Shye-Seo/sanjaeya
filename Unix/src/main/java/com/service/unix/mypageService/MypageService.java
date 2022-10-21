@@ -8,8 +8,6 @@ import com.service.unix.mypageVo.MypageVo;
 
 public interface MypageService {
 
-	
-	public List<MypageVo> getBoardList(String writer) throws Exception;
 	public void create(MypageVo mypagevo) throws Exception;
 	public MypageVo read(Integer bid) throws Exception;
 	public int update(MypageVo mypagevo) throws Exception;

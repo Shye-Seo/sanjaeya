@@ -127,7 +127,6 @@
         
         ul {
             list-style:none;
-
 /*             content:"";
             display: block;
             clear:both;  */
@@ -452,8 +451,11 @@
     margin:4%;
 }
 
+
+
 .memo_form .memo_form_detail span {
 	margin:3%;
+	font-weight: 600;
 }
 
 .memo_form .memo_form_detail #arg {
@@ -462,6 +464,7 @@
 }
 
 .memo_form .memo_form_detail input[type=text] {
+	padding:3%;
     width:450px;
     height:54px;
 
@@ -469,15 +472,31 @@
     border-radius:7px;
 }
 
+.memo_form .memo_form_detail input[type=date] {
+	color:white;
+}
+
 .memo_form .memo_form_detail input[type=time], input[type=date] {
+	padding:3%;
     width:225px;
     height:54px;
 
     border:2px solid #707070;
     border-radius:7px;
+    pointer-events:none;
+}
+
+
+.memo_form .memo_form_detail input[type=date]:before {
+	position:absolute;
+	top:51%; left:22%;
+	content: attr(data-date);
+	display:inline-block;
+	color:black;
 }
 
 .memo_form .memo_form_detail textarea {
+	padding:3%;
     width:450px;
     height:118px;
 	resize:none;
@@ -505,6 +524,17 @@
     border-radius: 7px;
     margin-right: 15px;
 }
+
+input::-webkit-calendar-picker-indicator {
+	display:block;
+	margin-right:5%;
+	background: url(https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_keyboard_arrow_down_48px-32.png) no-repeat;
+	width: 20px;
+	height: 20px;
+	pointer-events: auto; 
+	cursor:pointer;
+}
+
 #memo .member_submit .reset {
     box-sizing: border-box;
     background-color: white;
@@ -514,20 +544,19 @@
 }
 
 #memo .pageInfo_area {
-	margin:5%;
-	margin-left:40.5%;
-	padding:2%;
+	margin:auto;
+	padding:5%;
 }
 
-.pageInfo_area .pageInfo ul {
+.pageInfo_area #pageInfo {
 	list-style:none;
+	margin:auto;
 	text-align:center;
 }
 
 .pageInfo_area .pageInfo li {
-	margin-left:3%;
-	float:left;
-	
+	display:inline-block;
+	padding:5px;	
 }
 
 .modal_layer {
@@ -537,5 +566,5 @@
 	width:100%;
 	height:100%;
 	background:rgba(0,0,0,0.4);
-	z-index:-1;
+	z-index:0;
 }
