@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <html>
 <head>
-<title>Home</title>
+<title>산재야</title>
 <link rel="stylesheet" href="resources/css/home.css">
 <%@ include file ="/WEB-INF/views/common.jsp" %>
 </head>
@@ -14,10 +14,81 @@
 			location.href = "Checklist_s1";
 			
 			});
+		$('.category_2').click(function () {
+			var pageNum = 1;
+			sessionStorage.setItem("pageNum", pageNum);
+			location.href = "Checklist_s2";
+			
+			});
+		$('.category_3').click(function () {
+			var pageNum = 1;
+			sessionStorage.setItem("pageNum", pageNum);
+			location.href = "Checklist_s3";
+			
+			});
+		$("#categoryscroll").click(function () {
+            $(".modal").fadeIn();
+            const body = document.querySelector('body');
+            const modal = document.querySelector('.modal');
+            body.style.overflow = 'hidden'
+            body.style.width = '100%'
+            modal.style.visibility = 'visible'
+            modal.style.width = '100%'
+            modal.style.height = '100%'
+
+           
+        });
+        $("#categoryscroll2").click(function () {
+            $(".modal").fadeIn();
+            const body = document.querySelector('body');
+            const modal = document.querySelector('.modal');
+            body.style.overflow = 'hidden'
+            body.style.width = '100%'
+            modal.style.visibility = 'visible'
+            modal.style.width = '100%'
+            modal.style.height = '100%'
+        });
+
+        $(".closeBtn").click(function () {
+            $(".modal").fadeOut();
+            const body = document.querySelector('body');
+            const modal = document.querySelector('.modal');
+            body.style.overflow = 'scroll'
+            body.style.width = '100%'
+            modal.style.visibility = 'hidden'
+            modal.style.width = '0'
+            modal.style.height = '0'
+        });
+		
+		
+		
 	})
 	
 	</script>
 <body>
+	<div class="modal">
+		<div class="modal_content">
+			<p class="modal_con1">
+				체크하고자 하는 <span>카테고리</span>를 선택해보세요.
+			</p>
+			<p class="modal_con2">선택을 하면 자가진단 페이지로 이동됩니다.</p>
+			<div class="category">
+				<div class="category_1">
+					<p class="cate_img1"></p>
+					<p class="cate_p1">뇌심혈관질환/과로</p>
+				</div>
+				<div class="category_2">
+					<p class="cate_img2"></p>
+					<p class="cate_p2">직업성 암</p>
+				</div>
+				<div class="category_3">
+					<p class="cate_img3" onclick="location.href='Checklist_s3'"></p>
+					<p class="cate_p3">근골결계 질환</p>
+				</div>
+			</div>
+		</div>
+		<div class="closeBtn"></div>
+	</div>
 	<jsp:include page="/WEB-INF/views/header/header.jsp"></jsp:include>
 	<header>
 		<img src="resources/imgs/main_background.png">
@@ -32,31 +103,31 @@
 					다년간의 실무경험과 전문성을 보유한 공인노무사가<br> 속해 있는 인사노무 전문 그룹으로서<br>
 					귀사와 귀하의 노동법률 문제 해결에 최선의 방안을 제시하겠습니다.
 				</div>
-				<button type="button" onclick="">진단 시작하기</button>
+				<a id="categoryscroll"><button type="button">진단 시작하기</button></a>
 			</div>
 		</div>
 	</header>
 	<section class="section_1">
 		<div class="wrap_container">
-			<h2>나의 산재승인 가능성은?</h2>
+			<h2 id="category">나의 산재승인 가능성은?</h2>
 			<h4>몇 번의 클릭으로 산재 승인 가능성을 알아보세요.</h4>
 		</div>
 		<div class="wrap_container">
-                <div class="category">
-                    <div class="category_1">
-                        <p class="cate_img1"></p>
-                        <p class="cate_p1">뇌심혈관질환/과로</p>
-                    </div>
-                    <div class="category_2">
-                        <p class="cate_img2" onclick="location.href='Checklist_s2'"></p>
-                        <p class="cate_p2">직업성 암</p>
-                    </div>
-                    <div class="category_3">
-                        <p class="cate_img3" onclick="location.href='Checklist_s3'"></p>
-                        <p class="cate_p3">근골결계 질환</p>
-                    </div>
-                </div>
-            </div>
+			<div class="category">
+				<div class="category_1">
+					<p class="cate_img1"></p>
+					<p class="cate_p1">뇌심혈관질환/과로</p>
+				</div>
+				<div class="category_2">
+					<p class="cate_img2"></p>
+					<p class="cate_p2">직업성 암</p>
+				</div>
+				<div class="category_3">
+					<p class="cate_img3" onclick="location.href='Checklist_s3'"></p>
+					<p class="cate_p3">근골결계 질환</p>
+				</div>
+			</div>
+		</div>
 	</section>
 	<section class="section_2">
 		<div class="wrap_container">
@@ -64,7 +135,7 @@
 			<h4>산재 승인 여부를 통화없이 간편하게 확인하세요.</h4>
 			<img src="resources/imgs/manual_img.svg">
 			<div class="button_area">
-				<button type="button" onclick="">진단 시작하기</button>
+				<a id="categoryscroll2"><button type="button">진단 시작하기</button></a>
 			</div>
 		</div>
 	</section>
@@ -100,32 +171,7 @@
 								</div>
 							</div>
 						</div></li>
-					<li><a href="#tab_2" class="menu_btn">관련판례 및 사례
-							&nbsp;|&nbsp;&nbsp;</a>
-						<div id="tab_2" class="list_123">
-							<div class="list_re">
-								<div>
-									<a id="list_title">유닉스 노무법인 관련판례 및 사례</a> <span id="list_date">2022.06.24</span>
-									<a href="#" id="plusBtn">+</a>
-								</div>
-								<div>
-									<a id="list_title">유닉스 노무법인 관련판례 및 사례</a> <span id="list_date">2022.06.24</span>
-									<a href="#" id="plusBtn">+</a>
-								</div>
-								<div>
-									<a id="list_title">유닉스 노무법인 관련판례 및 사례</a> <span id="list_date">2022.06.24</span>
-									<a href="#" id="plusBtn">+</a>
-								</div>
-								<div>
-									<a id="list_title">유닉스 노무법인 관련판례 및 사례</a> <span id="list_date">2022.06.24</span>
-									<a href="#" id="plusBtn">+</a>
-								</div>
-								<div>
-									<a id="list_title">유닉스 노무법인 관련판례 및 사례</a> <span id="list_date">2022.06.24</span>
-									<a href="#" id="plusBtn">+</a>
-								</div>
-							</div>
-						</div></li>
+					
 					<li><a href="#tab_3" class="menu_btn">자료실&nbsp;&nbsp;</a>
 						<div id="tab_3" class="list_123">
 							<div class="list_re">

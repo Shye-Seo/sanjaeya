@@ -1,6 +1,7 @@
 package com.service.unix.memberVo;
 
 public class MemberVo {
+	private int id;
 	private String user_id;
 	private String user_name;
 	private String user_pass;
@@ -9,6 +10,13 @@ public class MemberVo {
 	private String user_mail_id;
 	private String user_mail_domain;
 	private int authority;
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 	public String getUser_id() {
 		return user_id;

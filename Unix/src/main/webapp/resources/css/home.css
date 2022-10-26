@@ -6,6 +6,18 @@
 a {
     text-decoration: none;
 }
+body{
+    -ms-overflow-style: none;
+    }
+    
+   ::-webkit-scrollbar {
+     display: none;
+   }
+
+#categoryscroll {
+    color: #fafafa;
+}
+
 header img {
     height: 650px;
     width: 100%;
@@ -254,7 +266,7 @@ ul {
     font-size: 20px;
     font-weight: bold;
     color: black;
-    padding-left: 550px;
+    padding-left: 750px;
     margin-right: 0;
 }
 .section_4 {
@@ -301,4 +313,146 @@ ul {
     color: white;
     font-size: 15px;
     cursor: pointer;
+}
+.modal {
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    z-index: 100;
+    width: 0;
+    height: 0;
+    top: 0;
+    left: 0;
+    display: none;
+    visibility:hidden;
+}
+.modal_content{
+  width:55%; height:580px;
+  background:#fff; border-radius:15px;
+  position:relative; top:35%; left:34%;
+  margin-top:-100px; margin-left:-200px;
+  text-align:center;
+  box-sizing:border-box; padding:74px 0;
+  line-height:23px; 
+  /* cursor:pointer; */
+}
+.closeBtn {
+    background-image: url(../imgs/x_btn.svg) ;
+    background-repeat:no-repeat;
+    height: 22px; width: 40px;
+    position:relative; top: -23.5%; left:76%;
+    z-index: 100;
+}
+.modal_con1 {
+    color: #326DFB;
+    font: normal normal 400 30px/42px Pretendard;
+}
+.modal_con1 span {
+    font: normal normal 800 30px/42px Pretendard;
+}
+.modal_con2 {
+    font: normal normal 600 20px/30px Pretendard;
+    color: #888888;
+    padding-top: 10px;
+}
+.modal .category {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    
+
+}
+.modal .category_1,
+.modal .category_2,
+.modal .category_3 {
+    width: 220px;
+    height: 220px;
+    background-color: #fcfcfc;
+    margin: 30px;
+    text-align: center;
+    box-shadow: 0 3px 6px #00000029;
+    border-radius: 26px;
+    position: relative;
+    color: #888888;
+}
+.modal .category .cate_img1 {
+    background: url(../imgs/category_off1.svg) no-repeat;
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    margin-top: 40px;
+    margin-left: 60px;
+}
+.modal .category .cate_img2 {
+    background: url(../imgs/category_off2.svg) no-repeat;
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    margin-top: 40px;
+    margin-left: 70px;
+}
+.modal .category .cate_img3 {
+    background: url(../imgs/category_off3.svg) no-repeat;
+    background-size: cover;
+    width: 70px;
+    height: 107px;
+    margin-top: 40px;
+    margin-left: 75px;
+}
+.modal .category .cate_p1 {
+    position: absolute;
+    right: 19%;
+    top: 80%;
+    font: normal normal bold 18px/30px Pretendard;
+}
+.modal .category .cate_p2 {
+    position: absolute;
+    right: 33%;
+    top: 80%;
+    font: normal normal bold 18px/30px Pretendard;
+}
+.modal .category .cate_p3 {
+    position: absolute;
+    right: 26%;
+    top: 80%;
+    font: normal normal bold 18px/30px Pretendard;
+   
+}
+.modal .category_1:hover {
+    outline: solid 1px #326DFB;
+    color: black;
+    cursor:pointer;
+}
+.modal  .category_2:hover {
+    outline: solid 1px #326DFB;
+    color: black;
+    cursor:pointer;
+}
+.modal .category_3:hover {
+    outline: solid 1px #326DFB;
+    color: black;
+    cursor:pointer;
+}
+.modal .category_1:hover > .cate_img1{
+    background: url(../imgs/category_on1.svg);
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    margin-top: 40px;
+    margin-left: 60px;
+}
+.modal .category_2:hover > .cate_img2{
+    background: url(../imgs/category_on2.svg);
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    margin-top: 40px;
+    margin-left: 70px;
+}
+.modal .category_3:hover > .cate_img3{
+    background: url(../imgs/category_on3.svg);
+    background-size: cover;
+    width: 70px;
+    height: 107px;
+    margin-top: 40px;
+    margin-left: 75px;
 }
