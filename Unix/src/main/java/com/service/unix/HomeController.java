@@ -84,6 +84,7 @@ public class HomeController {
 		if(result == true) { // 로그인 성공
 			// home.jsp로 이동
 			System.out.println("로그인성공");
+			session.setAttribute("user_id", memberService.viewMember(memberVo).getUser_id());			
 			mav.setViewName("home");
 			mav.addObject("msg", "succcess");
 		}else { // 로그인 실패
@@ -151,22 +152,7 @@ public class HomeController {
 	
 	@RequestMapping("MyPage") // 마이페이지
 	public String mypage(HttpSession session, Model model) {
-		String user_id = (String)session.getAttribute("user_id");
-		
-		MemberVo memberVo = memberService.mypage(user_id);
-		
-		String mail = memberVo.getUser_mail();
-		
-		// 먼저 @ 의 인덱스를 찾는다        
-		int idx = mail.indexOf("@");
-		
-		String mail_id = mail.substring(0, idx);
-		String mail_domain = mail.substring(idx+1);
-		
-		model.addAttribute("memberVo",memberVo);
-		model.addAttribute("mail_id",mail_id);
-		model.addAttribute("mail_domain",mail_domain);
-		
+
 		return "/mypage";
 	}
 	

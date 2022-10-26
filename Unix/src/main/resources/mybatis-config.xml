@@ -7,9 +7,6 @@
 	<typeAliases>
 		<package name="com.servcice.unix" />
 	</typeAliases>
-	
-	
-	
 </configuration>
 
 
