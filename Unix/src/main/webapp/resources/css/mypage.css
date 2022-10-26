@@ -372,6 +372,7 @@
 	background:#EFEFEF 0% 0% no-repeat padding-box;
 	border:1px solid #326DFB;
 	border-radius:10px;
+	cursor:pointer;
 }
 
 .memo_table .memo_box input[type=button] {

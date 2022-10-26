@@ -11,6 +11,17 @@ $(function() {
 	        event.stopPropagation();
 	        return false;
 	    }); 
+	    $("#test").text("Add");
+	});
+	
+	$(".memo_box").click(function() {
+		$("#add_memo_form").fadeIn();
+		$('#wrap').on('scroll touchmove mousewheel', function(event) {
+	        event.preventDefault();
+	        event.stopPropagation();
+	        return false;
+	    }); 
+	    $("#test").text("Update");
 	});
 	
 	$("#close").click(function() {

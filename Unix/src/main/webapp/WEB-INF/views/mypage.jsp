@@ -6,10 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>마이페이지</title>
-<link rel="stylesheet" href="resources/css/mypage.css?4">
+<link rel="stylesheet" href="resources/css/mypage.css?45">
 <script type="text/javascript" src="resources/js/mypage.js?453"></script>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 	<div id="wrap">
@@ -122,18 +123,15 @@
                         </form>
                     </div>
                 </section>
-    
-    
-    
-    
             </div>
+            
             <div class="tab2_content">
 				<section id="memo">
 					<h4>&lsaquo;&nbsp;&nbsp;<span id="this_month"></span>&nbsp;&nbsp;&rsaquo;</h4>
 					<div class="memo_table"> <!-- 메모장 테이블 -->
 						<div class="memo_add_box"><input type="button" id="add_memo"></div>
 						<c:forEach var="board" items="${boardList }">
-							<div class="memo_box">
+							<div class="memo_box" onclick="">
 								<input type="button" id="memo_delete" onClick="location.href='Delmemo.do?title=${board.title}&date=${board.date }&time=${board.time }&content=${board.content }&writer=${board.writer }'">
 								<h3>${board.title }</h3>
 								<p>일정 : ${board.date }</p>
@@ -145,13 +143,13 @@
 						</c:forEach>
 					</div>
 					
-					<!-- 메모장 입력 -->
+					<!-- 메모장 추가 및 수정 폼 -->
 					<form method="post" action="Addmemo.do">
 						<div id="add_memo_form">
 							<div class="modal_layer"></div>
 							<div class="memo_form">
 								<input type="button" id="close">
-								<h1>Add</h1>
+								<h1 id="test">Add</h1>
 								<hr>
 								<div class="memo_form_detail">
 									<p><span>제목</span>  <input type="text" name="title"></p>
@@ -162,7 +160,7 @@
 								</div>
 								<hr>
 								<div class="member_submit">
-	                                <input type="submit" value="저장" id="member_submit_btn">
+	                                <input type="submit" value="저장" id="member_submit_btn" onclick="">
 	                                <input type="reset" value="취소"  id="close1" class="reset">
 	                            </div>
 							</div>
@@ -205,7 +203,7 @@
         </div>
         <jsp:include page="/WEB-INF/views/footer/footer.jsp"></jsp:include>
     </div>
-    <script type="text/javascript" src="resources/js/memo.js?343"></script>
+    <script type="text/javascript" src="resources/js/memo.js?443"></script>
     
 </body>
 </html>

@@ -35,7 +35,6 @@ public class MypageController {
 		
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		String str = (String) session.getAttribute("user_id");
-		System.out.println(str);
 		
 		ModelAndView model = new ModelAndView();
 		model.setViewName("mypage");
@@ -44,10 +43,6 @@ public class MypageController {
 		makerPaging.setTotalCount(mypageservice.count(str));
 		 
 		criteria.setPage(criteria.getPageStart());
-		System.out.println("page : " + criteria.getPage());
-		System.out.println("startPage : " + makerPaging.getStartPage());
-		System.out.println("endPage : " + makerPaging.getEndPage());
-		System.out.println("tempEndPage : " + makerPaging.getTempEndPage());
 		model.addObject("makerpaging", makerPaging);
 		 
 		map.put("page", criteria.getPage());
@@ -55,8 +50,8 @@ public class MypageController {
 		map.put("writer", str);
 		List<MypageVo> boardList = mypageservice.listCriteria(map);
 		model.addObject("boardList", boardList);
-		
 		model.addObject("user_id", str);
+		
 		return model;
 	}
 	
@@ -64,9 +59,15 @@ public class MypageController {
 	public String addmemo(@ModelAttribute MypageVo mypagevo) throws Exception {
 
 		mypageservice.create(mypagevo);
-		
 		return "redirect:/MyPage";
 	} 
+	
+	@RequestMapping(value="Updatememo.do", method=RequestMethod.POST)
+	public String updatememo(@ModelAttribute MypageVo mypagevo) throws Exception {
+		
+		mypageservice.update(mypagevo);
+		return "redirect:/MyPage";
+	}
 	  
 	@RequestMapping(value="Delmemo.do", method=RequestMethod.GET)
 	public String deletememo(@ModelAttribute MypageVo mypagevo) throws Exception {
