@@ -28,5 +28,9 @@
 	select point from nm_answer where id = #{answer_id} order by seq asc
    </select>
    
+   <insert id="insertTest" parameterType="HashMap">
+    insert into nm_testNonuser(category_number, question_number, test_userid, user_id, answer_number) VALUES(#{category_number}, #{question_number}, #{test_userid}, #{user_id}, #{answer_number})
+   </insert>
+   
 
 </mapper> 

@@ -1,5 +1,6 @@
 package com.service.unix.checklistService;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.service.unix.checklistVo.CheckAnswerVo;
@@ -18,6 +19,9 @@ public interface ChecklistService {
 	public List<Integer> selectAnswerPoint(int answerNum);
 
 	public List<String> selectQuestionContents(int categoryNum);
+
+	//체크리스트 테스트 insert
+	public Object insertTestUser(HashMap<String, Object> map);
 
 
 }

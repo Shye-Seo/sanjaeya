@@ -1,6 +1,7 @@
 package com.service.unix.checklistDao;
 
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -52,6 +53,11 @@ public class ChecklistDaoImpl implements ChecklistDao {
 	      
 	      return sqlSession.selectList("checklist.selectAnswerPoint", answerNum);
 	   }
+
+	//체크리스트 테스트 insert
+	public Object insertTestUser(HashMap<String, Object> map) {
+		 return sqlSession.selectList("checklist.insertTest", map);
+	}
 	
 	   
 

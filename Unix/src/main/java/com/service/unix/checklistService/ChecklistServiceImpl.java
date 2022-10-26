@@ -1,5 +1,6 @@
 package com.service.unix.checklistService;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -45,6 +46,13 @@ public class ChecklistServiceImpl implements ChecklistService {
 	@Override
 	public List<Integer> selectAnswerPoint(int answerNum) {
 		return checkDao.selectAnswerPoint(answerNum);
+	}
+
+	//체크리스트 테스트 insert
+	@Override
+	public Object insertTestUser(HashMap<String, Object> map) {
+		return checkDao.insertTestUser(map);
+		
 	}
 	
 	

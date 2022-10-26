@@ -1,5 +1,6 @@
 package com.service.unix.checklistDao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.service.unix.checklistVo.CheckAnswerVo;
@@ -19,9 +20,7 @@ public interface ChecklistDao {
 
 	public List<String> selectQuestionContents(int categoryNum);
 
+	public Object insertTestUser(HashMap<String, Object> map);
 
-
-
-	
 	
 }
