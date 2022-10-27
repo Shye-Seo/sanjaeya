@@ -152,10 +152,10 @@
 								<h1 id="test">Add</h1>
 								<hr>
 								<div class="memo_form_detail">
-									<p><span>제목</span>  <input type="text" name="title"></p>
-									<p><span>시간</span> <input type="time" name="time"></p>
+									<p><span>제목</span>  <input type="text" name="title" value=""></p>
+									<p><span>시간</span> <input type="time" name="time" value=""></p>
 									<p><span>날짜</span> <input type="date" id="date_form" name="date" data-date="" data-date-format="YYYY년 MM월 DD일" value=""></p>
-									<p><span id="arg">메모</span> <textarea rows="10" cols="54" name="content"></textarea></p>
+									<p><span id="arg">메모</span> <textarea rows="10" cols="54" name="content" value=""></textarea></p>
 									<input type="text" name="writer" value="${user_id }" hidden>
 								</div>
 								<hr>
@@ -203,7 +203,7 @@
         </div>
         <jsp:include page="/WEB-INF/views/footer/footer.jsp"></jsp:include>
     </div>
-    <script type="text/javascript" src="resources/js/memo.js?443"></script>
+    <script type="text/javascript" src="resources/js/memo.js?43"></script>
     
 </body>
 </html>

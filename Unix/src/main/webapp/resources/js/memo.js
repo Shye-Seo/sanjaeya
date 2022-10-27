@@ -14,6 +14,11 @@ $(function() {
 	    $("#test").text("Add");
 	});
 	
+	$("#close").click(function() {
+		$("#add_memo_form").fadeOut();
+		$('#wrap').off('scroll touchmove mousewheel');
+	});
+	
 	$(".memo_box").click(function() {
 		$("#add_memo_form").fadeIn();
 		$('#wrap').on('scroll touchmove mousewheel', function(event) {
@@ -24,10 +29,6 @@ $(function() {
 	    $("#test").text("Update");
 	});
 	
-	$("#close").click(function() {
-		$("#add_memo_form").fadeOut();
-		$('#wrap').off('scroll touchmove mousewheel');
-	});
 	
 	$("#close1").click(function() {
 		$("#add_memo_form").fadeOut();
