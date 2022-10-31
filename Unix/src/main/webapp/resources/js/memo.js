@@ -11,22 +11,12 @@ $(function() {
 	        event.stopPropagation();
 	        return false;
 	    }); 
-	    $("#test").text("Add");
 	});
 	
 	$("#close").click(function() {
 		$("#add_memo_form").fadeOut();
+		$("#update_memo_form").fadeOut();
 		$('#wrap').off('scroll touchmove mousewheel');
-	});
-	
-	$(".memo_box").click(function() {
-		$("#add_memo_form").fadeIn();
-		$('#wrap').on('scroll touchmove mousewheel', function(event) {
-	        event.preventDefault();
-	        event.stopPropagation();
-	        return false;
-	    }); 
-	    $("#test").text("Update");
 	});
 	
 	

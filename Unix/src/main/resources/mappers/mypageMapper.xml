@@ -19,8 +19,8 @@
 		]]>
 	</select>
 	
-	<insert id="create" parameterType="com.service.unix.mypageVo.MypageVo">
-		INSERT INTO nm_notice (title, content, writer, date, time) VALUES (#{title}, #{content}, #{writer}, #{date}, #{time})
+	<insert id="create" parameterType="com.service.unix.mypageVo.MypageVo" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO nm_notice (id, title, content, writer, date, time) VALUES ((SELECT IFNULL(max(id)+1,1)), #{title}, #{content}, #{writer}, #{date}, #{time})
 	</insert>
 	
 	<select id="read" resultType="com.service.unix.mypageVo.MypageVo">

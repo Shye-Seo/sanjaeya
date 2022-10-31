@@ -58,6 +58,8 @@ public class MypageController {
 	@RequestMapping(value="Addmemo.do", method=RequestMethod.POST) 
 	public String addmemo(@ModelAttribute MypageVo mypagevo) throws Exception {
 		
+		mypagevo.setContent(mypagevo.getContent().replace("\r\n", "<br/>"));
+		
 		mypageservice.create(mypagevo);
 		return "redirect:/MyPage";
 	} 
@@ -66,15 +68,16 @@ public class MypageController {
 	public String updatememo(@ModelAttribute MypageVo mypagevo) throws Exception {
 		
 		mypageservice.update(mypagevo);
-		return "redirect:/MyPage";
+		return "redirect:/Mypage";
 	}
-	  
+	
+
 	@RequestMapping(value="Delmemo.do", method=RequestMethod.GET)
 	public String deletememo(@ModelAttribute MypageVo mypagevo) throws Exception {
 		
-		System.out.println("이게 실행된다면 함수 실행을 했다는 의미이다. 만약에 되지 않는다면.. 실행이 되지 않았다는 것이고. 근데 실행이 안 될 이유는 없어 보이는데.. 그럼 뭘까? 텍스트 부분에서 문제가 생긴다는 의미 아닐까?");
+		System.out.println("삭제 제스쳐가 동작한다?");
+		System.out.println("mypagevo id : " + mypagevo.getBid());
 		mypageservice.delete(mypagevo);
 		return "redirect:/MyPage";
 	}
-	
 }

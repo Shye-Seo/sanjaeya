@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<% pageContext.setAttribute("newLineChar", "\n"); %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>마이페이지</title>
-<link rel="stylesheet" href="resources/css/mypage.css?45">
+<link rel="stylesheet" href="resources/css/mypage.css?44">
 <script type="text/javascript" src="resources/js/mypage.js?453"></script>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
@@ -132,24 +134,24 @@
 						<div class="memo_add_box"><input type="button" id="add_memo"></div>
 						<c:forEach var="board" items="${boardList }">
 							<div class="memo_box" onclick="">
-								<input type="button" id="memo_delete" onClick="location.href='Delmemo.do?title=${board.title}&date=${board.date }&time=${board.time }&content=${board.content }&writer=${board.writer }'">
+								<input type="button" id="memo_delete" onClick="location.href='Delmemo.do?bid=${board.bid }&title=${board.title}&date=${board.date }&time=${board.time }&content=${board.content }&writer=${board.writer }'">
 								<h3>${board.title }</h3>
 								<p>일정 : ${board.date }</p>
 								<hr>
 								<p>시간 : ${board.time }</p>
 								<hr>
-								<p>내용 : ${board.content }</p>
+								<p>내용 : ${fn:replace( board.content, newLineChar, '<br/>')}</p>
 							</div>
 						</c:forEach>
 					</div>
 					
-					<!-- 메모장 추가 및 수정 폼 -->
+					<!-- 메모장 추가 -->
 					<form method="post" action="Addmemo.do">
 						<div id="add_memo_form">
 							<div class="modal_layer"></div>
 							<div class="memo_form">
 								<input type="button" id="close">
-								<h1 id="test">Add</h1>
+								<h1>Add</h1>
 								<hr>
 								<div class="memo_form_detail">
 									<p><span>제목</span>  <input type="text" name="title" value=""></p>
@@ -203,7 +205,7 @@
         </div>
         <jsp:include page="/WEB-INF/views/footer/footer.jsp"></jsp:include>
     </div>
-    <script type="text/javascript" src="resources/js/memo.js?43"></script>
+    <script type="text/javascript" src="resources/js/memo.js?54"></script>
     
 </body>
 </html>
