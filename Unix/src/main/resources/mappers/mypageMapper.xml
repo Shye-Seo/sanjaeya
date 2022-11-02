@@ -20,15 +20,15 @@
 	</select>
 	
 	<insert id="create" parameterType="com.service.unix.mypageVo.MypageVo" useGeneratedKeys="true" keyProperty="id">
-		INSERT INTO nm_notice (id, title, content, writer, date, time) VALUES ((SELECT IFNULL(max(id)+1,1)), #{title}, #{content}, #{writer}, #{date}, #{time})
+		INSERT INTO nm_notice (title, content, writer, date, time) VALUES (#{title}, #{content}, #{writer}, #{date}, #{time})
 	</insert>
 	
 	<select id="read" resultType="com.service.unix.mypageVo.MypageVo">
-		SELECT (title, content, data, time) FROM nm_notice WHERE id=#{bid}
+		SELECT * FROM nm_notice WHERE id=#{id }
 	</select>
 	
 	<update id="update">
-		UPDATE nm_notice SET title=#{title}, content=#{content}, date=#{date} time=#{time} WHERE id=#{bid}
+		UPDATE nm_notice SET title=#{title}, content=#{content}, date=#{date} time=#{time} WHERE id=#{id}
 	</update>
 	
 	<delete id="delete" parameterType="com.service.unix.mypageVo.MypageVo">

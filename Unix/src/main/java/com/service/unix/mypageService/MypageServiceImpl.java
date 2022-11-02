@@ -24,15 +24,15 @@ public class MypageServiceImpl implements MypageService{
 	}
 
 	@Override
-	public MypageVo read(Integer bid) throws Exception {
+	public MypageVo read(int id) throws Exception {
 		// TODO Auto-generated method stub
-		return mypageDao.read(bid);
+		return mypageDao.read(id);
 	}
 
 	@Override
-	public int update(MypageVo mypagevo) throws Exception {
+	public int update(int id) throws Exception {
 		// TODO Auto-generated method stub
-		return mypageDao.update(mypagevo);
+		return mypageDao.update(id);
 	}
 
 	@Override

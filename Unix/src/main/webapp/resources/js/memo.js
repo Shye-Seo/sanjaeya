@@ -15,7 +15,6 @@ $(function() {
 	
 	$("#close").click(function() {
 		$("#add_memo_form").fadeOut();
-		$("#update_memo_form").fadeOut();
 		$('#wrap').off('scroll touchmove mousewheel');
 	});
 	
@@ -25,6 +24,25 @@ $(function() {
 		$('#wrap').off('scroll touchmove mousewheel');
 	});
 	
+	$(".memo_box").click(function() {
+		$("#update_memo_form").fadeIn();
+		$('#wrap').on('scroll touchmove mousewheel', function(event) {
+	        event.preventDefault();
+	        event.stopPropagation();
+	        return false;
+	    }); 
+	});
+	
+	$("#close2").click(function() {
+		$("#update_memo_form").fadeOut();
+		$('#wrap').off('scroll touchmove mousewheel');
+	});
+	
+	
+	$("#close3").click(function() {
+		$("#update_memo_form").fadeOut();
+		$('#wrap').off('scroll touchmove mousewheel');
+	});
 	
 	$("#date_form").on("change", function() {
 	    this.setAttribute(

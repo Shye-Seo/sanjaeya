@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>마이페이지</title>
-<link rel="stylesheet" href="resources/css/mypage.css?44">
+<link rel="stylesheet" href="resources/css/mypage.css?414">
 <script type="text/javascript" src="resources/js/mypage.js?453"></script>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
@@ -133,8 +133,8 @@
 					<div class="memo_table"> <!-- 메모장 테이블 -->
 						<div class="memo_add_box"><input type="button" id="add_memo"></div>
 						<c:forEach var="board" items="${boardList }">
-							<div class="memo_box" onclick="">
-								<input type="button" id="memo_delete" onClick="location.href='Delmemo.do?bid=${board.bid }&title=${board.title}&date=${board.date }&time=${board.time }&content=${board.content }&writer=${board.writer }'">
+							<div class="memo_box" onclick="location.href='Readmemo.do?id=${board.id}'">
+								<input type="button" id="memo_delete" onClick="location.href='Delmemo.do?id=${board.id }&title=${board.title}&date=${board.date }&time=${board.time }&content=${board.content }&writer=${board.writer }'">
 								<h3>${board.title }</h3>
 								<p>일정 : ${board.date }</p>
 								<hr>
@@ -164,6 +164,30 @@
 								<div class="member_submit">
 	                                <input type="submit" value="저장" id="member_submit_btn" onclick="">
 	                                <input type="reset" value="취소"  id="close1" class="reset">
+	                            </div>
+							</div>
+						</div>
+					</form>
+					
+					<!-- 메모장 수정 -->
+					<form method="post" action="Updatememo.do">
+						<div id="update_memo_form">
+							<div class="modal_layer"></div>
+							<div class="memo_form">
+								<input type="button" id="close2">
+								<h1>Update</h1>
+								<hr>
+								<div class="memo_form_detail">
+									<p><span>제목</span>  <input type="text" name="title" value="${update_board.titme }"></p>
+									<p><span>시간</span> <input type="time" name="time" value="${update_board.time }"></p>
+									<p><span>날짜</span> <input type="date" id="date_form" name="date" data-date="" data-date-format="YYYY년 MM월 DD일" value="${update_board.date }"></p>
+									<p><span id="arg">메모</span> <textarea rows="10" cols="54" name="content" value="${update_board.content }"></textarea></p>
+									<input type="text" name="writer" value="${user_id }" hidden>
+								</div>
+								<hr>
+								<div class="member_submit">
+	                                <input type="submit" value="저장" id="member_submit_btn" onclick="">
+	                                <input type="reset" value="취소"  id="close3" class="reset">
 	                            </div>
 							</div>
 						</div>
@@ -205,7 +229,7 @@
         </div>
         <jsp:include page="/WEB-INF/views/footer/footer.jsp"></jsp:include>
     </div>
-    <script type="text/javascript" src="resources/js/memo.js?54"></script>
+    <script type="text/javascript" src="resources/js/memo.js?524"></script>
     
 </body>
 </html>

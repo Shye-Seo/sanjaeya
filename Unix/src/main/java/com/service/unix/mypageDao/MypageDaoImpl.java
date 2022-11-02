@@ -24,15 +24,15 @@ public class MypageDaoImpl implements MypageDao{
 	}
 
 	@Override
-	public MypageVo read(int bid) throws Exception {
+	public MypageVo read(int id) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlsession.selectOne("mypage.read");
+		return sqlsession.selectOne("mypage.read", id);
 	}
 
 	@Override
-	public int update(MypageVo mypageVo) throws Exception {
+	public int update(int id) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlsession.update("mypage.update", mypageVo);
+		return sqlsession.update("mypage.update", id);
 	}
 
 	@Override

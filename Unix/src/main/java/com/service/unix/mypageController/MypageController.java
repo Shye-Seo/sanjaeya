@@ -54,7 +54,7 @@ public class MypageController {
 		
 		return model;
 	}  
-	
+	 
 	@RequestMapping(value="Addmemo.do", method=RequestMethod.POST) 
 	public String addmemo(@ModelAttribute MypageVo mypagevo) throws Exception {
 		
@@ -64,19 +64,23 @@ public class MypageController {
 		return "redirect:/MyPage";
 	} 
 	
-	@RequestMapping(value="Updatememo.do", method=RequestMethod.POST)
-	public String updatememo(@ModelAttribute MypageVo mypagevo) throws Exception {
+	@RequestMapping(value="Readmemo.do")
+	public void readmemo(@RequestParam("id") int id, Model model) throws Exception {
 		
-		mypageservice.update(mypagevo);
-		return "redirect:/Mypage";
+		System.out.println("넘겨받은 id값 : " + id);
+		model.addAttribute("update_board", mypageservice.read(id));
 	}
 	
-
+	@RequestMapping(value="Updatememo.do", method=RequestMethod.POST)
+	public String updatememo(@RequestParam("id") int id) throws Exception {
+		
+		mypageservice.update(id);
+		return "redirect:/Mypage";
+	}
+ 
 	@RequestMapping(value="Delmemo.do", method=RequestMethod.GET)
 	public String deletememo(@ModelAttribute MypageVo mypagevo) throws Exception {
 		
-		System.out.println("삭제 제스쳐가 동작한다?");
-		System.out.println("mypagevo id : " + mypagevo.getBid());
 		mypageservice.delete(mypagevo);
 		return "redirect:/MyPage";
 	}

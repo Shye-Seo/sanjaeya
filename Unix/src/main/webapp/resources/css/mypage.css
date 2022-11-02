@@ -408,7 +408,6 @@
     
 }
 
-
 #add_memo_form .memo_form > input[type=button] {
     margin:3% 91%;
     width:42px;
@@ -428,6 +427,29 @@
     width:600px;
 }
 
+#update_memo_form {
+    display:none;
+    
+}
+
+#update_memo_form .memo_form > input[type=button] {
+    margin:3% 91%;
+    width:42px;
+    height:42px;
+    cursor:pointer;
+    border:0px;
+    background:url("../imgs/delete_memo_icon.svg") center / contain no-repeat;
+}
+
+#update_memo_form .memo_form h1 {
+    margin:0 auto 3% 7%;
+    font-size:1.7em;
+}
+
+#update_memo_form .memo_form hr {
+    margin:auto;
+    width:600px;
+}
 
 .memo_form {
     position:fixed;
