@@ -373,6 +373,7 @@
 	border:1px solid #326DFB;
 	border-radius:10px;
 	cursor:pointer;
+	z-index:0;
 }
 
 .memo_table .memo_box input[type=button] {
@@ -385,6 +386,7 @@
     border:0px;
     cursor:pointer;
 	background:url("../imgs/delete_memo_icon.svg") center / contain no-repeat;
+	z-index:1;
 }
 
 .memo_table .memo_box h3 {

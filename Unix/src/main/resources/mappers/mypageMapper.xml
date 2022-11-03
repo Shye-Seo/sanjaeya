@@ -28,7 +28,7 @@
 	</select>
 	
 	<update id="update">
-		UPDATE nm_notice SET title=#{title}, content=#{content}, date=#{date} time=#{time} WHERE id=#{id}
+		UPDATE nm_notice SET title=#{title}, content=#{content}, date=#{date}, time=#{time} WHERE id=#{id}
 	</update>
 	
 	<delete id="delete" parameterType="com.service.unix.mypageVo.MypageVo">

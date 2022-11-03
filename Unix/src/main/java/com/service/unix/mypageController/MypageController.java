@@ -3,10 +3,12 @@ package com.service.unix.mypageController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -64,20 +66,24 @@ public class MypageController {
 		return "redirect:/MyPage";
 	} 
 	
-	@RequestMapping(value="Readmemo.do")
-	public void readmemo(@RequestParam("id") int id, Model model) throws Exception {
+	@GetMapping("Readmemo.do")
+	public String readmemo(@RequestParam("id") int id, Model model) throws Exception {
 		
 		System.out.println("넘겨받은 id값 : " + id);
+		//mypagevo = mypageservice.read(id);
 		model.addAttribute("update_board", mypageservice.read(id));
+		
+		return "update_memo";
 	}
 	
 	@RequestMapping(value="Updatememo.do", method=RequestMethod.POST)
-	public String updatememo(@RequestParam("id") int id) throws Exception {
+	public String updatememo(@ModelAttribute MypageVo mypagevo) throws Exception {
 		
-		mypageservice.update(id);
-		return "redirect:/Mypage";
+		mypagevo.setContent(mypagevo.getContent().replace("\r\n", "<br/>"));
+		mypageservice.update(mypagevo);
+		return "redirect:/MyPage";
 	}
- 
+
 	@RequestMapping(value="Delmemo.do", method=RequestMethod.GET)
 	public String deletememo(@ModelAttribute MypageVo mypagevo) throws Exception {
 		

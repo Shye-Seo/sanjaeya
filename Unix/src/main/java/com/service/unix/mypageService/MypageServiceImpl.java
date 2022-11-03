@@ -30,9 +30,9 @@ public class MypageServiceImpl implements MypageService{
 	}
 
 	@Override
-	public int update(int id) throws Exception {
+	public int update(MypageVo mypagevo) throws Exception {
 		// TODO Auto-generated method stub
-		return mypageDao.update(id);
+		return mypageDao.update(mypagevo);
 	}
 
 	@Override

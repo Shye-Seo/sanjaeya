@@ -30,9 +30,9 @@ public class MypageDaoImpl implements MypageDao{
 	}
 
 	@Override
-	public int update(int id) throws Exception {
+	public int update(MypageVo mypagevo) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlsession.update("mypage.update", id);
+		return sqlsession.update("mypage.update", mypagevo);
 	}
 
 	@Override

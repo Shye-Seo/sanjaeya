@@ -24,6 +24,10 @@ $(function() {
 		$('#wrap').off('scroll touchmove mousewheel');
 	});
 	
+	$("#memo_delete").click(function(event) {
+	  event.stopPropagation();
+	});
+	
 	$(".memo_box").click(function() {
 		$("#update_memo_form").fadeIn();
 		$('#wrap').on('scroll touchmove mousewheel', function(event) {
