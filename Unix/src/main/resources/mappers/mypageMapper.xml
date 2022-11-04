@@ -8,13 +8,11 @@
 		SELECT COUNT(*) FROM nm_notice WHERE writer=#{writer}
 	</select>
 	
-	<select id="boardList" resultType="com.service.unix.mypageVo.MypageVo">
-		SELECT * FROM nm_notice WHERE writer=#{writer } ORDER BY id DESC
-	</select>
-	
 	<select id="listCriteria" parameterType="hashMap" resultType="com.service.unix.mypageVo.MypageVo">
 		<![CDATA[
-			SELECT * FROM nm_notice WHERE writer=#{writer } ORDER BY id DESC
+			SELECT * FROM nm_notice 
+			WHERE writer=#{writer } 
+			ORDER BY id DESC
 			LIMIT #{page }, #{perPageNum }
 		]]>
 	</select>

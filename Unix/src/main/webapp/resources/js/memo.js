@@ -1,6 +1,4 @@
 // mypage 메모장에 사용된 기능들에 관련된 코드들 
-var d = new Date();
-document.getElementById('this_month').innerHTML=d.getFullYear() + "년 " + (d.getMonth()+1) + "월";
 document.getElementById('date_form').value=new Date().toISOString().substring(0, 10);
 
 $(function() {
@@ -55,5 +53,15 @@ $(function() {
 	        .format( this.getAttribute("data-date-format") )
 	    );
 	}).trigger("change");
+	
+	$("#prev_month").click(function() {
+		if(month==0) {
+			year-=1;
+			month=12;
+		}
+		else {
+			month-=1;
+		}
+	});
 });
 

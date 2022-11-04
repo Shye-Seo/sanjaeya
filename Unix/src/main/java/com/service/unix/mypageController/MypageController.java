@@ -15,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.service.unix.memberVo.MemberVo;
 import com.service.unix.mypageService.MypageService;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,28 +32,59 @@ public class MypageController {
 	@Autowired
 	MypageService mypageservice;
 	MakerPaging makerPaging = new MakerPaging();
+	LocalDate now = LocalDate.now();
+	int year = now.getYear();
+	int month = now.getMonthValue();
+	String default_year=Integer.toString(this.year);;
 	
 	@RequestMapping(value="MyPage", method=RequestMethod.GET)
-	public ModelAndView boardList(@ModelAttribute MemberVo membervo, HttpSession session, Criteria criteria) throws Exception {
+	public ModelAndView boardList(@ModelAttribute MemberVo membervo, HttpSession session, Criteria criteria
+			,@RequestParam(value="year", required=false, defaultValue="2022") int year
+			,@RequestParam(value="month", required=false, defaultValue="11") int month) throws Exception {
 		
+		// DB 맵핑을 위해 연월 우선 처리
+		if(this.month > month) { // 이전 연월 처리 
+			if(month==0) {
+				year-=1;
+				month=12;
+			}
+		}
+		else { // 다음 연월 처리 
+			if(month==13) {
+				year+=1;
+				month=1;
+			}
+		}
+		
+		// 필요한 사전 작업(변수 선언 등) 
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		String str = (String) session.getAttribute("user_id");
 		
 		ModelAndView model = new ModelAndView();
 		model.setViewName("mypage");
 		
+		// 페이징(paging) 처리 
 		makerPaging.setCri(criteria);
 		makerPaging.setTotalCount(mypageservice.count(str));
 		 
 		criteria.setPage(criteria.getPageStart());
-		model.addObject("makerpaging", makerPaging);
-		 
+
+		// boardlist 불러오기 위해 필요한 값들을 map에 추가 
 		map.put("page", criteria.getPage());
 		map.put("perPageNum", criteria.getPerPageNum());
 		map.put("writer", str);
+		map.put("year", year);
+		map.put("month", month);
+		
+		// 조건에 맞게 메모장 리스트 DB에 요청 
 		List<MypageVo> boardList = mypageservice.listCriteria(map);
+		
+		// model에 String-Object 쌍 생성
+		model.addObject("makerpaging", makerPaging);
 		model.addObject("boardList", boardList);
 		model.addObject("user_id", str);
+		model.addObject("year", year);
+		model.addObject("month", month);
 		
 		return model;
 	}  

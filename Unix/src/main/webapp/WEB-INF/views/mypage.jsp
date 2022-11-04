@@ -129,7 +129,7 @@
             
             <div class="tab2_content">
 				<section id="memo">
-					<h4>&lsaquo;&nbsp;&nbsp;<span id="this_month"></span>&nbsp;&nbsp;&rsaquo;</h4>
+					<h4><a href="MyPage?year=${year }&month=${month-1}" id="prev_month">&lsaquo;</a>&nbsp;&nbsp;<span>${year }년 ${month }월</span>&nbsp;&nbsp;<a href="MyPage?year=${year }&month=${month+1}" id="next_month">&rsaquo;</a></h4>
 					<div class="memo_table"> <!-- 메모장 테이블 -->
 						<div class="memo_add_box"><input type="button" id="add_memo"></div>
 						<c:forEach var="board" items="${boardList }">
@@ -205,9 +205,9 @@
         </div>
         <jsp:include page="/WEB-INF/views/footer/footer.jsp"></jsp:include>
     </div>
-    <script type="text/javascript" src="resources/js/memo.js?244"></script>
+    <script type="text/javascript" src="resources/js/memo.js?14544"></script>
     <script>
-
+		
     </script>
 </body>
 </html>
