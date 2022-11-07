@@ -42,9 +42,9 @@ public class MypageDaoImpl implements MypageDao{
 	}
 
 	@Override
-	public int countBoard(String writer) throws Exception {
+	public int countBoard(HashMap<String, Object> map) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlsession.selectOne("mypage.countBoard", writer);
+		return sqlsession.selectOne("mypage.countBoard", map);
 	} 
 
 	@Override

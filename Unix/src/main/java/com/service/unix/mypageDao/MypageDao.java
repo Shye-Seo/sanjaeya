@@ -13,6 +13,6 @@ public interface MypageDao {
 	public int update(MypageVo mypagevo) throws Exception;
 	public int delete(MypageVo mypagevo) throws Exception;
 	public List<MypageVo> listCriteria(HashMap<String, Object> map) throws Exception;
-	public int countBoard(String writer) throws Exception;
+	public int countBoard(HashMap<String, Object> map) throws Exception;
 	
 }

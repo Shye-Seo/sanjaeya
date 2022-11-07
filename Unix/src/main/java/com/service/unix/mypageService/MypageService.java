@@ -12,6 +12,6 @@ public interface MypageService {
 	public MypageVo read(int id) throws Exception;
 	public int update(MypageVo mypagevo) throws Exception;
 	public int delete(MypageVo mypagevo) throws Exception;
-	public int count(String writer) throws Exception;
+	public int count(HashMap<String, Object> map) throws Exception;
 	public List<MypageVo> listCriteria(HashMap<String, Object> map) throws Exception;
 }

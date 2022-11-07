@@ -4,14 +4,15 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mypage">
 	
-	<select id="countBoard" resultType="int">
-		SELECT COUNT(*) FROM nm_notice WHERE writer=#{writer}
+	<select id="countBoard" parameterType="hashMap" resultType="int">
+		SELECT COUNT(*) FROM nm_notice 
+		WHERE writer=#{writer} AND (SELECT LEFT(date, 4)=#{year }) AND (SELECT SUBSTRING(date, 6, 2)=#{month })
 	</select>
 	
 	<select id="listCriteria" parameterType="hashMap" resultType="com.service.unix.mypageVo.MypageVo">
 		<![CDATA[
 			SELECT * FROM nm_notice 
-			WHERE writer=#{writer } 
+			WHERE writer=#{writer } AND (SELECT LEFT(date, 4)=#{year }) AND (SELECT SUBSTRING(date, 6, 2)=#{month })
 			ORDER BY id DESC
 			LIMIT #{page }, #{perPageNum }
 		]]>

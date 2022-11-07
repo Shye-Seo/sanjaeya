@@ -35,6 +35,7 @@ public class MypageController {
 	LocalDate now = LocalDate.now();
 	int year = now.getYear();
 	int month = now.getMonthValue();
+	int tmp_year, tmp_month; // 메모 추가, 삭제할 때 해당 월로 이동
 	String default_year=Integer.toString(this.year);;
 	
 	@RequestMapping(value="MyPage", method=RequestMethod.GET)
@@ -59,35 +60,40 @@ public class MypageController {
 		// 필요한 사전 작업(변수 선언 등) 
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		String str = (String) session.getAttribute("user_id");
-		
-		ModelAndView model = new ModelAndView();
-		model.setViewName("mypage");
-		
-		// 페이징(paging) 처리 
-		makerPaging.setCri(criteria);
-		makerPaging.setTotalCount(mypageservice.count(str));
-		 
-		criteria.setPage(criteria.getPageStart());
-
-		// boardlist 불러오기 위해 필요한 값들을 map에 추가 
-		map.put("page", criteria.getPage());
-		map.put("perPageNum", criteria.getPerPageNum());
+		// 1차 put
 		map.put("writer", str);
 		map.put("year", year);
 		map.put("month", month);
+		
+		// model 선언
+		ModelAndView model = new ModelAndView();
+		model.setViewName("mypage");
+		
+		// 페이징 설정 
+		makerPaging.setCri(criteria); 
+		makerPaging.setTotalCount(mypageservice.count(map));
+		
+		criteria.setPage(criteria.getPageStart());
+		model.addObject("makerpaging", makerPaging);
+		
+		// boardlist 불러오기 위해 필요한 값들을 map에 추가 
+		map.put("page", criteria.getPage());
+		map.put("perPageNum", criteria.getPerPageNum());
+
 		
 		// 조건에 맞게 메모장 리스트 DB에 요청 
 		List<MypageVo> boardList = mypageservice.listCriteria(map);
 		
 		// model에 String-Object 쌍 생성
-		model.addObject("makerpaging", makerPaging);
 		model.addObject("boardList", boardList);
 		model.addObject("user_id", str);
 		model.addObject("year", year);
 		model.addObject("month", month);
 		
+		this.tmp_year=year;
+		this.tmp_month=month;
 		return model;
-	}  
+	}
 	 
 	@RequestMapping(value="Addmemo.do", method=RequestMethod.POST) 
 	public String addmemo(@ModelAttribute MypageVo mypagevo) throws Exception {
@@ -95,8 +101,8 @@ public class MypageController {
 		mypagevo.setContent(mypagevo.getContent().replace("\r\n", "<br/>"));
 		
 		mypageservice.create(mypagevo);
-		return "redirect:/MyPage";
-	} 
+		return "redirect:/MyPage?year="+this.tmp_year+"&month="+this.tmp_month;
+	}
 	
 	@GetMapping("Readmemo.do")
 	public String readmemo(@RequestParam("id") int id, Model model) throws Exception {
@@ -120,6 +126,7 @@ public class MypageController {
 	public String deletememo(@ModelAttribute MypageVo mypagevo) throws Exception {
 		
 		mypageservice.delete(mypagevo);
-		return "redirect:/MyPage";
+		
+		return "redirect:/MyPage?year="+this.tmp_year+"&month="+this.tmp_month;
 	}
 }

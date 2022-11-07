@@ -24,6 +24,7 @@ public class MakerPaging {
 		this.endPage = (int) (Math.ceil(cri.getPage() / (double) this.displayPageNum) * this.displayPageNum);
 		this.startPage = (this.endPage - this.displayPageNum) + 1;
 		this.tempEndPage = (int) (Math.ceil(totalCount / (double) cri.getPerPageNum()));
+		
 		if(this.endPage >= this.tempEndPage) {
 			this.endPage = this.tempEndPage;
 		}

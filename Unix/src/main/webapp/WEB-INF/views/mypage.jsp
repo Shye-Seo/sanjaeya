@@ -129,6 +129,7 @@
             
             <div class="tab2_content">
 				<section id="memo">
+					"${makerpaging.startPage }""${makerpaging.endPage }""${makerpaging.tempEndPage }"
 					<h4><a href="MyPage?year=${year }&month=${month-1}" id="prev_month">&lsaquo;</a>&nbsp;&nbsp;<span>${year }년 ${month }월</span>&nbsp;&nbsp;<a href="MyPage?year=${year }&month=${month+1}" id="next_month">&rsaquo;</a></h4>
 					<div class="memo_table"> <!-- 메모장 테이블 -->
 						<div class="memo_add_box"><input type="button" id="add_memo"></div>
@@ -175,26 +176,26 @@
 							<!-- 이전 -->
 							<c:choose>
 								<c:when test="${makerpaging.startPage==1 }">
-									<li><a href="MyPage?page=1">&lsaquo;</a></li>
+									<li><a href="MyPage?year=${year }&month=${month}&page=1">&lsaquo;</a></li>
 								</c:when>
 								<c:otherwise>
-									<li><a href="MyPage?page=${makerpaging.startPage-1 }">&lsaquo;</a></li>
+									<li><a href="MyPage?year=${year }&month=${month}&page=${makerpaging.startPage-1 }">&lsaquo;</a></li>
 								</c:otherwise>
 							</c:choose>
 							
 							
 							<!-- 번호 -->
 							<c:forEach var="num" begin="${makerpaging.startPage }" end="${makerpaging.endPage }">
-								<li><a href="MyPage?page=${num }">${num }</a></li>
+								<li><a href="MyPage?year=${year }&month=${month}&page=${num }">${num }</a></li>
 							</c:forEach>
 							
 							<!-- 다음 -->
 							<c:choose>
 								<c:when test="${makerpaging.endPage == makerpaging.tempEndPage}">
-									<li><a href="MyPage?page=${makerpaging.endPage }">&rsaquo;</a></li>
+									<li><a href="MyPage?year=${year }&month=${month}&page=${makerpaging.endPage }">&rsaquo;</a></li>
 								</c:when>
 								<c:otherwise>
-									<li><a href="MyPage?page=${makerpaging.endPage+1 }">&rsaquo;</a></li>
+									<li><a href="MyPage?year=${year }&month=${month}&page=${makerpaging.endPage+1 }">&rsaquo;</a></li>
 								</c:otherwise>
 							</c:choose>
 						</ul>

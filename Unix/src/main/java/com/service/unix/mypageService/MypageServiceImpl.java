@@ -42,9 +42,9 @@ public class MypageServiceImpl implements MypageService{
 	}
 
 	@Override
-	public int count(String writer) throws Exception {
+	public int count(HashMap<String, Object> map) throws Exception {
 		// TODO Auto-generated method stub
-		return mypageDao.countBoard(writer);
+		return mypageDao.countBoard(map);
 	}
 
 	@Override
