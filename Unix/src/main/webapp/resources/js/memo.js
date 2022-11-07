@@ -25,15 +25,7 @@ $(function() {
 	$("#memo_delete").click(function(event) {
 	  event.stopPropagation();
 	});
-	
-	$(".memo_box").click(function() {
-		$("#update_memo_form").fadeIn();
-		$('#wrap').on('scroll touchmove mousewheel', function(event) {
-	        event.preventDefault();
-	        event.stopPropagation();
-	        return false;
-	    }); 
-	});
+
 	
 	$("#close2").click(function() {
 		$("#update_memo_form").fadeOut();
@@ -54,14 +46,5 @@ $(function() {
 	    );
 	}).trigger("change");
 	
-	$("#prev_month").click(function() {
-		if(month==0) {
-			year-=1;
-			month=12;
-		}
-		else {
-			month-=1;
-		}
-	});
 });
 

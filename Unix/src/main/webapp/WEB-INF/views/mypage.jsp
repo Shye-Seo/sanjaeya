@@ -129,12 +129,11 @@
             
             <div class="tab2_content">
 				<section id="memo">
-					"${makerpaging.startPage }""${makerpaging.endPage }""${makerpaging.tempEndPage }"
 					<h4><a href="MyPage?year=${year }&month=${month-1}" id="prev_month">&lsaquo;</a>&nbsp;&nbsp;<span>${year }년 ${month }월</span>&nbsp;&nbsp;<a href="MyPage?year=${year }&month=${month+1}" id="next_month">&rsaquo;</a></h4>
 					<div class="memo_table"> <!-- 메모장 테이블 -->
 						<div class="memo_add_box"><input type="button" id="add_memo"></div>
 						<c:forEach var="board" items="${boardList }">
-							<div class="memo_box" onclick="location.href='Readmemo.do?id=${board.id}'">
+							<div class="memo_box" onclick="">
 								<input type="button" id="memo_delete" onClick="location.href='Delmemo.do?id=${board.id }&title=${board.title}&date=${board.date }&time=${board.time }&content=${board.content }&writer=${board.writer }'">
 								<h3>${board.title }</h3>
 								<p>일정 : ${board.date }</p>
@@ -206,7 +205,7 @@
         </div>
         <jsp:include page="/WEB-INF/views/footer/footer.jsp"></jsp:include>
     </div>
-    <script type="text/javascript" src="resources/js/memo.js?14544"></script>
+    <script type="text/javascript" src="resources/js/memo.js?14"></script>
     <script>
 		
     </script>

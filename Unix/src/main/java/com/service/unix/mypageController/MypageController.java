@@ -107,7 +107,6 @@ public class MypageController {
 	@GetMapping("Readmemo.do")
 	public String readmemo(@RequestParam("id") int id, Model model) throws Exception {
 		
-		System.out.println("넘겨받은 id값 : " + id);
 		//mypagevo = mypageservice.read(id);
 		model.addAttribute("update_board", mypageservice.read(id));
 		
@@ -125,6 +124,7 @@ public class MypageController {
 	@RequestMapping(value="Delmemo.do", method=RequestMethod.GET)
 	public String deletememo(@ModelAttribute MypageVo mypagevo) throws Exception {
 		
+		System.out.println("삭제 작동 여부 확인");
 		mypageservice.delete(mypagevo);
 		
 		return "redirect:/MyPage?year="+this.tmp_year+"&month="+this.tmp_month;
