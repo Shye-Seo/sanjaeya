@@ -77,6 +77,9 @@
 			</p>
 			<p class="modal_con2">선택을 하면 자가진단 페이지로 이동됩니다.</p>
 			<div class="category2">
+			<div class="category_1"></div>
+			<div class="category_2"></div>
+			<div class="category_3"></div>
 				<div class="modal_img_wrap">
 					<div class="category_1"></div>
 				</div>

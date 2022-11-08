@@ -304,7 +304,7 @@ ul {
 	font-size: 20px;
 	font-weight: bold;
 	color: black;
-	padding-left: 550px;
+	padding-left: 750px;
 	margin-right: 0;
 }
 
@@ -534,16 +534,13 @@ ul {
 .section_1 .category2 {
 	display: none;
 }
+.modal_img_wrap{
+	display:none;
+}
 
 /* 태블릿 */
-@media
-all
-and
-(min-width:768px)
-and
-(max-width:1023px)
-{
-html, body {
+@media all and (min-width:768px) and (max-width:1023px) {
+	html, body {
 	min-width: unset;
 	overflow-x: hidden;
 }
@@ -672,16 +669,11 @@ html, body {
 	width: 77%;
 	height: 500px;
 }
+
 }
 /* 모바일 */
-@media
-all
-and
-(min-width:320px)
-and
-(max-width:767px)
-{
-html, body {
+@media all and (min-width:320px) and (max-width:767px) {
+	html, body {
 	min-width: unset;
 	overflow-x: hidden;
 }
@@ -881,6 +873,10 @@ h4 {
 	width: 80%;
 	font-size: 25px;
 }
+.modal {
+	position: fixed;
+}
+
 .modal .category2 {
     display: flex;
     padding-top: 20px;
@@ -895,6 +891,7 @@ h4 {
 	transform: translate(-50%, -50%);
 	width: 77%;
 	height: 450px;
+	overflow: scroll;
 }
 
 .closeBtn {
@@ -914,9 +911,14 @@ h4 {
 
 }
 .modal_img_wrap {
-	width:50%;
+	width:55%;
+	display:block;
 }
-.modal .category2 .category_1 {
+.modal .category2 .category_1, .modal .category2 .category_2, .modal .category2 .category_3 {
+	display:none;
+}
+.modal .category2 .modal_img_wrap .category_1 {
+	display:block;
 	border-radius: 0;
 	box-shadow: 0 0px 0px #00000029;
 	width: 100%;
@@ -927,7 +929,8 @@ h4 {
 	margin-top: 0px;
 	margin-bottom: 5px;
 }
-.modal .category2 .category_2 {
+.modal .category2 .modal_img_wrap .category_2 {
+	display:block;
 	border-radius: 0;
 	box-shadow: 0 0px 0px #00000029;
 	width: 100%;
@@ -938,7 +941,8 @@ h4 {
 	margin-top: 0px;
 	margin-bottom: 5px;
 }
-.modal .category2 .category_3 {
+.modal .category2 .modal_img_wrap .category_3 {
+	display:block;
 	border-radius: 0;
 	box-shadow: 0 0px 0px #00000029;
 	width: 100%;
