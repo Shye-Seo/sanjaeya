@@ -120,13 +120,16 @@
 
 .a {
 	text-align: center;
-	margin: 25px;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	width:100%;
 }
 
 .a h3 {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
+
 .a div {
 	margin-top: 60px;
 	font: normal normal medium 20px/25px Pretendard;
@@ -224,58 +227,131 @@
 	margin-right: 15px;
 }
 
-@media ( max-width :1024px) {
-	section h4, .a h3, .lst1{
+/* 태블릿 */
+@media all and (min-width:768px) and (max-width:1023px) {
+		body {
+		min-width: unset;
+		overflow-x: hidden;
+	}
+	.nav {
+		background-image: none;
+		/* 		display: none; */
+		width: 0;
+		height: 90px;
+	}
+	.nav .banner {
+	    background-image: none;
+
+	}
+	.nav .banner span {
+	display:none;
+	}
+	section h4, .a h3, .lst1 {
 		width: 100%;
 		font-size: 40px
 	}
+
 	.lst1 .lst2 .answer1, .answer2, .answer3, .answer4, .answer5, .answer6,
 		.answer7, .answer8, .answer9, .answer10, .answer11, .answer12,
 		.answer13, .answer14, .answer15, .answer16, .answer17 {
 		width: 700px;
-		 height: 110px;
+		height: 110px;
 	}
 	.lst1 .lst2 label {
 		width: 90%;
 	}
 	.lst1 .lst2 input {
-    height: 24px;
+		height: 24px;
 	}
 	.a {
-		width: 95%;
-		text-align:center;
+		width: 100%;
+		text-align: center;
 	}
 	.a div {
-	margin-top: 60px;
-	font: normal normal medium 30px/35px Pretendard;
-	color: #333333;
+		margin-top: 60px;
+		font: normal normal medium 30px/35px Pretendard;
+		color: #333333;
+	}
+		#headers {
+		position: fixed;
+		width: 100%;
+		background-color: #ffffff;
+		z-index: 10000;
+		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+	}
 }
-}
-
-@media ( max-width :768px) {
-	section h4, a, .lst1{
+/* 모바일 */
+@media all and (min-width:320px) and (max-width:767px) {
+		body {
+		min-width: unset;
+		overflow-x: hidden;
+	}
+	.nav {
+		background-image: none;
+		/* 		display: none; */
+		width: 0;
+		height: 90px;
+	}
+	.nav .banner {
+	    background-image: none;
+		
+	}
+	.nav .banner span {
+	display:none;
+	}
+	section a, .lst1 {
 		width: 95%;
-		font-size: 40px;
+		font-size: 16px;
+	}
+	.lst1 {
+	width:100%;
 	}
 	.lst1 .lst2 .answer1, .answer2, .answer3, .answer4, .answer5, .answer6,
 		.answer7, .answer8, .answer9, .answer10, .answer11, .answer12,
 		.answer13, .answer14, .answer15, .answer16, .answer17 {
-		width: 550px;
-		 height: 110px;
+		width: 80%;
+		height: 80px;
 	}
 	.lst1 .lst2 label {
 		width: 90%;
 	}
 	.lst1 .lst2 input {
-    height: 24px;
+		height: 22px;
 	}
 	.a {
-		width: 98%;
-		text-align:center;
+		width: 100%;
+		text-align: center;
+	}
+	.a h3 {
+	margin-right: 10px;
+    margin-left: 10px;
 	}
 	.a div {
-	margin-top: 60px;
-	font: normal normal medium 30px/35px Pretendard;
-	color: #333333;
-}
+		margin-top: 60px;
+		font: normal normal medium 30px/35px Pretendard;
+		color: #333333;
+	}
+		.next {
+		padding-left: 6%;
+	}
+	.category ul li {
+		width: 30%;
+	}
+	.category p{
+	font-size:13px
+	}
+	#chc {
+	font-size:11px
+	}
+	#text {
+	width:20px;
+	}
+		#headers {
+		position: fixed;
+		width: 100%;
+		background-color: #ffffff;
+		z-index: 10000;
+		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+	}
+
 }

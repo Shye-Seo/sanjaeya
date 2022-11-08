@@ -140,7 +140,6 @@ public class ChecklistController {
 	      answerArrayList.add(req.getParameterValues("answerList"+16));
 	      answerArrayList.add(req.getParameterValues("answerList"+17));
 	      
-	      System.out.println("answerArrayList : "+answerArrayList);
 	      
 	      List<Integer> pointList = new ArrayList<Integer>();
 	      
@@ -466,7 +465,7 @@ public class ChecklistController {
 	      answerArrayList.add(req.getParameterValues("answerList"+14));
 	      answerArrayList.add(req.getParameterValues("answerList"+15));
 	      
-			System.out.println("answerArrayList : " + answerArrayList);
+	
 
 			List<Integer> pointList = new ArrayList<Integer>();
 
@@ -475,8 +474,6 @@ public class ChecklistController {
 			int test_userid = (int) ((Math.random() * (99999 - 10000 + 1)) + 10000);
 		    String user_id = (String) session.getAttribute("user_id");
 			int id = 0;
-			System.out.println("oooooooooo : "+session.getAttribute("user_id"));
-			System.out.println("tttttttttt : "+session.getAttribute("id"));
 			int pointSum = 0;
 			double pointper = 0;
 			int ques_num = 29;

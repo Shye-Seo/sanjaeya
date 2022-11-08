@@ -191,3 +191,70 @@
 			border-radius: 9px;
 			opacity: 1;
         }
+
+        /* 태블릿 */
+@media (max-width :1070px) {
+    #logwrap {
+        width: 570px;
+    }
+    body {
+		min-width: unset;
+		overflow-x: hidden;
+	}
+	.nav {
+		background-image: none;
+		/* 		display: none; */
+		width: 0;
+		height: 90px;
+	}
+	.nav .banner {
+		background-image: none;
+	}
+	.nav .banner span {
+		display: none;
+	}
+    	#headers {
+		position: fixed;
+		width: 100%;
+		background-color: #ffffff;
+		z-index: 10000;
+		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+	}
+}
+@media (max-width :768px) {
+    #logwrap {
+        width: 320px;
+    }
+    body {
+		min-width: unset;
+		overflow-x: hidden;
+	}
+	.nav {
+		background-image: none;
+		/* 		display: none; */
+		width: 0;
+		height: 90px;
+	}
+	.nav .banner {
+		background-image: none;
+	}
+	.nav .banner span {
+		display: none;
+	}
+    	#headers {
+		position: fixed;
+		width: 100%;
+		background-color: #ffffff;
+		z-index: 10000;
+		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+	}
+    .checkwrap {
+    font-size:14px;
+    }
+    input[type=text], input[type=password], input[type=button] {
+height:70px;
+    font-size: 20px;
+
+}
+}
+        

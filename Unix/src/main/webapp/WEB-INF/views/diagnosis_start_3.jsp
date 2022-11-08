@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Diagnosis_start</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 <link rel="stylesheet" href="resources/css/diagnosis_start.css">
 <%@ include file ="/WEB-INF/views/common.jsp" %>
 </head>
@@ -18,7 +19,7 @@
 </script>
 <body>
 	<div id="wrap">
-		<jsp:include page="/WEB-INF/views/header/header.jsp"></jsp:include>
+		<div id="headers"><jsp:include page="/WEB-INF/views/header/header.jsp"></jsp:include></div>
 		
 		<div class="nav">
 			<div class="banner">
@@ -43,11 +44,13 @@
 			<br>
 			<div class="type">
 				<div class="member">
-					<p class="memimg"></p>
+				<div class="pcl"><p class="memimg2"></p></div>
+				<p class="memimg"></p>
 					<h4>회원이세요?</h4>
 					<p>회원님에게 제공하는 다양한 서비스를 사용해보세요.</p>
 				</div>
 				<div class="nonmember">
+					<div class="pcl"><p class="nonmemimg2"></p></div>
 					<p class="nonmemimg"></p>
 					<h4>비회원이세요?</h4>
 					<p>지금 바로 회원가입을 해서 다양한 혜택을 누려보세요.</p>

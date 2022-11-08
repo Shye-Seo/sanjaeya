@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 <title>Diagnosis</title>
 <link rel="stylesheet" href="resources/css/diagnosis.css">
 <%@ include file="/WEB-INF/views/common.jsp"%>
@@ -394,7 +395,7 @@
 </script>
 <body>
 	<div id="wrap">
-		<jsp:include page="/WEB-INF/views/header/header.jsp"></jsp:include>
+		<div id="headers"><jsp:include page="/WEB-INF/views/header/header.jsp"></jsp:include></div>
 
 		<div class="nav">
 			<div class="banner">

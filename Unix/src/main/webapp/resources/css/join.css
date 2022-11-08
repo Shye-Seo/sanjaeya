@@ -461,3 +461,256 @@
             color: #4B9EF0;
             cursor: pointer;
         }
+        
+        textarea:focus {outline:none;}
+        
+        
+        h2 {
+    display: none;
+}
+/* 태블릿 */
+@media all and (min-width:768px) and (max-width:1023px)  {
+
+    h2 {        
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+    }
+    body {
+		min-width: unset;
+		overflow-x: hidden;
+	}
+	.nav {
+		background-image: none;
+		/* 		display: none; */
+		width: 0;
+		height: 90px;
+	}
+	.nav .banner {
+		background-image: none;
+	}
+	.nav .banner span {
+		display: none;
+	}
+    	#headers {
+		position: fixed;
+		width: 100%;
+		background-color: #ffffff;
+		z-index: 10000;
+		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+	}
+    #join {
+        width: 700px;
+    }
+    #joinform {
+        background-color: #FFFFFF;
+    }
+    
+    #join .infomation_item .name_item  {
+        display: none;
+    }
+    #join .infomation_item {
+        border: none;
+    }
+    .text_area {
+        display: none;
+    }
+    #join .infomation_item .value_item input {
+        border: 1px solid #000000;
+        border-radius: 8px;
+        padding: 20px;
+    }
+    #join .infomation_item .value_item {
+        width: 100%;
+        padding: 0%;
+        }
+        #join .infomation_item .value_item .id_wrap {
+            width: 100%;
+        }
+        #join .infomation_item .value_item .id_wrap #user_id{
+        width: 75%;
+        }
+        
+        #join .infomation_item .value_item .member_pw {
+            width: 90%;
+        }
+        
+        #join .infomation_item .value_item .member_pw_check {
+            width: 90%;
+        }
+        
+        #join .infomation_item .value_item .member_name {
+            width: 90%;
+        }
+        
+        #join .infomation_item .value_item .mail_wrap {
+            width: 100%;
+        }
+
+        #join .infomation_item .value_item #user_phone {
+            width: 72%;
+        }
+        #join .infomation_item .value_item .id_wrap .idchk_button {
+            width: 97px;
+            height: 70px;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        #join .infomation_item .value_item .mail_item_3 {
+            width: 16%;
+            height: 70px;
+            text-indent: 5%;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid #707070;
+            border-radius: 8px;
+        }
+        #join .infomation_item .value_item #phoneChk {
+            width: 16%;
+            height: 70px;
+        }
+}
+
+/* 모바일 */
+@media all and (min-width:320px) and (max-width:767px){
+	    h2 {        
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+    }
+		body {
+		min-width: unset;
+		overflow-x: hidden;
+	}
+	.nav {
+		background-image: none;
+		/* 		display: none; */
+		width: 0;
+		height: 90px;
+	}
+	.nav .banner {
+		background-image: none;
+	}
+	.nav .banner span {
+		display: none;
+	}
+    	#headers {
+		position: fixed;
+		width: 100%;
+		background-color: #ffffff;
+		z-index: 10000;
+		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+	}
+
+    #join {
+        width: 300px;
+    }
+    #joinform {
+        background-color: #FFFFFF;
+    }
+    
+    #join .infomation_item .name_item  {
+        display: none;
+    }
+    #join .infomation_item {
+        border: none;
+    }
+    .text_area {
+        display: none;
+    }
+    #join .infomation_item .value_item input {
+        border: 1px solid #000000;
+        border-radius: 8px;
+        padding: 20px;
+        font-size: 12px;
+    }
+    #join .infomation_item .value_item {
+        width: 100%;
+        padding: 0%;
+        }
+        #join .infomation_item .value_item .id_wrap {
+            width: 100%;
+        }
+        #join .infomation_item .value_item .id_wrap #user_id{
+        width: 50%;
+        }
+        
+        #join .infomation_item .value_item .member_pw {
+            width: 84%;
+        }
+        
+        #join .infomation_item .value_item .member_pw_check {
+            width: 84%;
+        }
+        
+        #join .infomation_item .value_item .member_name {
+            width: 84%;
+        }
+        
+        #join .infomation_item .value_item .mail_wrap {
+            width: 100%;
+        }
+
+        #join .infomation_item .value_item #user_phone {
+            width: 70%;
+        }
+        #join .infomation_item .value_item .id_wrap .idchk_button {
+            width: 97px;
+            height: 73px;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        #join .infomation_item .value_item .mail_item_1 {
+            width: 15%;
+        }
+        #join .infomation_item .value_item .mail_item_2 {
+            width: 15%;
+        }
+        #join .infomation_item .value_item .mail_item_3 {
+            width: 22%;
+            height: 70px;
+            text-indent: 5%;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid #707070;
+            border-radius: 8px;
+            font-size:1px;
+        }
+        #join .infomation_item .value_item #user_phone {
+    width: 50%;
+}
+        #join .infomation_item .value_item #phoneChk {
+            width: 30%;
+            height: 70px;
+        }
+        #join .agreement .agree_title_area .check_area span {
+    font-size: 13px;
+}
+
+#join .agreement .agree_title_area .check_area #all_check_item {
+    width: 15px;
+
+}
+#join .infomation_item .value_item #user_phone2 {
+    vertical-align: bottom;
+    margin-top: 10px;
+    width: 50%;
+    margin-right: 10px;
+    display: none;
+}
+#join .infomation_item .value_item #sms_send {
+    width: 30%;
+    height: 67px;
+    background: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid #707070;
+    display: none;
+}
+#join #contact{
+	height:210px;
+}
+}
+
+
