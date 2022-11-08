@@ -129,12 +129,21 @@
             
             <div class="tab2_content">
 				<section id="memo">
-					<h4><a href="MyPage?year=${year }&month=${month-1}" id="prev_month">&lsaquo;</a>&nbsp;&nbsp;<span>${year }년 ${month }월</span>&nbsp;&nbsp;<a href="MyPage?year=${year }&month=${month+1}" id="next_month">&rsaquo;</a></h4>
-					<div class="memo_table"> <!-- 메모장 테이블 -->
+					<!-- 연월 표시 -->
+					<h4>
+						<a href="MyPage?year=${year }&month=${month-1}" id="prev_month">&lsaquo;</a>
+						&nbsp;&nbsp;
+						<span>${year }년 ${month }월</span>
+						&nbsp;&nbsp;
+						<a href="MyPage?year=${year }&month=${month+1}" id="next_month">&rsaquo;</a>
+					</h4>
+					
+					<!-- 메모장 테이블 -->
+					<div class="memo_table"> 
 						<div class="memo_add_box"><input type="button" id="add_memo"></div>
-						<c:forEach var="board" items="${boardList }">
-							<div class="memo_box" onclick="">
-								<input type="button" id="memo_delete" onClick="location.href='Delmemo.do?id=${board.id }&title=${board.title}&date=${board.date }&time=${board.time }&content=${board.content }&writer=${board.writer }'">
+						<c:forEach var="board" items="${boardList }" varStatus="status">
+							<div class="memo_box" id="${board.id }" onclick="">
+								<input type="button" id="memo_delete${status.index }" onClick="location.href='Delmemo.do?id=${board.id }&title=${board.title}&date=${board.date }&time=${board.time }&content=${board.content }&writer=${board.writer }'">
 								<h3>${board.title }</h3>
 								<p>일정 : ${board.date }</p>
 								<hr>
@@ -157,7 +166,7 @@
 									<p><span>제목</span>  <input type="text" name="title" value=""></p>
 									<p><span>시간</span> <input type="time" name="time" value=""></p>
 									<p><span>날짜</span> <input type="date" id="date_form" name="date" data-date="" data-date-format="YYYY년 MM월 DD일" value=""></p>
-									<p><span id="arg">메모</span> <textarea rows="10" cols="54" name="content" value=""></textarea></p>
+									<p><span id="arg">메모</span> <textarea rows="10" cols="54" name="content"></textarea></p>
 									<input type="text" name="writer" value="${user_id }" hidden>
 								</div>
 								<hr>
@@ -165,6 +174,31 @@
 	                                <input type="submit" value="저장" id="member_submit_btn" onclick="">
 	                                <input type="reset" value="취소"  id="close1" class="reset">
 	                            </div>
+							</div> 
+						</div>
+					</form>
+					
+					<!-- 메모장 수정 -->
+					<form method="post" action="Updatememo.do">
+						<div id="update_memo_form">
+							<div class="modal_layer"></div>
+							<div class="memo_form">
+								<input type="button" id="close2">
+								<h1>Update</h1>
+								<hr>
+								<div class="memo_form_detail">
+									<p><span>제목</span>  <input type="text" name="title" id="update_title" value=""></p>
+									<p><span>시간</span> <input type="time" name="time" id="update_time" value=""></p>
+									<p><span>날짜</span> <input type="date" id="date_form2" name="date" data-date="" data-date-format="YYYY년 MM월 DD일" value=""></p>
+									<p><span id="arg">메모</span> <textarea rows="10" cols="54" name="content" id="update_content"></textarea></p>
+									<input type="text" name="writer" value="${user_id }" hidden>
+									<input type="text" name="id" id="id" value="" hidden>
+								</div>
+								<hr>
+								<div class="member_submit">
+				                    <input type="submit" value="저장" id="member_submit_btn" onclick="">
+				                    <input type="reset" value="취소"  id="close3" class="reset">
+				                </div>
 							</div>
 						</div>
 					</form>
@@ -205,7 +239,7 @@
         </div>
         <jsp:include page="/WEB-INF/views/footer/footer.jsp"></jsp:include>
     </div>
-    <script type="text/javascript" src="resources/js/memo.js?14"></script>
+    <script type="text/javascript" src="resources/js/memo.js?425"></script>
     <script>
 		
     </script>

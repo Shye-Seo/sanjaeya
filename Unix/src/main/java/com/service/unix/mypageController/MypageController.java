@@ -104,13 +104,14 @@ public class MypageController {
 		return "redirect:/MyPage?year="+this.tmp_year+"&month="+this.tmp_month;
 	}
 	
+	@ResponseBody
 	@GetMapping("Readmemo.do")
-	public String readmemo(@RequestParam("id") int id, Model model) throws Exception {
+	public MypageVo readmemo(@RequestParam("id") int id, Model model) throws Exception {
 		
-		//mypagevo = mypageservice.read(id);
+		MypageVo mypagevo = new MypageVo();
+		mypagevo = mypageservice.read(id);
 		model.addAttribute("update_board", mypageservice.read(id));
-		
-		return "update_memo";
+		return mypagevo;
 	}
 	
 	@RequestMapping(value="Updatememo.do", method=RequestMethod.POST)
@@ -124,7 +125,6 @@ public class MypageController {
 	@RequestMapping(value="Delmemo.do", method=RequestMethod.GET)
 	public String deletememo(@ModelAttribute MypageVo mypagevo) throws Exception {
 		
-		System.out.println("삭제 작동 여부 확인");
 		mypageservice.delete(mypagevo);
 		
 		return "redirect:/MyPage?year="+this.tmp_year+"&month="+this.tmp_month;
