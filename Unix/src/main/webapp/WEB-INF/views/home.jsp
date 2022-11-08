@@ -53,6 +53,7 @@
 
         $(".closeBtn").click(function () {
             $(".modal").fadeOut();
+            $(body).css("overflow-x", "hidden");
             const body = document.querySelector('body');
             const modal = document.querySelector('.modal');
             body.style.overflow = 'scroll'
