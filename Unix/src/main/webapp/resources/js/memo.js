@@ -22,8 +22,6 @@ $(function() {
 		$('#wrap').off('scroll touchmove mousewheel');
 	});
 	
-
-	
 	$("#close2").click(function() {
 		$("#update_memo_form").fadeOut();
 		$('#wrap').off('scroll touchmove mousewheel');
