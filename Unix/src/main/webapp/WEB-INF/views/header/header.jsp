@@ -30,7 +30,7 @@ String user_id = (String)session.getAttribute("user_id");
 			</c:choose>
 			
 		</div>
-		
+		 
 
 	</div>
 </body>
