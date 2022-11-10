@@ -2,9 +2,11 @@
 document.getElementById('date_form').value=new Date().toISOString().substring(0, 10);
 
 $(function() {
+	
+	
 	$("#add_memo").click(function() {
 		$("#add_memo_form").fadeIn();
-		$('#wrap').on('scroll touchmove mousewheel', function(event) {
+		$('#memo').on('scroll touchmove mousewheel', function(event) {
 	        event.preventDefault();
 	        event.stopPropagation();
 	        return false;
@@ -13,24 +15,24 @@ $(function() {
 	
 	$("#close").click(function() {
 		$("#add_memo_form").fadeOut();
-		$('#wrap').off('scroll touchmove mousewheel');
+		$('#memo').off('scroll touchmove mousewheel');
 	});
 	
 	
 	$("#close1").click(function() {
 		$("#add_memo_form").fadeOut();
-		$('#wrap').off('scroll touchmove mousewheel');
+		$('#memo').off('scroll touchmove mousewheel');
 	});
 	
 	$("#close2").click(function() {
 		$("#update_memo_form").fadeOut();
-		$('#wrap').off('scroll touchmove mousewheel');
+		$('#memo').off('scroll touchmove mousewheel');
 	});
 	
 	
 	$("#close3").click(function() {
 		$("#update_memo_form").fadeOut();
-		$('#wrap').off('scroll touchmove mousewheel');
+		$('#memo').off('scroll touchmove mousewheel');
 	});
 	
 	$("#date_form").on("change", function() {
@@ -57,31 +59,24 @@ $(function() {
 		참고하셔야 할 것 같아서 이 내용을 적습니다. 
 	*/
 	$("#memo_delete0").click(function(event) {
-		console.log('작동여부확인');
 		event.stopPropagation();  
 	});
 	$("#memo_delete1").click(function(event) {
-		console.log('작동여부확인');
 		event.stopPropagation();  
 	});
 	$("#memo_delete2").click(function(event) {
-		console.log('작동여부확인');
 		event.stopPropagation();  
 	});
 	$("#memo_delete3").click(function(event) {
-		console.log('작동여부확인');
 		event.stopPropagation();  
 	});
 	$("#memo_delete4").click(function(event) {
-		console.log('작동여부확인');
 		event.stopPropagation();  
 	});
 	$("#memo_delete5").click(function(event) {
-		console.log('작동여부확인');
 		event.stopPropagation();  
 	});
 	$("#memo_delete6").click(function(event) {
-		console.log('작동여부확인');
 		event.stopPropagation();  
 	});
 	
@@ -91,12 +86,7 @@ $(function() {
 		var update_memo_id = $(this).attr("id");
 		var tmp_update_memo_content;
 		$("#update_memo_form").fadeIn();
-	    $('#wrap').on('scroll touchmove mousewheel', function(event) {
-	         event.preventDefault();
-	         event.stopPropagation();
-	         return false;
-	    });
-	    
+	   
 		$.ajax({
 			url:"Readmemo.do",
 			data:{id:update_memo_id},
@@ -118,5 +108,6 @@ $(function() {
 			$("#id").attr('value', update_memo_id);
 		})
 	});
+	
 });
 
