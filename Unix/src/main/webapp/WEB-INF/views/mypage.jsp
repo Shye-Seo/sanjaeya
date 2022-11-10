@@ -240,7 +240,7 @@
         </div>
         <jsp:include page="/WEB-INF/views/footer/footer.jsp"></jsp:include>
     </div>
-    <script type="text/javascript" src="resources/js/memo.js?5645"></script>
+    <script type="text/javascript" src="resources/js/memo.js?565"></script>
     <script>
 		
     </script>
