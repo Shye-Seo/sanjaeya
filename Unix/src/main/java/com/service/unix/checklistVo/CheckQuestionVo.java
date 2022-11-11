@@ -10,6 +10,7 @@ public class CheckQuestionVo {
 	private String contents;
 	private int seq;
 	private int weight;
+	private int multiple;
 	private String flag;
 	
 	

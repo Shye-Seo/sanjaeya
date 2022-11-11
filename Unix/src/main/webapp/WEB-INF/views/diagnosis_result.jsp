@@ -120,9 +120,10 @@
 						</div>
 						<div class="point_span">*합산점수 및 환산비율은 서비스 상용 기간부터 표시되지 않음.</div>
 						<div class="next">
-							<input type="button" value="노무사 상담 연결" onclick=""> <input
-								type="button" value="홈으로" id="home"
-								onclick="location.href='/Unix/Home'">
+<!-- 							<input type="button" value="노무사 상담 연결" onclick=""> <input -->
+<!-- 								type="button" value="홈으로" id="home" -->
+<!-- 								onclick="location.href='/Unix/Home'"> -->
+					    <input type="button" value="다시 진단하기" id="home" onclick="history.back(); return false;">
 						</div>
 					</div>
 				</div>
@@ -188,8 +189,8 @@
 						<div class="next">
 <!-- 							<input type="button" value="노무사 상담 연결" onclick="">  -->
 <!-- 							<input type="button" value="홈으로" id="home" onclick="location.href='/Home'"> -->
-서비스기간
-                        <input type="button" value="다시 진단하기" id="home" onclick="location.href='/Unix/Home'">
+<!-- 서비스기간 -->
+                        <input type="button" value="다시 진단하기" id="home" onclick="history.back(); return false;">
 						</div>
 					</div>
 				</div>
@@ -204,7 +205,7 @@
 					
 					<p>*설문조사에 참여해주신 분들을 대상으로(선착순 추첨)을 통해 소정의 상품을 증정드립니다.</p>
 				</div>
-				<button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdV1T3T1EtdD6MFLM_vwXHAkNaLCcYzbYKNrkIGOA3eIKc9_w/viewform?usp=sf_link');">만족도 조사 링크 이동 -></button>
+				<button onclick="window.open('https://remember.qualtrics.com/jfe/form/SV_6J97IlpAWEOGX8a');">만족도 조사 링크 이동 -></button>
 			</div>
 
 

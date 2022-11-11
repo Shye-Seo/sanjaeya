@@ -1,43 +1,47 @@
 @charset "UTF-8";
-button, html [type="button"] {
-  -webkit-appearance: none;   
-}
- *,html,body {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "맑은 고딕";
-        }
-        a {
-            text-decoration: none;
-        }
 
-        .nav {
-            position: relative;
-            text-align: center;
-            /* color: white; */
-            font-weight: bold;
-            width:100%;
-            height:240px;
-            /* background-color: #333333; */
-            margin-bottom: 30px;
-        }
-        .nav .banner {
-            width:100%;
-            height:240px;
-            background-image: url("../imgs/login_banner.jpg");
-            background-size: cover;
-            background-position: 50% 50%;
-        }
-        .nav .banner span {
-            color:white;
-            font-size: 30px;
-            line-height: 240px;
-            letter-spacing: 4px;
-        }
-        
-        
- /*        .nav .title {
+button, html [type="button"] {
+	-webkit-appearance: none;
+}
+
+*, html, body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "맑은 고딕";
+}
+
+a {
+	text-decoration: none;
+}
+
+.nav {
+	position: relative;
+	text-align: center;
+	/* color: white; */
+	font-weight: bold;
+	width: 100%;
+	height: 240px;
+	/* background-color: #333333; */
+	margin-bottom: 30px;
+}
+
+.nav .banner {
+	width: 100%;
+	height: 240px;
+	background-image: url("../imgs/login_banner.jpg");
+	background-size: cover;
+	background-position: 50% 50%;
+}
+
+.nav .banner span {
+	color: white;
+	font-size: 30px;
+	line-height: 240px;
+	letter-spacing: 4px;
+}
+
+/*        .nav .title {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -49,158 +53,154 @@ button, html [type="button"] {
             letter-spacing: 4px;
             font-family: 나눔고딕,NanumGothic,돋움,Dotum;
         } */
+.content {
+	height: 800px;
+	text-align: center;
+}
 
-        .content {
-            height: 800px;
-            text-align: center;
-        }
+#log {
+	/* border:1px solid red; */
+	margin-top: 30px;
+	margin-bottom: 20px;
+	/* UI Properties */
+	font-family: "맑은 고딕";
+	font-size: 25px;
+	font-weight: bold;
+	letter-spacing: 4px;
+	color: #333333;
+	opacity: 1;
+}
 
-        #log {
-        	/* border:1px solid red; */
-        	margin-top: 30px;
-            margin-bottom: 20px;
-            
-            /* UI Properties */
-			 font-family: "맑은 고딕";
-			font-size:25px;
-			font-weight:bold;
-			letter-spacing: 4px;
-			color: #333333;
-			opacity: 1;
-        }
-        #logwrap {
-            width: 770px;
-            text-align:left;
-            margin-left: 50%; 
-            transform: translate(-50%);
-        }   
+#logwrap {
+	width: 770px;
+	text-align: left;
+	margin-left: 50%;
+	transform: translate(-50%);
+}
 
-        input[type=text],
-        input[type=password],
-        input[type=button] {
-            width: 100%;
-            height: 80px;
-            font-size: 23px; 
-            border-radius: 7px;
-            border-style: none;
-        }
-        input[type=text] {
-            margin-bottom: 15px;
-            padding-left: 20px;
-            
-            /* UI Properties */
-			background: #FFFFFF;
-			border: 1px solid #707070;
-			border-radius: 9px;
-			opacity: 1;
-        }
-        input[type=password] {
-            margin-bottom: 8px;
-            padding-left: 20px;
-            
-            /* UI Properties */
-			background: #FFFFFF;
-			border: 1px solid #707070;
-			border-radius: 9px;
-			opacity: 1;
-        }
-        input::placeholder {
-        	/* UI Properties */
-			text-align: left;
-			letter-spacing: 0px;
-			color: #333333;
-			opacity: 1;
-        }
+input[type=text], input[type=password], input[type=button] {
+	width: 100%;
+	height: 80px;
+	font-size: 23px;
+	border-radius: 7px;
+	border-style: none;
+}
 
-        input[type=checkbox] {
-            width: 20px;
-            height: 20px;
-            
-            /* UI Properties */
-			background: #FFFFFF;
-			border: 1px solid #707070;
-			opacity: 1;
-        }
+input[type=text] {
+	margin-bottom: 15px;
+	padding-left: 20px;
+	/* UI Properties */
+	background: #FFFFFF;
+	border: 1px solid #707070;
+	border-radius: 9px;
+	opacity: 1;
+}
 
-        .checkwrap {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 30px;
-        }
-        .checkwrap .idcheck label[for="chk_id"] {
-            position: relative;
-            top: -4.5px;
-            
-            /* UI Properties */
-			text-align: left;
-			letter-spacing: 0px;
-			color: #333333;
-			opacity: 1;
-        }
-        .checkwrap .idcheck span {
-            font-weight: 600;
-        }
-        .checkwrap .idfind span {
-            font-weight: 600;
-            
-            /* UI Properties */
-			text-align: left;
-			letter-spacing: 0px;
-			color: #333333;
-			opacity: 1;
-        }
-        
-        .checkwrap .idfind span a {
-        	color: #333333;
-        }
-        
-      
+input[type=password] {
+	margin-bottom: 8px;
+	padding-left: 20px;
+	/* UI Properties */
+	background: #FFFFFF;
+	border: 1px solid #707070;
+	border-radius: 9px;
+	opacity: 1;
+}
 
-        .loginbtn {
-            /* UI Properties */
-			background: #326DFB;
-			border-radius: 9px;
-			opacity: 1;
-			
-            color:white;
-            font-weight:bold;
-            font-family: "맑은 고딕";
-			letter-spacing: 4px;
-            margin-bottom: 30px;
-            cursor: pointer;
-        }
-        #logwrap #loginform > span{
-        	position:relative;
-        	margin-top: 10px;
-            margin-bottom: 10px;
-            /* UI Properties */
-			text-align: left;
-			font-weight:bold;
-			font-size:22px;
-			letter-spacing: 0px;
-			color: #333333;
-			opacity: 1;
-        }
-        #logwrap .joinbtn {
-        	margin-top:10px;
-            color:black;
-            font-weight: 900;
-            cursor: pointer;
-            
-            /* UI Properties */
-            font-family: "맑은 고딕";
-			background: #FFFFFF;
-			border: 1px solid #707070;
-			border-radius: 9px;
-			opacity: 1;
-        }
+input::placeholder {
+	/* UI Properties */
+	text-align: left;
+	letter-spacing: 0px;
+	color: #333333;
+	opacity: 1;
+}
 
-        /* 태블릿 */
-@media (max-width :1070px) {
-    #logwrap {
-        width: 570px;
-    }
-    body {
+input[type=checkbox] {
+	width: 20px;
+	height: 20px;
+	/* UI Properties */
+	background: #FFFFFF;
+	border: 1px solid #707070;
+	opacity: 1;
+}
+
+.checkwrap {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 30px;
+}
+
+.checkwrap .idcheck label[for="chk_id"] {
+	position: relative;
+	top: -4.5px;
+	/* UI Properties */
+	text-align: left;
+	letter-spacing: 0px;
+	color: #333333;
+	opacity: 1;
+}
+
+.checkwrap .idcheck span {
+	font-weight: 600;
+}
+
+.checkwrap .idfind span {
+	font-weight: 600;
+	/* UI Properties */
+	text-align: left;
+	letter-spacing: 0px;
+	color: #333333;
+	opacity: 1;
+}
+
+.checkwrap .idfind span a {
+	color: #333333;
+}
+
+.loginbtn {
+	/* UI Properties */
+	background: #326DFB;
+	border-radius: 9px;
+	opacity: 1;
+	color: white;
+	font-weight: bold;
+	font-family: "맑은 고딕";
+	letter-spacing: 4px;
+	margin-bottom: 30px;
+	cursor: pointer;
+}
+
+#logwrap #loginform>span {
+	position: relative;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	/* UI Properties */
+	text-align: left;
+	font-weight: bold;
+	font-size: 22px;
+	letter-spacing: 0px;
+	color: #333333;
+	opacity: 1;
+}
+
+#logwrap .joinbtn {
+	margin-top: 10px;
+	color: black;
+	font-weight: 900;
+	cursor: pointer;
+	/* UI Properties */
+	font-family: "맑은 고딕";
+	background: #FFFFFF;
+	border: 1px solid #707070;
+	border-radius: 9px;
+	opacity: 1;
+}
+
+/* 태블릿 */
+@media ( max-width :1070px) {
+	#logwrap {
+		width: 570px;
+	}
+	body {
 		min-width: unset;
 		overflow-x: hidden;
 	}
@@ -216,7 +216,7 @@ button, html [type="button"] {
 	.nav .banner span {
 		display: none;
 	}
-    	#headers {
+	#headers {
 		position: fixed;
 		width: 100%;
 		background-color: #ffffff;
@@ -224,11 +224,12 @@ button, html [type="button"] {
 		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 	}
 }
-@media (max-width :768px) {
-    #logwrap {
-        width: 320px;
-    }
-    body {
+
+@media ( max-width :768px) {
+	#logwrap {
+		width: 320px;
+	}
+	body {
 		min-width: unset;
 		overflow-x: hidden;
 	}
@@ -244,20 +245,18 @@ button, html [type="button"] {
 	.nav .banner span {
 		display: none;
 	}
-    	#headers {
+	#headers {
 		position: fixed;
 		width: 100%;
 		background-color: #ffffff;
 		z-index: 10000;
 		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 	}
-    .checkwrap {
-    font-size:14px;
-    }
-    input[type=text], input[type=password], input[type=button] {
-height:70px;
-    font-size: 20px;
-
+	.checkwrap {
+		font-size: 14px;
+	}
+	input[type=text], input[type=password], input[type=button] {
+		height: 60px;
+		font-size: 20px;
+	}
 }
-}
-        

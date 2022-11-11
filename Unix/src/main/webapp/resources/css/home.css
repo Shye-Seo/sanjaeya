@@ -904,6 +904,7 @@ h4 {
     left: 90%;
 }
 .modal_con1 {
+	display:none;
     color: #326DFB;
     font: normal normal 400 16px/42px Pretendard;
 }
@@ -911,6 +912,7 @@ h4 {
     font: normal normal 800 20px/42px Pretendard;
 }
 .modal_con2 {
+	display:none;
     font: normal normal 600 15px/30px Pretendard;
 
 }

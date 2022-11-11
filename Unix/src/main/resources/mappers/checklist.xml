@@ -14,10 +14,11 @@
    		select * from nm_question where nm_category_id = #{category_id} order by seq asc
    </select>
    
-   <!-- 질문(contents) -->
+   <!-- 질문(Contents) -->
    <select id="selectQuestionContents" resultType="String">
    		select contents from nm_question where nm_category_id = #{category_id} order by seq asc
    </select>
+
    <!-- 답변 -->
    <select id="selectAnswer" resultType="com.service.unix.checklistVo.CheckAnswerVo">
    		select * from nm_answer where nm_question_id = #{question_id} and flag ='Y' order by seq asc

@@ -522,8 +522,11 @@
 			}
 		}
 	}
+	function uncheck(){
+		$(':checkbox:checked').prop('checked',false);
+	};
 </script>
-<body>
+<body onLoad="uncheck()">
 	<div id="wrap">
 		<div id="headers"><jsp:include page="/WEB-INF/views/header/header.jsp"></jsp:include></div>
 

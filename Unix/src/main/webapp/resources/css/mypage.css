@@ -606,7 +606,13 @@ input::-webkit-calendar-picker-indicator {
 		min-width:unset;
 		overflow-x:hidden;
 	}
-	
+	#headers {
+		position: fixed;
+		width: 100%;
+		background-color: #ffffff;
+		z-index: 10000;
+		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+	}
 	#css_tabs {
 		
 		width:85%;

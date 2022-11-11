@@ -313,13 +313,14 @@ button, html [type="button"] {
 		.answer7, .answer8, .answer9, .answer10, .answer11, .answer12,
 		.answer13, .answer14, .answer15, .answer16, .answer17 {
 		width: 80%;
-		height: 80px;
+		height: 60px;
 	}
 	.lst1 .lst2 label {
 		width: 90%;
+		top: 25%;
 	}
 	.lst1 .lst2 input {
-		height: 22px;
+		height: 18px;
 	}
 	.a {
 		width: 100%;

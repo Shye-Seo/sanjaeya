@@ -10,6 +10,7 @@
 <%@ include file="/WEB-INF/views/common.jsp"%>
 </head>
 <script>
+
 	var idx = 1;
 
 	var obj1 = document.getElementsByName("answerList1");
@@ -392,8 +393,11 @@
 		}
 
 	}
+	function uncheck(){
+		$(':checkbox:checked').prop('checked',false);
+	};
 </script>
-<body>
+<body onLoad="uncheck()">
 	<div id="wrap">
 		<div id="headers"><jsp:include page="/WEB-INF/views/header/header.jsp"></jsp:include></div>
 

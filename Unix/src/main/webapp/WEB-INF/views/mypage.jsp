@@ -17,7 +17,8 @@
 </head>
 <body>
 	<div id="wrap">
-		<jsp:include page="/WEB-INF/views/header/header.jsp"></jsp:include>
+			<div id="headers"><jsp:include
+				page="/WEB-INF/views/header/header.jsp"></jsp:include></div>
         <div class="nav">
             <div class="banner">
                 <span>마이페이지</span>
