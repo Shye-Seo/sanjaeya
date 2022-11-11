@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 <title>로그인</title>
 <link rel="stylesheet" href="resources/css/login.css">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -22,7 +23,8 @@
 </head>
 <body>
 	<div id="wrap">
-		<jsp:include page="/WEB-INF/views/header/header.jsp"></jsp:include>
+	<div id="headers"><jsp:include
+				page="/WEB-INF/views/header/header.jsp"></jsp:include></div>
         <div class="nav">
             <div class="banner"> 
                 <span>로그인</span>
@@ -40,7 +42,7 @@
 	                        <label for="chk_id"><span>아이디 저장</span></label>
 	                    </div>
 	                    <div class="idfind">
-	                        <span id="findIdBtn"><a href="findIdView">아이디 찾기</a></span>
+	                        <span id="findIdBtn"><a href="findPwView">아이디 찾기</a></span>
 	                        <span>/</span>
 	                        <span><a href="findPwView">비밀번호 찾기</a></span>
 	                    </div>

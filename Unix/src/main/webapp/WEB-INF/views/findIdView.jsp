@@ -16,10 +16,6 @@
 			alert(msg);
 		}
 		
-	    // 이메일 선택했을때 도메인 자동 입력되게
-/* 	    function setEmailDomain(domain) {
-	        $("#user_mail_domain").val(domain);
-	    } */
 </script>
 </head>
 <body>
