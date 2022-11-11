@@ -4,31 +4,30 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mypage">
 	
-	<select id="countBoard" resultType="int">
-		SELECT COUNT(*) FROM nm_notice WHERE writer=#{writer}
-	</select>
-	
-	<select id="boardList" resultType="com.service.unix.mypageVo.MypageVo">
-		SELECT * FROM nm_notice WHERE writer=#{writer } ORDER BY id DESC
+	<select id="countBoard" parameterType="hashMap" resultType="int">
+		SELECT COUNT(*) FROM nm_notice 
+		WHERE writer=#{writer} AND (SELECT LEFT(date, 4)=#{year }) AND (SELECT SUBSTRING(date, 6, 2)=#{month })
 	</select>
 	
 	<select id="listCriteria" parameterType="hashMap" resultType="com.service.unix.mypageVo.MypageVo">
 		<![CDATA[
-			SELECT * FROM nm_notice WHERE writer=#{writer } ORDER BY id DESC
+			SELECT * FROM nm_notice 
+			WHERE writer=#{writer } AND (SELECT LEFT(date, 4)=#{year }) AND (SELECT SUBSTRING(date, 6, 2)=#{month })
+			ORDER BY id DESC
 			LIMIT #{page }, #{perPageNum }
 		]]>
 	</select>
 	
-	<insert id="create" parameterType="com.service.unix.mypageVo.MypageVo">
+	<insert id="create" parameterType="com.service.unix.mypageVo.MypageVo" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO nm_notice (title, content, writer, date, time) VALUES (#{title}, #{content}, #{writer}, #{date}, #{time})
 	</insert>
 	
 	<select id="read" resultType="com.service.unix.mypageVo.MypageVo">
-		SELECT (title, content, data, time) FROM nm_notice WHERE id=#{bid}
+		SELECT * FROM nm_notice WHERE id=#{id }
 	</select>
 	
 	<update id="update">
-		UPDATE nm_notice SET title=#{title}, content=#{content}, date=#{date} time=#{time} WHERE id=#{bid}
+		UPDATE nm_notice SET title=#{title}, content=#{content}, date=#{date}, time=#{time} WHERE id=#{id}
 	</update>
 	
 	<delete id="delete" parameterType="com.service.unix.mypageVo.MypageVo">

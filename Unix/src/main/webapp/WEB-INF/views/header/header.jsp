@@ -32,6 +32,7 @@ String user_id = (String)session.getAttribute("user_id");
 			
 		</div>
 
+
 	</div>
 <!-- 	///////////////////////////////// -->
 	<div class="header">

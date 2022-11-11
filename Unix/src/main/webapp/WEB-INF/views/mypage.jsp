@@ -1,15 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<% pageContext.setAttribute("newLineChar", "\n"); %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 <title>마이페이지</title>
-<link rel="stylesheet" href="resources/css/mypage.css?4">
-<script type="text/javascript" src="resources/js/mypage.js?453"></script>
+<link rel="stylesheet" href="resources/css/mypage.css?1446">
+<script type="text/javascript" src="resources/js/mypage.js?43"></script>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 	<div id="wrap">
@@ -122,30 +126,36 @@
                         </form>
                     </div>
                 </section>
-    
-    
-    
-    
             </div>
+            
             <div class="tab2_content">
 				<section id="memo">
-					<h4>&lsaquo;&nbsp;&nbsp;<span id="this_month"></span>&nbsp;&nbsp;&rsaquo;</h4>
-					<div class="memo_table"> <!-- 메모장 테이블 -->
+					<!-- 연월 표시 -->
+					<h4>
+						<a href="MyPage?year=${year }&month=${month-1}" id="prev_month">&lsaquo;</a>
+						&nbsp;&nbsp;
+						<span>${year }년 ${month }월</span>
+						&nbsp;&nbsp;
+						<a href="MyPage?year=${year }&month=${month+1}" id="next_month">&rsaquo;</a>
+					</h4>
+					
+					<!-- 메모장 테이블 -->
+					<div class="memo_table"> 
 						<div class="memo_add_box"><input type="button" id="add_memo"></div>
-						<c:forEach var="board" items="${boardList }">
-							<div class="memo_box">
-								<input type="button" id="memo_delete" onClick="location.href='Delmemo.do?title=${board.title}&date=${board.date }&time=${board.time }&content=${board.content }&writer=${board.writer }'">
+						<c:forEach var="board" items="${boardList }" varStatus="status">
+							<div class="memo_box" id="${board.id }" onclick="">
+								<input type="button" id="memo_delete${status.index }" onClick="location.href='Delmemo.do?id=${board.id }&title=${board.title}&date=${board.date }&time=${board.time }&content=${board.content }&writer=${board.writer }'">
 								<h3>${board.title }</h3>
 								<p>일정 : ${board.date }</p>
 								<hr>
 								<p>시간 : ${board.time }</p>
 								<hr>
-								<p>내용 : ${board.content }</p>
+								<p>내용 : ${fn:replace( board.content, newLineChar, '<br/>')}</p>
 							</div>
 						</c:forEach>
 					</div>
 					
-					<!-- 메모장 입력 -->
+					<!-- 메모장 추가 -->
 					<form method="post" action="Addmemo.do">
 						<div id="add_memo_form">
 							<div class="modal_layer"></div>
@@ -154,17 +164,42 @@
 								<h1>Add</h1>
 								<hr>
 								<div class="memo_form_detail">
-									<p><span>제목</span>  <input type="text" name="title"></p>
-									<p><span>시간</span> <input type="time" name="time"></p>
+									<p><span>제목</span>  <input type="text" name="title" value=""></p>
+									<p><span>시간</span> <input type="time" name="time" value=""></p>
 									<p><span>날짜</span> <input type="date" id="date_form" name="date" data-date="" data-date-format="YYYY년 MM월 DD일" value=""></p>
 									<p><span id="arg">메모</span> <textarea rows="10" cols="54" name="content"></textarea></p>
 									<input type="text" name="writer" value="${user_id }" hidden>
 								</div>
 								<hr>
 								<div class="member_submit">
-	                                <input type="submit" value="저장" id="member_submit_btn">
+	                                <input type="submit" value="저장" id="member_submit_btn" onclick="">
 	                                <input type="reset" value="취소"  id="close1" class="reset">
 	                            </div>
+							</div> 
+						</div>
+					</form>
+					
+					<!-- 메모장 수정 -->
+					<form method="post" action="Updatememo.do">
+						<div id="update_memo_form">
+							<div class="modal_layer"></div>
+							<div class="memo_form">
+								<input type="button" id="close2">
+								<h1>Update</h1>
+								<hr>
+								<div class="memo_form_detail">
+									<p><span>제목</span>  <input type="text" name="title" id="update_title" value=""></p>
+									<p><span>시간</span> <input type="time" name="time" id="update_time" value=""></p>
+									<p><span>날짜</span> <input type="date" id="date_form2" name="date" data-date="" data-date-format="YYYY년 MM월 DD일" value=""></p>
+									<p><span id="arg">메모</span> <textarea rows="10" cols="54" name="content" id="update_content"></textarea></p>
+									<input type="text" name="writer" value="${user_id }" hidden>
+									<input type="text" name="id" id="id" value="" hidden>
+								</div>
+								<hr>
+								<div class="member_submit">
+				                    <input type="submit" value="저장" id="member_submit_btn" onclick="">
+				                    <input type="reset" value="취소"  id="close3" class="reset">
+				                </div>
 							</div>
 						</div>
 					</form>
@@ -175,26 +210,26 @@
 							<!-- 이전 -->
 							<c:choose>
 								<c:when test="${makerpaging.startPage==1 }">
-									<li><a href="MyPage?page=1">&lsaquo;</a></li>
+									<li><a href="MyPage?year=${year }&month=${month}&page=1">&lsaquo;</a></li>
 								</c:when>
 								<c:otherwise>
-									<li><a href="MyPage?page=${makerpaging.startPage-1 }">&lsaquo;</a></li>
+									<li><a href="MyPage?year=${year }&month=${month}&page=${makerpaging.startPage-1 }">&lsaquo;</a></li>
 								</c:otherwise>
 							</c:choose>
 							
 							
 							<!-- 번호 -->
 							<c:forEach var="num" begin="${makerpaging.startPage }" end="${makerpaging.endPage }">
-								<li><a href="MyPage?page=${num }">${num }</a></li>
+								<li><a href="MyPage?year=${year }&month=${month}&page=${num }">${num }</a></li>
 							</c:forEach>
 							
 							<!-- 다음 -->
 							<c:choose>
 								<c:when test="${makerpaging.endPage == makerpaging.tempEndPage}">
-									<li><a href="MyPage?page=${makerpaging.endPage }">&rsaquo;</a></li>
+									<li><a href="MyPage?year=${year }&month=${month}&page=${makerpaging.endPage }">&rsaquo;</a></li>
 								</c:when>
 								<c:otherwise>
-									<li><a href="MyPage?page=${makerpaging.endPage+1 }">&rsaquo;</a></li>
+									<li><a href="MyPage?year=${year }&month=${month}&page=${makerpaging.endPage+1 }">&rsaquo;</a></li>
 								</c:otherwise>
 							</c:choose>
 						</ul>
@@ -205,7 +240,9 @@
         </div>
         <jsp:include page="/WEB-INF/views/footer/footer.jsp"></jsp:include>
     </div>
-    <script type="text/javascript" src="resources/js/memo.js?343"></script>
-    
+    <script type="text/javascript" src="resources/js/memo.js?565"></script>
+    <script>
+		
+    </script>
 </body>
 </html>

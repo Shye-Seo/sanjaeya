@@ -6,17 +6,17 @@ import lombok.Data;
 @Data
 public class MypageVo {
 
-	private int bid;
+	private int id;
 	private String writer; // 아이디를 작성자로 설정 
 	private String title;
 	private String content;
 	private String time;
 	private String date;
-	public int getBid() {
-		return bid;
+	public int getId() {
+		return id;
 	}
-	public void setBid(int bid) {
-		this.bid = bid;
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getWriter() {
 		return writer;

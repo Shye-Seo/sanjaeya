@@ -24,15 +24,15 @@ public class MypageDaoImpl implements MypageDao{
 	}
 
 	@Override
-	public MypageVo read(int bid) throws Exception {
+	public MypageVo read(int id) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlsession.selectOne("mypage.read");
+		return sqlsession.selectOne("mypage.read", id);
 	}
 
 	@Override
-	public int update(MypageVo mypageVo) throws Exception {
+	public int update(MypageVo mypagevo) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlsession.update("mypage.update", mypageVo);
+		return sqlsession.update("mypage.update", mypagevo);
 	}
 
 	@Override
@@ -42,9 +42,9 @@ public class MypageDaoImpl implements MypageDao{
 	}
 
 	@Override
-	public int countBoard(String writer) throws Exception {
+	public int countBoard(HashMap<String, Object> map) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlsession.selectOne("mypage.countBoard", writer);
+		return sqlsession.selectOne("mypage.countBoard", map);
 	} 
 
 	@Override
