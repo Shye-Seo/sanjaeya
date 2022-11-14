@@ -4,6 +4,10 @@ button, html [type="button"] {
 	-webkit-appearance: none;
 }
 
+input [type="submit"] {
+	-webkit-appearance: none;
+}
+
 *, html, body {
 	margin: 0;
 	padding: 0;
@@ -53,6 +57,10 @@ a {
             letter-spacing: 4px;
             font-family: 나눔고딕,NanumGothic,돋움,Dotum;
         } */
+.nav .title span {
+	width: 100%;
+}
+
 .content {
 	height: 800px;
 	text-align: center;

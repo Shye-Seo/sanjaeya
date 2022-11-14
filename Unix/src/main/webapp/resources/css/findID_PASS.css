@@ -1,7 +1,10 @@
 @charset "UTF-8";
 
-button, html [type="button"] {
+ button, html [type="button"] {
   -webkit-appearance: none;   
+}
+input [type="submit"] {
+	 -webkit-appearance: none;  
 }
 * {
 	margin: 0;

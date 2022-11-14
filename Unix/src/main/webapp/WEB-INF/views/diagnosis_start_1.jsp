@@ -13,7 +13,7 @@
 <script>
 	$(function() {
 		var pageNum = sessionStorage.getItem("pageNum");
-		console.log(pageNum);
+		
 		$('#aaaaa').attr('src',pageNum); 
 	});
 

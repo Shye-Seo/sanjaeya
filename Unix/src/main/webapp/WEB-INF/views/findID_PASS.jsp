@@ -60,7 +60,7 @@ if (msg != "") {
 								value="인증완료" name="sms_send" id="sms_send">
 							<p class="point successPhoneChk"></p>
 							<input type="hidden" id="phoneDoubleChk" />
-							<button type="button">아이디 찾기</button>
+							<button type="submit">아이디 찾기</button>
 						</div>
 						
 					</form>
@@ -82,7 +82,7 @@ if (msg != "") {
 									value="인증완료" name="sms_send" id="sms_send">
 								<p class="point successPhoneChk"></p>
 								<input type="hidden" id="phoneDoubleChk" />
-									<button type="button">비밀번호 찾기</button>
+									<button type="submit">비밀번호 찾기</button>
 							</div>
 						
 						</div>

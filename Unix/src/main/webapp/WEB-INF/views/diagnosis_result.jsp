@@ -5,36 +5,43 @@
 <head>
 <meta charset="UTF-8">
 <title>Diagnosis_result</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, user-scalable=no" />
 <link rel="stylesheet" href="resources/css/diagnosis_result.css">
 <%@ include file="/WEB-INF/views/common.jsp"%>
 </head>
 <script type="text/javascript">
+	var categoryNum = '${categoryNum}';
+
 	$(function() {
 		var result = '${ResultPoint}';
+
 		console.log(result);
 		if (0 <= result && result <= 29) {
 			jQuery('.result_img1').css("display", "block");
-			console.log("1");
+
 		}
 		if (30 <= result && result <= 44) {
 			jQuery('.result_img2').css("display", "block");
-			console.log("2");
+
 		}
 		if (45 <= result && result <= 59) {
 			jQuery('.result_img3').css("display", "block");
-			console.log("3");
+
 		}
 		if (60 <= result && result <= 74) {
 			jQuery('.result_img4').css("display", "block");
-			console.log("4");
+
 		}
 		if (75 <= result) {
 			jQuery('.result_img5').css("display", "block");
-			console.log("5");
+
 		}
 
 	});
+	function recheck() {
+		location.href = '/Checklist_' + categoryNum;
+	};
 </script>
 
 <body>
@@ -43,9 +50,9 @@
 	String test_userid = (String) session.getAttribute("test_userid");
 	%>
 	<div id="headers"><jsp:include
-				page="/WEB-INF/views/header/header.jsp"></jsp:include></div>
+			page="/WEB-INF/views/header/header.jsp"></jsp:include></div>
 	<div id="wrap">
-		
+
 		<div class="nav">
 			<div class="banner">
 				<span>산재 자가진단</span>
@@ -87,7 +94,7 @@
 						</c:choose>
 
 						<h1>
-							산재를 받을 수 있을 확률이 <span>${Result}</span>
+							산재를 받을 수 있을 확률이 <span id="resultspan">${Result}</span>
 						</h1>
 						<div class="re_comment">
 							<c:choose>
@@ -104,30 +111,35 @@
 								</c:otherwise>
 							</c:choose>
 						</div>
-						<div class="point">
-							<div class="plus">
-								합산점수
-								<p>
-								<h4>${ResultPoint}점/80점</p>
-								</h4>
-							</div>
-							<div class="percent">
-								환산비율
-								<p>
-								<h4>${pointPer}%/100%</p>
-								</h4>
-							</div>
-						</div>
-						<div class="point_span">*합산점수 및 환산비율은 서비스 상용 기간부터 표시되지 않음.</div>
+						<!-- 						<div class="point"> -->
+						<!-- 							<div class="plus"> -->
+						<!-- 								합산점수 -->
+						<!-- 								<p> -->
+						<%-- 								<h4>${ResultPoint}점/80점</p> --%>
+						<!-- 								</h4> -->
+						<!-- 							</div> -->
+						<!-- 							<div class="percent"> -->
+						<!-- 								환산비율 -->
+						<!-- 								<p> -->
+						<%-- 								<h4>${pointPer}%/100%</p> --%>
+						<!-- 								</h4> -->
+						<!-- 							</div> -->
+						<!-- 						</div> -->
+						<!-- 						<div class="point_span">*합산점수 및 환산비율은 서비스 상용 기간부터 표시되지 않음.</div> -->
 						<div class="next">
-<!-- 							<input type="button" value="노무사 상담 연결" onclick=""> <input -->
-<!-- 								type="button" value="홈으로" id="home" -->
-<!-- 								onclick="location.href='/Unix/Home'"> -->
-					    <input type="button" value="다시 진단하기" id="home" onclick="history.back(); return false;">
+							<!-- 							<input type="button" value="노무사 상담 연결" onclick=""> <input -->
+							<!-- 								type="button" value="홈으로" id="home" -->
+							<!-- 								onclick="location.href='/Unix/Home'"> -->
+							<input type="button" value="만족도 조사 하기" id="home"
+								onclick="window.open('https://remember.qualtrics.com/jfe/form/SV_6J97IlpAWEOGX8a');">
+							<p>*서비스 테스트 기간으로 서비스 이용에 대한 만족도 설문조사를 진행중입니다.</p>
+							<br>
+
+							<p>*설문조사에 참여해주신 분들을 대상으로(선착순 추첨)을 통해 소정의 상품을 증정드립니다.</p>
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="result_box2">
 					<div class="re_img">
 						<div class="result_img1" id="result_img1"></div>
@@ -154,7 +166,7 @@
 						</c:choose>
 
 						<h1>
-							산재를 받을 수 있을 확률이 <span>${Result}</span>
+							산재를 받을 수 있을 확률이 <span id="resultspan">${Result}</span>
 						</h1>
 						<div class="re_comment">
 							<c:choose>
@@ -171,42 +183,47 @@
 								</c:otherwise>
 							</c:choose>
 						</div>
-						<div class="point">
-							<div class="plus">
-								합산점수
-								<p>
-								<h4>${ResultPoint}점/80점</p>
-								</h4>
-							</div>
-							<div class="percent">
-								환산비율
-								<p>
-								<h4>${pointPer}%/100%</p>
-								</h4>
-							</div>
-						</div>
-						<div class="point_span">*합산점수 및 환산비율은 서비스 상용 기간부터 표시되지 않음.</div>
+						<!-- 						<div class="point"> -->
+						<!-- 							<div class="plus"> -->
+						<!-- 								합산점수 -->
+						<!-- 								<p> -->
+						<%-- 								<h4>${ResultPoint}점/80점</p> --%>
+						<!-- 								</h4> -->
+						<!-- 							</div> -->
+						<!-- 							<div class="percent"> -->
+						<!-- 								환산비율 -->
+						<!-- 								<p> -->
+						<%-- 								<h4>${pointPer}%/100%</p> --%>
+						<!-- 								</h4> -->
+						<!-- 							</div> -->
+						<!-- 						</div> -->
+						<!-- 						<div class="point_span">*합산점수 및 환산비율은 서비스 상용 기간부터 표시되지 않음.</div> -->
 						<div class="next">
-<!-- 							<input type="button" value="노무사 상담 연결" onclick="">  -->
-<!-- 							<input type="button" value="홈으로" id="home" onclick="location.href='/Home'"> -->
-<!-- 서비스기간 -->
-                        <input type="button" value="다시 진단하기" id="home" onclick="history.back(); return false;">
+							<!-- 							<input type="button" value="노무사 상담 연결" onclick="">  -->
+							<!-- 							<input type="button" value="홈으로" id="home" onclick="location.href='/Home'"> -->
+							<!-- 서비스기간 -->
+							<input type="button" value="만족도 조사 하기" id="home"
+								onclick="window.open('https://remember.qualtrics.com/jfe/form/SV_6J97IlpAWEOGX8a');">
+							<p>*서비스 테스트 기간으로 서비스 이용에 대한 만족도 설문조사를 진행중입니다.</p>
+							<br>
+
+							<p>*설문조사에 참여해주신 분들을 대상으로(선착순 추첨)을 통해 소정의 상품을 증정드립니다.</p>
 						</div>
 					</div>
 				</div>
-				
-				
+
+
 			</div>
 			<hr id="arg" />
 
-			<div class="survey">
-				<div class="survey_text">
-					<p>*서비스 테스트 기간으로 서비스 이용에 대한 만족도 설문조사를 진행중입니다.</p><br>
-					
-					<p>*설문조사에 참여해주신 분들을 대상으로(선착순 추첨)을 통해 소정의 상품을 증정드립니다.</p>
-				</div>
-				<button onclick="window.open('https://remember.qualtrics.com/jfe/form/SV_6J97IlpAWEOGX8a');">만족도 조사 링크 이동 -></button>
-			</div>
+			<!-- 			<div class="survey"> -->
+			<!-- 				<div class="survey_text"> -->
+			<!-- 					<p>*서비스 테스트 기간으로 서비스 이용에 대한 만족도 설문조사를 진행중입니다.</p><br> -->
+
+			<!-- 					<p>*설문조사에 참여해주신 분들을 대상으로(선착순 추첨)을 통해 소정의 상품을 증정드립니다.</p> -->
+			<!-- 				</div> -->
+			<!-- 				<button onclick="window.open('https://remember.qualtrics.com/jfe/form/SV_6J97IlpAWEOGX8a');">만족도 조사 링크 이동 &#8594;</button> -->
+			<!-- 			</div> -->
 
 
 		</section>

@@ -114,6 +114,7 @@ public class ChecklistController {
 	   @RequestMapping("Checklist_1_cal")
 	public String checklist_1_cal(Model model, HttpServletRequest req, HttpServletResponse res, HttpSession session) {
 		   int categoryNum = 1;
+		   model.addAttribute("categoryNum", categoryNum);
 		  List<String[]> answerArrayList = new ArrayList<String[]>();
 		  
 		  List<String[]> answerlist11 = new ArrayList<String[]>();
@@ -261,6 +262,7 @@ public class ChecklistController {
 	@RequestMapping("Checklist_2")
 	public String checklist_2(CheckCategoryVo categoryVo, CheckAnswerVo answerVo, Model model) {
 		int categoryNum = 2;
+		
 		//카테고리 값 전체 
 	      List<CheckCategoryVo> checkCategory = checkService.categoryName();
 	      model.addAttribute("category", checkCategory);
@@ -305,6 +307,7 @@ public class ChecklistController {
 	   @RequestMapping("Checklist_2_cal")
 	public String checklist_2_cal(Model model, HttpServletRequest req, HttpServletResponse res, HttpSession session) {
 		  int categoryNum = 2;
+		  model.addAttribute("categoryNum", categoryNum);
 		  List<String[]> answerArrayList = new ArrayList<String[]>();
 		  
 	      //JSP에서 받은 답변 id 값
@@ -443,6 +446,7 @@ public class ChecklistController {
 	   @RequestMapping("Checklist_3_cal")
 	public String checklist_3_cal(Model model, HttpServletRequest req, HttpServletResponse res, HttpSession session) {
 		   int categoryNum = 3;
+		   model.addAttribute("categoryNum", categoryNum);
 		  List<String[]> answerArrayList = new ArrayList<String[]>();
 		  
 		  List<String[]> answerlist13 = new ArrayList<String[]>();

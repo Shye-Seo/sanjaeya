@@ -8,395 +8,9 @@
 <title>Diagnosis</title>
 <link rel="stylesheet" href="resources/css/diagnosis.css">
 <%@ include file="/WEB-INF/views/common.jsp"%>
+<script type="text/javascript" src="resources/js/diagnosis_2.js"></script>
 </head>
-<script>
 
-	var idx = 1;
-
-	var obj1 = document.getElementsByName("answerList1");
-	var obj2 = document.getElementsByName("answerList2");
-	var obj3 = document.getElementsByName("answerList3");
-	var obj4 = document.getElementsByName("answerList4");
-	var obj5 = document.getElementsByName("answerList5");
-	var obj6 = document.getElementsByName("answerList6");
-	var obj7 = document.getElementsByName("answerList7");
-	var obj8 = document.getElementsByName("answerList8");
-	var obj9 = document.getElementsByName("answerList9");
-	var obj10 = document.getElementsByName("answerList10");
-	var obj11 = document.getElementsByName("answerList11");
-	var obj12 = document.getElementsByName("answerList12");
-
-	$(function() {
-		jQuery('#prev').css("display", "none");
-		jQuery('#submit').css("display", "none");
-		//이전 버튼
-		$('#prev').click(function() {
-			idx--;
-
-			if (idx == 1) {
-				jQuery('.answer1').css("display", "block");
-				jQuery('.answer2').css("display", "none");
-				jQuery('.h3_1').css("display", "block");
-				jQuery('.h3_2').css("display", "none");
-				jQuery('#prev').css("display", "none");
-			} else if (idx == 2) {
-				jQuery('.answer2').css("display", "block");
-				jQuery('.answer3').css("display", "none");
-				jQuery('.h3_2').css("display", "block");
-				jQuery('.h3_3').css("display", "none");
-			} else if (idx == 3) {
-				jQuery('.answer3').css("display", "block");
-				jQuery('.answer4').css("display", "none");
-				jQuery('.h3_3').css("display", "block");
-				jQuery('.h3_4').css("display", "none");
-			} else if (idx == 4) {
-				jQuery('.answer4').css("display", "block");
-				jQuery('.answer5').css("display", "none");
-				jQuery('.h3_4').css("display", "block");
-				jQuery('.h3_5').css("display", "none");
-			} else if (idx == 5) {
-				jQuery('.answer5').css("display", "block");
-				jQuery('.answer6').css("display", "none");
-				jQuery('.h3_5').css("display", "block");
-				jQuery('.h3_6').css("display", "none");
-			} else if (idx == 6) {
-				jQuery('.answer6').css("display", "block");
-				jQuery('.answer7').css("display", "none");
-				jQuery('.h3_6').css("display", "block");
-				jQuery('.h3_7').css("display", "none");
-			} else if (idx == 7) {
-				jQuery('.answer7').css("display", "block");
-				jQuery('.answer8').css("display", "none");
-				jQuery('.h3_7').css("display", "block");
-				jQuery('.h3_8').css("display", "none");
-			} else if (idx == 8) {
-				jQuery('.answer8').css("display", "block");
-				jQuery('.answer9').css("display", "none");
-				jQuery('.h3_8').css("display", "block");
-				jQuery('.h3_9').css("display", "none");
-			} else if (idx == 9) {
-				jQuery('.answer9').css("display", "block");
-				jQuery('.answer10').css("display", "none");
-				jQuery('.h3_9').css("display", "block");
-				jQuery('.h3_10').css("display", "none");
-			} else if (idx == 10) {
-				jQuery('.answer10').css("display", "block");
-				jQuery('.answer11').css("display", "none");
-				jQuery('.h3_10').css("display", "block");
-				jQuery('.h3_11').css("display", "none");
-			} else if (idx == 11) {
-				jQuery('.answer11').css("display", "block");
-				jQuery('.answer12').css("display", "none");
-				jQuery('.h3_11').css("display", "block");
-				jQuery('.h3_12').css("display", "none");
-				jQuery('#next').css("display", "block");
-				jQuery('#submit').css("display", "none");
-			} 
-
-		});
-		//다음 버튼
-		$('#next').click(function() {
-			idx++;
-
-			if (idx == 2) {
-				jQuery('.answer2').css("display", "block");
-				jQuery('.answer1').css("display", "none");
-				jQuery('.h3_2').css("display", "block");
-				jQuery('.h3_1').css("display", "none");
-				jQuery('#prev').css("display", "block");
-
-				if ($(obj1).is(":checked") == false) {
-					idx--;
-					alert("답변을 체크해주세요.");
-					jQuery('.answer1').css("display", "block");
-					jQuery('.answer2').css("display", "none");
-					jQuery('.h3_1').css("display", "block");
-					jQuery('.h3_2').css("display", "none");
-					jQuery('#prev').css("display", "none");
-				}
-
-			} else if (idx == 3) {
-				jQuery('.answer3').css("display", "block");
-				jQuery('.answer2').css("display", "none");
-				jQuery('.h3_3').css("display", "block");
-				jQuery('.h3_2').css("display", "none");
-				if ($(obj2).is(":checked") == false) {
-					idx--;
-					alert("답변을 체크해주세요.");
-					jQuery('.answer2').css("display", "block");
-					jQuery('.answer3').css("display", "none");
-					jQuery('.h3_2').css("display", "block");
-					jQuery('.h3_3').css("display", "none");
-				}
-
-			} else if (idx == 4) {
-				jQuery('.answer4').css("display", "block");
-				jQuery('.answer3').css("display", "none");
-				jQuery('.h3_4').css("display", "block");
-				jQuery('.h3_3').css("display", "none");
-				if ($(obj3).is(":checked") == false) {
-					idx--;
-					alert("답변을 체크해주세요.");
-					jQuery('.answer3').css("display", "block");
-					jQuery('.answer4').css("display", "none");
-					jQuery('.h3_3').css("display", "block");
-					jQuery('.h3_4').css("display", "none");
-				}
-
-			} else if (idx == 5) {
-				jQuery('.answer5').css("display", "block");
-				jQuery('.answer4').css("display", "none");
-				jQuery('.h3_5').css("display", "block");
-				jQuery('.h3_4').css("display", "none");
-				if ($(obj4).is(":checked") == false) {
-					idx--;
-					alert("답변을 체크해주세요.");
-					jQuery('.answer4').css("display", "block");
-		             jQuery('.answer5').css("display", "none");
-		             jQuery('.h3_4').css("display", "block");
-		             jQuery('.h3_5').css("display", "none");
-				}
-
-			} else if (idx == 6) {
-				jQuery('.answer6').css("display", "block");
-				jQuery('.answer5').css("display", "none");
-				jQuery('.h3_6').css("display", "block");
-				jQuery('.h3_5').css("display", "none");
-				if ($(obj5).is(":checked") == false) {
-					idx--;
-					alert("답변을 체크해주세요.");
-					jQuery('.answer5').css("display", "block");
-		              jQuery('.answer6').css("display", "none");
-		              jQuery('.h3_5').css("display", "block");
-		              jQuery('.h3_6').css("display", "none");
-				}
-
-			} else if (idx == 7) {
-				jQuery('.answer7').css("display", "block");
-				jQuery('.answer6').css("display", "none");
-				jQuery('.h3_7').css("display", "block");
-				jQuery('.h3_6').css("display", "none");
-				if ($(obj6).is(":checked") == false) {
-					idx--;
-					alert("답변을 체크해주세요.");
-					jQuery('.answer6').css("display", "block");
-		              jQuery('.answer7').css("display", "none");
-		              jQuery('.h3_6').css("display", "block");
-		              jQuery('.h3_7').css("display", "none");
-				}
-
-			} else if (idx == 8) {
-				jQuery('.answer8').css("display", "block");
-				jQuery('.answer7').css("display", "none");
-				jQuery('.h3_8').css("display", "block");
-				jQuery('.h3_7').css("display", "none");
-				if ($(obj7).is(":checked") == false) {
-					idx--;
-					alert("답변을 체크해주세요.");
-					jQuery('.answer7').css("display", "block");
-		              jQuery('.answer8').css("display", "none");
-		              jQuery('.h3_7').css("display", "block");
-		              jQuery('.h3_8').css("display", "none");
-				}
-
-			} else if (idx == 9) {
-				jQuery('.answer9').css("display", "block");
-				jQuery('.answer8').css("display", "none");
-				jQuery('.h3_9').css("display", "block");
-				jQuery('.h3_8').css("display", "none");
-				if ($(obj8).is(":checked") == false) {
-					idx--;
-					alert("답변을 체크해주세요.");
-					 jQuery('.answer8').css("display", "block");
-		              jQuery('.answer9').css("display", "none");
-		              jQuery('.h3_8').css("display", "block");
-		              jQuery('.h3_9').css("display", "none");
-				}
-
-			} else if (idx == 10) {
-				jQuery('.answer10').css("display", "block");
-				jQuery('.answer9').css("display", "none");
-				jQuery('.h3_10').css("display", "block");
-				jQuery('.h3_9').css("display", "none");
-				if ($(obj9).is(":checked") == false) {
-					idx--;
-					alert("답변을 체크해주세요.");
-					jQuery('.answer9').css("display", "block");
-		              jQuery('.answer10').css("display", "none");
-		              jQuery('.h3_9').css("display", "block");
-		              jQuery('.h3_10').css("display", "none");
-				}
-
-			} else if (idx == 11) {
-				jQuery('.answer11').css("display", "block");
-				jQuery('.answer10').css("display", "none");
-				jQuery('.h3_11').css("display", "block");
-				jQuery('.h3_10').css("display", "none");
-				if ($(obj10).is(":checked") == false) {
-					idx--;
-					alert("답변을 체크해주세요.");
-					jQuery('.answer10').css("display", "block");
-		              jQuery('.answer11').css("display", "none");
-		              jQuery('.h3_10').css("display", "block");
-		              jQuery('.h3_11').css("display", "none");
-				}
-
-			} else if (idx == 12) {
-				jQuery('.answer12').css("display", "block");
-				jQuery('.answer11').css("display", "none");
-				jQuery('.h3_12').css("display", "block");
-				jQuery('.h3_11').css("display", "none");
-				jQuery('#next').css("display", "none");
-				jQuery('#submit').css("display", "block");
-				if ($(obj11).is(":checked") == false) {
-					idx--;
-					alert("답변을 체크해주세요.");
-					jQuery('.answer11').css("display", "block");
-		              jQuery('.answer12').css("display", "none");
-		              jQuery('.h3_11').css("display", "block");
-		              jQuery('.h3_12').css("display", "none");
-		              jQuery('#next').css("display", "block");
-		              jQuery('#submit').css("display", "none");
-				}
-
-			}
-		});
-
-		$('#submit').click(function() {
-
-			$('input[class="1"]:checked').each(function(i) {//체크된 리스트 저장
-				answerList.push($(this).val());
-			});
-			$('input[class="2"]:checked').each(function(i) {//체크된 리스트 저장
-				answerList.push($(this).val());
-			});
-			$('input[class="3"]:checked').each(function(i) {//체크된 리스트 저장
-				answerList.push($(this).val());
-			});
-			$('input[class="4"]:checked').each(function(i) {//체크된 리스트 저장
-				answerList.push($(this).val());
-			});
-			$('input[class="5"]:checked').each(function(i) {//체크된 리스트 저장
-				answerList.push($(this).val());
-			});
-			$('input[class="6"]:checked').each(function(i) {//체크된 리스트 저장
-				answerList.push($(this).val());
-			});
-			$('input[class="7"]:checked').each(function(i) {//체크된 리스트 저장
-				answerList.push($(this).val());
-			});
-			$('input[class="8"]:checked').each(function(i) {//체크된 리스트 저장
-				answerList.push($(this).val());
-			});
-			$('input[class="9"]:checked').each(function(i) {//체크된 리스트 저장
-				answerList.push($(this).val());
-			});
-			$('input[class="10"]:checked').each(function(i) {//체크된 리스트 저장
-				answerList.push($(this).val());
-			});
-			$('input[class="11"]:checked').each(function(i) {//체크된 리스트 저장
-				answerList.push($(this).val());
-			});
-			$('input[class="12"]:checked').each(function(i) {//체크된 리스트 저장
-				answerList.push($(this).val());
-			});
-
-
-		});
-
-	})
-	function NoMultiChk(chk) {
-
-		if (idx == 1) {
-			for (var i = 0; i < obj1.length; i++) {
-				if (obj1[i] != chk) {
-					obj1[i].checked = false;
-				}
-			}
-		}
-		if (idx == 2) {
-			for (var i = 0; i < obj2.length; i++) {
-				if (obj2[i] != chk) {
-					obj2[i].checked = false;
-				}
-			}
-		}
-		if (idx == 3) {
-			for (var i = 0; i < obj3.length; i++) {
-				if (obj3[i] != chk) {
-					obj3[i].checked = false;
-				}
-			}
-		}
-		if (idx == 4) {
-			for (var i = 0; i < obj4.length; i++) {
-				if (obj4[i] != chk) {
-					obj4[i].checked = false;
-				}
-			}
-		}
-		if (idx == 5) {
-			for (var i = 0; i < obj5.length; i++) {
-				if (obj5[i] != chk) {
-					obj5[i].checked = false;
-				}
-			}
-		}
-		if (idx == 6) {
-			for (var i = 0; i < obj6.length; i++) {
-				if (obj6[i] != chk) {
-					obj6[i].checked = false;
-				}
-			}
-		}
-		if (idx == 7) {
-			for (var i = 0; i < obj7.length; i++) {
-				if (obj7[i] != chk) {
-					obj7[i].checked = false;
-				}
-			}
-		}
-		if (idx == 8) {
-			for (var i = 0; i < obj8.length; i++) {
-				if (obj8[i] != chk) {
-					obj8[i].checked = false;
-				}
-			}
-		}
-		if (idx == 9) {
-			for (var i = 0; i < obj9.length; i++) {
-				if (obj9[i] != chk) {
-					obj9[i].checked = false;
-				}
-			}
-		}
-		if (idx == 10) {
-			for (var i = 0; i < obj10.length; i++) {
-				if (obj10[i] != chk) {
-					obj10[i].checked = false;
-				}
-			}
-		}
-		if (idx == 11) {
-			for (var i = 0; i < obj11.length; i++) {
-				if (obj11[i] != chk) {
-					obj11[i].checked = false;
-				}
-			}
-		}
-		if (idx == 12) {
-			for (var i = 0; i < obj12.length; i++) {
-				if (obj12[i] != chk) {
-					obj12[i].checked = false;
-				}
-			}
-		}
-
-	}
-	function uncheck(){
-		$(':checkbox:checked').prop('checked',false);
-	};
-</script>
 <body onLoad="uncheck()">
 	<div id="wrap">
 		<div id="headers"><jsp:include page="/WEB-INF/views/header/header.jsp"></jsp:include></div>
@@ -456,7 +70,7 @@
 									value="<c:out value='${answer.id}'/>"
 									onclick="NoMultiChk(this)">
 								<c:out value='${answer.contents}' /></label>
-								<div class="answerpoint"><c:out value='${answer.point}' /></div>
+<%-- 								<div class="answerpoint"><c:out value='${answer.point}' /></div> --%>
 							</div>
 						</c:forEach>
 					</div>
@@ -467,7 +81,7 @@
 									class="2" id="${answer2.id}" name="answerList2"
 									value="${answer2.id}" onclick="NoMultiChk(this)"> <c:out
 										value='${answer2.contents}' /></label>
-									<div class="answerpoint"><c:out value='${answer2.point}' /></div>
+<%-- 									<div class="answerpoint"><c:out value='${answer2.point}' /></div> --%>
 							</div>
 						</c:forEach>
 					</div>
@@ -478,7 +92,7 @@
 									class="3" id="${answer3.id}" name="answerList3"
 									value="${answer3.id}" onclick="NoMultiChk(this)">
 								<c:out value='${answer3.contents}' /></label>
-								<div class="answerpoint"><c:out value='${answer3.point}' /></div>
+<%-- 								<div class="answerpoint"><c:out value='${answer3.point}' /></div> --%>
 							</div>
 						</c:forEach>
 					</div>
@@ -489,7 +103,7 @@
 									class="4" id="${answer4.id}" name="answerList4"
 									value="${answer4.id}" onclick="NoMultiChk(this)">
 								<c:out value='${answer4.contents}' /></label>
-								<div class="answerpoint"><c:out value='${answer4.point}' /></div>
+<%-- 								<div class="answerpoint"><c:out value='${answer4.point}' /></div> --%>
 							</div>
 						</c:forEach>
 					</div>
@@ -500,7 +114,7 @@
 									class="5" id="${answer5.id}" name="answerList5"
 									value="${answer5.id}" onclick="NoMultiChk(this)">
 								<c:out value='${answer5.contents}' /></label>
-								<div class="answerpoint"><c:out value='${answer5.point}' /></div>
+<%-- 								<div class="answerpoint"><c:out value='${answer5.point}' /></div> --%>
 							</div>
 						</c:forEach>
 					</div>
@@ -511,7 +125,7 @@
 									class="6" id="${answer6.id}" name="answerList6"
 									value="${answer6.id}" onclick="NoMultiChk(this)"> <c:out
 										value='${answer6.contents}' /></label>
-										<div class="answerpoint"><c:out value='${answer6.point}' /></div>
+<%-- 										<div class="answerpoint"><c:out value='${answer6.point}' /></div> --%>
 							</div>
 						</c:forEach>
 					</div>
@@ -522,7 +136,7 @@
 									class="7" id="${answer7.id}" name="answerList7"
 									value="${answer7.id}" onclick="NoMultiChk(this)">
 								<c:out value='${answer7.contents}' /></label>
-								<div class="answerpoint"><c:out value='${answer7.point}' /></div>
+<%-- 								<div class="answerpoint"><c:out value='${answer7.point}' /></div> --%>
 							</div>
 						</c:forEach>
 					</div>
@@ -533,7 +147,7 @@
 									class="8" id="${answer8.id}" name="answerList8"
 									value="${answer8.id}" onclick="NoMultiChk(this)">
 								<c:out value='${answer8.contents}' /></label>
-								<div class="answerpoint"><c:out value='${answer8.point}' /></div>
+<%-- 								<div class="answerpoint"><c:out value='${answer8.point}' /></div> --%>
 							</div>
 						</c:forEach>
 					</div>
@@ -544,7 +158,7 @@
 									class="9" id="${answer9.id}" name="answerList9"
 									value="${answer9.id}" onclick="NoMultiChk(this)">
 								<c:out value='${answer9.contents}' /></label>
-								<div class="answerpoint"><c:out value='${answer9.point}' /></div>
+<%-- 								<div class="answerpoint"><c:out value='${answer9.point}' /></div> --%>
 							</div>
 						</c:forEach>
 					</div>
@@ -555,7 +169,7 @@
 									class="10" id="${answer10.id}" name="answerList10"
 									value="${answer10.id}" onclick="NoMultiChk(this)">
 								<c:out value='${answer10.contents}' /></label>
-								<div class="answerpoint"><c:out value='${answer10.point}' /></div>
+<%-- 								<div class="answerpoint"><c:out value='${answer10.point}' /></div> --%>
 							</div>
 						</c:forEach>
 					</div>
@@ -566,7 +180,7 @@
 									class="11" id="${answer11.id}" name="answerList11"
 									value="${answer11.id}">
 								<c:out value='${answer11.contents}' /></label>
-								<div class="answerpoint"><c:out value='${answer11.point}' /></div>
+<%-- 								<div class="answerpoint"><c:out value='${answer11.point}' /></div> --%>
 							</div>
 						</c:forEach>
 					</div>
@@ -577,7 +191,7 @@
 									class="12" id="${answer12.id}" name="answerList12"
 									value="${answer12.id}" onclick="NoMultiChk(this)">
 								<c:out value='${answer12.contents}' /></label>
-								<div class="answerpoint"><c:out value='${answer12.point}' /></div>
+<%-- 								<div class="answerpoint"><c:out value='${answer12.point}' /></div> --%>
 							</div>
 						</c:forEach>
 					</div>

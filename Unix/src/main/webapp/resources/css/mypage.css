@@ -1,6 +1,6 @@
-
+@charset "UTF-8";
  
- button, html [type="button"] {
+ input, button, html [type="button"] {
   -webkit-appearance: none;   
 }
  *,html,body {

@@ -42,9 +42,9 @@
 	                        <label for="chk_id"><span>아이디 저장</span></label>
 	                    </div>
 	                    <div class="idfind">
-	                        <span id="findIdBtn"><a href="findPwView">아이디 찾기</a></span>
+	                        <span id="findIdBtn"><a href="/Unix/find_ID">아이디 찾기</a></span>
 	                        <span>/</span>
-	                        <span><a href="findPwView">비밀번호 찾기</a></span>
+	                        <span><a href="/Unix/find_PASS">비밀번호 찾기</a></span>
 	                    </div>
 	                </div>
 	                <input type="button" value="로그인" class="loginbtn" onclick="loginform_check()">

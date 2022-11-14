@@ -9,6 +9,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>JSP Title</title>
 <link rel="stylesheet" href="resources/css/header.css">
+<script>
+
+	function logchek() {
+	    alert("로그인이 필요한 서비스입니다.");
+	    return;
+	}
+</script>
 </head>
 <body>
 <%
@@ -54,7 +61,7 @@ String user_id = (String)session.getAttribute("user_id");
 				</c:when>
 				<c:otherwise>
 <%-- 				<div style="color:black"><%=user_id %> 님 환영합니다!</div> --%>
-					<button onclick="location.href='Logout'">로그인</button>
+					<button onclick="location.href='Logout'">로그아웃</button>
 				</c:otherwise>
 			</c:choose>
                     
@@ -65,7 +72,15 @@ String user_id = (String)session.getAttribute("user_id");
                         <li>진단하기</li>
                         <li>공지사항</li>
                         <li>자료실</li>
-                        <a href="MyPage"><li>마이페이지</li></a>
+                        <c:choose>
+				<c:when test="${sessionScope.user_id == null}">
+					<a onclick="logchek();"><li>마이페이지</li></a>
+				</c:when>
+				<c:otherwise>
+				<a href="MyPage"><li>마이페이지</li></a>
+				</c:otherwise>
+			</c:choose>
+                  
                     </ul>
                 </div>
             </div>
@@ -74,7 +89,14 @@ String user_id = (String)session.getAttribute("user_id");
             <a href="Home"><img src="resources/imgs/logo.svg"></a>
         </div>
         <div id="header_right">
-            <img onclick="location.href='Login'" src="resources/imgs/user.svg">
+         <c:choose>
+				<c:when test="${sessionScope.user_id == null}">
+					<img onclick="location.href='Login'" src="resources/imgs/user.svg">
+				</c:when>
+				<c:otherwise>
+				<img onclick="location.href='MyPage'" src="resources/imgs/user.svg">
+				</c:otherwise>
+			</c:choose>
         </div>
     </div>
 </body>

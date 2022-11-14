@@ -3,6 +3,9 @@
 button, html [type="button"] {
   -webkit-appearance: none;   
 }
+input [type="submit"] {
+	 -webkit-appearance: none;  
+}
 * {
 	margin: 0;
 	padding: 0;
@@ -227,7 +230,7 @@ button, html [type="button"] {
 
 /* 태블릿 */
 @media all and (min-width:768px) and (max-width:1023px) {
-		body {
+		html, body {
 		min-width: unset;
 		overflow-x: hidden;
 	}
@@ -301,7 +304,7 @@ button, html [type="button"] {
 }
 /* 모바일 */
 @media all and (min-width:320px) and (max-width:767px) {
-		body {
+		html, body {
 		min-width: unset;
 		overflow-x: hidden;
 	}

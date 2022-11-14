@@ -159,11 +159,9 @@
         }
         .sideLi ul li:hover {
             background-color: #7ba2fd;
+            cursor: pointer;
         }
         .sideLi a{
         text-decoration: none;
         }
 }
-
-
-

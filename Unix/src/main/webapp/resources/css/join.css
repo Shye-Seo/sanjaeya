@@ -1,6 +1,9 @@
 @charset "UTF-8";
-button, html [type="button"] {
+ button, html [type="button"] {
   -webkit-appearance: none;   
+}
+input [type="submit"] {
+	 -webkit-appearance: none;  
 }
      *,html,body {
             margin: 0;
@@ -479,7 +482,7 @@ button, html [type="button"] {
         justify-content: center;
         margin-top: 30px;
     }
-    body {
+		html, body {
 		min-width: unset;
 		overflow-x: hidden;
 	}
@@ -581,7 +584,7 @@ button, html [type="button"] {
         justify-content: center;
         margin-top: 30px;
     }
-		body {
+		html, body {
 		min-width: unset;
 		overflow-x: hidden;
 	}

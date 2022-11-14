@@ -3,6 +3,9 @@
 button, html [type="button"] {
   -webkit-appearance: none;   
 }
+input [type="submit"] {
+	 -webkit-appearance: none;  
+}
 a {
 	text-decoration: none;
 }
@@ -249,13 +252,15 @@ a {
 	border: none;
 	color: white;
 	/*  padding:10px 30px; */
-	width: 106px;
-	height: 40px;
-	font-size: 0.8rem;
+	width: 135px;
+	height: 45px;
+	font-size: 15px;
 	cursor: pointer;
 	font-weight: 600;
 	border-radius: 7px;
 	margin-right: 15px;
+	    margin-top: 15px;
+    margin-bottom: 20px;
 }
 
 .survey {
@@ -268,7 +273,7 @@ a {
 }
 
 .survey button {
-	background-color: #326DFB;
+	background:linear-gradient(to right, #326DFB, #204396);
 	border-style: none;
 	padding: 15px 33px 19px 38px;
 	color: #FFFFFF;
@@ -282,7 +287,7 @@ a {
 
 /* 태블릿 */
 @media all and (min-width:768px) and (max-width:1023px) {
-	body {
+		html, body {
 		min-width: unset;
 		overflow-x: hidden;
 	}
@@ -426,7 +431,7 @@ a {
 }
 /* 모바일 */
 @media all and (min-width:320px) and (max-width:767px) {
-	body {
+		html, body {
 		min-width: unset;
 		overflow-x: hidden;
 	}
@@ -434,7 +439,7 @@ a {
 		background-image: none;
 		/* 		display: none; */
 		width: 0;
-		height: 90px;
+		height: 70px;
 	}
 	.nav .banner {
 		background-image: none;
@@ -465,7 +470,7 @@ a {
 		align-items: center;
 		margin: 5% auto 10px;
 		width: 65%;
-		height: 730px;
+		height: 760px;
 		background: #FDFDFD 0% 0% no-repeat padding-box;
 		box-shadow: 1px 4px 6px 1px rgb(214, 214, 214);
 		border-radius: 19px;
@@ -556,5 +561,8 @@ a {
 	padding: 10px 10px 10px 10px;
 
 
+}
+#resultspan {
+	font-size: 13px;
 }
 }

@@ -97,9 +97,9 @@ public class HomeController {
 	}
 	
 	// 아이디 찾기 페이지인 findIdView 컨트롤러
-	@RequestMapping(value="findIdView", method=RequestMethod.GET)
+	@RequestMapping(value="find_ID", method=RequestMethod.GET)
 	public String findIdView() throws Exception {
-		return "findIdView";
+		return "findID_PASS";
 	}
 	
 	// 아이디 찾기 로직인 findId
@@ -111,7 +111,7 @@ public class HomeController {
 			System.out.println(memberVo.getUser_phone()+"3333333333333");
 			// count한 값이 0이면 아이디찾기 페이지로 msg라는 String값을 보낸다
 			model.addAttribute("msg", "없는 전화번호 입니다.");
-			return "findIdView";
+			return "findID_PASS";
 		}else {
 			model.addAttribute("member", memberService.findId(memberVo.getUser_phone()));
 			return "findId";
@@ -119,9 +119,9 @@ public class HomeController {
 	}
 	
 	/* 비밀번호 찾기 */
-	@RequestMapping(value = "findPwView", method = RequestMethod.GET)
+	@RequestMapping(value = "find_PASS", method = RequestMethod.GET)
 	public String findPwGET() throws Exception{
-		return "findPwView";
+		return "findID_PASS";
 	}
 
 	@RequestMapping(value = "findPw", method = RequestMethod.POST)
@@ -132,7 +132,7 @@ public class HomeController {
 		if(memberService.findIdCheck(memberVo.getUser_id()) == 0) {
 			// count한 값이 0이면 아이디찾기 페이지로 msg라는 String값을 보낸다
 			model.addAttribute("msg", "없는 아이디 입니다.");
-			return "findPwView";
+			return "findID_PASS";
 		}else {
 			model.addAttribute("member", memberService.findId(memberVo.getUser_phone()));
 			model.addAttribute("id", memberVo.getUser_id());
@@ -208,6 +208,9 @@ public class HomeController {
 		return Integer.toString(randomNumber);
 	}
 	
-	
+	@RequestMapping("Board") // 로그인 페이지
+	public String board() {
+		return "/boardlist";
+	}
 
 }
