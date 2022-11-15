@@ -240,7 +240,7 @@
 				<div class="next">
 					<input type="button" value="이전" id="prev" onclick=""> <input
 						type="button" value="다음" id="next" onclick=""> <input
-						type="submit" value="완료" id="submit" onclick="">
+						type="button" value="완료" id="check_submit" onclick="">
 				</div>
 			</form>
 		</section>

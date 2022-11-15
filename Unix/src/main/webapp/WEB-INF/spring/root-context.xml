@@ -37,24 +37,24 @@
      
      
      <!-- 로컬db -->
-<!--      <bean name="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"  destroy-method="close"> -->
-<!-- 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/> -->
-<!-- 		<property name="url" value="jdbc:mysql://db-batgt-kr.vpc-pub-cdb.ntruss.com:3306/sanjaedb?characterEncoding=UTF-8&amp;serverTimezone=UTC"/> -->
-<!-- 		<property name="username" value="yukyung"/> -->
-<!-- 		<property name="password" value="Yukyung11!"/> -->
-<!-- 		<property name="initialSize" value="5"/> -->
-<!-- 		<property name="maxIdle" value="5"/> -->
-<!-- 	</bean>	  -->
-	
-	<!-- 서버 배포용 db  -->
      <bean name="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"  destroy-method="close">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-		<property name="url" value="jdbc:mysql://db-bo67p.vpc-cdb.ntruss.com:3306/sanjaedb?characterEncoding=UTF-8&amp;serverTimezone=UTC"/>
-		<property name="username" value="sanjae"/>
-		<property name="password" value="Sanjae1004!"/>
+		<property name="url" value="jdbc:mysql://db-batgt-kr.vpc-pub-cdb.ntruss.com:3306/sanjaedb?characterEncoding=UTF-8&amp;serverTimezone=UTC"/>
+		<property name="username" value="yukyung"/>
+		<property name="password" value="Yukyung11!"/>
 		<property name="initialSize" value="5"/>
 		<property name="maxIdle" value="5"/>
 	</bean>	 
+	
+	<!-- 서버 배포용 db  -->
+<!--      <bean name="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"  destroy-method="close"> -->
+<!-- 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/> -->
+<!-- 		<property name="url" value="jdbc:mysql://db-bo67p.vpc-cdb.ntruss.com:3306/sanjaedb?characterEncoding=UTF-8&amp;serverTimezone=UTC"/> -->
+<!-- 		<property name="username" value="sanjae"/> -->
+<!-- 		<property name="password" value="Sanjae1004!"/> -->
+<!-- 		<property name="initialSize" value="5"/> -->
+<!-- 		<property name="maxIdle" value="5"/> -->
+<!-- 	</bean>	  -->
 	
 	<!-- Mybatis 연동 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

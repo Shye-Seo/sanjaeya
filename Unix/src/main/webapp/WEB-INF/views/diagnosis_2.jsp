@@ -60,7 +60,7 @@
 				<p id="chc">*비회원으로 진행하실 경우 진단내용 및 결과는 자동저장되지 않습니다.</p>
 			</div>
 			<br>
-			<form method="post" action="${pageContext.request.contextPath}/Checklist_2_cal" id="checkform">
+			<form method="post" action="${pageContext.request.contextPath}/Checklist_2_cal" id="checkform"name="checkform">
 				<div class="lst1">
 					<div class="lst2">
 						<c:forEach items="${answer1}" var="answer">
@@ -199,7 +199,7 @@
 				<div class="next">
 					<input type="button" value="이전" id="prev" onclick=""> <input
 						type="button" value="다음" id="next" onclick=""> <input
-						type="submit" value="완료" id="submit" onclick="">
+						type="button" value="완료" id="check_submit" onclick="">
 				</div>
 			</form>
 		</section>
