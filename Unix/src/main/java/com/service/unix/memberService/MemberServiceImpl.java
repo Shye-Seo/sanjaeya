@@ -70,6 +70,17 @@ public class MemberServiceImpl implements MemberService{
 		return memberDao.findIdCheck(user_phone);
 	}
 	
+	//비밀번호 찾기 아이디 체크
+	@Override
+	public int findPASSIdCheck(String user_id) throws Exception {
+		return memberDao.findPASSIdCheck(user_id);
+	}
+	//비밀번호 다시 설정
+	@Override
+	public void updatePw(MemberVo memberVo) throws Exception {
+		memberDao.updatePw(memberVo);
+	}
+	
 	//비밀번호 찾기 이메일발송
 	@Override
 	public void sendEmail(MemberVo memberVo, String div) throws Exception {

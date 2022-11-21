@@ -49,12 +49,11 @@ if (msg != "") {
 				<div class="tab_cont">
 					<form class="user" action="findId" method="POST">
 						<div class="on" id="tab1">
-							<h2>회원가입시 사용한 아이디는: ${member.user_id} 입니다</h2>
+							<h3>회원가입시 사용한 아이디는: ${member.user_id} 입니다</h3>
 							<button type="button" onclick="location.href='Login'">로그인 화면으로 돌아가기</button>
-						</div>
+						</div>    
 						
-					</form>
-
+	</form>
 					<form class="user" action="findPw" method="POST">
 						<div>
 							<div class="on" id="tab1">

@@ -30,6 +30,8 @@ public interface MemberService {
 		
 	public int findIdCheck(String user_phone) throws Exception;
 	
+	//비밀번호 찾기 아이디 체크
+	public int findPASSIdCheck(String user_id) throws Exception;
 	
 	//이메일발송
 	public void sendEmail(MemberVo memberVo, String div) throws Exception;
@@ -43,4 +45,8 @@ public interface MemberService {
 	public MemberVo mypage(String user_id);
 	
 	public void mypageUpdate(MemberVo memberVo);
+
+	//비밀번호 다시 설정
+	public void updatePw(MemberVo memberVo) throws Exception;
+
 }

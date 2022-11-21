@@ -1,11 +1,13 @@
 @charset "UTF-8";
 
- button, html [type="button"] {
-  -webkit-appearance: none;   
+button, html [type="button"] {
+	-webkit-appearance: none;
 }
+
 input [type="submit"] {
-	 -webkit-appearance: none;  
+	-webkit-appearance: none;
 }
+
 * {
 	margin: 0;
 	padding: 0;
@@ -23,7 +25,6 @@ ul, li {
 /* 	width: 1920px; */
 /* 	height: 245px; */
 /* } */
-
 .nav {
 	position: relative;
 	text-align: center;
@@ -100,7 +101,7 @@ ul, li {
 	display: block;
 }
 
-input[type=text] {
+input[type=text], input[type=password] {
 	border: none;
 	width: 370px;
 	height: 35px;
@@ -124,6 +125,7 @@ input:focus {
 	border-radius: 9px;
 	color: #326DFB;
 	padding: 7px 7px 7px 7px;
+	cursor: pointer;
 }
 
 #tab1 p {
@@ -133,7 +135,7 @@ input:focus {
 	padding-bottom: 10px;
 }
 
-#tab1 button {
+#tab1 button, #member_submit_btn {
 	color: #FFFFFF;
 	background-color: #326DFB;
 	border-radius: 9px;
@@ -141,13 +143,25 @@ input:focus {
 	height: 70px;
 	border: none;
 	font: normal normal bold 20px/24px Pretendard;
+	cursor: pointer;
 }
-.tab_cont .on #user_id{
-	width:480px;
+
+.tab_cont .on #user_id {
+	width: 480px;
+}
+
+#tab1 h3 {
+	height: 100px;
+	text-align: center;
+	padding-top: 66px;
+}
+
+#lengthchek {
+	padding-left: 10px;
 }
 /* 태블릿 */
 @media all and (min-width:768px) and (max-width:1023px) {
-	html,body {
+	html, body {
 		min-width: unset;
 		overflow-x: hidden;
 	}
@@ -171,14 +185,14 @@ input:focus {
 		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 	}
 	header {
-    width: 1920px;
-    height: 100px;
-}
+		width: 1920px;
+		height: 100px;
+	}
 }
 
 /* 모바일 */
 @media all and (min-width:320px) and (max-width:767px) {
-	html,body {
+	html, body {
 		min-width: unset;
 		overflow-x: hidden;
 	}
@@ -202,22 +216,21 @@ input:focus {
 		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 	}
 	header {
-    width: 1920px;
-    height: 100px;
-}
-.tab_container {
-    width: 320px;
-    margin: 20px auto;
-}
-.tab_title li {
-	width:130px;
-	
-}
-input[type=text] {
-	width:200px;
-	    font: normal normal 600 14px/19px Pretendard;
-}
-.tab_cont .on #user_id{
-	width:300px;
-}
+		width: 1920px;
+		height: 100px;
+	}
+	.tab_container {
+		width: 320px;
+		margin: 20px auto;
+	}
+	.tab_title li {
+		width: 130px;
+	}
+	input[type=text] {
+		width: 200px;
+		font: normal normal 600 14px/19px Pretendard;
+	}
+	.tab_cont .on #user_id {
+		width: 300px;
+	}
 }

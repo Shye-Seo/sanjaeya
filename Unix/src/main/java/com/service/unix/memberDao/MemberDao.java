@@ -23,8 +23,12 @@ public interface MemberDao {
 	
 	public int findIdCheck(String user_phone) throws Exception;
 	
-	// 비밀번호 변경 (임시 비밀번호를 발급하면서 해당 비밀번호를 DB에 update하는 메서드를 구현한다.)
-	public int updatePw(MemberVo memberVo) throws Exception;
+	//비밀번호 찾기 아이디 체크
+	public int findPASSIdCheck(String user_id) throws Exception;
+	
+	// 비밀번호 변경 (임시 비밀번호를 발급하면서 해당 비밀번호를 DB에 update하는 메서드를 구현한다.) --제외
+	// 비밀번호 변경
+	public void updatePw(MemberVo memberVo) throws Exception;
 	
 	// 비밀번호 찾기
 	public int findPwCheck(MemberVo MemberVo)throws Exception; 
@@ -37,4 +41,6 @@ public interface MemberDao {
 	
 	// 마이페이지 수정
 	public void mypageUpdate(MemberVo memberVo);
+
+
 }

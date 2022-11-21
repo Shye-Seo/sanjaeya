@@ -56,10 +56,15 @@ public class MemberDaoImpl implements MemberDao {
 		return sqlSession.selectOne("user.findIdCheck",user_phone);
 	}
 	
+	//비밀번호 찾기 아이디 체크
+	@Override
+	public int findPASSIdCheck(String user_id) throws Exception {
+		return sqlSession.selectOne("user.findPASSIdCheck",user_id);
+	}
 	//비밀번호변경
 	@Override
-	public int updatePw(MemberVo memberVo) throws Exception {
-		return sqlSession.update("user.updatePw",memberVo);
+	public void updatePw(MemberVo memberVo) throws Exception {
+		sqlSession.update("user.updatePw",memberVo);
 	}
 	
 	// 비밀번호 찾기

@@ -31,9 +31,7 @@
 	background-color: #326DFB;
 	border-radius: 5px;
 	color: white;
-	font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui,
-		Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo',
-		'Noto Sans KR', 'Malgun Gothic', sans-serif;
+	font-family: Pretendard;
 }
 .header {
 	display:none;
