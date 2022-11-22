@@ -16,6 +16,13 @@ if (msg != "") {
 	alert(msg);
 }
 
+// $(function() {
+// 	$(".tab_title li").removeClass("on");
+// 	$(".tab_title li").eq(1).addClass("on");
+// 	$(".tab_cont > form > div").hide();
+// 	$(".tab_cont > form > div").eq(1).show();
+// });
+    
 	$(document).ready(function() {
 		$(".tab_title li").click(function() {
 			var idx = $(this).index();
