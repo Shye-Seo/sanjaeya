@@ -13,19 +13,19 @@
 		$('.category_1').click(function () {
 			var pageNum = 1;
 			sessionStorage.setItem("pageNum", pageNum);
-			location.href = "Checklist_1";
+			location.href = "Checklist_s1";
 			
 			});
 		$('.category_2').click(function () {
 			var pageNum = 1;
 			sessionStorage.setItem("pageNum", pageNum);
-			location.href = "Checklist_2";
+			location.href = "Checklist_s2";
 			
 			});
 		$('.category_3').click(function () {
 			var pageNum = 1;
 			sessionStorage.setItem("pageNum", pageNum);
-			location.href = "Checklist_3";
+			location.href = "Checklist_s3";
 			
 			});
 		$("#categoryscroll").click(function () {
@@ -141,7 +141,7 @@
 				</div>
 				<div class="category_3">
 					<p class="cate_img3" onclick="location.href='Checklist_s3'"></p>
-					<p class="cate_p3">근골격계 질환</p>
+					<p class="cate_p3">근골결계 질환</p>
 				</div>
 			</div>
 			<div class="category2">
@@ -178,16 +178,12 @@
 							&nbsp;|&nbsp;&nbsp;</a>
 						<div id="tab_1" class="list_123">
 							<div class="list_re">
-							<c:forEach var="list" items="${board_list}" varStatus="st">
+								<c:forEach var="list" items="${board_list}" varStatus="st">
 								<div>
 									<a href="readView?id=${list.id}" id="list_title">${list.title}</a> <span
 										id="list_date"><fmt:formatDate value = "${list.date}" pattern = "yyyy.MM.dd"/></span> <a href="#" id="plusBtn">+</a>
 								</div>
-							</c:forEach>
-<!-- 								<div> -->
-<!-- 									<a href="#" id="list_title">유닉스 노무법인 공지사항</a> <span -->
-<!-- 										id="list_date">2022.06.24</span> <a href="#" id="plusBtn">+</a> -->
-<!-- 								</div> -->
+								</c:forEach>
 <!-- 								<div> -->
 <!-- 									<a href="#" id="list_title">유닉스 노무법인 공지사항</a> <span -->
 <!-- 										id="list_date">2022.06.24</span> <a href="#" id="plusBtn">+</a> -->
@@ -210,16 +206,12 @@
 					<li><a href="#tab_3" class="menu_btn">자료실&nbsp;&nbsp;</a>
 						<div id="tab_3" class="list_123">
 							<div class="list_re">
-							<c:forEach var="list" items="${library_list}" varStatus="st">
+								<c:forEach var="list" items="${library_list}" varStatus="st">
 								<div>
 									<a href="readLibrary?id=${list.id}" id="list_title">${list.title}</a> <span
 										id="list_date"><fmt:formatDate value = "${list.date}" pattern = "yyyy.MM.dd"/></span> <a href="#" id="plusBtn">+</a>
 								</div>
-							</c:forEach>
-<!-- 								<div> -->
-<!-- 									<a id="list_title">유닉스 노무법인 자료실</a> <span id="list_date">2022.06.24</span> -->
-<!-- 									<a href="#" id="plusBtn">+</a> -->
-<!-- 								</div> -->
+								</c:forEach>
 <!-- 								<div> -->
 <!-- 									<a id="list_title">유닉스 노무법인 자료실</a> <span id="list_date">2022.06.24</span> -->
 <!-- 									<a href="#" id="plusBtn">+</a> -->
@@ -240,12 +232,12 @@
 						</div></li>
 					<li>
 						<div class="morebtn">
-							<a>더보기 ></a>
+							<a href="board_list">더보기 ></a>
 						</div>
 					</li>
 				</ul>
 			</div>
-			<button type="button" class="mmorebtn">더보기</button>
+			<button type="button" class="mmorebtn" onclick="location.href='board_list'">더보기</button>
 		</div>
 
 	</section>
