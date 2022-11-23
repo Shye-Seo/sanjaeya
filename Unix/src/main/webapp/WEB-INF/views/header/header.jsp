@@ -70,8 +70,8 @@ String user_id = (String)session.getAttribute("user_id");
                     <ul>
                         <a href="Home"><li>홈</li></a>
                         <li>진단하기</li>
-                        <li>공지사항</li>
-                        <li>자료실</li>
+                        <a href="board_list"><li>공지사항</li></a>
+                        <a href="library_list"><li>자료실</li></a>
                         <c:choose>
 				<c:when test="${sessionScope.user_id == null}">
 					<a onclick="logchek();"><li>마이페이지</li></a>
