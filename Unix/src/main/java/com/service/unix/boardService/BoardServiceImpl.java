@@ -48,10 +48,10 @@ public class BoardServiceImpl
     this.boardDao.delete(id);
   }
   
-  public List<LibraryVo> library_list()
+  public List<LibraryVo> library_list(PagingVO pagingvo)
     throws Exception
   {
-    return this.boardDao.library_list();
+    return this.boardDao.library_list(pagingvo);
   }
   
   public void write_library(LibraryVo vo)
@@ -139,5 +139,10 @@ public class BoardServiceImpl
 	@Override
 	public int board_count(PagingVO pagingvo) throws Exception {
 		return this.boardDao.board_count(pagingvo);
+	}
+
+	@Override
+	public int library_count(PagingVO pagingvo) throws Exception {
+		return this.boardDao.library_count(pagingvo);
 	}
 }

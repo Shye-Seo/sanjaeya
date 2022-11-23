@@ -67,8 +67,6 @@ public class BoardController
 		modelMap.addAttribute("board_list", board_list);
 	}
 	
-    modelMap.addAttribute("library_list", this.service.library_list());
-    
     return "/board/list";
   }
   
@@ -190,10 +188,41 @@ public class BoardController
   }
   
   @RequestMapping(value={"library_list"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
-  public String library_list(HttpServletRequest request, ModelMap modelMap)
+  public String library_list(HttpServletRequest request, ModelMap modelMap, PagingVO pagingvo, LibraryVo libraryvo,
+		  @RequestParam(value = "nowPage", required = false) String nowPage,
+		  @RequestParam(value = "cntPerPage", required = false) String cntPerPage,
+		  @RequestParam(value = "title", required = false) String title)
     throws Exception
   {
-    modelMap.addAttribute("library_list", this.service.library_list());
+	  
+	  String sql = "";
+		
+		if(title != null) {
+			modelMap.addAttribute("title", title);
+			sql = "where title like '%" + title + "%'";
+		}
+		
+		pagingvo.setSql(sql);
+		int total = service.library_count(pagingvo);
+		modelMap.addAttribute("total", total);
+		
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "10";
+		} else if (nowPage == null) {
+			nowPage = "1";
+		} else if (cntPerPage == null) {
+			cntPerPage = "10";
+		}
+		
+		pagingvo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		modelMap.addAttribute("paging", pagingvo);
+		
+		if (total != 0) {
+			pagingvo.setSql(sql);
+			List<LibraryVo> library_list = service.library_list(pagingvo);
+			modelMap.addAttribute("library_list", library_list);
+		}
     
     return "/board/library_list";
   }

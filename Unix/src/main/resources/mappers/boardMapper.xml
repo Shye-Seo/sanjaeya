@@ -29,7 +29,11 @@
 
 <insert id="set_libraryFile">insert into nm_library_file(library_id, address) values (#{library_id}, #{address}) </insert>
 
-<select id="library_list" resultType="com.service.unix.boardVo.LibraryVo">select * from nm_library order by id desc </select>
+<select id="library_list" resultType="com.service.unix.boardVo.LibraryVo">
+	select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from nm_library ${sql} order by id desc)n,
+		(select @rownum:=0)v)num Where num.num between ${start} and ${end}
+</select>
 
 <select id="readLibrary" resultType="com.service.unix.boardVo.LibraryVo" parameterType="int">select * from nm_library where id = #{id} </select>
 
@@ -65,6 +69,12 @@
 <select id="board_count" parameterType="com.service.unix.boardVo.PagingVO" resultType="int">
 		select count(*) from (select @rownum:=@rownum+1 as num, n.*
 		from(select * from nm_board ${sql} order by id desc)n,
+		(select @rownum:=0)v)num;
+</select>
+
+<select id="library_count" parameterType="com.service.unix.boardVo.PagingVO" resultType="int">
+		select count(*) from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from nm_library ${sql} order by id desc)n,
 		(select @rownum:=0)v)num;
 </select>
 <!-- <select id="board_count" parameterType="com.service.unix.boardVo.PagingVO" resultType="int"> -->

@@ -44,7 +44,7 @@
 			
 	<div class = "search_area">
 	    <div class = "search">
-	    	<form method="get">
+	    	<form method="get" id="searchform">
 	      		<input type="text" class = "listsearch" placeholder="검색어를 입력하세요." name = "title" value="${title}"/>
 	    	<button class ="searchbtn" type = "submit"><img src = "resources/imgs/serachbtn.svg"></button>
 	    	</form>
@@ -69,7 +69,50 @@
 	  </div>
     </div>
     
+    <div class = "pagewrap">
+      <div class = "pagearea">
+      		<c:if test="${paging.total > 4}">
+			<a href="board_list?nowPage=1&cntPerPage=${paging.cntPerPage}&title=${title}"
+				class="paging_back2"><img src="resources/imgs/page_back2.svg"></a>
+			</c:if>
+      		<c:if test="${paging.total != 1 && paging.nowPage != 1}">
+			<a
+				href="board_list?nowPage=${paging.nowPage - 1}&cntPerPage=${paging.cntPerPage}&title=${title}"
+				class="paging_back"><img src="resources/imgs/page_back.svg"></a>
+			</c:if>
+			<c:if test="${paging.nowPage == 1 }">
+				<img src="resources/imgs/page_back_disabled.svg" id="page_back_disabled">
+			</c:if>
+			
+		<c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="p">
+			<c:choose>
+				<c:when test="${p == paging.nowPage}">
+					<p>${p}</p>
+				</c:when>
+				<c:when test="${p != paging.nowPage}">
+					<a
+						href="board_list?nowPage=${p}&cntPerPage=${paging.cntPerPage}&title=${title}"
+						class="paging_1">${p}</a>
+				</c:when>
+			</c:choose>
+		</c:forEach>
+		
+		<c:if test="${paging.total != paging.lastPage && paging.nowPage != paging.lastPage}">
+			<a href="board_list?nowPage=${paging.nowPage+1}&cntPerPage=${paging.cntPerPage}&title=${title}"
+				class="paging_next"><img src="resources/imgs/page_next.svg"></a>
+		</c:if>
+		<c:if test="${paging.nowPage == paging.lastPage }">
+			<img src="resources/imgs/page_next_disabled.svg" id="page_next_disabled">
+		</c:if>
+		<c:if test="${paging.total > 4}">
+			<a href="board_list?nowPage=${paging.lastPage}&cntPerPage=${paging.cntPerPage}&title=${title}"
+				class="paging_next2"><img src="resources/imgs/page_next2.svg"></a>
+		</c:if>
+      </div>
+     </div>
+      
     <!-- 모바일 -->
+    <div id="mobile_content">
     <div id="mobile">
         <c:forEach var="nl" items="${board_list}" varStatus="st">
         	<table id="mobile_list">
@@ -83,32 +126,34 @@
 			</table>
 			</c:forEach>
     </div>
+    </div>
     
-    <div class = "pagewrap">
-      <div class = "pagearea">
-      		<c:if test="${paging.startPage != 1 }">
+    <div class = "m_pagewrap">
+      <div class = "m_pagearea">
+      		<c:if test="${paging.total != 1 && paging.nowPage != 1}">
 			<a
-				href="notice_list?nowPage=${paging.startPage - 1}&cntPerPage=${paging.cntPerPage}&title=${title}"
-				class="paging_0">&lt;</a>
+				href="board_list?nowPage=${paging.nowPage - 1}&cntPerPage=${paging.cntPerPage}&title=${title}"
+				class="paging_back"><img src="resources/imgs/page_back.svg"></a>
+			</c:if>
+			<c:if test="${paging.nowPage == 1 }">
+				<img src="resources/imgs/page_back_disabled.svg" id="page_back_disabled">
+			</c:if>
+			
+		<div id="m_paging">
+			${paging.nowPage}/${paging.lastPage}
+		</div>
+		
+		<c:if test="${paging.total != paging.lastPage && paging.nowPage != paging.lastPage}">
+			<a href="board_list?nowPage=${paging.nowPage+1}&cntPerPage=${paging.cntPerPage}&title=${title}"
+				class="paging_next"><img src="resources/imgs/mobile_page_next.svg"></a>
 		</c:if>
-		<c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="p">
-			<c:choose>
-				<c:when test="${p == paging.nowPage}">
-					<p>${p}</p>
-				</c:when>
-				<c:when test="${p != paging.nowPage}">
-					<a
-						href="notice_list?nowPage=${p}&cntPerPage=${paging.cntPerPage}&title=${title}"
-						class="paging_1">${p}</a>
-				</c:when>
-			</c:choose>
-		</c:forEach>
-		<c:if test="${paging.endPage != paging.lastPage}">
-			<a href="notice_list?nowPage=${paging.endPage+1}&cntPerPage=${paging.cntPerPage}&title=${title}"
-				class="paging_2">&gt;</a>
+		<c:if test="${paging.nowPage == paging.lastPage }">
+			<img src="resources/imgs/page_next_disabled.svg" id="page_next_disabled">
 		</c:if>
       </div>
-      </div>
-       <jsp:include page="/WEB-INF/views/footer/footer.jsp"></jsp:include>
+     </div>
+     
+    
+       <div id="footer"><jsp:include page="/WEB-INF/views/footer/footer.jsp"></jsp:include></div>
 	</body>
 </html>
