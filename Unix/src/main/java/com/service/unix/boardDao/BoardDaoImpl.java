@@ -54,10 +54,10 @@ public class BoardDaoImpl
     this.sqlsession.insert("boardMapper.write_library", libraryVo);
   }
   
-  public List<LibraryVo> library_list()
+  public List<LibraryVo> library_list(PagingVO pagingvo)
     throws Exception
   {
-    return this.sqlsession.selectList("boardMapper.library_list");
+    return this.sqlsession.selectList("boardMapper.library_list", pagingvo);
   }
   
   public LibraryVo readLibrary(int id)
@@ -141,5 +141,10 @@ public class BoardDaoImpl
 	@Override
 	public int board_count(PagingVO pagingvo) throws Exception {
 		return this.sqlsession.selectOne("boardMapper.board_count");
+	}
+
+	@Override
+	public int library_count(PagingVO pagingvo) throws Exception {
+		return this.sqlsession.selectOne("boardMapper.library_count");
 	}
 }

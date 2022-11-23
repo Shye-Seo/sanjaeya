@@ -25,7 +25,7 @@ public abstract interface BoardDao
   public abstract void delete(int paramInt)
     throws Exception;
   
-  public abstract List<LibraryVo> library_list()
+  public abstract List<LibraryVo> library_list(PagingVO pagingvo)
     throws Exception;
   
   public abstract void write_library(LibraryVo paramLibraryVo)
@@ -69,4 +69,6 @@ public abstract interface BoardDao
   public abstract List<LibraryVo> getmainLibrary() throws Exception;
 
   public abstract int board_count(PagingVO pagingvo) throws Exception;
+
+public abstract int library_count(PagingVO pagingvo) throws Exception;
 }

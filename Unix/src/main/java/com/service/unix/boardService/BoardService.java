@@ -28,7 +28,7 @@ public abstract interface BoardService
   public abstract void write_library(LibraryVo paramLibraryVo)
     throws Exception;
   
-  public abstract List<LibraryVo> library_list()
+  public abstract List<LibraryVo> library_list(PagingVO pagingvo)
     throws Exception;
   
   public abstract LibraryVo readLibrary(int paramInt)
@@ -69,4 +69,6 @@ public abstract interface BoardService
   public abstract List<LibraryVo> getmainLibrary() throws Exception;
 
   public abstract int board_count(PagingVO pagingvo) throws Exception;
+
+public abstract int library_count(PagingVO pagingvo) throws Exception;
 }

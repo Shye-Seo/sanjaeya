@@ -184,6 +184,11 @@ border-bottom:2px solid #326DFB;
   outline:none;
   padding-left: 18px;
   border:none;
+  height: 100%;
+}
+
+#searchform{
+	display: flex;
 }
 
 .search .listsearch:focus{
@@ -277,6 +282,7 @@ border-bottom:2px solid #326DFB;
 .boardlist{
   position: relative;
   padding-top: 20px;
+  min-height: 300px;
 }
 
 .btncontainer{
@@ -334,33 +340,97 @@ border-bottom:2px solid #326DFB;
 /*   color:#FFFFFF; */
 /* } */
 
+#footer{
+	display: block;
+}
+/** 페이징 **/
+.m_pagewrap{
+  display: none;
+}
+	
 .pagewrap{
-  position:relative;
-  top:160px;
-  padding-left: 35%;
+  display: block;
   padding-bottom: 10%;
 }
 
-.pageInfo{
-  list-style : none;
-  display : inline-block;
-  left: 100px;
-  margin: 50px 0 0 100px;
+.pagearea{
+	display: none;
+	font-size: 0.8rem;
+	display: flex;
+    width: max-content;
+    margin: 0 auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
-.pageInfo li{
-  position: relative;
-  float: left;
-  font-size:17px;
-  padding:5px;
-  font-weight:500;
+.pagearea p{
+	margin: 0;
+    background-color: none;
+    color: #326DFB;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 5px;
+    padding: 10px 15px;
 }
 
-#pageInfo a:link{color:black; text-decoration: none;}
-#pageInfo a:visited{color:black; text-decoration: none;}
-#pageInfo a:hover{color:black; text-decoration: none;}
-#pageInfo .active{
-  color:#326DFB;
+.pagearea .paging_back2{
+	padding: 10px 13px;
+	border: solid 1px #DDDDDD;
+}
+
+.pagearea .paging_next2{
+	padding: 10px 13px;
+	border: solid 1px #DDDDDD;
+}
+
+.pagearea a{
+	margin: 0;
+    background-color: none;
+    color: #666666;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 5px;
+    padding: 10px 15px;
+}
+
+.pagearea .paging_next{
+	margin: 0;
+	border: solid 1px #DDDDDD;
+    background-color: none;
+    color: #666666;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 5px;
+    padding: 10px 15px;
+}
+
+.pagearea .paging_back{
+	margin: 0;
+	border: solid 1px #DDDDDD;
+    background-color: none;
+    color: #666666;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 5px;
+    padding: 10px 15px;
+}
+
+.pagearea #page_back_disabled{
+	padding: 10px 15px;
+	border: 1px solid #DDDDDD;
+	margin: 0 5px;
+    background-color: none;
+}
+
+.pagearea #page_next_disabled{
+	padding: 10px 15px;
+	border: 1px solid #DDDDDD;
+	margin: 0 5px;
+	background-color: none;
 }
 
 /* 태블릿 */
@@ -396,6 +466,18 @@ border-bottom:2px solid #326DFB;
 		background-color: #ffffff;
 		z-index: 10000;
 		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+	}
+	
+	#mobile_content{
+		min-height: 350px;
+	}
+	
+	.pagewrap{
+  		display: none;
+	}
+	
+	.m_pagewrap{
+  		display: block;
 	}
 	
 	#mobile{
@@ -483,15 +565,25 @@ border-bottom:2px solid #326DFB;
 	
 	.search {
 	    display: flex;
-    	border: 1px solid #FAFAFA;
-    	background-color: #FAFAFA;
-/*     	margin: 0 10px; */
+    	border: 1px solid #EEEEEE;
+    	background-color: #EEEEEE;
     	color: #999999;
+    	width: 100%;
+    	height: 40px;
     }
     
     .search .listsearch {
     color: #999999;
-    background-color: #FAFAFA;
+    background-color: #EEEEEE;
+	}
+	
+	.search .searchbtn{
+		width: auto;
+		height: auto;
+	}
+	
+	.search .searchbtn img{
+		height: 40px;
 	}
 	
 	.boardlist{
@@ -499,6 +591,49 @@ border-bottom:2px solid #326DFB;
 	}
 	
 	.doclist{
+		display: none;
+	}
+	
+	.m_pagearea{
+		padding-top: 20px;
+		padding-bottom: 20px;
+		display: flex;
+		margin: 0 25%;
+	}
+	
+	.m_pagearea .paging_back{
+		padding: 7px 13px;
+		border: 1px solid #DDDDDD;
+		margin: 0 auto;
+	}
+	
+	.m_pagearea #page_back_disabled{
+		padding: 7px 13px;
+		border: 1px solid #DDDDDD;
+		margin: 0 auto;
+	}
+	
+	.m_pagearea .paging_next{
+		padding: 7px 13px;
+		border: 1px solid #DDDDDD;
+		margin: 0 auto;
+	}
+	
+	.m_pagearea #page_next_disabled{
+		padding: 7px 13px;
+		border: 1px solid #DDDDDD;
+		margin: 0 auto;
+	}
+	
+	#m_paging{
+		color: #666666;
+		font-size: 16px;
+		height: 30px;
+		line-height: 30px;
+		margin: auto 0;
+	}
+	
+	#footer{
 		display: none;
 	}
 }
