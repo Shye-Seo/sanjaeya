@@ -125,4 +125,14 @@ public class BoardDaoImpl
   {
     this.sqlsession.delete("boardMapper.delete_libraryFiles", libraryFileVo);
   }
+  
+  	@Override
+	public List<BoardVo> getmainBoard() throws Exception {
+		return this.sqlsession.selectList("boardMapper.getmainBoard");
+	}
+
+	@Override
+	public List<LibraryVo> getmainLibrary() throws Exception {
+		return this.sqlsession.selectList("boardMapper.getmainLibrary");
+	}
 }

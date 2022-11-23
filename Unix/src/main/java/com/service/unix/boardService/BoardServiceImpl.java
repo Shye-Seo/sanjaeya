@@ -123,4 +123,14 @@ public class BoardServiceImpl
   {
     this.boardDao.delete_libraryFiles(library_files);
   }
+  
+  	@Override
+	public List<BoardVo> getmainBoard() throws Exception {
+		return this.boardDao.getmainBoard();
+	}
+
+	@Override
+	public List<LibraryVo> getmainLibrary() throws Exception {
+		return this.boardDao.getmainLibrary();
+	}
 }

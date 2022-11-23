@@ -178,52 +178,64 @@
 							&nbsp;|&nbsp;&nbsp;</a>
 						<div id="tab_1" class="list_123">
 							<div class="list_re">
+							<c:forEach var="list" items="${board_list}" varStatus="st">
 								<div>
-									<a href="#" id="list_title">유닉스 노무법인 공지사항</a> <span
-										id="list_date">2022.06.24</span> <a href="#" id="plusBtn">+</a>
+									<a href="readView?id=${list.id}" id="list_title">${list.title}</a> <span
+										id="list_date"><fmt:formatDate value = "${list.date}" pattern = "yyyy.MM.dd"/></span> <a href="#" id="plusBtn">+</a>
 								</div>
-								<div>
-									<a href="#" id="list_title">유닉스 노무법인 공지사항</a> <span
-										id="list_date">2022.06.24</span> <a href="#" id="plusBtn">+</a>
-								</div>
-								<div>
-									<a href="#" id="list_title">유닉스 노무법인 공지사항</a> <span
-										id="list_date">2022.06.24</span> <a href="#" id="plusBtn">+</a>
-								</div>
-								<div>
-									<a href="#" id="list_title">유닉스 노무법인 공지사항</a> <span
-										id="list_date">2022.06.24</span> <a href="#" id="plusBtn">+</a>
-								</div>
-								<div>
-									<a href="#" id="list_title">유닉스 노무법인 공지사항</a> <span
-										id="list_date">2022.06.24</span> <a href="#" id="plusBtn">+</a>
-								</div>
+							</c:forEach>
+<!-- 								<div> -->
+<!-- 									<a href="#" id="list_title">유닉스 노무법인 공지사항</a> <span -->
+<!-- 										id="list_date">2022.06.24</span> <a href="#" id="plusBtn">+</a> -->
+<!-- 								</div> -->
+<!-- 								<div> -->
+<!-- 									<a href="#" id="list_title">유닉스 노무법인 공지사항</a> <span -->
+<!-- 										id="list_date">2022.06.24</span> <a href="#" id="plusBtn">+</a> -->
+<!-- 								</div> -->
+<!-- 								<div> -->
+<!-- 									<a href="#" id="list_title">유닉스 노무법인 공지사항</a> <span -->
+<!-- 										id="list_date">2022.06.24</span> <a href="#" id="plusBtn">+</a> -->
+<!-- 								</div> -->
+<!-- 								<div> -->
+<!-- 									<a href="#" id="list_title">유닉스 노무법인 공지사항</a> <span -->
+<!-- 										id="list_date">2022.06.24</span> <a href="#" id="plusBtn">+</a> -->
+<!-- 								</div> -->
+<!-- 								<div> -->
+<!-- 									<a href="#" id="list_title">유닉스 노무법인 공지사항</a> <span -->
+<!-- 										id="list_date">2022.06.24</span> <a href="#" id="plusBtn">+</a> -->
+<!-- 								</div> -->
 							</div>
 						</div></li>
 					
 					<li><a href="#tab_3" class="menu_btn">자료실&nbsp;&nbsp;</a>
 						<div id="tab_3" class="list_123">
 							<div class="list_re">
+							<c:forEach var="list" items="${library_list}" varStatus="st">
 								<div>
-									<a id="list_title">유닉스 노무법인 자료실</a> <span id="list_date">2022.06.24</span>
-									<a href="#" id="plusBtn">+</a>
+									<a href="readLibrary?id=${list.id}" id="list_title">${list.title}</a> <span
+										id="list_date"><fmt:formatDate value = "${list.date}" pattern = "yyyy.MM.dd"/></span> <a href="#" id="plusBtn">+</a>
 								</div>
-								<div>
-									<a id="list_title">유닉스 노무법인 자료실</a> <span id="list_date">2022.06.24</span>
-									<a href="#" id="plusBtn">+</a>
-								</div>
-								<div>
-									<a id="list_title">유닉스 노무법인 자료실</a> <span id="list_date">2022.06.24</span>
-									<a href="#" id="plusBtn">+</a>
-								</div>
-								<div>
-									<a id="list_title">유닉스 노무법인 자료실</a> <span id="list_date">2022.06.24</span>
-									<a href="#" id="plusBtn">+</a>
-								</div>
-								<div>
-									<a id="list_title">유닉스 노무법인 자료실</a> <span id="list_date">2022.06.24</span>
-									<a href="#" id="plusBtn">+</a>
-								</div>
+							</c:forEach>
+<!-- 								<div> -->
+<!-- 									<a id="list_title">유닉스 노무법인 자료실</a> <span id="list_date">2022.06.24</span> -->
+<!-- 									<a href="#" id="plusBtn">+</a> -->
+<!-- 								</div> -->
+<!-- 								<div> -->
+<!-- 									<a id="list_title">유닉스 노무법인 자료실</a> <span id="list_date">2022.06.24</span> -->
+<!-- 									<a href="#" id="plusBtn">+</a> -->
+<!-- 								</div> -->
+<!-- 								<div> -->
+<!-- 									<a id="list_title">유닉스 노무법인 자료실</a> <span id="list_date">2022.06.24</span> -->
+<!-- 									<a href="#" id="plusBtn">+</a> -->
+<!-- 								</div> -->
+<!-- 								<div> -->
+<!-- 									<a id="list_title">유닉스 노무법인 자료실</a> <span id="list_date">2022.06.24</span> -->
+<!-- 									<a href="#" id="plusBtn">+</a> -->
+<!-- 								</div> -->
+<!-- 								<div> -->
+<!-- 									<a id="list_title">유닉스 노무법인 자료실</a> <span id="list_date">2022.06.24</span> -->
+<!-- 									<a href="#" id="plusBtn">+</a> -->
+<!-- 								</div> -->
 							</div>
 						</div></li>
 					<li>

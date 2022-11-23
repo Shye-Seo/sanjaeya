@@ -72,13 +72,15 @@
 <!-- 					<div class="pre_next1">공지사항 테스트!@#$$%%%^ NOTICE</div> -->
 <!-- 					<div class="pre_next2">다음글 <input type="button" class="pre_next4"/></div> -->
 <!-- 				</div> -->
+					<div class="list_button">
 						<div id="btn_area">
 							<a href="updateLibrary?id=${read.id}" id="updatebtn">수정</a>
 							<a href="deleteLibrary?id=${read.id}">삭제</a>
 							<a href="board_list">목록</a>
 						</div>
+					</div>
 						
-					<div class="list_button">
+					<div class="mlist_button">
 						<div id="mbtn">
 							<a href="board_list">목록</a>
 						</div>

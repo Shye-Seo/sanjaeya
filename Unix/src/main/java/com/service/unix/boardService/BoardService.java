@@ -61,4 +61,8 @@ public abstract interface BoardService
   
   public abstract void delete_libraryFiles(LibraryFileVo paramLibraryFileVo)
     throws Exception;
+  
+  public abstract List<BoardVo> getmainBoard() throws Exception;
+
+  public abstract List<LibraryVo> getmainLibrary() throws Exception;
 }

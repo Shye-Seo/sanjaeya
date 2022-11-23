@@ -35,7 +35,6 @@
 
 <!-- 파일 -->
 
-
 <select id="get_board_Id" resultType="int" parameterType="int">select id from nm_board order by id desc limit 1 </select>
 
 <select id="get_board_files" resultType="com.service.unix.boardVo.BoardFileVo" parameterType="int">select * from nm_board_file where board_id = #{id} </select>
@@ -47,6 +46,15 @@
 <delete id="delete_boardFiles" parameterType="com.service.unix.boardVo.BoardFileVo">delete from nm_board_file where board_id = #{board_id} </delete>
 
 <delete id="delete_libraryFiles" parameterType="com.service.unix.boardVo.LibraryFileVo">delete from nm_library_file where library_id = #{library_id} </delete>
+
+<!-- 메인 홈 -->
+<select id="getmainBoard" resultType="com.service.unix.boardVo.BoardVo">
+	select * from nm_board order by id desc limit 0,5
+</select>
+
+<select id="getmainLibrary" resultType="com.service.unix.boardVo.LibraryVo">
+	select * from nm_library order by id desc limit 0,5
+</select>
 
 <!-- <select id="board_count" parameterType="com.service.unix.boardVo.PagingVO" resultType="int"> -->
 
