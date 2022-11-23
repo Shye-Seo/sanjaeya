@@ -5,6 +5,8 @@ import com.service.unix.boardVo.BoardFileVo;
 import com.service.unix.boardVo.BoardVo;
 import com.service.unix.boardVo.LibraryFileVo;
 import com.service.unix.boardVo.LibraryVo;
+import com.service.unix.boardVo.PagingVO;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -29,10 +31,42 @@ public class BoardController
   BoardService service;
   
   @RequestMapping(value={"board_list"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
-  public String list(HttpServletRequest request, ModelMap modelMap)
+  public String list(HttpServletRequest request, ModelMap modelMap, PagingVO pagingvo, BoardVo boardvo,
+		  @RequestParam(value = "nowPage", required = false) String nowPage,
+		  @RequestParam(value = "cntPerPage", required = false) String cntPerPage,
+		  @RequestParam(value = "title", required = false) String title)
     throws Exception
   {
-    modelMap.addAttribute("board_list", this.service.board_list());
+	  
+	String sql = "";
+		
+	if(title != null) {
+		modelMap.addAttribute("title", title);
+		sql = "where title like '%" + title + "%'";
+	}
+	
+	pagingvo.setSql(sql);
+	int total = service.board_count(pagingvo);
+	modelMap.addAttribute("total", total);
+	
+	if (nowPage == null && cntPerPage == null) {
+		nowPage = "1";
+		cntPerPage = "10";
+	} else if (nowPage == null) {
+		nowPage = "1";
+	} else if (cntPerPage == null) {
+		cntPerPage = "10";
+	}
+	
+	pagingvo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+	modelMap.addAttribute("paging", pagingvo);
+	
+	if (total != 0) {
+		pagingvo.setSql(sql);
+		List<BoardVo> board_list = service.board_list(pagingvo);
+		modelMap.addAttribute("board_list", board_list);
+	}
+	
     modelMap.addAttribute("library_list", this.service.library_list());
     
     return "/board/list";
