@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="boardMapper">
+<!-- 공지사항 -->
+
+
+<insert id="insert">insert into nm_board(title, content, writer) values (#{title}, #{content}, #{writer}) </insert>
+
+<insert id="set_boardFile">insert into nm_board_file(board_id, address) values (#{board_id}, #{address}) </insert>
+
+<select id="board_list" resultType="com.service.unix.boardVo.BoardVo">select * from nm_board order by id desc </select>
+
+<select id="read" resultType="com.service.unix.boardVo.BoardVo" parameterType="int">select * from nm_board where id = #{id} </select>
+
+<update id="update" parameterType="com.service.unix.boardVo.BoardVo">update nm_board set title = #{title}, content = #{content} where id = #{id} </update>
+
+<delete id="delete" parameterType="int">delete from nm_board where id = #{id} </delete>
+
+<!-- 자료실 -->
+
+
+<insert id="write_library">insert into nm_library(title, content, writer) values (#{title}, #{content}, #{writer}) </insert>
+
+<insert id="set_libraryFile">insert into nm_library_file(library_id, address) values (#{library_id}, #{address}) </insert>
+
+<select id="library_list" resultType="com.service.unix.boardVo.LibraryVo">select * from nm_library order by id desc </select>
+
+<select id="readLibrary" resultType="com.service.unix.boardVo.LibraryVo" parameterType="int">select * from nm_library where id = #{id} </select>
+
+<update id="updateLibrary" parameterType="com.service.unix.boardVo.LibraryVo">update nm_library set title = #{title}, content = #{content} where id = #{id} </update>
+
+<delete id="deleteLibrary" parameterType="int">delete from nm_library where id = #{id} </delete>
+
+<!-- 파일 -->
+
+<select id="get_board_Id" resultType="int" parameterType="int">select id from nm_board order by id desc limit 1 </select>
+
+<select id="get_board_files" resultType="com.service.unix.boardVo.BoardFileVo" parameterType="int">select * from nm_board_file where board_id = #{id} </select>
+
+<select id="get_library_Id" resultType="int" parameterType="int">select id from nm_library order by id desc limit 1 </select>
+
+<select id="get_library_files" resultType="com.service.unix.boardVo.LibraryFileVo" parameterType="int">select * from nm_library_file where library_id = #{id} </select>
+
+<delete id="delete_boardFiles" parameterType="com.service.unix.boardVo.BoardFileVo">delete from nm_board_file where board_id = #{board_id} </delete>
+
+<delete id="delete_libraryFiles" parameterType="com.service.unix.boardVo.LibraryFileVo">delete from nm_library_file where library_id = #{library_id} </delete>
+
+<!-- 메인 홈 -->
+<select id="getmainBoard" resultType="com.service.unix.boardVo.BoardVo">
+	select * from nm_board order by id desc limit 0,5
+</select>
+
+<select id="getmainLibrary" resultType="com.service.unix.boardVo.LibraryVo">
+	select * from nm_library order by id desc limit 0,5
+</select>
+
+<!-- <select id="board_count" parameterType="com.service.unix.boardVo.PagingVO" resultType="int"> -->
+
+
+<!-- select count(*) from (select @rownum:=@rownum+1 as num, n.* -->
+
+
+<!-- from(select * from nm_board ${sql} order by date desc)n, -->
+
+
+<!-- (select @rownum:=0)v)num -->
+
+
+<!-- </select> -->
+
+
+<!-- <select id="getmainBoard" resultType="com.service.unix.boardVo.BoardVo"> -->
+
+
+<!-- select * from nm_board order by date desc limit 0,6 -->
+
+
+<!-- </select> -->
+
+
+<!-- <select id="selectBoardList" parameterType="com.service.unix.boardVo.PagingVO" resultType="com.service.unix.boardVo.BoardVo"> -->
+
+
+<!-- select * from (select @rownum:=@rownum+1 as num, n.* -->
+
+
+<!-- from(select * from Notice ${sql} order by idx desc)n, -->
+
+
+<!-- (select @rownum:=0)v)num Where num.num between ${start} and ${end} -->
+
+
+<!-- </select> -->
+</mapper> 
