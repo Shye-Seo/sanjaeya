@@ -4,6 +4,8 @@ import com.service.unix.boardVo.BoardFileVo;
 import com.service.unix.boardVo.BoardVo;
 import com.service.unix.boardVo.LibraryFileVo;
 import com.service.unix.boardVo.LibraryVo;
+import com.service.unix.boardVo.PagingVO;
+
 import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +24,10 @@ public class BoardDaoImpl
     this.sqlsession.insert("boardMapper.insert", boardVo);
   }
   
-  public List<BoardVo> board_list()
+  public List<BoardVo> board_list(PagingVO pagingvo)
     throws Exception
   {
-    return this.sqlsession.selectList("boardMapper.board_list");
+    return this.sqlsession.selectList("boardMapper.board_list", pagingvo);
   }
   
   public BoardVo read(int id)
@@ -125,8 +127,8 @@ public class BoardDaoImpl
   {
     this.sqlsession.delete("boardMapper.delete_libraryFiles", libraryFileVo);
   }
-  
-  	@Override
+
+	@Override
 	public List<BoardVo> getmainBoard() throws Exception {
 		return this.sqlsession.selectList("boardMapper.getmainBoard");
 	}
@@ -134,5 +136,10 @@ public class BoardDaoImpl
 	@Override
 	public List<LibraryVo> getmainLibrary() throws Exception {
 		return this.sqlsession.selectList("boardMapper.getmainLibrary");
+	}
+
+	@Override
+	public int board_count(PagingVO pagingvo) throws Exception {
+		return this.sqlsession.selectOne("boardMapper.board_count");
 	}
 }

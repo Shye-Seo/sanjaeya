@@ -44,8 +44,10 @@
 			
 	<div class = "search_area">
 	    <div class = "search">
-	      <input type="text" class = "listsearch" placeholder="검색어를 입력하세요." name = "serchWord"/>
+	    	<form method="get">
+	      		<input type="text" class = "listsearch" placeholder="검색어를 입력하세요." name = "title" value="${title}"/>
 	    	<button class ="searchbtn" type = "submit"><img src = "resources/imgs/serachbtn.svg"></button>
+	    	</form>
 	    </div>
  	</div>
     <div class = "boardlist">
@@ -84,40 +86,29 @@
     
     <div class = "pagewrap">
       <div class = "pagearea">
-<!--         <ul id = "pageInfo" class ="pageInfo"> -->
-<!--           시작 페이지 -->
-<%--           <c:if test = "${pageMarker.start}"> --%>
-<%--             <li class = "pageInfo_btn start"><a href = "${pageMaker.startPage}">startimg</a> --%>
-<!--             </li> -->
-<%--           </c:if> --%>
-<!--           이전 페이지 -->
-<%--           <c:if test = "${pageMarker.prev}"> --%>
-<%--             <li class = "pageInfo_btn previous"><a href = "${pageMaker.startPage-1}">Previousimg</a> --%>
-<!--             </li> -->
-<%--           </c:if> --%>
-            
-<!--           페이지 번호 -->
-<%--           <c:forEach var = "num" begin="${pageMaker.startPage}" end = "${pageMaker.endpage}"> --%>
-<%--             <li class = "pageInfo_btn" ${pageMaker.cri.pageNum == num ? active":""}"><a href = "${num}">${num}</a> --%>
-<!--               </li> -->
-<%--             </c:forEach> --%>
-<!--           다음 페이지 -->
-<%--             <c:if test = "${pageMaker.next}"> --%>
-<%--               <li class = "pageInfo_btn next"><a href = "${pageMaker.endPage + 1}">Nextimg</a> --%>
-<!--               </li> -->
-<%--             </c:if> --%>
-<!--           마지막 페이지 -->
-<%--           <c:if test = "${pageMaker.last}"> --%>
-<%--             <li class = "pageInfo_btn last"><a href = "${pageMaker.endpage}">lastimg</a> --%>
-<!--             </li> -->
-<%--           </c:if> --%>
-<!--           </ul> -->
-        </div>
+      		<c:if test="${paging.startPage != 1 }">
+			<a
+				href="notice_list?nowPage=${paging.startPage - 1}&cntPerPage=${paging.cntPerPage}&title=${title}"
+				class="paging_0">&lt;</a>
+		</c:if>
+		<c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="p">
+			<c:choose>
+				<c:when test="${p == paging.nowPage}">
+					<p>${p}</p>
+				</c:when>
+				<c:when test="${p != paging.nowPage}">
+					<a
+						href="notice_list?nowPage=${p}&cntPerPage=${paging.cntPerPage}&title=${title}"
+						class="paging_1">${p}</a>
+				</c:when>
+			</c:choose>
+		</c:forEach>
+		<c:if test="${paging.endPage != paging.lastPage}">
+			<a href="notice_list?nowPage=${paging.endPage+1}&cntPerPage=${paging.cntPerPage}&title=${title}"
+				class="paging_2">&gt;</a>
+		</c:if>
       </div>
-      <form id = "pagemove" method = "get">
-<%--         <input type = "hidden" name = "pageNum" value = "${pageMaker.cri.pageNum}"> --%>
-<%--         <input type = "hidden" name = "amount" value="${pageMaker.cri.amount}"> --%>
-       </form>
+      </div>
        <jsp:include page="/WEB-INF/views/footer/footer.jsp"></jsp:include>
 	</body>
 </html>

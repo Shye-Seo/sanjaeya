@@ -5,6 +5,8 @@ import com.service.unix.boardVo.BoardFileVo;
 import com.service.unix.boardVo.BoardVo;
 import com.service.unix.boardVo.LibraryFileVo;
 import com.service.unix.boardVo.LibraryVo;
+import com.service.unix.boardVo.PagingVO;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,10 +24,10 @@ public class BoardServiceImpl
     this.boardDao.write_board(boardVo);
   }
   
-  public List<BoardVo> board_list()
+  public List<BoardVo> board_list(PagingVO pagingvo)
     throws Exception
   {
-    return this.boardDao.board_list();
+    return this.boardDao.board_list(pagingvo);
   }
   
   public BoardVo read(int bno)
@@ -123,8 +125,8 @@ public class BoardServiceImpl
   {
     this.boardDao.delete_libraryFiles(library_files);
   }
-  
-  	@Override
+
+	@Override
 	public List<BoardVo> getmainBoard() throws Exception {
 		return this.boardDao.getmainBoard();
 	}
@@ -132,5 +134,10 @@ public class BoardServiceImpl
 	@Override
 	public List<LibraryVo> getmainLibrary() throws Exception {
 		return this.boardDao.getmainLibrary();
+	}
+
+	@Override
+	public int board_count(PagingVO pagingvo) throws Exception {
+		return this.boardDao.board_count(pagingvo);
 	}
 }

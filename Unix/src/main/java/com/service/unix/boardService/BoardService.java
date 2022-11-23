@@ -4,6 +4,8 @@ import com.service.unix.boardVo.BoardFileVo;
 import com.service.unix.boardVo.BoardVo;
 import com.service.unix.boardVo.LibraryFileVo;
 import com.service.unix.boardVo.LibraryVo;
+import com.service.unix.boardVo.PagingVO;
+
 import java.util.List;
 
 public abstract interface BoardService
@@ -11,7 +13,7 @@ public abstract interface BoardService
   public abstract void write_board(BoardVo paramBoardVo)
     throws Exception;
   
-  public abstract List<BoardVo> board_list()
+  public abstract List<BoardVo> board_list(PagingVO pagingvo)
     throws Exception;
   
   public abstract BoardVo read(int paramInt)
@@ -61,8 +63,10 @@ public abstract interface BoardService
   
   public abstract void delete_libraryFiles(LibraryFileVo paramLibraryFileVo)
     throws Exception;
-  
+
   public abstract List<BoardVo> getmainBoard() throws Exception;
 
   public abstract List<LibraryVo> getmainLibrary() throws Exception;
+
+  public abstract int board_count(PagingVO pagingvo) throws Exception;
 }
