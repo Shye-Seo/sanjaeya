@@ -327,7 +327,7 @@ a {
 		width: 100%;
 		background-color: #ffffff;
 		z-index: 10000;
-		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+		box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
 	}
 	.result_box {
 		width: 100%;
@@ -472,7 +472,7 @@ a {
 		width: 100%;
 		background-color: #ffffff;
 		z-index: 10000;
-		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+		box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
 	}
 	.result_box {
 		width: 100%;

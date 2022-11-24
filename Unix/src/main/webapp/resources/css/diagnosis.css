@@ -281,7 +281,7 @@ button, html [type="button"], html [type="submit"] {
 		width: 100%;
 		background-color: #ffffff;
 		z-index: 10000;
-		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+		box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
 	}
 }
 /* 모바일 */
@@ -356,7 +356,7 @@ button, html [type="button"], html [type="submit"] {
 		width: 100%;
 		background-color: #ffffff;
 		z-index: 10000;
-		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+		box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
 	}
 
 }
