@@ -180,8 +180,9 @@
 							<div class="list_re">
 								<c:forEach var="list" items="${board_list}" varStatus="st">
 								<div>
-									<a href="readView?id=${list.id}" id="list_title">${list.title}</a> <span
-										id="list_date"><fmt:formatDate value = "${list.date}" pattern = "yyyy.MM.dd"/></span> <a href="#" id="plusBtn">+</a>
+									<a href="readView?id=${list.id}" id="list_title">${list.title}</a>
+									<span id="list_date"><fmt:formatDate value = "${list.date}" pattern = "yyyy.MM.dd"/></span> 
+									<a href="#" id="plusBtn"><img src="resources/imgs/plusbtn.svg" /></a>
 								</div>
 								</c:forEach>
 <!-- 								<div> -->
@@ -208,8 +209,9 @@
 							<div class="list_re">
 								<c:forEach var="list" items="${library_list}" varStatus="st">
 								<div>
-									<a href="readLibrary?id=${list.id}" id="list_title">${list.title}</a> <span
-										id="list_date"><fmt:formatDate value = "${list.date}" pattern = "yyyy.MM.dd"/></span> <a href="#" id="plusBtn">+</a>
+									<a href="readLibrary?id=${list.id}" id="list_title">${list.title}</a>
+									<span id="list_date"><fmt:formatDate value = "${list.date}" pattern = "yyyy.MM.dd"/></span>
+									<a href="#" id="plusBtn"><img src="resources/imgs/plusbtn.svg"></a>
 								</div>
 								</c:forEach>
 <!-- 								<div> -->
@@ -232,7 +234,7 @@
 						</div></li>
 					<li>
 						<div class="morebtn">
-							<a href="board_list">더보기 ></a>
+							<a href="board_list">더보기<img src="resources/imgs/moreboard.svg"></a>
 						</div>
 					</li>
 				</ul>

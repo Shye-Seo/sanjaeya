@@ -8,6 +8,10 @@ input [type="submit"] {
 	-webkit-appearance: none;
 }
 
+#footer{
+	display: block;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -182,11 +186,14 @@ input:focus {
 		width: 100%;
 		background-color: #ffffff;
 		z-index: 10000;
-		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+		box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
 	}
 	header {
 		width: 1920px;
 		height: 100px;
+	}
+	#footer{
+	display: block;
 	}
 }
 
@@ -195,6 +202,9 @@ input:focus {
 	html, body {
 		min-width: unset;
 		overflow-x: hidden;
+	}
+	#footer{
+		display: none;
 	}
 	.nav {
 		background-image: none;
@@ -213,7 +223,7 @@ input:focus {
 		width: 100%;
 		background-color: #ffffff;
 		z-index: 10000;
-		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+		box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
 	}
 	header {
 		width: 1920px;
