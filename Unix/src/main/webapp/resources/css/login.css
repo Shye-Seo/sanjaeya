@@ -19,6 +19,10 @@ a {
 	text-decoration: none;
 }
 
+#footer{
+	display: block;
+}
+
 .nav {
 	position: relative;
 	text-align: center;
@@ -266,5 +270,9 @@ input[type=checkbox] {
 	input[type=text], input[type=password], input[type=button] {
 		height: 60px;
 		font-size: 20px;
+	}
+	
+	#footer{
+	display: none;
 	}
 }

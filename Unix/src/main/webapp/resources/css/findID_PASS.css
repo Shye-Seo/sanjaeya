@@ -8,6 +8,10 @@ input [type="submit"] {
 	-webkit-appearance: none;
 }
 
+#footer{
+	display: block;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -188,6 +192,9 @@ input:focus {
 		width: 1920px;
 		height: 100px;
 	}
+	#footer{
+	display: block;
+	}
 }
 
 /* 모바일 */
@@ -195,6 +202,9 @@ input:focus {
 	html, body {
 		min-width: unset;
 		overflow-x: hidden;
+	}
+	#footer{
+		display: none;
 	}
 	.nav {
 		background-image: none;
