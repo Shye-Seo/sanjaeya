@@ -77,6 +77,13 @@
 		from(select * from nm_library ${sql} order by id desc)n,
 		(select @rownum:=0)v)num;
 </select>
+
+<!-- 검색 페이징 -->
+<select id="searchBoard_count" parameterType="com.service.unix.boardVo.PagingVO" resultType="int">
+		select count(*) from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from nm_board ${sql} order by id desc)n,
+		(select @rownum:=0)v)num;
+</select>
 <!-- <select id="board_count" parameterType="com.service.unix.boardVo.PagingVO" resultType="int"> -->
 
 

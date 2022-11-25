@@ -44,8 +44,10 @@
 			
 	<div class = "search_area">
 	    <div class = "search">
-	      <input type="text" class = "listsearch" placeholder="검색어를 입력하세요." name = "serchWord"/>
+	    <form method="post" id="searchform">
+	      <input type="text" class = "listsearch" placeholder="검색어를 입력하세요." name = "title" value="${title}"/>
 	    	<button class ="searchbtn" type = "submit"><img src = "resources/imgs/serachbtn.svg"></button>
+	    </form>
 	    </div>
  	</div>
     <div class = "doclist">

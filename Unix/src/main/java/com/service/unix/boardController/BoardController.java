@@ -15,6 +15,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.datasource.init.ScriptUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -48,6 +49,9 @@ public class BoardController
 	pagingvo.setSql(sql);
 	int total = service.board_count(pagingvo);
 	modelMap.addAttribute("total", total);
+	System.out.println("total 값 ===> " + total);
+	
+	modelMap.addAttribute("title", title);
 	
 	if (nowPage == null && cntPerPage == null) {
 		nowPage = "1";
@@ -59,6 +63,7 @@ public class BoardController
 	}
 	
 	pagingvo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+	pagingvo.setSql(sql);
 	modelMap.addAttribute("paging", pagingvo);
 	
 	if (total != 0) {
@@ -69,6 +74,51 @@ public class BoardController
 	
     return "/board/list";
   }
+  
+	@RequestMapping(value={"board_list"}, method={org.springframework.web.bind.annotation.RequestMethod.POST})
+	public String list_post(HttpServletRequest request, ModelMap modelMap, PagingVO pagingvo, HttpServletResponse response,
+			@RequestParam(value = "nowPage", required = false) String nowPage,
+			@RequestParam(value = "cntPerPage", required = false) String cntPerPage,
+			@RequestParam(value = "title", required = false) String title) throws Exception {
+
+//		if (title == null) {
+//			return "/board/list";
+//		}
+
+		modelMap.addAttribute("title", title);
+		String sql = "where title like '%" + title + "%'";
+		pagingvo.setSql(sql);
+		System.out.println("pagingvo.getSql : " + pagingvo.getSql());
+
+		int total = service.board_count(pagingvo);
+//		int total = 5;
+		modelMap.addAttribute("total", total);
+
+
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "10";
+		} else if (nowPage == null) {
+			nowPage = "1";
+		} else if (cntPerPage == null) {
+			cntPerPage = "10";
+		}
+		
+		pagingvo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		pagingvo.setSql(sql);
+		modelMap.addAttribute("paging", pagingvo);
+		List<BoardVo> board_list = service.board_list(pagingvo);
+		
+		System.out.println("검색 ===========================>");
+		System.out.println("total : " + total);
+		System.out.println("title : " + title);
+		System.out.println("sql : " + sql);
+		System.out.println("pagingvo : " + pagingvo);
+
+		modelMap.addAttribute("board_list", board_list);
+		
+		return "/board/list";
+	}
   
   @RequestMapping(value={"write_board"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
   public String write_board()
@@ -90,8 +140,8 @@ public class BoardController
     for (MultipartFile files : board_file)
     {
       System.out.println("-----------");
-      System.out.println("������ : " + files.getOriginalFilename());
-      System.out.println("�������� : " + files.getSize());
+      System.out.println("파일명 : " + files.getOriginalFilename());
+      System.out.println("파일 사이즈 : " + files.getSize());
       
       String fileName = files.getOriginalFilename();
       if ((fileName != null) && (!fileName.equals("")))
@@ -152,9 +202,9 @@ public class BoardController
     List<BoardFileVo> boardFile_list = new ArrayList();
     for (MultipartFile files : board_file)
     {
-      System.out.println("-----------");
-      System.out.println("������ : " + files.getOriginalFilename());
-      System.out.println("�������� : " + files.getSize());
+    	System.out.println("-----------");
+        System.out.println("파일명 : " + files.getOriginalFilename());
+        System.out.println("파일 사이즈 : " + files.getSize());
       
       String fileName = files.getOriginalFilename();
       if ((fileName != null) && (!fileName.equals("")))
@@ -221,6 +271,53 @@ public class BoardController
 		if (total != 0) {
 			pagingvo.setSql(sql);
 			List<LibraryVo> library_list = service.library_list(pagingvo);
+			modelMap.addAttribute("library_list", library_list);
+		}
+    
+    return "/board/library_list";
+  }
+  
+  @RequestMapping(value={"library_list"}, method={org.springframework.web.bind.annotation.RequestMethod.POST})
+  public String library_list_post(HttpServletRequest request, ModelMap modelMap, PagingVO pagingvo, LibraryVo libraryvo,
+		  @RequestParam(value = "nowPage", required = false) String nowPage,
+		  @RequestParam(value = "cntPerPage", required = false) String cntPerPage,
+		  @RequestParam(value = "title", required = false) String title)
+    throws Exception
+  {
+	  
+	  String sql = "";
+		
+		if(title != null) {
+			modelMap.addAttribute("title", title);
+			sql = "where title like '%" + title + "%'";
+		}
+		
+		pagingvo.setSql(sql);
+		int total = service.library_count(pagingvo);
+		modelMap.addAttribute("total", total);
+		
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "10";
+		} else if (nowPage == null) {
+			nowPage = "1";
+		} else if (cntPerPage == null) {
+			cntPerPage = "10";
+		}
+		
+		pagingvo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		modelMap.addAttribute("paging", pagingvo);
+		
+		if (total != 0) {
+			pagingvo.setSql(sql);
+			List<LibraryVo> library_list = service.library_list(pagingvo);
+			
+			System.out.println("검색 ===========================>");
+			System.out.println("total : " + total);
+			System.out.println("title : " + title);
+			System.out.println("sql : " + sql);
+			System.out.println("pagingvo : " + pagingvo);
+			
 			modelMap.addAttribute("library_list", library_list);
 		}
     
