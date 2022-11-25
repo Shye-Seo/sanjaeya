@@ -235,9 +235,6 @@ input[type=checkbox] {
 		z-index: 10000;
 		box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
 	}
-	#footer{
-	display: block;
-	}
 }
 
 @media ( max-width :768px) {
