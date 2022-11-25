@@ -45,8 +45,13 @@
 	<div class = "search_area">
 	    <div class = "search">
 	    	<form method="post" id="searchform">
-	      		<input type="text" class = "listsearch" placeholder="검색어를 입력하세요." name = "title" value="${title}"/>
-	    	<button class ="searchbtn" type = "submit"><img src = "resources/imgs/serachbtn.svg"></button>
+	    		<c:if test="${title == null }">
+	    			<input type="text" class = "listsearch" placeholder="검색어를 입력하세요." name = "title">
+	    		</c:if>
+	    		<c:if test="${title != null }">
+		      		<input type="text" class = "listsearch" placeholder="검색어를 입력하세요." name = "title" value="${title}">
+	    		</c:if>
+	    	<button class ="searchbtn" type = "submit"><img src = "resources/imgs/searchbtn.svg"></button>
 	    	</form>
 	    </div>
  	</div>
