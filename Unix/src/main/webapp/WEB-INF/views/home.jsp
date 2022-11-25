@@ -174,70 +174,44 @@
 			<h4>산재 자가진단 서비스 관련 정보를 지금 확인하세요.</h4>
 			<div class="tab_menu">
 				<ul class="list">
-					<li class="list_wrap"><a href="#tab_1" class="menu_btn">공지사항
-							&nbsp;|&nbsp;&nbsp;</a>
-						<div id="tab_1" class="list_123">
-							<div class="list_re">
-								<c:forEach var="list" items="${board_list}" varStatus="st">
-								<div>
-									<a href="readView?id=${list.id}" id="list_title">${list.title}</a>
-									<span id="list_date"><fmt:formatDate value = "${list.date}" pattern = "yyyy.MM.dd"/></span> 
-									<a href="#" id="plusBtn"><img src="resources/imgs/plusbtn.svg" /></a>
-								</div>
-								</c:forEach>
-<!-- 								<div> -->
-<!-- 									<a href="#" id="list_title">유닉스 노무법인 공지사항</a> <span -->
-<!-- 										id="list_date">2022.06.24</span> <a href="#" id="plusBtn">+</a> -->
-<!-- 								</div> -->
-<!-- 								<div> -->
-<!-- 									<a href="#" id="list_title">유닉스 노무법인 공지사항</a> <span -->
-<!-- 										id="list_date">2022.06.24</span> <a href="#" id="plusBtn">+</a> -->
-<!-- 								</div> -->
-<!-- 								<div> -->
-<!-- 									<a href="#" id="list_title">유닉스 노무법인 공지사항</a> <span -->
-<!-- 										id="list_date">2022.06.24</span> <a href="#" id="plusBtn">+</a> -->
-<!-- 								</div> -->
-<!-- 								<div> -->
-<!-- 									<a href="#" id="list_title">유닉스 노무법인 공지사항</a> <span -->
-<!-- 										id="list_date">2022.06.24</span> <a href="#" id="plusBtn">+</a> -->
-<!-- 								</div> -->
-							</div>
-						</div></li>
-					
-					<li><a href="#tab_3" class="menu_btn">자료실&nbsp;&nbsp;</a>
-						<div id="tab_3" class="list_123">
-							<div class="list_re">
-								<c:forEach var="list" items="${library_list}" varStatus="st">
-								<div>
-									<a href="readLibrary?id=${list.id}" id="list_title">${list.title}</a>
-									<span id="list_date"><fmt:formatDate value = "${list.date}" pattern = "yyyy.MM.dd"/></span>
-									<a href="#" id="plusBtn"><img src="resources/imgs/plusbtn.svg"></a>
-								</div>
-								</c:forEach>
-<!-- 								<div> -->
-<!-- 									<a id="list_title">유닉스 노무법인 자료실</a> <span id="list_date">2022.06.24</span> -->
-<!-- 									<a href="#" id="plusBtn">+</a> -->
-<!-- 								</div> -->
-<!-- 								<div> -->
-<!-- 									<a id="list_title">유닉스 노무법인 자료실</a> <span id="list_date">2022.06.24</span> -->
-<!-- 									<a href="#" id="plusBtn">+</a> -->
-<!-- 								</div> -->
-<!-- 								<div> -->
-<!-- 									<a id="list_title">유닉스 노무법인 자료실</a> <span id="list_date">2022.06.24</span> -->
-<!-- 									<a href="#" id="plusBtn">+</a> -->
-<!-- 								</div> -->
-<!-- 								<div> -->
-<!-- 									<a id="list_title">유닉스 노무법인 자료실</a> <span id="list_date">2022.06.24</span> -->
-<!-- 									<a href="#" id="plusBtn">+</a> -->
-<!-- 								</div> -->
-							</div>
-						</div></li>
-					<li>
+					<li class="list_wrap">
+						<a href="#tab_1" class="menu_btn" id="notice">공지사항</a>
+							<div id="div_bar">|</div>
+						<a href="#tab_3" class="menu_btn" id="library">자료실</a>
 						<div class="morebtn">
 							<a href="board_list">더보기<img src="resources/imgs/moreboard.svg"></a>
 						</div>
 					</li>
 				</ul>
+						<div class="list_123" id="notice_list">
+							<div class="list_re">
+								<c:forEach var="list" items="${board_list}" varStatus="st">
+								<div id="list_div">
+									<a href="readView?id=${list.id}" id="list_title">${list.title}</a>
+									<span id="list_date"><div id="date_area"><fmt:formatDate value = "${list.date}" pattern = "yyyy.MM.dd"/></div></span> 
+									<a href="readView?id=${list.id}" id="plusBtn"><div id="plusbtn_area"><img src="resources/imgs/plusbtn.svg" /></div></a>
+								</div>
+								</c:forEach>
+							</div>
+						</div>
+					
+						<div class="list_123" id="library_list">
+							<div class="list_re">
+								<c:forEach var="list" items="${library_list}" varStatus="st">
+								<div id="list_div">
+									<a href="readLibrary?id=${list.id}" id="list_title">${list.title}</a>
+									<span id="list_date"><div id="date_area"><fmt:formatDate value = "${list.date}" pattern = "yyyy.MM.dd"/></div></span>
+									<a href="#" id="plusBtn"><div id="plusbtn_area"><img src="resources/imgs/plusbtn.svg"></div></a>
+								</div>
+								</c:forEach>
+							</div>
+						</div>
+					
+<!-- 						<div class="morebtn"> -->
+<!-- 							<a href="board_list">더보기<img src="resources/imgs/moreboard.svg"></a> -->
+<!-- 						</div> -->
+					
+				
 			</div>
 			<button type="button" class="mmorebtn" onclick="location.href='board_list'">더보기</button>
 		</div>
@@ -259,24 +233,42 @@
 
 	<jsp:include page="/WEB-INF/views/footer/footer.jsp"></jsp:include>
 	<script>
-        const tabList = document.querySelectorAll('.tab_menu .list li');
+//         const tabList = document.querySelectorAll('.tab_menu .list li');
 
-        for (var i = 0; i < tabList.length; i++) {
-            tabList[i]
-                .querySelector('.menu_btn')
-                .addEventListener('click', function (e) {
-                    e.preventDefault();
-                    for (var j = 0; j < tabList.length; j++) {
-                        tabList[j]
-                            .classList
-                            .remove('list_wrap');
-                    }
-                    this
-                        .parentNode
-                        .classList
-                        .add('list_wrap');
-                });
-        }
+//         for (var i = 0; i < tabList.length; i++) {
+//             tabList[i]
+//                 .querySelector('.menu_btn')
+//                 .addEventListener('click', function (e) {
+//                     e.preventDefault();
+//                     for (var j = 0; j < tabList.length; j++) {
+//                         tabList[j]
+//                             .classList
+//                             .remove('list_wrap');
+//                     }
+//                     this
+//                         .parentNode
+//                         .classList
+//                         .add('list_wrap');
+//                 });
+//         }
+		$('#notice_list').css('display', 'block');
+        $('#library_list').css('display', 'none');
+        $('#notice').css('font-weight', 'bold');
+
+        $('#notice').click(function(){
+        	$('#notice_list').css('display', 'block');
+        	$('#library_list').css('display', 'none');
+        	$('#notice').css('font-weight', 'bold');
+        	$('#library').css('font-weight', 'normal');
+		});
+        
+        $('#library').click(function(){
+        	$('#notice_list').css('display', 'none');
+        	$('#library_list').css('display', 'block');
+        	$('#library').css('font-weight', 'bold');
+        	$('#notice').css('font-weight', 'normal');
+		});
+        
     </script>
 </body>
 </html>
