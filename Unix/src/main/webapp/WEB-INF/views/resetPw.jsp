@@ -17,6 +17,13 @@
 		alert(msg);
 	}
 
+	$(function() {
+		$(".tab_title li").removeClass("on");
+		$(".tab_title li").eq(1).addClass("on");
+		$(".tab_cont > form > div").hide();
+		$(".tab_cont > form > div").eq(1).show();
+	});
+
 	$(document).ready(function() {
 		$(".tab_title li").click(function() {
 			var idx = $(this).index();
@@ -37,7 +44,7 @@
 			}
 			return false;
 		}
-		 document.resetform.submit();
+		document.resetform.submit();
 	}
 </script>
 
@@ -78,15 +85,15 @@
 						</div>
 
 					</form>
-					<form class="user" action="PassReset" method="POST" name="resetform">
+					<form class="user" action="PassReset" method="POST"
+						name="resetform">
 						<div>
 							<div class="on" id="tab1">
 								<p>새로운 비밀번호</p>
 								<input class="member_pw" name="user_pass" id="user_pass"
 									type="password" placeholder="비밀번호를 입력해주세요." maxlength="16"
-									required /> <br>
-								<span id="lengthchek">(영문 대소문자/숫자/특수문자 중 2가지 이상조합,
-									10~16자)</span> <span id="member_pw"></span>
+									required /> <br> <span id="lengthchek">(영문
+									대소문자/숫자/특수문자 중 2가지 이상조합, 10~16자)</span> <span id="member_pw"></span>
 								<p>새로운 비밀번호 확인</p>
 								<input class="member_pw_check" name="re_user_pass"
 									id="re_user_pass" type="password"
