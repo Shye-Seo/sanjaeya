@@ -1,46 +1,48 @@
 @charset "UTF-8";
- button, html [type="button"] {
-  -webkit-appearance: none;   
+
+button, html [type="button"] {
+	-webkit-appearance: none;
 }
+
 input [type="submit"] {
-	 -webkit-appearance: none;  
+	-webkit-appearance: none;
 }
-     *,html,body {
-            margin: 0;
-            padding: 0;
-            font-family: "맑은 고딕";
-        }
 
-        a {
-            text-decoration: none;
-        }
+*, html, body {
+	margin: 0;
+	padding: 0;
+	font-family: "맑은 고딕";
+}
 
+a {
+	text-decoration: none;
+}
 
-        
-        .nav{
-            position: relative;
-            text-align: center;
-            /* color: white; */
-            font-weight: bold;
-            width:100%;
-            height:150px;
-            /* background-color: #333333; */
-            margin-bottom: 30px;
-        }
-        .nav .banner {
-            width:100%;
-            height:240px;
-            background-image: url("../imgs/login_banner.jpg");
-            background-size: cover;
-            background-position: 50% 50%;
-        }
-        .nav .banner span {
-            color:white;
-            font-size: 30px;
-            line-height: 240px;
-            letter-spacing: 4px;
-        }
-        
+.nav {
+	position: relative;
+	text-align: center;
+	/* color: white; */
+	font-weight: bold;
+	width: 100%;
+	height: 150px;
+	/* background-color: #333333; */
+	margin-bottom: 30px;
+}
+
+.nav .banner {
+	width: 100%;
+	height: 240px;
+	background-image: url("../imgs/login_banner.jpg");
+	background-size: cover;
+	background-position: 50% 50%;
+}
+
+.nav .banner span {
+	color: white;
+	font-size: 30px;
+	line-height: 240px;
+	letter-spacing: 4px;
+}
 
 /*         .nav .title{
             position: absolute;
@@ -56,667 +58,645 @@ input [type="submit"] {
             color: white;
             letter-spacing: 4px;
         } */
+#join {
+	width: 1024px;
+	margin: 8% auto;
+	color: #444343;
+}
 
-  
+#join p {
+	margin: 0;
+	padding: 0;
+}
 
-        #join{
-            width: 1024px;
-            margin: 8% auto;
-            color: #444343;
-        }
-        #join p{
-            margin: 0;
-            padding: 0;
-        }
-
-        /* #join img{
+/* #join img{
             width: 100%;
             display: block;
         } */
-
-        #join span{
-            color: #EA933C;
-        }
-
-        .text_area{
-            display: flex;
-            width: 100%;
-            justify-content: space-between;
-            margin-top: 8%;
-            margin-bottom: 2%;
-            font-weight: 600;
-        }
-
-        .text_area .item_1{
-            font-size: 1.3rem;
-            letter-spacing: 0px;
-			color: #393737;
-        }
-
-        .text_area .item_2{
-            position: relative;
-            font-size: 1.1rem;
-        }
-
-        .text_area .item_2 span{
-            position: absolute;
-            left: -15px;
-            letter-spacing: 0px;
-			color: #C71717;
-			opacity: 1;
-        }
-
-
-        #joinform{
-            display: flex; /* 가로 배치를 할껀데 */
-            flex-direction: column; /* 한줄에 하나의 컬럼만 배치 infomation_item div가 한줄에 하나씩*/
-            background-color: #F4F2F2;
-        }
-        #join .infomation_item{
-            border-top: solid;
-            border-width: 1px;
-            border-color: #707070;
-            display: flex;
-            align-items: center; /* 세로축으로 센터 */
-            height:120px;
-        }
-
-        #join .last_area{
-            border-bottom: solid;
-        }
-
-        #join .infomation_item .name_item{
-            position: relative;
-            width: 25%; /* infomation_item안에 name_item */
-            background-color: #F4F2F2;
-            display: flex;
-            font-size: 1.2rem;
-            /* height: 100%; */
-            /* align-items: center; */
-            font-weight: 600;
-            justify-content: flex-end; /* 요소들을 컨테이너의 우측으로 정렬 */
-            /* border: unset; */
-           
-            
-            
-            
-            
-        }
-
-        #join .infomation_item .name_item span{
-            position: absolute;
-            left: 20%; /* justify-content: flex-end; 속성을 먹기 때문에 위치 재설정 */
-        }
-
-        #join .infomation_item .name_item p{
-            width: 70%;
-        }
-
-     
-
-        #join .infomation_item .value_item{
-            box-sizing: border-box;
-            padding: 3% 5%;
-            width: 75%; /* infomation_item안에 value_item */
-            background-color: white;
-            height:100%;
-            display: flex; /* 세로 센터 정렬*/
-            align-items: center; /* 세로 센터 정렬*/
-            /* border:1px solid red; */
-            position: relative;
- 
-        }
-        
-        #join .infomation_item .value_item input::placeholder {
-        	letter-spacing: 0px;
-			color: #707070;
-			opacity: 1;
-        }
-        #join .infomation_item .value_item .id_wrap {
-            position: absolute;
-            width:70%;
-            /* border:1px solid blue; */
-        }
-        #join .infomation_item .value_item .id_wrap #user_id {
-           
-            width:70%;
-            
-        }
-        #join .infomation_item .value_item .id_wrap .idchk_button {
-            width:119px;
-            height:39px;
-            display: inline-block;
-            border:1px solid black;
-            background-color: white;
-            cursor: pointer;
-            font-size: 0.8rem;
-            font-weight: 600;
-            padding:5px 0;
-        }
-        #join .infomation_item .value_item .pw_wrap {
-            width:100%;
-        }
-        
-     
-     
-
-        #join .infomation_item .value_item p{
-            font-size:12px;
-            font-weight: bold;
-            padding-top: 1%;
-        }
-
-        #join .infomation_item .value_item input{
-            width: 80%;
-            border: none;
-            border-bottom: solid;
-            border-width: 1px;
-            border-color: #707070;
-            height: 30px;
-            text-indent: 1%; /* 들여쓰기 */
-            font-size: 1rem;
-        }
-        #join .infomation_item .value_item .member_pw {
-            width:80%;
-        }
-        #join .infomation_item .value_item .member_pw_check {
-            width:80%;
-        }
-        #join .infomation_item .value_item .member_name {
-            width:80%;
-        }
-
-        #join .infomation_item .value_item span{
-            font-weight: bold;
-            font-size: 0.8rem;
-        }
-
-        #join .infomation_item .value_item .div:nth-child(2){
-            margin: 4% 0;
-        }
-
-		#join .infomation_item .value_item .mail_wrap {
-            position: absolute;
-            width:80%;
-        }
-        
-        #join .infomation_item .value_item .mail_item_1{
-            width: 30%;
-            margin-right: 10px;
-        }
-
-        #join .infomation_item .value_item .mail_item_2{
-            width: 30%;
-            margin-left: 10px;
-            margin-right: 10px;
-        }
-
-        #join .infomation_item .value_item .mail_item_3{
-            width: 18%;
-            height: 39px;
-            text-indent: 5%;
-            font-weight: 600;
-            cursor: pointer;
-            border: 1px solid #707070;
-        }
-        
-        #join .infomation_item .value_item .mail_wrap .emailChk_button{
-            width: 11%;
-            height: 39px;
-            background: white;
-            font-size: 0.8rem;
-            font-weight: 600;
-            cursor: pointer;
-            border: 1px solid #707070;
-        }
-        
-        #join .infomation_item .value_item .mail_wrap #user_mail_number {
-        	vertical-align: bottom;
-            width: 53%;
-            margin-right: 10px;
-            
-            display: none;
-        }
-        #join .infomation_item .value_item .mail_wrap #emailChk2 {
-            width: 14%;
-            height: 39px;
-            background: white;
-            font-size: 0.8rem;
-            font-weight: 600;
-            cursor: pointer;
-            border: 1px solid #707070;
-        	
-            display: none;
-        }
-
-        #join .infomation_item .value_item #user_phone{
-            vertical-align: bottom;
-            width: 60%;
-            margin-right: 10px;
-        }
-
-		 #join .infomation_item .value_item .certification_button{
-            width: 16%;
-            height: 39px;
-            background: white;
-            font-size: 0.8rem;
-            font-weight: 600;
-            cursor: pointer;
-            border: 1px solid #707070;
-        }
-        
-         #join .infomation_item .value_item #user_phone2{
-            vertical-align: bottom;
-            width: 60%;
-            margin-right: 10px;
-            
-            display: none;
-         }
-        
-        #join .infomation_item .value_item #sms_send{
-        	width: 16%;
-            height: 39px;
-            background: white;
-            font-size: 0.8rem;
-            font-weight: 600;
-            cursor: pointer;
-            border: 1px solid #707070;
-        	
-            display: none;
-        }
-
-       
-
-        #join .agreement {
-            background-color: white;
-            display: flex;
-            flex-direction: column;
-            box-sizing: border-box;
-            padding-top: 7%;
-        }
-
-        #join .agreement .agree_title_area {
-            display: flex;
-            flex-direction: column;
-        }
-
-        #join .agreement .agree_title_area > span {
-            color: #333333;
-            font-size: 20px;
-            font-weight: 600;
-        }
-
-        #join .agreement .agree_title_area .check_area {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            margin-top: 2%;
-        }
-        
-        #join .agreement .agree_title_area .check_area #all_check_item {
-        	width:18px;
-        	height:18px;
-        	margin-right:10px;
-        }
-        
-        #join .agreement .agree_title_area .check_area span {
-        	font-weight: 600;
-        }
-    
-
-        #join .agreement .agree_title_area .check_area span {
-            color: #333333;
-            font-size: 18px;
-            margin-left: 15px;
-        }
-
-		#join .agreement .check_area label {
-			color: #333333;
-            font-size: 1rem;
-            font-weight: 600;
-		}
-
-        #join .agreement .check_area input[type=checkbox] {
-            transform: scale(1.5); /* 체크박스 사이즈 조절 */
-            cursor: pointer;
-        }
-
-    /*     #join .agreement .check_area label img:nth-child(2) {
-            display: none;
-        } */
-
-        #join .agreement .agreement_area {
-            width: 100%;
-            margin-top: 5%;
-            display: flex;
-            flex-direction: column;
-        }
-        #join .agreement .agreement_area .check_area span {
-            display: inline-block;
-            margin-left: 15px;
-        }
-
-        #join .agreement .agreement_area .title_span {
-            color: #333333;
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 1%;
-        }
-
-        #join .agreement .agreement_area textarea {
-            background-color: #F4F2F2;
-            border:none;
-            height: 300px;
-            width: 100%;
-            resize: none;
-        }
-
-        #join .agreement .agreement_area .check_area {
-            display: flex; /* 컨테이너를 flex*/
-            flex-direction: row;  /* 컨테이너안 아이템들을 row 즉 가로로 */
-            align-items: center;
-            margin-top: 1%;
-        }
-
-        #join .agreement .agree_title_area .check_area input[type=checkbox] {
-            position: relative;
-            left: 3px;
-            width: 18px;
-            height: 18px;
-        }
-        #join .agreement .agreement_area .check_area input[type=checkbox] {
-            position: relative;
-            left: 3px;
-        }
-
-		#join .agreement .agreement_area .check_area #check_item_1 {
-			margin-right:15px;
-		}
-		#join .agreement .agreement_area .check_area #check_item_2 {
-			margin-right:15px;
-		}
-
-        #join .agreement .agreement_area .check_area span {
-            color: #333333;
-            /* margin-right: 10px; */
-        }
-
-        #join .member_submit{
-            background-color: white;
-            text-align: center;
-            padding-top: 10%;
-        }
-
-        #join .member_submit input{
-            background-color: #326DFB;
-            border: none;
-            color: white;
-           /*  padding:10px 30px; */
-            width:106px;
-            height:40px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            font-weight: 600;
-            border-radius: 7px;
-            margin-right: 15px;
-        }
-
-        #join .member_submit .reset{
-            background-color: white;
-            border: solid 1px #4B9EF0;
-            color: #4B9EF0;
-            cursor: pointer;
-        }
-        
-        textarea:focus {outline:none;}
-        
-        
-        h2 {
-    display: none;
-}
-/* 태블릿 */
-@media all and (min-width:768px) and (max-width:1023px)  {
-
-    h2 {        
-        display: flex;
-        justify-content: center;
-        margin-top: 30px;
-    }
-		html, body {
-		min-width: unset;
-		overflow-x: hidden;
-	}
-	.nav {
-		background-image: none;
-		/* 		display: none; */
-		width: 0;
-		height: 90px;
-	}
-	.nav .banner {
-		background-image: none;
-	}
-	.nav .banner span {
-		display: none;
-	}
-    	#headers {
-		position: fixed;
-		width: 100%;
-		background-color: #ffffff;
-		z-index: 10000;
-		box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
-	}
-    #join {
-        width: 700px;
-    }
-    #joinform {
-        background-color: #FFFFFF;
-    }
-    
-    #join .infomation_item .name_item  {
-        display: none;
-    }
-    #join .infomation_item {
-        border: none;
-    }
-    .text_area {
-        display: none;
-    }
-    #join .infomation_item .value_item input {
-        border: 1px solid #000000;
-        border-radius: 8px;
-        padding: 20px;
-    }
-    #join .infomation_item .value_item {
-        width: 100%;
-        padding: 0%;
-        }
-        #join .infomation_item .value_item .id_wrap {
-            width: 100%;
-        }
-        #join .infomation_item .value_item .id_wrap #user_id{
-        width: 75%;
-        }
-        
-        #join .infomation_item .value_item .member_pw {
-            width: 90%;
-        }
-        
-        #join .infomation_item .value_item .member_pw_check {
-            width: 90%;
-        }
-        
-        #join .infomation_item .value_item .member_name {
-            width: 90%;
-        }
-        
-        #join .infomation_item .value_item .mail_wrap {
-            width: 100%;
-        }
-
-        #join .infomation_item .value_item #user_phone {
-            width: 72%;
-        }
-        #join .infomation_item .value_item .id_wrap .idchk_button {
-            width: 97px;
-            height: 70px;
-            border-radius: 8px;
-            padding: 20px;
-        }
-        #join .infomation_item .value_item .mail_item_3 {
-            width: 16%;
-            height: 70px;
-            text-indent: 5%;
-            font-weight: 600;
-            cursor: pointer;
-            border: 1px solid #707070;
-            border-radius: 8px;
-        }
-        #join .infomation_item .value_item #phoneChk {
-            width: 16%;
-            height: 70px;
-        }
+#join span {
+	color: #EA933C;
 }
 
-/* 모바일 */
-@media all and (min-width:320px) and (max-width:767px){
-	    h2 {        
-        display: flex;
-        justify-content: center;
-        margin-top: 30px;
-    }
-		html, body {
-		min-width: unset;
-		overflow-x: hidden;
-	}
-	.nav {
-		background-image: none;
-		/* 		display: none; */
-		width: 0;
-		height: 90px;
-	}
-	.nav .banner {
-		background-image: none;
-	}
-	.nav .banner span {
-		display: none;
-	}
-    	#headers {
-		position: fixed;
-		width: 100%;
-		background-color: #ffffff;
-		z-index: 10000;
-		box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
-	}
-
-    #join {
-        width: 300px;
-    }
-    #joinform {
-        background-color: #FFFFFF;
-    }
-    
-    #join .infomation_item .name_item  {
-        display: none;
-    }
-    #join .infomation_item {
-        border: none;
-    }
-    .text_area {
-        display: none;
-    }
-    #join .infomation_item .value_item input {
-        border: 1px solid #000000;
-        border-radius: 8px;
-        padding: 20px;
-        font-size: 12px;
-    }
-    #join .infomation_item .value_item {
-        width: 100%;
-        padding: 0%;
-        }
-        #join .infomation_item .value_item .id_wrap {
-            width: 100%;
-        }
-        #join .infomation_item .value_item .id_wrap #user_id{
-        width: 50%;
-        }
-        
-        #join .infomation_item .value_item .member_pw {
-            width: 84%;
-        }
-        
-        #join .infomation_item .value_item .member_pw_check {
-            width: 84%;
-        }
-        
-        #join .infomation_item .value_item .member_name {
-            width: 84%;
-        }
-        
-        #join .infomation_item .value_item .mail_wrap {
-            width: 100%;
-        }
-
-        #join .infomation_item .value_item #user_phone {
-            width: 70%;
-        }
-        #join .infomation_item .value_item .id_wrap .idchk_button {
-            width: 97px;
-            height: 73px;
-            border-radius: 8px;
-            padding: 20px;
-        }
-        #join .infomation_item .value_item .mail_item_1 {
-            width: 15%;
-        }
-        #join .infomation_item .value_item .mail_item_2 {
-            width: 15%;
-        }
-        #join .infomation_item .value_item .mail_item_3 {
-            width: 22%;
-            height: 70px;
-            text-indent: 5%;
-            font-weight: 600;
-            cursor: pointer;
-            border: 1px solid #707070;
-            border-radius: 8px;
-            font-size:1px;
-        }
-        #join .infomation_item .value_item #user_phone {
-    width: 50%;
+.text_area {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	margin-top: 13%;
+	margin-bottom: 2%;
+	font-weight: 600;
 }
-        #join .infomation_item .value_item #phoneChk {
-            width: 30%;
-            height: 70px;
-        }
-        #join .agreement .agree_title_area .check_area span {
-    font-size: 13px;
+
+.text_area .item_1 {
+	font-size: 1.3rem;
+	letter-spacing: 0px;
+	color: #393737;
+}
+
+.text_area .item_2 {
+	position: relative;
+	font-size: 1.1rem;
+}
+
+.text_area .item_2 span {
+	position: absolute;
+	left: -15px;
+	letter-spacing: 0px;
+	color: #C71717;
+	opacity: 1;
+}
+
+#joinform {
+	display: flex; /* 가로 배치를 할껀데 */
+	flex-direction: column;
+	/* 한줄에 하나의 컬럼만 배치 infomation_item div가 한줄에 하나씩*/
+	background-color: #F4F2F2;
+}
+
+#join .infomation_item {
+	border-top: solid;
+	border-width: 1px;
+	border-color: #707070;
+	display: flex;
+	align-items: center; /* 세로축으로 센터 */
+	height: 120px;
+}
+
+#join .last_area {
+	border-bottom: solid;
+}
+
+#join .infomation_item .name_item {
+	position: relative;
+	width: 25%; /* infomation_item안에 name_item */
+	background-color: #F4F2F2;
+	display: flex;
+	font-size: 1.2rem;
+	/* height: 100%; */
+	/* align-items: center; */
+	font-weight: 600;
+	justify-content: flex-end; /* 요소들을 컨테이너의 우측으로 정렬 */
+	/* border: unset; */
+}
+
+#join .infomation_item .name_item span {
+	position: absolute;
+	left: 20%; /* justify-content: flex-end; 속성을 먹기 때문에 위치 재설정 */
+}
+
+#join .infomation_item .name_item p {
+	width: 70%;
+}
+
+#join .infomation_item .value_item {
+	box-sizing: border-box;
+	padding: 3% 5%;
+	width: 75%; /* infomation_item안에 value_item */
+	background-color: white;
+	height: 100%;
+	display: flex; /* 세로 센터 정렬*/
+	align-items: center; /* 세로 센터 정렬*/
+	/* border:1px solid red; */
+	position: relative;
+}
+
+#join .infomation_item .value_item input::placeholder {
+	letter-spacing: 0px;
+	color: #707070;
+	opacity: 1;
+}
+
+#join .infomation_item .value_item .id_wrap {
+	position: absolute;
+	width: 70%;
+	/* border:1px solid blue; */
+}
+
+#join .infomation_item .value_item .id_wrap #user_id {
+	width: 70%;
+}
+
+#join .infomation_item .value_item .id_wrap .idchk_button {
+	width: 119px;
+	height: 39px;
+	display: inline-block;
+	border: 1px solid black;
+	background-color: white;
+	cursor: pointer;
+	font-size: 0.8rem;
+	font-weight: 600;
+	padding: 5px 0;
+}
+
+#join .infomation_item .value_item .pw_wrap {
+	width: 100%;
+}
+
+#join .infomation_item .value_item p {
+	font-size: 12px;
+	font-weight: bold;
+	padding-top: 1%;
+}
+
+#join .infomation_item .value_item input {
+	width: 80%;
+	border: none;
+	border-bottom: solid;
+	border-width: 1px;
+	border-color: #707070;
+	height: 30px;
+	text-indent: 1%; /* 들여쓰기 */
+	font-size: 1rem;
+}
+
+#join .infomation_item .value_item .member_pw {
+	width: 80%;
+}
+
+#join .infomation_item .value_item .member_pw_check {
+	width: 80%;
+}
+
+#join .infomation_item .value_item .member_name {
+	width: 80%;
+}
+
+#join .infomation_item .value_item span {
+	font-weight: bold;
+	font-size: 0.8rem;
+}
+
+#join .infomation_item .value_item .div:nth-child(2) {
+	margin: 4% 0;
+}
+
+#join .infomation_item .value_item .mail_wrap {
+	position: absolute;
+	width: 80%;
+}
+
+#join .infomation_item .value_item .mail_item_1 {
+	width: 30%;
+	margin-right: 10px;
+}
+
+#join .infomation_item .value_item .mail_item_2 {
+	width: 30%;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#join .infomation_item .value_item .mail_item_3 {
+	width: 18%;
+	height: 39px;
+	text-indent: 5%;
+	font-weight: 600;
+	cursor: pointer;
+	border: 1px solid #707070;
+}
+
+#join .infomation_item .value_item .mail_wrap .emailChk_button {
+	width: 11%;
+	height: 39px;
+	background: white;
+	font-size: 0.8rem;
+	font-weight: 600;
+	cursor: pointer;
+	border: 1px solid #707070;
+}
+
+#join .infomation_item .value_item .mail_wrap #user_mail_number {
+	vertical-align: bottom;
+	width: 53%;
+	margin-right: 10px;
+	display: none;
+}
+
+#join .infomation_item .value_item .mail_wrap #emailChk2 {
+	width: 14%;
+	height: 39px;
+	background: white;
+	font-size: 0.8rem;
+	font-weight: 600;
+	cursor: pointer;
+	border: 1px solid #707070;
+	display: none;
+}
+
+#join .infomation_item .value_item #user_phone {
+	vertical-align: bottom;
+	width: 60%;
+	margin-right: 10px;
+}
+
+#join .infomation_item .value_item .certification_button {
+	width: 16%;
+	height: 39px;
+	background: white;
+	font-size: 0.8rem;
+	font-weight: 600;
+	cursor: pointer;
+	border: 1px solid #707070;
+}
+
+#join .infomation_item .value_item #user_phone2 {
+	vertical-align: bottom;
+	width: 60%;
+	margin-right: 10px;
+	display: none;
+}
+
+#join .infomation_item .value_item #sms_send {
+	width: 16%;
+	height: 39px;
+	background: white;
+	font-size: 0.8rem;
+	font-weight: 600;
+	cursor: pointer;
+	border: 1px solid #707070;
+	display: none;
+}
+
+#join .agreement {
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+	padding-top: 7%;
+}
+
+#join .agreement .agree_title_area {
+	display: flex;
+	flex-direction: column;
+}
+
+#join .agreement .agree_title_area>span {
+	color: #333333;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+#join .agreement .agree_title_area .check_area {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-top: 2%;
 }
 
 #join .agreement .agree_title_area .check_area #all_check_item {
-    width: 15px;
-
-}
-#join .infomation_item .value_item #user_phone2 {
-    vertical-align: bottom;
-    margin-top: 10px;
-    width: 50%;
-    margin-right: 10px;
-    display: none;
-}
-#join .infomation_item .value_item #sms_send {
-    width: 30%;
-    height: 67px;
-    background: white;
-    font-size: 0.8rem;
-    font-weight: 600;
-    cursor: pointer;
-    border: 1px solid #707070;
-    display: none;
-}
-#join #contact{
-	height:210px;
-}
+	width: 18px;
+	height: 18px;
+	margin-right: 10px;
 }
 
+#join .agreement .agree_title_area .check_area span {
+	font-weight: 600;
+}
 
+#join .agreement .agree_title_area .check_area span {
+	color: #333333;
+	font-size: 18px;
+	margin-left: 15px;
+}
+
+#join .agreement .check_area label {
+	color: #333333;
+	font-size: 1rem;
+	font-weight: 600;
+}
+
+#join .agreement .check_area input[type=checkbox] {
+	transform: scale(1.5); /* 체크박스 사이즈 조절 */
+	cursor: pointer;
+}
+
+/*     #join .agreement .check_area label img:nth-child(2) {
+            display: none;
+        } */
+#join .agreement .agreement_area {
+	width: 100%;
+	margin-top: 5%;
+	display: flex;
+	flex-direction: column;
+}
+
+#join .agreement .agreement_area .check_area span {
+	display: inline-block;
+	margin-left: 15px;
+}
+
+#join .agreement .agreement_area .title_span {
+	color: #333333;
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 1%;
+}
+
+#join .agreement .agreement_area textarea {
+	background-color: #F4F2F2;
+	border: none;
+	height: 300px;
+	width: 100%;
+	resize: none;
+}
+
+#join .agreement .agreement_area .check_area {
+	display: flex; /* 컨테이너를 flex*/
+	flex-direction: row; /* 컨테이너안 아이템들을 row 즉 가로로 */
+	align-items: center;
+	margin-top: 1%;
+}
+
+#join .agreement .agree_title_area .check_area input[type=checkbox] {
+	position: relative;
+	left: 3px;
+	width: 18px;
+	height: 18px;
+}
+
+#join .agreement .agreement_area .check_area input[type=checkbox] {
+	position: relative;
+	left: 3px;
+}
+
+#join .agreement .agreement_area .check_area #check_item_1 {
+	margin-right: 15px;
+}
+
+#join .agreement .agreement_area .check_area #check_item_2 {
+	margin-right: 15px;
+}
+
+#join .agreement .agreement_area .check_area span {
+	color: #333333;
+	/* margin-right: 10px; */
+}
+
+#join .member_submit {
+	background-color: white;
+	text-align: center;
+	padding-top: 10%;
+}
+
+#join .member_submit input {
+	background-color: #326DFB;
+	border: none;
+	color: white;
+	/*  padding:10px 30px; */
+	width: 106px;
+	height: 40px;
+	font-size: 1.5rem;
+	cursor: pointer;
+	font-weight: 600;
+	border-radius: 7px;
+	margin-right: 15px;
+}
+
+#join .member_submit .reset {
+	background-color: white;
+	border: solid 1px #4B9EF0;
+	color: #4B9EF0;
+	cursor: pointer;
+}
+
+textarea:focus {
+	outline: none;
+}
+
+h2 {
+	display: none;
+}
+/* 태블릿 */
+@media all and (min-width:768px) and (max-width:1023px) {
+	h2 {
+		display: flex;
+		justify-content: center;
+		margin-top: 30px;
+	}
+	html, body {
+		min-width: unset;
+		overflow-x: hidden;
+	}
+	/* 	.nav { */
+	/* 		background-image: none; */
+	/* 				display: none; */
+	/* 		width: 0; */
+	/* 		height: 90px; */
+	/* 	} */
+	/* 	.nav .banner { */
+	/* 		background-image: none; */
+	/* 	} */
+	/* 	.nav .banner span { */
+	/* 		display: none; */
+	/* 	} */
+	#headers {
+		position: fixed;
+		width: 100%;
+		background-color: #ffffff;
+		z-index: 10000;
+		box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+	}
+	#join {
+		width: 700px;
+	}
+	/*     #joinform { */
+	/*         background-color: #FFFFFF; */
+	/*     } */
+
+	    #join .infomation_item .name_item  {
+	        width: 28%;
+	    }
+	/*     #join .infomation_item { */
+	/*         border: none; */
+	/*     } */
+	/*     .text_area { */
+	/*         display: none; */
+	/*     } */
+	/*     #join .infomation_item .value_item input { */
+	/*         border: 1px solid #000000; */
+	/*         border-radius: 8px; */
+	/*         padding: 20px; */
+	/*     } */
+	/*     #join .infomation_item .value_item { */
+	/*         width: 100%; */
+	/*         padding: 0%; */
+	/*         } */
+	/*         #join .infomation_item .value_item .id_wrap { */
+	/*             width: 100%; */
+	/*         } */
+	#join .infomation_item .value_item .id_wrap #user_id {
+		width: 65%;
+	}
+
+	/*         #join .infomation_item .value_item .member_pw { */
+	/*             width: 90%; */
+	/*         } */
+
+	/*         #join .infomation_item .value_item .member_pw_check { */
+	/*             width: 90%; */
+	/*         } */
+
+	/*         #join .infomation_item .value_item .member_name { */
+	/*             width: 90%; */
+	/*         } */
+
+	/*         #join .infomation_item .value_item .mail_wrap { */
+	/*             width: 100%; */
+	/*         } */
+
+	/*         #join .infomation_item .value_item #user_phone { */
+	/*             width: 72%; */
+	/*         } */
+	/*         #join .infomation_item .value_item .id_wrap .idchk_button { */
+	/*             width: 97px; */
+	/*             height: 70px; */
+	/*             border-radius: 8px; */
+	/*             padding: 20px; */
+	/*         } */
+	        #join .infomation_item .value_item .mail_item_3 {
+	            width: 20%;
+
+	        }
+	/*         #join .infomation_item .value_item #phoneChk { */
+	/*             width: 16%; */
+	/*             height: 70px; */
+	/*         } */
+	#join .agreement .agreement_area .title_span {
+		width: 100%;
+	}
+}
+
+/* 모바일 */
+@media all and (min-width:320px) and (max-width:767px) {
+	h2 {
+		display: flex;
+		justify-content: center;
+		margin-top: 30px;
+	}
+	html, body {
+		min-width: unset;
+		overflow-x: hidden;
+	}
+	.nav {
+		background-image: none;
+		/* 		display: none; */
+		width: 0;
+		height: 90px;
+	}
+	.nav .banner {
+		background-image: none;
+	}
+	.nav .banner span {
+		display: none;
+	}
+	#headers {
+		position: fixed;
+		width: 100%;
+		background-color: #ffffff;
+		z-index: 10000;
+		box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+	}
+	#join {
+		width: 300px;
+	}
+	#joinform {
+		background-color: #FFFFFF;
+	}
+	#join .infomation_item .name_item {
+		display: none;
+	}
+	#join .infomation_item {
+		border: none;
+	}
+	.text_area {
+		display: none;
+	}
+	#join .infomation_item .value_item input {
+		border: 1px solid #000000;
+		border-radius: 8px;
+		padding: 20px;
+		font-size: 12px;
+	}
+	#join .infomation_item .value_item {
+		width: 100%;
+		padding: 0%;
+	}
+	#join .infomation_item .value_item .id_wrap {
+		width: 100%;
+	}
+	#join .infomation_item .value_item .id_wrap #user_id {
+		width: 50%;
+	}
+	#join .infomation_item .value_item .member_pw {
+		width: 84%;
+	}
+	#join .infomation_item .value_item .member_pw_check {
+		width: 84%;
+	}
+	#join .infomation_item .value_item .member_name {
+		width: 84%;
+	}
+	#join .infomation_item .value_item .mail_wrap {
+		width: 100%;
+	}
+	#join .infomation_item .value_item #user_phone {
+		width: 70%;
+	}
+	#join .infomation_item .value_item .id_wrap .idchk_button {
+		width: 97px;
+		height: 73px;
+		border-radius: 8px;
+		padding: 20px;
+	}
+	#join .infomation_item .value_item .mail_item_1 {
+		width: 15%;
+	}
+	#join .infomation_item .value_item .mail_item_2 {
+		width: 15%;
+	}
+	#join .infomation_item .value_item .mail_item_3 {
+		width: 22%;
+		height: 70px;
+		text-indent: 5%;
+		font-weight: 600;
+		cursor: pointer;
+		border: 1px solid #707070;
+		border-radius: 8px;
+		font-size: 1px;
+	}
+	#join .infomation_item .value_item #user_phone {
+		width: 50%;
+	}
+	#join .infomation_item .value_item #phoneChk {
+		width: 30%;
+		height: 70px;
+	}
+	#join .agreement .agree_title_area .check_area span {
+		font-size: 13px;
+	}
+	#join .agreement .agree_title_area .check_area #all_check_item {
+		width: 15px;
+	}
+	#join .infomation_item .value_item #user_phone2 {
+		vertical-align: bottom;
+		margin-top: 10px;
+		width: 50%;
+		margin-right: 10px;
+		display: none;
+	}
+	#join .infomation_item .value_item #sms_send {
+		width: 30%;
+		height: 67px;
+		background: white;
+		font-size: 0.8rem;
+		font-weight: 600;
+		cursor: pointer;
+		border: 1px solid #707070;
+		display: none;
+	}
+	#join #contact {
+		height: 210px;
+	}
+	#join .agreement .agreement_area .title_span {
+		width: 100%;
+	}
+}
