@@ -70,5 +70,12 @@ public abstract interface BoardDao
 
   public abstract int board_count(PagingVO pagingvo) throws Exception;
 
-public abstract int library_count(PagingVO pagingvo) throws Exception;
+  public abstract int library_count(PagingVO pagingvo) throws Exception;
+
+  public abstract int board_count(String title, PagingVO pagingvo) throws Exception;
+
+  public abstract int search_count(String title) throws Exception;
+
+  public abstract int search_count_lib(String title) throws Exception;
+
 }

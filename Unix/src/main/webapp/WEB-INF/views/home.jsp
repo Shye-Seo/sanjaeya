@@ -141,7 +141,7 @@
 				</div>
 				<div class="category_3">
 					<p class="cate_img3" onclick="location.href='Checklist_s3'"></p>
-					<p class="cate_p3">근골결계 질환</p>
+					<p class="cate_p3">근골격계 질환</p>
 				</div>
 			</div>
 			<div class="category2">

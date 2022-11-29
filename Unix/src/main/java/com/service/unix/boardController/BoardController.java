@@ -35,23 +35,22 @@ public class BoardController
   public String list(HttpServletRequest request, ModelMap modelMap, PagingVO pagingvo, BoardVo boardvo,
 		  @RequestParam(value = "nowPage", required = false) String nowPage,
 		  @RequestParam(value = "cntPerPage", required = false) String cntPerPage,
-		  @RequestParam(value = "title", required = false) String title)
-    throws Exception
-  {
+		  @RequestParam(value = "title", required = false) String title) throws Exception{
 	  
 	String sql = "";
-		
-	if(title != null) {
+	int total = 0;
+	if(title != null) { //검색 시 total set
 		modelMap.addAttribute("title", title);
 		sql = "where title like '%" + title + "%'";
+		pagingvo.setTitle(title);
+		pagingvo.setTotal(service.search_count(title));
+		total = pagingvo.getTotal();
+	}else {
+		pagingvo.setSql(sql);
+		total = service.board_count(pagingvo);
 	}
 	
-	pagingvo.setSql(sql);
-	int total = service.board_count(pagingvo);
 	modelMap.addAttribute("total", total);
-	System.out.println("total 값 ===> " + total);
-	
-	modelMap.addAttribute("title", title);
 	
 	if (nowPage == null && cntPerPage == null) {
 		nowPage = "1";
@@ -63,62 +62,20 @@ public class BoardController
 	}
 	
 	pagingvo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
-	pagingvo.setSql(sql);
 	modelMap.addAttribute("paging", pagingvo);
 	
 	if (total != 0) {
 		pagingvo.setSql(sql);
 		List<BoardVo> board_list = service.board_list(pagingvo);
+		
+		System.out.println("검색 ===========================>");
+		System.out.println("검색결과 : " + total);
+		
 		modelMap.addAttribute("board_list", board_list);
 	}
 	
     return "/board/list";
   }
-  
-	@RequestMapping(value={"board_list"}, method={org.springframework.web.bind.annotation.RequestMethod.POST})
-	public String list_post(HttpServletRequest request, ModelMap modelMap, PagingVO pagingvo, HttpServletResponse response,
-			@RequestParam(value = "nowPage", required = false) String nowPage,
-			@RequestParam(value = "cntPerPage", required = false) String cntPerPage,
-			@RequestParam(value = "title", required = false) String title) throws Exception {
-
-//		if (title == null) {
-//			return "/board/list";
-//		}
-
-		modelMap.addAttribute("title", title);
-		String sql = "where title like '%" + title + "%'";
-		pagingvo.setSql(sql);
-		System.out.println("pagingvo.getSql : " + pagingvo.getSql());
-
-		int total = service.board_count(pagingvo);
-//		int total = 5;
-		modelMap.addAttribute("total", total);
-
-
-		if (nowPage == null && cntPerPage == null) {
-			nowPage = "1";
-			cntPerPage = "10";
-		} else if (nowPage == null) {
-			nowPage = "1";
-		} else if (cntPerPage == null) {
-			cntPerPage = "10";
-		}
-		
-		pagingvo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
-		pagingvo.setSql(sql);
-		modelMap.addAttribute("paging", pagingvo);
-		List<BoardVo> board_list = service.board_list(pagingvo);
-		
-		System.out.println("검색 ===========================>");
-		System.out.println("total : " + total);
-		System.out.println("title : " + title);
-		System.out.println("sql : " + sql);
-		System.out.println("pagingvo : " + pagingvo);
-
-		modelMap.addAttribute("board_list", board_list);
-		
-		return "/board/list";
-	}
   
   @RequestMapping(value={"write_board"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
   public String write_board()
@@ -246,14 +203,19 @@ public class BoardController
   {
 	  
 	  String sql = "";
-		
-		if(title != null) {
+	  int total = 0;
+	  
+		if(title != null) { //검색 시 total set
 			modelMap.addAttribute("title", title);
 			sql = "where title like '%" + title + "%'";
+			pagingvo.setTitle(title);
+			pagingvo.setTotal(service.search_count_lib(title));
+			total = pagingvo.getTotal();
+		}else {
+			pagingvo.setSql(sql);
+			total = service.library_count(pagingvo);
 		}
 		
-		pagingvo.setSql(sql);
-		int total = service.library_count(pagingvo);
 		modelMap.addAttribute("total", total);
 		
 		if (nowPage == null && cntPerPage == null) {
@@ -271,6 +233,10 @@ public class BoardController
 		if (total != 0) {
 			pagingvo.setSql(sql);
 			List<LibraryVo> library_list = service.library_list(pagingvo);
+			
+			System.out.println("검색 ===========================>");
+			System.out.println("검색결과 : " + total);
+			
 			modelMap.addAttribute("library_list", library_list);
 		}
     
