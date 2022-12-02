@@ -238,7 +238,7 @@
 					<div class="homeiconboard">
 						<div id="icon_area">
 						<div class = "homeicon1">
-							<img src="resources/imgs/homebutton.svg" alt="" />
+							<a href="Home"><img src="resources/imgs/homebutton.svg" alt="" /></a>
 						</div>
 						<div class = "homeicon2">
 							<img src="resources/imgs/Icon material-navigate-next.svg" alt="" />
@@ -253,9 +253,6 @@
 				<input type="button" id = "noticebtn" onclick="location.href='board_list'" value="공지사항" />
 				<input type="button" id = "docbtn" onclick="location.href='library_list'" value="자료실"/>
 				<div class="btnline"></div>
-			</div>
-			<div id="mobile_head">
-				<div id="m_headtitle">공지사항</div>
 			</div>
 		
 		<!-- 게시글 등록하기 영역 -->

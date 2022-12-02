@@ -1,5 +1,24 @@
 package com.service.unix.boardController;
 
+import com.amazonaws.SdkClientException;
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.client.builder.AwsClientBuilder;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.amazonaws.services.s3.model.AccessControlList;
+import com.amazonaws.services.s3.model.AmazonS3Exception;
+import com.amazonaws.services.s3.model.CanonicalGrantee;
+import com.amazonaws.services.s3.model.CompleteMultipartUploadRequest;
+import com.amazonaws.services.s3.model.CompleteMultipartUploadResult;
+import com.amazonaws.services.s3.model.GroupGrantee;
+import com.amazonaws.services.s3.model.InitiateMultipartUploadRequest;
+import com.amazonaws.services.s3.model.InitiateMultipartUploadResult;
+import com.amazonaws.services.s3.model.PartETag;
+import com.amazonaws.services.s3.model.Permission;
+import com.amazonaws.services.s3.model.UploadPartRequest;
+import com.amazonaws.services.s3.model.UploadPartResult;
+import com.service.unix.aws.AwsS3Service;
 import com.service.unix.boardService.BoardService;
 import com.service.unix.boardVo.BoardFileVo;
 import com.service.unix.boardVo.BoardVo;
@@ -10,11 +29,14 @@ import com.service.unix.boardVo.PagingVO;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.datasource.init.ScriptUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,6 +52,13 @@ public class BoardController
 {
   @Autowired
   BoardService service;
+  
+  @Autowired
+  AwsS3Service s3Service;
+  
+  String bucketName = "sanjaeya";
+  String folderName = "board-folder/";
+  String folderName_lib = "library-folder/";
   
   @RequestMapping(value={"board_list"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
   public String list(HttpServletRequest request, ModelMap modelMap, PagingVO pagingvo, BoardVo boardvo,
@@ -89,11 +118,15 @@ public class BoardController
   public String write_board(HttpServletRequest request, ModelMap modelMap, BoardVo vo, List<MultipartFile> board_file)
     throws Exception
   {
-    String boardFile_path = "C:\\upload\\board_file";
-    this.service.write_board(vo);
-    int board_id = this.service.get_board_Id(vo.getId());
+    service.write_board(vo);
+    int board_id = service.get_board_Id(vo.getId());
     
-    List<BoardFileVo> boardFile_list = new ArrayList();
+    List<BoardFileVo> boardFile_list = new ArrayList<BoardFileVo>();
+    
+    Calendar cal = Calendar.getInstance();
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmm");
+    String time = dateFormat.format(cal.getTime());
+    
     for (MultipartFile files : board_file)
     {
       System.out.println("-----------");
@@ -103,19 +136,14 @@ public class BoardController
       String fileName = files.getOriginalFilename();
       if ((fileName != null) && (!fileName.equals("")))
       {
-        File target_1 = new File(boardFile_path, fileName);
-        
-        target_1.setReadable(true, true);
-        target_1.setWritable(true, true);
-        target_1.setExecutable(true, true);
-        
-        FileCopyUtils.copy(files.getBytes(), target_1);
-        
-        BoardFileVo boardFile = new BoardFileVo(board_id, fileName);
+    	
+    	String new_fileName = time + "-" + fileName;
+        BoardFileVo boardFile = new BoardFileVo(board_id, new_fileName);
         boardFile_list.add(boardFile);
       }
     }
-    this.service.set_boardFile(boardFile_list);
+    service.set_boardFile(boardFile_list);
+    s3Service.upload_board(board_file);
     
     return "redirect:board_list";
   }
@@ -124,9 +152,9 @@ public class BoardController
   public String read(BoardVo boardVo, Model model, List<MultipartFile> board_file)
     throws Exception
   {
-    model.addAttribute("read", this.service.read(boardVo.getId()));
+    model.addAttribute("read", service.read(boardVo.getId()));
     
-    List<BoardFileVo> boardFile_list = this.service.get_board_files(boardVo.getId());
+    List<BoardFileVo> boardFile_list = service.get_board_files(boardVo.getId());
     model.addAttribute("boardFile_list", boardFile_list);
     model.addAttribute("board_id", Integer.valueOf(boardVo.getId()));
     
@@ -137,7 +165,7 @@ public class BoardController
   public String updateView(BoardVo boardVo, Model model)
     throws Exception
   {
-    model.addAttribute("update", this.service.read(boardVo.getId()));
+    model.addAttribute("update", service.read(boardVo.getId()));
     model.addAttribute("board_id", Integer.valueOf(boardVo.getId()));
     
     return "board/updateView";
@@ -147,39 +175,36 @@ public class BoardController
   public String update(HttpServletRequest request, BoardVo boardVo, Model model, HttpServletResponse response, List<MultipartFile> board_file, @RequestParam(value="board_id", required=false) int board_id)
     throws Exception
   {
-    model.addAttribute("board_id", Integer.valueOf(board_id));
-    String boardFile_path = "C:\\upload\\board_file";
-    
+    model.addAttribute("board_id", board_id);
     boardVo.setId(board_id);
-    this.service.update(boardVo);
+    service.update(boardVo);
     
-    BoardFileVo board_files = new BoardFileVo(board_id, "null");
-    this.service.delete_boardFiles(board_files);
+    List<BoardFileVo> boardFile_list = service.get_board_files(boardVo.getId());
+    for (BoardFileVo file : boardFile_list) {
+		String fileName = file.getAddress();
+		service.delete_boardFiles(file);
+		s3Service.delete_s3Board(fileName);
+	}
     
-    List<BoardFileVo> boardFile_list = new ArrayList();
+    boardFile_list = new ArrayList<BoardFileVo>();
+    
+    Calendar cal = Calendar.getInstance();
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmm");
+    String time = dateFormat.format(cal.getTime());
+    
     for (MultipartFile files : board_file)
     {
-    	System.out.println("-----------");
-        System.out.println("파일명 : " + files.getOriginalFilename());
-        System.out.println("파일 사이즈 : " + files.getSize());
       
       String fileName = files.getOriginalFilename();
       if ((fileName != null) && (!fileName.equals("")))
       {
-        File target_1 = new File(boardFile_path, fileName);
-        FileCopyUtils.copy(files.getBytes(), target_1);
-        
-        target_1.setReadable(true, true);
-        target_1.setWritable(true, true);
-        target_1.setExecutable(true, true);
-        
-        BoardFileVo boardFile = new BoardFileVo(board_id, fileName);
-        System.out.println("-----------");
-        System.out.println("filelist : " + boardFile);
+    	String new_fileName = time + "-" + fileName;
+        BoardFileVo boardFile = new BoardFileVo(board_id, new_fileName);
         boardFile_list.add(boardFile);
       }
     }
-    this.service.set_boardFile(boardFile_list);
+    service.set_boardFile(boardFile_list);
+    s3Service.upload_board(board_file);
     
     return "redirect:board_list";
   }
@@ -188,8 +213,16 @@ public class BoardController
   public String delete(BoardVo boardVo, Model model)
     throws Exception
   {
+	List<BoardFileVo> boardFile_list = service.get_board_files(boardVo.getId());
+	
+	for (BoardFileVo file : boardFile_list) {
+		String fileName = file.getAddress();
+		service.delete_boardFiles(file);
+		s3Service.delete_s3Board(fileName);
+	}
+		
     int board_id = boardVo.getId();
-    this.service.delete(board_id);
+    service.delete(board_id);
     
     return "redirect:board_list";
   }
@@ -302,44 +335,42 @@ public class BoardController
   public String write_library(HttpServletRequest request, ModelMap modelMap, LibraryVo vo, List<MultipartFile> library_file)
     throws Exception
   {
-    String libraryFile_path = "C:\\upload\\library_file";
-    this.service.write_library(vo);
-    int library_id = this.service.get_library_Id(vo.getId());
+    service.write_library(vo);
+    int library_id = service.get_library_Id(vo.getId());
     
-    List<LibraryFileVo> libraryFile_list = new ArrayList();
+    List<LibraryFileVo> libraryFile_list = new ArrayList<LibraryFileVo>();
+    
+    Calendar cal = Calendar.getInstance();
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmm");
+    String time = dateFormat.format(cal.getTime());
+    
     for (MultipartFile files : library_file)
     {
       System.out.println("-----------");
-      System.out.println("������ : " + files.getOriginalFilename());
-      System.out.println("�������� : " + files.getSize());
+      System.out.println("파일명: " + files.getOriginalFilename());
+      System.out.println("파일 사이즈 : " + files.getSize());
       
       String fileName = files.getOriginalFilename();
       if ((fileName != null) && (!fileName.equals("")))
       {
-        File target_1 = new File(libraryFile_path, fileName);
-        
-        target_1.setReadable(true, true);
-        target_1.setWritable(true, true);
-        target_1.setExecutable(true, true);
-        
-        FileCopyUtils.copy(files.getBytes(), target_1);
-        
-        LibraryFileVo libraryFile = new LibraryFileVo(library_id, fileName);
+    	String new_fileName = time + "-" + fileName;
+        LibraryFileVo libraryFile = new LibraryFileVo(library_id, new_fileName);
         libraryFile_list.add(libraryFile);
       }
     }
-    this.service.set_libraryFile(libraryFile_list);
+    service.set_libraryFile(libraryFile_list);
+    s3Service.upload_library(library_file);
     
-    return "board_list";
+    return "library_list";
   }
   
   @RequestMapping(value={"readLibrary"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
   public String readLibrary(LibraryVo libraryVo, Model model, List<MultipartFile> library_file)
     throws Exception
   {
-    model.addAttribute("read", this.service.readLibrary(libraryVo.getId()));
+    model.addAttribute("read", service.readLibrary(libraryVo.getId()));
     
-    List<LibraryFileVo> libraryFile_list = this.service.get_library_files(libraryVo.getId());
+    List<LibraryFileVo> libraryFile_list = service.get_library_files(libraryVo.getId());
     model.addAttribute("libraryFile_list", libraryFile_list);
     model.addAttribute("library_id", Integer.valueOf(libraryVo.getId()));
     
@@ -350,7 +381,7 @@ public class BoardController
   public String updateLibrary(LibraryVo libraryVo, Model model)
     throws Exception
   {
-    model.addAttribute("library", this.service.readLibrary(libraryVo.getId()));
+    model.addAttribute("library", service.readLibrary(libraryVo.getId()));
     model.addAttribute("library_id", Integer.valueOf(libraryVo.getId()));
     
     return "board/updateLibrary";
@@ -360,82 +391,67 @@ public class BoardController
   public String updateLibrary_post(HttpServletRequest request, LibraryVo libraryVo, Model model, HttpServletResponse response, List<MultipartFile> library_file, @RequestParam(value="library_id", required=false) int library_id)
     throws Exception
   {
-    model.addAttribute("library_id", Integer.valueOf(library_id));
-    String boardFile_path = "C:\\upload\\library_file";
-    
+    model.addAttribute("library_id", library_id);
     libraryVo.setId(library_id);
-    this.service.updateLibrary(libraryVo);
+    service.updateLibrary(libraryVo);
     
-    LibraryFileVo library_files = new LibraryFileVo(library_id, "null");
-    this.service.delete_libraryFiles(library_files);
+    List<LibraryFileVo> libraryFile_list = service.get_library_files(libraryVo.getId());
+    for (LibraryFileVo file : libraryFile_list) {
+		String fileName = file.getAddress();
+		service.delete_libraryFiles(file);
+		s3Service.delete_s3Library(fileName);
+	}
     
-    List<LibraryFileVo> libraryFile_list = new ArrayList();
+    libraryFile_list = new ArrayList<LibraryFileVo>();
+    
+    Calendar cal = Calendar.getInstance();
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmm");
+    String time = dateFormat.format(cal.getTime());
+    
     for (MultipartFile files : library_file)
     {
-      System.out.println("-----------");
-      System.out.println("������ : " + files.getOriginalFilename());
-      System.out.println("�������� : " + files.getSize());
       
       String fileName = files.getOriginalFilename();
       if ((fileName != null) && (!fileName.equals("")))
       {
-        File target_1 = new File(boardFile_path, fileName);
-        FileCopyUtils.copy(files.getBytes(), target_1);
-        
-        target_1.setReadable(true, true);
-        target_1.setWritable(true, true);
-        target_1.setExecutable(true, true);
-        
-        LibraryFileVo libraryFile = new LibraryFileVo(library_id, fileName);
-        System.out.println("-----------");
-        System.out.println("filelist : " + libraryFile);
+    	String new_fileName = time + "-" + fileName;
+        LibraryFileVo libraryFile = new LibraryFileVo(library_id, new_fileName);
         libraryFile_list.add(libraryFile);
       }
     }
-    this.service.set_libraryFile(libraryFile_list);
+    service.set_libraryFile(libraryFile_list);
+    s3Service.upload_library(library_file);
     
-    return "redirect:board_list";
+    return "redirect:library_list";
   }
   
   @RequestMapping(value={"deleteLibrary"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
   public String deleteLibrary(LibraryVo libraryVo, Model model)
     throws Exception
   {
+	List<LibraryFileVo> libraryFile_list = service.get_library_files(libraryVo.getId());
+	
+	for (LibraryFileVo file : libraryFile_list) {
+		String fileName = file.getAddress();
+		service.delete_libraryFiles(file);
+		s3Service.delete_s3Library(fileName);
+	}
+	
     int library_id = libraryVo.getId();
-    this.service.deleteLibrary(library_id);
+    service.deleteLibrary(library_id);
     
-    return "redirect:board_list";
+    return "redirect:library_list";
   }
   
   @RequestMapping({"download"})
   @ResponseBody
-  public byte[] download(HttpServletResponse response, @RequestParam String filename)
-    throws IOException
-  {
-    String boardFile_path = "C:\\upload\\board_file";
-    
-    File file = new File(boardFile_path, filename);
-    byte[] bytes = FileCopyUtils.copyToByteArray(file);
-    
-    String fn = new String(file.getName().getBytes(), "utf-8");
-    response.setHeader("Content-Disposition", "attachment;filename=\"" + fn + "\"");
-    response.setContentLength(bytes.length);
-    return bytes;
+  public ResponseEntity<byte[]> download(HttpServletResponse response, @RequestParam String filename) throws IOException {
+      return s3Service.getObject_board(filename);
   }
   
   @RequestMapping({"lib_download"})
   @ResponseBody
-  public byte[] lib_download(HttpServletResponse response, @RequestParam String filename)
-    throws IOException
-  {
-    String libraryFile_path = "C:\\upload\\library_file";
-    
-    File file = new File(libraryFile_path, filename);
-    byte[] bytes = FileCopyUtils.copyToByteArray(file);
-    
-    String fn = new String(file.getName().getBytes(), "utf-8");
-    response.setHeader("Content-Disposition", "attachment;filename=\"" + fn + "\"");
-    response.setContentLength(bytes.length);
-    return bytes;
+  public ResponseEntity<byte[]> lib_download(HttpServletResponse response, @RequestParam String filename) throws IOException {
+      return s3Service.getObject_library(filename);
   }
 }

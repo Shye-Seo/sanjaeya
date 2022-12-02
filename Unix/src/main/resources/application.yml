@@ -1,0 +1,13 @@
+cloud:
+  aws:
+    credentials:
+      access-key: AKIASM4TE7FUPG22NRSE
+      secret-key: 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
+    stack:
+      auto: false
+    region:
+      static: ap-northeast-2
+    s3:
+      bucket: sanjaeya
+
+      

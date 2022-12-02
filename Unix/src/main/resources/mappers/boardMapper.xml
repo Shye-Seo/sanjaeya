@@ -79,11 +79,11 @@
 </select>
 
 <select id="search_count" resultType="int">
-		select count(*) from nm_board where title = '${title}'
+		select count(*) from nm_board where title like concat('%','${title}','%')
 </select>
 
 <select id="search_count_lib" resultType="int">
-		select count(*) from nm_library where title = '${title}'
+		select count(*) from nm_library where title like concat('%','${title}','%')
 </select>
 
 </mapper> 
