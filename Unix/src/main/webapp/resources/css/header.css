@@ -12,9 +12,11 @@
 .header1 {
 	display: flex;
 	justify-content: space-between;
+	padding: 0 70px;
+	height: 105px;
 }
 #header1_left img {
-	width:50%;
+	width:180px;
 }
 .header1 a {
 	text-decoration: none;
@@ -22,16 +24,23 @@
 }
 
 .header1 #header1_left {
-	margin: 15px 50px;
+	margin: 15px 0;
 }
 
 .header1 #header1_right {
 	margin: 30px 50px;
-	padding: 9px 22px 10px;
+	/* padding: 9px 22px 10px; */
 	background-color: #326DFB;
 	border-radius: 5px;
 	color: white;
 	font-family: Pretendard;
+	width: 180px;
+	height: 45px;
+    line-height: 45px;
+    text-align: center;
+}
+#header1_right a{
+	padding: 7px;
 }
 .header {
 	display:none;

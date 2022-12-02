@@ -36,8 +36,14 @@ body {
 	color: #fafafa;
 }
 
-header img {
+header{
 	height: 650px;
+	width: 100%;
+	position: relative;
+}
+
+header img {
+	height: 100%;
 	width: 100%;
 	background-size: cover;
 	background-position: 50% 50%;
@@ -46,8 +52,8 @@ header img {
 
 .main_BackgrounArea {
 	position: absolute;
-	top: 15%;
-	left: 3%;
+	top: calc(50% - 250px);
+	left: 70px;
 	background-color: rgb(0, 0, 0, 0.4);
 	color: white;
 	height: 500px;
@@ -630,7 +636,7 @@ ul {
 	.main_BackgrounArea {
 		width: 90%;
 		left: 5%;
-		top: 13%;
+		top: 15%;
 	}
 	.Background_textArea {
 		text-align: center;
