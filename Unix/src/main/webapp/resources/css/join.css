@@ -389,6 +389,7 @@ a {
 	font-size: 18px;
 	font-weight: bold;
 	margin-bottom: 1%;
+    width: 100%;
 }
 
 #join .agreement .agreement_area textarea {

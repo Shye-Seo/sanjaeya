@@ -19,6 +19,9 @@ public interface MemberService {
 	// 휴대폰 인증
 	public void certifiedPhoneNumber(String userPhoneNumber, int randomNumber);
 	
+	//노무사 상담 연결 문자 보내기
+	public void sendContact(String userPhoneNumber);
+	
 	// 로그인할때 회원확인
 	public boolean loginCheck(MemberVo memberVo, HttpSession session);
 	
@@ -48,5 +51,7 @@ public interface MemberService {
 
 	//비밀번호 다시 설정
 	public void updatePw(MemberVo memberVo) throws Exception;
+
+
 
 }

@@ -179,7 +179,7 @@
 							<div id="div_bar">|</div>
 						<a href="#tab_3" class="menu_btn" id="library">자료실</a>
 						<div class="morebtn">
-							<a href="board_list">더보기<img src="resources/imgs/moreboard.svg"></a>
+							<a href="/Unix/board_list">더보기<img src="resources/imgs/moreboard.svg"></a>
 						</div>
 					</li>
 				</ul>
@@ -213,7 +213,7 @@
 					
 				
 			</div>
-			<button type="button" class="mmorebtn" onclick="location.href='board_list'">더보기</button>
+			<button type="button" class="mmorebtn" onclick="location.href='/Unix/board_list'">더보기</button>
 		</div>
 
 	</section>
