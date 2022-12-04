@@ -876,13 +876,18 @@ ul {
 		height: 43px;
 	}
 	
-	.tab_menu .list_123 .list_re div:first-child {
-		border-top: 0px solid #707070;
+	.list_wrap #div_bar{
+		font-size: 15px;
+		padding: 0 5px;
+	}
+	.tab_menu .list_123 .list_re #list_div:first-child {
+		border-top: 0.8px solid #707070;
 	}
 	.tab_menu #list_date {
 		padding-right: 0;
 		font-size: 12px;
-		width: 15%;
+		width: 25%;
+		margin: 13px 0;
 	}
 	.tab_menu .list_123 .list_re {
 		width: 90%;

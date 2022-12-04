@@ -94,7 +94,7 @@
 			<div class="category_2"></div>
 			<div class="category_3"></div>
 				<div class="modal_img_wrap">
-					<div class="category_1">뇌심혈관질환 / 과로</div>
+					<div class="category_1">뇌심혈관질환/과로</div>
 				</div>
 				<div class="modal_img_wrap">
 					<div class="category_2">직업성 암</div>

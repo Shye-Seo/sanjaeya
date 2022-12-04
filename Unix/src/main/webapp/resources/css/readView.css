@@ -181,8 +181,8 @@
 .board_main #content {
 	width: 920px;
 	height: auto;
-	min-height: 100px;
-	margin: 50px auto;
+    min-height: 250px;
+    margin: 50px auto;
 }
 
 .board_main .file {
