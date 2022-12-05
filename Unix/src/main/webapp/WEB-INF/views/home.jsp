@@ -13,19 +13,19 @@
 		$('.category_1').click(function () {
 			var pageNum = 1;
 			sessionStorage.setItem("pageNum", pageNum);
-			location.href = "Checklist_1";
+			location.href = "Checklist_s1";
 			
 			});
 		$('.category_2').click(function () {
 			var pageNum = 1;
 			sessionStorage.setItem("pageNum", pageNum);
-			location.href = "Checklist_2";
+			location.href = "Checklist_s2";
 			
 			});
 		$('.category_3').click(function () {
 			var pageNum = 1;
 			sessionStorage.setItem("pageNum", pageNum);
-			location.href = "Checklist_3";
+			location.href = "Checklist_s3";
 			
 			});
 		$("#categoryscroll").click(function () {

@@ -14,6 +14,21 @@
 		var pageNum = sessionStorage.getItem("pageNum");
 		
 		$('#aaaaa').attr('src',pageNum); 
+		
+		$('#label').click(function() {
+            const member = document.querySelector('.member');
+			const nonmember = document.querySelector('.nonmember');
+			member.style.outline = 'solid #326DFB'	
+				nonmember.style.outline = 'none'
+
+		});
+		$('#label2').click(function() {
+            const member = document.querySelector('.member');
+			const nonmember = document.querySelector('.nonmember');
+			nonmember.style.outline = 'solid #326DFB'
+				member.style.outline = 'none'
+
+		});
 	});
 
 </script>
@@ -43,19 +58,23 @@
 			</div>
 			<br>
 			<div class="type">
+			<label for="mem" id="label">
 				<div class="member">
-				<div class="pcl"><p class="memimg2"></p></div>
-				<p class="memimg"></p>
+					<input id="mem" type="radio" name="check"> <img
+						src="resources/imgs/member.svg">
 					<h4>회원이세요?</h4>
 					<p>회원님에게 제공하는 다양한 서비스를 사용해보세요.</p>
 				</div>
+			</label> 
+			<label for="nonmem" id="label2">
 				<div class="nonmember">
-					<div class="pcl"><p class="nonmemimg2"></p></div>
-					<p class="nonmemimg"></p>
+					<input id="nonmem" type="radio" name="check"> <img
+						src="resources/imgs/nonmember.svg">
 					<h4>비회원이세요?</h4>
 					<p>지금 바로 회원가입을 해서 다양한 혜택을 누려보세요.</p>
 				</div>
-			</div>
+			</label>
+		</div>
 			<div class="next">
 				<input type="button" value="이전" id="before" onclick="location.href='Home'">
 				<input type="button" value="다음" onclick="location.href='Checklist_3'">
