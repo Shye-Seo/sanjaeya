@@ -226,10 +226,6 @@ public class HomeController {
 		
 		return Integer.toString(randomNumber);
 	}
-	
-	@RequestMapping("Board") // 로그인 페이지
-	public String board() {
-		return "/boardlist";
-	}
+
 
 }

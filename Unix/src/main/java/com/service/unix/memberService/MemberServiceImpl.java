@@ -47,7 +47,8 @@ public class MemberServiceImpl implements MemberService{
 			
 			session.setAttribute("user_id", memberVo1.getUser_id());
 			session.setAttribute("id", memberVo1.getId());
-			
+			session.setAttribute("user_name", memberVo1.getUser_name());
+			session.setAttribute("user_phone", memberVo1.getUser_phone());
 		}
 		return result;
 	}
@@ -204,6 +205,33 @@ public class MemberServiceImpl implements MemberService{
 		}
 	}
 
+	// Service에서 coolsms에 정보를 보내 coolsms에서 입력자 번호로 문자가 전송됨
+	@Override
+	public void sendContact(String userPhoneNumber) {
+		// coolsms 본인 API키 입력
+//		String api_key = "NCSFGLWNPHJUTG1Q";
+		// coolsms 본인 API_secret키 입력
+//		String api_secret = "ZK5DEEDCXR0T6LXJDNQCVCAUYZ1BMHA6";
+		String api_key = "NCS9HI923SUSM5VF";
+		String api_secret = "XLQEOJRXNGAIUHIFRGX5VUTCHEJV7D8N";
+		Message coolsms = new Message(api_key, api_secret);
+		
+		// 4 params(to, from, type, text) are mandatory. must be filled
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("to", userPhoneNumber); // 수신전화번호
+		params.put("from", "010-9878-0502"); // 발신전화번호. 테스트시에는 발신, 수신 둘다 본인 번호로 하면됨
+		params.put("type", "SMS");
+		params.put("text", "노무사 상담 연결을 신청했습니다.\n"+ "["+userPhoneNumber+"]"); // 문자 내용 입력
+		params.put("app_version", "test app 1.2"); // application name and version
+		
+		try {
+			JSONObject obj = (JSONObject) coolsms.send(params);
+			System.out.println(obj.toString());
+		}catch(CoolsmsException e) {
+			System.out.println(e.getMessage());
+			System.out.println(e.getCode());
+		}
+	}
 
 
 
