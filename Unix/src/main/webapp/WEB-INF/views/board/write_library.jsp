@@ -308,11 +308,28 @@
     			</form>
     			<input type = "reset" value = "취소" class = "cnl_btn">
     			<input type = "button" value = "등록" class = "sbm_btn" id="submit_btn">
-    			<script>
-    			$('#submit_btn').click(function () {
-					uploadFile();
-				});
-    			</script>
+    			<script type="text/javascript">
+								$(function () {
+									$('#submit_btn').click(function () {
+										var title = $('#title').val();
+										var writer = $('#writer').val();
+										var content = $('#content').val();
+										
+										if(!title) {
+											alert('제목을 입력해주세요.');
+											return false;
+										} else if (!writer) {
+											alert('작성자를 입력해주세요.');
+											return false;
+										} else if (!content) {
+											alert('내용을 입력해주세요.');
+											return false;
+										} else {
+											uploadFile();
+										}
+									});
+								});
+				</script>
     	<jsp:include page="/WEB-INF/views/footer/footer.jsp"></jsp:include>
     	</div>
 	</body>

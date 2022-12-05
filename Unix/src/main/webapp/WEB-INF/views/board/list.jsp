@@ -69,9 +69,12 @@
 				</tr>
 			</c:forEach>
       </table>
-      <div class = "notinsertbtn">
-     <div id="insert"><a href="write_board">+ 등록하기</a></div>
-	  </div>
+      
+      <c:if test="${authority == 11}">
+	      <div class = "notinsertbtn">
+	      	<div id="insert"><a href="write_board">+ 등록하기</a></div>
+		  </div>
+	  </c:if>
     </div>
     
     <div class = "pagewrap">

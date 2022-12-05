@@ -74,9 +74,11 @@
 <!-- 				</div> -->
 					<div class="list_button">
 						<div id="btn_area">
-							<a href="updateLibrary?id=${read.id}" id="updatebtn">수정</a>
-							<a href="deleteLibrary?id=${read.id}">삭제</a>
-							<a href="board_list">목록</a>
+							<c:if test="${authority == 11}">
+								<a href="updateLibrary?id=${read.id}" id="updatebtn">수정</a>
+								<a href="deleteLibrary?id=${read.id}">삭제</a>
+							</c:if>
+							<a href="library_list">목록</a>
 						</div>
 					</div>
 						

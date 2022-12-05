@@ -25,6 +25,8 @@ import com.service.unix.boardVo.BoardVo;
 import com.service.unix.boardVo.LibraryFileVo;
 import com.service.unix.boardVo.LibraryVo;
 import com.service.unix.boardVo.PagingVO;
+import com.service.unix.memberService.MemberService;
+import com.service.unix.memberVo.MemberVo;
 
 import java.io.File;
 import java.io.IOException;
@@ -32,9 +34,14 @@ import java.io.PrintStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.datasource.init.ScriptUtils;
@@ -42,9 +49,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.annotation.SessionScope;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
@@ -56,16 +66,34 @@ public class BoardController
   @Autowired
   AwsS3Service s3Service;
   
+  @Inject
+  MemberService memberService;
+  
   String bucketName = "sanjaeya";
   String folderName = "board-folder/";
   String folderName_lib = "library-folder/";
   
-  @RequestMapping(value={"board_list"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
-  public String list(HttpServletRequest request, ModelMap modelMap, PagingVO pagingvo, BoardVo boardvo,
+  @RequestMapping(value="board_list", method=RequestMethod.GET)
+  public String list( ModelMap modelMap, PagingVO pagingvo, BoardVo boardvo,
+		  HttpSession session, HttpServletRequest request, HttpServletResponse response, 
 		  @RequestParam(value = "nowPage", required = false) String nowPage,
 		  @RequestParam(value = "cntPerPage", required = false) String cntPerPage,
 		  @RequestParam(value = "title", required = false) String title) throws Exception{
-	  
+	
+	String user_id = (String) session.getAttribute("user_id");
+	System.out.println("user_id : "+user_id);
+	
+	
+	if(user_id == null) {
+		modelMap.addAttribute("authority", 0);
+	}else if(service.check_authority(user_id) == null) {
+		modelMap.addAttribute("authority", 0);
+	} else {
+		String authority = service.check_authority(user_id);
+		modelMap.addAttribute("authority", authority);
+	}
+	System.out.println("authority : "+modelMap.getAttribute("authority"));
+	
 	String sql = "";
 	int total = 0;
 	if(title != null) { //검색 시 total set
@@ -229,14 +257,29 @@ public class BoardController
     return "redirect:board_list";
   }
   
-  @RequestMapping(value={"library_list"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
-  public String library_list(HttpServletRequest request, ModelMap modelMap, PagingVO pagingvo, LibraryVo libraryvo,
+  @RequestMapping(value="library_list", method=RequestMethod.GET)
+  public String library_list(ModelMap modelMap, PagingVO pagingvo, LibraryVo libraryvo, 
+		  HttpSession session, HttpServletRequest request, HttpServletResponse response, 
 		  @RequestParam(value = "nowPage", required = false) String nowPage,
 		  @RequestParam(value = "cntPerPage", required = false) String cntPerPage,
 		  @RequestParam(value = "title", required = false) String title)
     throws Exception
   {
-	  
+	
+	  String user_id = (String) session.getAttribute("user_id");
+		System.out.println("user_id : "+user_id);
+		
+		
+	  if(user_id == null) {
+			modelMap.addAttribute("authority", 0);
+	  }else if(service.check_authority(user_id) == null) {
+			modelMap.addAttribute("authority", 0);
+	  } else {
+			String authority = service.check_authority(user_id);
+			modelMap.addAttribute("authority", authority);
+	  }
+	  System.out.println("authority : "+modelMap.getAttribute("authority"));
+		
 	  String sql = "";
 	  int total = 0;
 	  
@@ -271,53 +314,6 @@ public class BoardController
 			
 			System.out.println("검색 ===========================>");
 			System.out.println("검색결과 : " + total);
-			
-			modelMap.addAttribute("library_list", library_list);
-		}
-    
-    return "/board/library_list";
-  }
-  
-  @RequestMapping(value={"library_list"}, method={org.springframework.web.bind.annotation.RequestMethod.POST})
-  public String library_list_post(HttpServletRequest request, ModelMap modelMap, PagingVO pagingvo, LibraryVo libraryvo,
-		  @RequestParam(value = "nowPage", required = false) String nowPage,
-		  @RequestParam(value = "cntPerPage", required = false) String cntPerPage,
-		  @RequestParam(value = "title", required = false) String title)
-    throws Exception
-  {
-	  
-	  String sql = "";
-		
-		if(title != null) {
-			modelMap.addAttribute("title", title);
-			sql = "where title like '%" + title + "%'";
-		}
-		
-		pagingvo.setSql(sql);
-		int total = service.library_count(pagingvo);
-		modelMap.addAttribute("total", total);
-		
-		if (nowPage == null && cntPerPage == null) {
-			nowPage = "1";
-			cntPerPage = "10";
-		} else if (nowPage == null) {
-			nowPage = "1";
-		} else if (cntPerPage == null) {
-			cntPerPage = "10";
-		}
-		
-		pagingvo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
-		modelMap.addAttribute("paging", pagingvo);
-		
-		if (total != 0) {
-			pagingvo.setSql(sql);
-			List<LibraryVo> library_list = service.library_list(pagingvo);
-			
-			System.out.println("검색 ===========================>");
-			System.out.println("total : " + total);
-			System.out.println("title : " + title);
-			System.out.println("sql : " + sql);
-			System.out.println("pagingvo : " + pagingvo);
 			
 			modelMap.addAttribute("library_list", library_list);
 		}
@@ -363,7 +359,7 @@ public class BoardController
     service.set_libraryFile(libraryFile_list);
     s3Service.upload_library(library_file);
     
-    return "library_list";
+    return "redirect:library_list";
   }
   
   @RequestMapping(value={"readLibrary"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})

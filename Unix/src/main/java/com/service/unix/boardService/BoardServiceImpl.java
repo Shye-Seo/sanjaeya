@@ -160,6 +160,11 @@ public class BoardServiceImpl
 	public int search_count_lib(String title) throws Exception {
 		return this.boardDao.search_count_lib(title);
 	}
+	
+	@Override
+	public String check_authority(String user_id) throws Exception {
+		return boardDao.check_authority(user_id);
+	}
 
 
 }

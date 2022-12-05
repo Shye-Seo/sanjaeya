@@ -78,4 +78,6 @@ public abstract interface BoardDao
 
   public abstract int search_count_lib(String title) throws Exception;
 
+  public abstract String check_authority(String user_id) throws Exception;
+
 }

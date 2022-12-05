@@ -78,5 +78,7 @@ public abstract interface BoardService
   public abstract int search_count(String title) throws Exception;
 
   public abstract int search_count_lib(String title) throws Exception;
+  
+  public abstract String check_authority(String user_id) throws Exception;
 
 }
