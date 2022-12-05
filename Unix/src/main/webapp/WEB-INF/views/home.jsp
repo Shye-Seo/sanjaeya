@@ -13,19 +13,19 @@
 		$('.category_1').click(function () {
 			var pageNum = 1;
 			sessionStorage.setItem("pageNum", pageNum);
-			location.href = "Checklist_s1";
+			location.href = "Checklist_1";
 			
 			});
 		$('.category_2').click(function () {
 			var pageNum = 1;
 			sessionStorage.setItem("pageNum", pageNum);
-			location.href = "Checklist_s2";
+			location.href = "Checklist_2";
 			
 			});
 		$('.category_3').click(function () {
 			var pageNum = 1;
 			sessionStorage.setItem("pageNum", pageNum);
-			location.href = "Checklist_s3";
+			location.href = "Checklist_3";
 			
 			});
 		$("#categoryscroll").click(function () {
@@ -94,7 +94,7 @@
 			<div class="category_2"></div>
 			<div class="category_3"></div>
 				<div class="modal_img_wrap">
-					<div class="category_1">뇌심혈관질환 / 과로</div>
+					<div class="category_1">뇌심혈관질환/과로</div>
 				</div>
 				<div class="modal_img_wrap">
 					<div class="category_2">직업성 암</div>
@@ -179,7 +179,7 @@
 							<div id="div_bar">|</div>
 						<a href="#tab_3" class="menu_btn" id="library">자료실</a>
 						<div class="morebtn">
-							<a href="board_list">더보기<img src="resources/imgs/moreboard.svg"></a>
+							<a href="/Unix/board_list">더보기<img src="resources/imgs/moreboard.svg"></a>
 						</div>
 					</li>
 				</ul>
@@ -213,7 +213,7 @@
 					
 				
 			</div>
-			<button type="button" class="mmorebtn" onclick="location.href='board_list'">더보기</button>
+			<button type="button" class="mmorebtn" onclick="location.href='/Unix/board_list'">더보기</button>
 		</div>
 
 	</section>

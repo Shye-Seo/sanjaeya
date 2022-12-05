@@ -8,6 +8,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, user-scalable=no" />
 <link rel="stylesheet" href="resources/css/diagnosis_result.css">
+<script type="text/javascript" src="resources/js/diagnisis_result.js"></script>
 <%@ include file="/WEB-INF/views/common.jsp"%>
 </head>
 <script type="text/javascript">
@@ -48,6 +49,8 @@
 	<%
 	String user_id = (String) session.getAttribute("user_id");
 	String test_userid = (String) session.getAttribute("test_userid");
+	String user_name = (String) session.getAttribute("user_name");
+	String user_phone = (String) session.getAttribute("user_phone");
 	%>
 	<div id="headers"><jsp:include
 			page="/WEB-INF/views/header/header.jsp"></jsp:include></div>
@@ -80,59 +83,7 @@
 						<c:choose>
 							<c:when test="${sessionScope.user_id eq null}">
 								<p class="result_txt1">
-								<h3>${test_userid}님의 산재 자가진단 결과</h3>
-								</p>
-							</c:when>
-							<c:otherwise>
-								<p class="result_txt1">
-								<h3>
-									<%=user_id%>님의 산재 자가진단 결과
-								</h3>
-								</p>
-							</c:otherwise>
-						</c:choose>
-
-						<h1>
-						<span id="resultspan">${Result}</span>
-						</h1>
-						<div class="re_comment">
-							<c:choose>
-								<c:when test="${sessionScope.user_id eq null}">
-									<p>${test_userid}님의 산재를 받을 수 있는 확률은 ${Result}입니다.</p>
-									<p>노무사 상담 연결로 빠르게 산재 보험을 받아봐요.</p>
-								</c:when>
-								<c:otherwise>
-									<p>
-										<%=user_id%>님의 산재를 받을 수 있는 확률은 ${Result}입니다.
-									</p>
-									<p>노무사 상담 연결로 빠르게 산재 보험을 받아봐요.</p>
-								</c:otherwise>
-							</c:choose>
-						</div>
-						<div class="next">
-							
-							<p id="line1">서비스 이용 만족도 조사</p>
-							<br>
-							<p id="line2">만족도 조사까지 진행하셔야만 <br>설문조사 리워드 지급이 가능합니다.</p>
-							<input type="button" value="만족도 조사 바로가기" id="home"
-								onclick="window.open('https://forms.gle/ArmqyTEdxSJsb7A79');">
-						</div>
-					</div>
-				</div>
-
-				<div class="result_box2">
-					<div class="re_img">
-						<div class="result_img1" id="result_img1"></div>
-						<div class="result_img2" id="result_img2"></div>
-						<div class="result_img3" id="result_img3"></div>
-						<div class="result_img4" id="result_img4"></div>
-						<div class="result_img5" id="result_img5"></div>
-					</div>
-					<div class="re_text">
-						<c:choose>
-							<c:when test="${sessionScope.user_id eq null}">
-								<p class="result_txt1">
-								<h3>${test_userid}님의 산재 자가진단 결과</h3>
+								<h3>${test_userid}님의산재 자가진단 결과</h3>
 								</p>
 							</c:when>
 							<c:otherwise>
@@ -150,7 +101,7 @@
 						<div class="re_comment">
 							<c:choose>
 								<c:when test="${sessionScope.user_id eq null}">
-									<p>${test_userid}님의 산재를 받을 수 있는 확률은 ${Result}입니다.</p>
+									<p>${test_userid}님의산재를 받을 수 있는 확률은 ${Result}입니다.</p>
 									<p>노무사 상담 연결로 빠르게 산재 보험을 받아봐요.</p>
 								</c:when>
 								<c:otherwise>
@@ -162,12 +113,80 @@
 							</c:choose>
 						</div>
 						<div class="next">
-							
-						<p id="line1">서비스 이용 만족도 조사</p>
-							<br>
-							<p id="line2">만족도 조사까지 진행하셔야만 <br>설문조사 리워드 지급이 가능합니다.</p>
-							<input type="button" value="만족도 조사 바로가기" id="home"
-								onclick="window.open('https://forms.gle/ArmqyTEdxSJsb7A79');">
+							<c:choose>
+								<c:when test="${sessionScope.user_id eq null}">
+										<input type="button" value="노무사 상담 연결" id="sendContact"
+										onclick="NsendContact();">
+								</c:when>
+								<c:otherwise>
+									<input type="button" value="노무사 상담 연결" id="sendContact"
+										onclick="sendContact();">
+								</c:otherwise>
+							</c:choose>
+							<input type="hidden" id="send_username" value="<%=user_name%>">
+							<input type="hidden" id="send_userphone" value="0<%=user_phone%>">
+							<input type="button" value="홈으로" id="home"
+								onclick="location.href='Home'">
+						</div>
+					</div>
+				</div>
+
+				<div class="result_box2">
+					<div class="re_img">
+						<div class="result_img1" id="result_img1"></div>
+						<div class="result_img2" id="result_img2"></div>
+						<div class="result_img3" id="result_img3"></div>
+						<div class="result_img4" id="result_img4"></div>
+						<div class="result_img5" id="result_img5"></div>
+					</div>
+					<div class="re_text">
+						<c:choose>
+							<c:when test="${sessionScope.user_id eq null}">
+								<p class="result_txt1">
+								<h3>${test_userid}님의산재 자가진단 결과</h3>
+								</p>
+							</c:when>
+							<c:otherwise>
+								<p class="result_txt1">
+								<h3>
+									<%=user_id%>님의 산재 자가진단 결과
+								</h3>
+								</p>
+							</c:otherwise>
+						</c:choose>
+
+						<h1>
+							<span id="resultspan">${Result}</span>
+						</h1>
+						<div class="re_comment">
+							<c:choose>
+								<c:when test="${sessionScope.user_id eq null}">
+									<p>${test_userid}님의산재를 받을 수 있는 확률은 ${Result}입니다.</p>
+									<p>노무사 상담 연결로 빠르게 산재 보험을 받아봐요.</p>
+								</c:when>
+								<c:otherwise>
+									<p>
+										<%=user_id%>님의 산재를 받을 수 있는 확률은 ${Result}입니다.
+									</p>
+									<p>노무사 상담 연결로 빠르게 산재 보험을 받아봐요.</p>
+								</c:otherwise>
+							</c:choose>
+						</div>
+						<div class="next">
+							<c:choose>
+								<c:when test="${sessionScope.user_id eq null}">
+										<input type="button" value="노무사 상담 연결" id="sendContact"
+										onclick="NsendContact();">
+								</c:when>
+								<c:otherwise>
+									<input type="button" value="노무사 상담 연결" id="sendContact"
+										onclick="sendContact();">
+								</c:otherwise>
+							</c:choose>
+							<input type="hidden" id="send_username" value="<%=user_name%>">
+							<input type="hidden" id="send_userphone" value="0<%=user_phone%>">
+							<input type="button" value="홈으로" id="home"
+								onclick="location.href='Home'">
 						</div>
 					</div>
 				</div>

@@ -237,44 +237,66 @@ button, html [type="button"], html [type="submit"] {
 		min-width: unset;
 		overflow-x: hidden;
 	}
-	.nav {
-		background-image: none;
-		/* 		display: none; */
-		width: 0;
-		height: 90px;
+/* 	.nav { */
+/* 		background-image: none; */
+/* 				display: none; */
+/* 		width: 0; */
+/* 		height: 90px; */
+/* 	} */
+/* 	.nav .banner { */
+/* 	    background-image: none; */
+		
+/* 	} */
+/* 	.nav .banner span { */
+/* 	display:none; */
+/* 	} */
+	section a, .lst1 {
+		width: 95%;
+		font-size: 16px;
 	}
-	.nav .banner {
-	    background-image: none;
-
+	.lst1 {
+	width:100%;
 	}
-	.nav .banner span {
-	display:none;
-	}
-	section h4, .a h3, .lst1 {
-		width: 100%;
-		font-size: 40px
-	}
-
 	.lst1 .lst2 .answer1, .answer2, .answer3, .answer4, .answer5, .answer6,
 		.answer7, .answer8, .answer9, .answer10, .answer11, .answer12,
 		.answer13, .answer14, .answer15, .answer16, .answer17 {
-		width: 700px;
-		height: 110px;
+		width: 80%;
+		height: 60px;
 	}
 	.lst1 .lst2 label {
 		width: 90%;
+		top: 25%;
 	}
 	.lst1 .lst2 input {
-		height: 24px;
+		height: 18px;
 	}
 	.a {
 		width: 100%;
 		text-align: center;
 	}
+	.a h3 {
+	margin-right: 10px;
+    margin-left: 10px;
+	}
 	.a div {
 		margin-top: 60px;
 		font: normal normal medium 30px/35px Pretendard;
 		color: #333333;
+	}
+		.next {
+		padding-left: 6%;
+	}
+	.category ul li {
+		width: 30%;
+	}
+	.category p{
+	font-size:13px
+	}
+	#chc {
+	font-size:11px
+	}
+	#text {
+	width:20px;
 	}
 		#headers {
 		position: fixed;

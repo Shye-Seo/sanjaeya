@@ -41,7 +41,7 @@
 			</div>
 			
 			<!-- 공지사항 메인 글 읽는 영역 -->
-				<form name = "readForm" role = "form" method = "post">
+				<form name = "readForm" role = "form" method = "post" id="readForm">
 					<input type = "hidden" id = "id" name = "id" value = "${read.id}"/>
 				<div class="board_main">
 					<div class="board_main_title">

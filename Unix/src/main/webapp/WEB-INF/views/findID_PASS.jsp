@@ -77,7 +77,7 @@ if (msg != "") {
 							<div class="on" id="tab1">
 								<p>아이디</p>
 								<input type="text" name="user_id" id="user_id" placeholder="아이디 입력"
-									class="input" id="user_phone" maxlength="11">
+									class="input" maxlength="11">
 								<p>휴대폰 번호</p>
 							<input type="text" name="user_phone"
 								placeholder="휴대전화 번호 입력('-' 제외)" class="input" id="user_phone"
@@ -89,7 +89,7 @@ if (msg != "") {
 								value="인증완료" name="sms_send" id="sms_send">
 							<p class="point successPhoneChk"></p>
 							<input type="hidden" id="phoneDoubleChk" />
-							<button type="submit">아이디 찾기</button>
+							<button type="submit">비밀번호 찾기</button>
 							</div>
 						
 						</div>

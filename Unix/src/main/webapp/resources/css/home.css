@@ -679,6 +679,9 @@ ul {
 		left: 8%;
 		height: 550px;
 	}
+	.tab_menu #list_title {
+    width: 86%;
+}
 	.tab_menu .list li.list_wrap .list_123 {
 		width: 100%;
 	}
@@ -691,6 +694,10 @@ ul {
 	}
 	.tab_menu .list_123 .list_re {
 		width: 100%;
+		border-top: 0px solid #707070;
+	}
+	.tab_menu .list_123 .list_re #list_div {
+	width: 90%;
 	}
 	.wrap_container .mmorebtn {
 		display: block;
@@ -857,7 +864,7 @@ ul {
 	.tab_menu {
 		width: 95%;
 		left: 8%;
-		height: 225px;
+		height: 500px;
 		padding-bottom: 27px;
     	margin-bottom: 27px;
 	}
@@ -870,6 +877,7 @@ ul {
 		width: 91%;
 		height: 43px;
 	}
+
 	.list_wrap #div_bar{
 		font-size: 15px;
 		padding: 0 5px;
@@ -884,7 +892,7 @@ ul {
 		margin: 13px 0;
 	}
 	.tab_menu .list_123 .list_re {
-		width: 100%;
+		width: 90%;
 		margin-top: 15px;
 		border-top: none;
 	}

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -13,11 +13,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.service.unix.checklistService.ChecklistService;
 import com.service.unix.checklistVo.CheckAnswerVo;
 import com.service.unix.checklistVo.CheckCategoryVo;
 import com.service.unix.checklistVo.CheckQuestionVo;
+import com.service.unix.memberService.MemberService;
 
 
 @Controller
@@ -25,6 +29,9 @@ public class ChecklistController {
 	
 	@Autowired
 	ChecklistService checkService;
+	
+	@Inject
+	private MemberService memberService;
 	
 	//체크리스트 시작 화면(과로, 뇌, 심장)
 	@RequestMapping("Checklist_s1")
@@ -150,6 +157,8 @@ public class ChecklistController {
 	      
 			
 	      String user_id = (String) session.getAttribute("user_id");
+	      String user_name = "";
+	      String user_phone = "";
 	      int id =0;
 	      int pointSum = 0;
 	      double pointper =0;
@@ -169,8 +178,12 @@ public class ChecklistController {
 	 			         map.put("category_number", categoryNum);
 	 			         map.put("question_number", ques_num);
 	 			         if(user_id != null ) {
-	 			        	id = (int) session.getAttribute("id");
+	 			        	 id = (int) session.getAttribute("id");
+	 			        	 user_name = (String) session.getAttribute("user_name");
+	 			        	 user_phone = (String) session.getAttribute("user_phone");
 	 			        	 map.put("user_id", id);
+	 			        	 map.put("user_name", user_name);
+	 			        	map.put("user_phone", user_phone);
 	 			         } else if(user_id == null) {
 	 			        	map.put("test_userid", test_userid);
 	 			         }
@@ -189,7 +202,11 @@ public class ChecklistController {
 	 			         map.put("question_number", ques_num);
 	 			         if(user_id != null) {
 	 			        	id = (int) session.getAttribute("id");
+	 			        	 user_name = (String) session.getAttribute("user_name");
+	 			        	user_phone = (String) session.getAttribute("user_phone");
 	 			        	 map.put("user_id", id);
+	 			        	 map.put("user_name", user_name);
+	 			        	map.put("user_phone", user_phone);
 	 			         } else if(user_id == null) {
 	 			        	map.put("test_userid", test_userid);
 	 			         }
@@ -207,7 +224,11 @@ public class ChecklistController {
 				         map.put("question_number", ques_num);
 	 			         if(user_id != null) {
 	 			        	id = (int) session.getAttribute("id");
+	 			        	 user_name = (String) session.getAttribute("user_name");
+	 			        	user_phone = (String) session.getAttribute("user_phone");
 	 			        	 map.put("user_id", id);
+	 			        	 map.put("user_name", user_name);
+	 			        	map.put("user_phone", user_phone);
 	 			         } else if(user_id == null) {
 	 			        	map.put("test_userid", test_userid);
 	 			         }
@@ -330,6 +351,8 @@ public class ChecklistController {
 
 			int test_userid = (int) ((Math.random() * (99999 - 10000 + 1)) + 10000);
 			String user_id = (String) session.getAttribute("user_id");
+			 String user_name = "";
+			 String user_phone="";
 			int id = 0;
 			int pointSum = 0;
 			double pointper = 0;
@@ -346,7 +369,11 @@ public class ChecklistController {
 			         map.put("question_number", ques_num);
  			         if(user_id != null) {
  			        	 id = (int) session.getAttribute("id");
- 			        	 map.put("user_id", id);
+ 			        	 user_name = (String) session.getAttribute("user_name");
+ 			        	user_phone = (String) session.getAttribute("user_phone");
+			        	 map.put("user_id", id);
+			        	 map.put("user_name", user_name);
+			        	map.put("user_phone", user_phone);
  			         } else if(user_id == null) {
  			        	map.put("test_userid", test_userid);
  			         }
@@ -361,7 +388,7 @@ public class ChecklistController {
 	      
  	  pointper = (((double)pointSum/(double)80) * 100);
  	  String pointper2 = String.format("%.2f", pointper);
- 	 model.addAttribute("test_userid", test_userid);
+ 	  model.addAttribute("test_userid", test_userid);
  	  
 	      if(0<=pointSum && pointSum<=29) {
 	    	  System.out.println("매우낮음");
@@ -477,6 +504,8 @@ public class ChecklistController {
 
 			int test_userid = (int) ((Math.random() * (99999 - 10000 + 1)) + 10000);
 		    String user_id = (String) session.getAttribute("user_id");
+		    String user_name = "";
+		    String user_phone="";
 			int id = 0;
 			int pointSum = 0;
 			double pointper = 0;
@@ -497,7 +526,11 @@ public class ChecklistController {
 		 			         map.put("question_number", ques_num);
 		 			         if(user_id != null ) {
 		 			        	 id = (int) session.getAttribute("id");
+		 			        	 user_name = (String) session.getAttribute("user_name");
+		 			        	user_phone = (String) session.getAttribute("user_phone");
 		 			        	 map.put("user_id", id);
+		 			        	 map.put("user_name", user_name);
+		 			        	map.put("user_phone", user_phone);
 		 			         } else if(user_id == null) {
 		 			        	map.put("test_userid", test_userid);
 		 			         }
@@ -515,7 +548,11 @@ public class ChecklistController {
 					         map.put("question_number", ques_num);
 		 			         if(user_id != null) {
 		 			        	 id = (int) session.getAttribute("id");
+		 			        	 user_name = (String) session.getAttribute("user_name");
+		 			        	user_phone = (String) session.getAttribute("user_phone");
 		 			        	 map.put("user_id", id);
+		 			        	 map.put("user_name", user_name);
+		 			        	map.put("user_phone", user_phone);
 		 			         } else if(user_id == null) {
 		 			        	map.put("test_userid", test_userid);
 		 			         }
@@ -565,5 +602,16 @@ public class ChecklistController {
 	      return "diagnosis_result";
 	   }
 
+		// 노무사 상담 연결 휴대폰 메세지 보내기
+		@RequestMapping(value = "sendContact", method = RequestMethod.GET)
+		@ResponseBody
+		public String sendContact(@RequestParam("user_phone") String userPhoneNumber) { // 휴대폰 문자보내기
+//			int randomNumber = (int)((Math.random() *(9999 - 1000 +1)) + 1000); // 난수 생성
+			String comment ="노무사 상담 연결을 신청했습니다.";
+			System.out.println("what"+userPhoneNumber);
+			memberService.sendContact(userPhoneNumber);
+			
+			return comment;
+		}
 
 }
