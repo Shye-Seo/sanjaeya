@@ -310,6 +310,12 @@ border-bottom:2px solid #326DFB;
 }
 .notinsertbtn #insert a{
 	color:#fff;
+	width: 116px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
 }
 
 .docinsertbtn{
@@ -334,6 +340,12 @@ border-bottom:2px solid #326DFB;
 
 .docinsertbtn #insert a{
 	color:#fff;
+	width: 116px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
 }
 
 /* .docinsertbtn a:link{ */

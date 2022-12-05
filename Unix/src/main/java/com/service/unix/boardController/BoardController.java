@@ -77,6 +77,8 @@ public class BoardController
 	}else {
 		pagingvo.setSql(sql);
 		total = service.board_count(pagingvo);
+	}if(total == 0) {
+		total = 1;
 	}
 	
 	modelMap.addAttribute("total", total);
