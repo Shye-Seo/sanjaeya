@@ -20,7 +20,7 @@
 					<div class = "homeiconboard">
 						<div id="icon_area">
 						<div class = "homeicon1">
-							<img src="resources/imgs/homebutton.svg" alt="" />
+							<a href="Home"><img src="resources/imgs/homebutton.svg" alt="" /></a>"" />
 						</div>
 						<div class = "homeicon2">
 							<img src="resources/imgs/Icon material-navigate-next.svg" alt="" />
@@ -44,9 +44,14 @@
 			
 	<div class = "search_area">
 	    <div class = "search">
-	    	<form method="get" id="searchform">
-	      		<input type="text" class = "listsearch" placeholder="검색어를 입력하세요." name = "title" value="${title}"/>
-	    	<button class ="searchbtn" type = "submit"><img src = "resources/imgs/serachbtn.svg"></button>
+	    	<form method="post" id="searchform">
+	    		<c:if test="${title == null }">
+	    			<input type="text" class = "listsearch" placeholder="검색어를 입력하세요." name = "title">
+	    		</c:if>
+	    		<c:if test="${title != null }">
+		      		<input type="text" class = "listsearch" placeholder="검색어를 입력하세요." name = "title" value="${title}">
+	    		</c:if>
+	    	<button class ="searchbtn" type = "submit"><img src = "resources/imgs/searchbtn.svg"></button>
 	    	</form>
 	    </div>
  	</div>

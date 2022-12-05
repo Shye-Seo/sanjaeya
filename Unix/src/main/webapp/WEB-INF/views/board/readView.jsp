@@ -19,7 +19,7 @@
 					<div class="homeiconboard">
 						<div id="icon_area">
 						<div class = "homeicon1">
-							<img src="resources/imgs/homebutton.svg" alt="" />
+							<a href="Home"><img src="resources/imgs/homebutton.svg" alt="" /></a>
 						</div>
 						<div class = "homeicon2">
 							<img src="resources/imgs/Icon material-navigate-next.svg" alt="" />

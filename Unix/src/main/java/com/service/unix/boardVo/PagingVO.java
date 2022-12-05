@@ -7,7 +7,7 @@ public class PagingVO {
 	private int nowPage, startPage, endPage, total, cntPerPage, lastPage, start, end;
 	private int cntPage = 4;
 	private String sql;
-	private String id;
+	private String title;
 
 	public PagingVO() {
 	}

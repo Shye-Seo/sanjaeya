@@ -69,49 +69,21 @@
 <select id="board_count" parameterType="com.service.unix.boardVo.PagingVO" resultType="int">
 		select count(*) from (select @rownum:=@rownum+1 as num, n.*
 		from(select * from nm_board ${sql} order by id desc)n,
-		(select @rownum:=0)v)num;
+		(select @rownum:=0)v)num 
 </select>
 
 <select id="library_count" parameterType="com.service.unix.boardVo.PagingVO" resultType="int">
 		select count(*) from (select @rownum:=@rownum+1 as num, n.*
 		from(select * from nm_library ${sql} order by id desc)n,
-		(select @rownum:=0)v)num;
+		(select @rownum:=0)v)num
 </select>
-<!-- <select id="board_count" parameterType="com.service.unix.boardVo.PagingVO" resultType="int"> -->
 
+<select id="search_count" resultType="int">
+		select count(*) from nm_board where title like concat('%','${title}','%')
+</select>
 
-<!-- select count(*) from (select @rownum:=@rownum+1 as num, n.* -->
+<select id="search_count_lib" resultType="int">
+		select count(*) from nm_library where title like concat('%','${title}','%')
+</select>
 
-
-<!-- from(select * from nm_board ${sql} order by date desc)n, -->
-
-
-<!-- (select @rownum:=0)v)num -->
-
-
-<!-- </select> -->
-
-
-<!-- <select id="getmainBoard" resultType="com.service.unix.boardVo.BoardVo"> -->
-
-
-<!-- select * from nm_board order by date desc limit 0,6 -->
-
-
-<!-- </select> -->
-
-
-<!-- <select id="selectBoardList" parameterType="com.service.unix.boardVo.PagingVO" resultType="com.service.unix.boardVo.BoardVo"> -->
-
-
-<!-- select * from (select @rownum:=@rownum+1 as num, n.* -->
-
-
-<!-- from(select * from Notice ${sql} order by idx desc)n, -->
-
-
-<!-- (select @rownum:=0)v)num Where num.num between ${start} and ${end} -->
-
-
-<!-- </select> -->
 </mapper> 

@@ -145,4 +145,21 @@ public class BoardServiceImpl
 	public int library_count(PagingVO pagingvo) throws Exception {
 		return this.boardDao.library_count(pagingvo);
 	}
+
+	@Override
+	public int board_count(String title, PagingVO pagingvo) throws Exception {
+		return this.boardDao.board_count(title, pagingvo);
+	}
+
+	@Override
+	public int search_count(String title) throws Exception {
+		return this.boardDao.search_count(title);
+	}
+
+	@Override
+	public int search_count_lib(String title) throws Exception {
+		return this.boardDao.search_count_lib(title);
+	}
+
+
 }

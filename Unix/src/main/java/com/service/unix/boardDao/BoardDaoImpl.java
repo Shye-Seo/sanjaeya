@@ -147,4 +147,19 @@ public class BoardDaoImpl
 	public int library_count(PagingVO pagingvo) throws Exception {
 		return this.sqlsession.selectOne("boardMapper.library_count");
 	}
+
+	@Override
+	public int board_count(String title, PagingVO pagingvo) throws Exception {
+		return this.sqlsession.selectOne("boardMapper.board_count_search");
+	}
+
+	@Override
+	public int search_count(String title) throws Exception {
+		return this.sqlsession.selectOne("boardMapper.search_count", title);
+	}
+
+	@Override
+	public int search_count_lib(String title) throws Exception {
+		return this.sqlsession.selectOne("boardMapper.search_count_lib", title);
+	}
 }

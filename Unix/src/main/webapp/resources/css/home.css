@@ -305,7 +305,7 @@ ul {
 .tab_menu .list_123 .list_re {
 	width: 1028px;
 	border-top: 1px solid #707070;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 .tab_menu .list_123 .list_re #list_div {
@@ -343,7 +343,7 @@ ul {
 	font-size: 20px;
 	font-weight: bold;
 	color: black;
-	padding-left: 730px;
+	padding-left: 770px;
 	margin-right: 0;
 }
 
@@ -685,7 +685,8 @@ ul {
 	.tab_menu .list li.list_wrap .list_123 {
 		width: 100%;
 	}
-	.tab_menu .list_123 .list_re div {
+		
+	.tab_menu .list_123 .list_re #list_div {
 		width: 91%;
 	}
 	.tab_menu #list_date {
@@ -734,6 +735,7 @@ ul {
 	html, body {
 		min-width: unset;
 		overflow-x: hidden;
+		font-family: 'Pretendard'
 	}
 	.section_1 .category2 {
 		display: flex;
@@ -871,11 +873,11 @@ ul {
 		line-height: 43px;
 		height: 43px;
 	}
-	.tab_menu .list_123 .list_re div {
+	.tab_menu .list_123 .list_re #list_div {
 		width: 91%;
 		height: 43px;
 	}
-	
+
 	.list_wrap #div_bar{
 		font-size: 15px;
 		padding: 0 5px;
@@ -904,6 +906,7 @@ ul {
 /* 		width: 75%; */
 		color: black;
 		font-size: 13px;
+		margin: 13px 0;
 	}
 	.wrap_container .mmorebtn {
 		display: block;
