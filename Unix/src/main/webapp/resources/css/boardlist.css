@@ -268,7 +268,6 @@ section .notice {
 	height: 21px;
 }
 
-<<<<<<< HEAD
 .notinsertbtn #insert{
   width:116px;
   height:40px;
@@ -288,12 +287,12 @@ section .notice {
     display: flex;
     text-align: center;
     justify-content: space-around;
-=======
+}
+
 #list_ th:last-child, table td:last-child {
 	text-align: center;
 	width: 180px;
 	height: 21px;
->>>>>>> refs/remotes/origin/shyes
 }
 
 .doclist {

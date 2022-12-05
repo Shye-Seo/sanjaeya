@@ -86,4 +86,8 @@
 		select count(*) from nm_library where title like concat('%','${title}','%')
 </select>
 
+<!-- 권한 체크 -->
+<select id="check_authority" resultType="String">
+		select authority from nm_user where user_id = #{user_id}
+</select>
 </mapper> 
