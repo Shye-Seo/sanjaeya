@@ -20,7 +20,7 @@
 					<div class = "homeiconboard">
 						<div id="icon_area">
 						<div class = "homeicon1">
-							<a href="Home"><img src="resources/imgs/homebutton.svg" alt="" /></a>"" />
+							<a href="Home"><img src="resources/imgs/homebutton.svg" alt="" /></a>
 						</div>
 						<div class = "homeicon2">
 							<img src="resources/imgs/Icon material-navigate-next.svg" alt="" />
@@ -85,7 +85,7 @@
 				href="board_list?nowPage=${paging.nowPage - 1}&cntPerPage=${paging.cntPerPage}&title=${title}"
 				class="paging_back"><img src="resources/imgs/page_back.svg"></a>
 			</c:if>
-			<c:if test="${paging.nowPage == 1 }">
+			<c:if test="${paging.nowPage == 1 && paging.total != 1}">
 				<img src="resources/imgs/page_back_disabled.svg" id="page_back_disabled">
 			</c:if>
 			
@@ -106,7 +106,7 @@
 			<a href="board_list?nowPage=${paging.nowPage+1}&cntPerPage=${paging.cntPerPage}&title=${title}"
 				class="paging_next"><img src="resources/imgs/page_next.svg"></a>
 		</c:if>
-		<c:if test="${paging.nowPage == paging.lastPage }">
+		<c:if test="${paging.nowPage == paging.lastPage && paging.total != 1 }">
 			<img src="resources/imgs/page_next_disabled.svg" id="page_next_disabled">
 		</c:if>
 		<c:if test="${paging.total > 4}">
@@ -140,19 +140,19 @@
 				href="board_list?nowPage=${paging.nowPage - 1}&cntPerPage=${paging.cntPerPage}&title=${title}"
 				class="paging_back"><img src="resources/imgs/page_back.svg"></a>
 			</c:if>
-			<c:if test="${paging.nowPage == 1 }">
+			<c:if test="${paging.nowPage == 1 && paging.total != 1}">
 				<img src="resources/imgs/page_back_disabled.svg" id="page_back_disabled">
 			</c:if>
 			
 		<div id="m_paging">
-			${paging.nowPage}/${paging.lastPage}
+			${paging.nowPage}/${paging.total}
 		</div>
 		
 		<c:if test="${paging.total != paging.lastPage && paging.nowPage != paging.lastPage}">
 			<a href="board_list?nowPage=${paging.nowPage+1}&cntPerPage=${paging.cntPerPage}&title=${title}"
 				class="paging_next"><img src="resources/imgs/mobile_page_next.svg"></a>
 		</c:if>
-		<c:if test="${paging.nowPage == paging.lastPage }">
+		<c:if test="${paging.nowPage == paging.lastPage && paging.total != 1 }">
 			<img src="resources/imgs/page_next_disabled.svg" id="page_next_disabled">
 		</c:if>
       </div>

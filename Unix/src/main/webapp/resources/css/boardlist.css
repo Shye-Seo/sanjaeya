@@ -268,10 +268,32 @@ section .notice {
 	height: 21px;
 }
 
+<<<<<<< HEAD
+.notinsertbtn #insert{
+  width:116px;
+  height:40px;
+  line-height: 40px;
+  border:0;
+  font-weight: 500;
+  font-size:16px;
+  text-align: center;
+  color:white;
+  background-color: #326DFB;
+}
+.notinsertbtn #insert a{
+	color:#fff;
+	width: 116px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+=======
 #list_ th:last-child, table td:last-child {
 	text-align: center;
 	width: 180px;
 	height: 21px;
+>>>>>>> refs/remotes/origin/shyes
 }
 
 .doclist {
@@ -283,6 +305,16 @@ section .notice {
 	position: relative;
 	padding-top: 20px;
 	min-height: 300px;
+}
+
+.docinsertbtn #insert a{
+	color:#fff;
+	width: 116px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
 }
 
 .btncontainer {
@@ -311,6 +343,12 @@ section .notice {
 
 .notinsertbtn #insert a {
 	color: #fff;
+	width: 116px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
 }
 
 .docinsertbtn {

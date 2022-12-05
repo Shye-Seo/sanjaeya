@@ -73,15 +73,15 @@
     <div class = "pagewrap">
       <div class = "pagearea">
       		<c:if test="${paging.total > 4}">
-			<a href="board_list?nowPage=1&cntPerPage=${paging.cntPerPage}&title=${title}"
+			<a href="library_list?nowPage=1&cntPerPage=${paging.cntPerPage}&title=${title}"
 				class="paging_back2"><img src="resources/imgs/page_back2.svg"></a>
 			</c:if>
       		<c:if test="${paging.total != 1 && paging.nowPage != 1}">
 			<a
-				href="board_list?nowPage=${paging.nowPage - 1}&cntPerPage=${paging.cntPerPage}&title=${title}"
+				href="library_list?nowPage=${paging.nowPage - 1}&cntPerPage=${paging.cntPerPage}&title=${title}"
 				class="paging_back"><img src="resources/imgs/page_back.svg"></a>
 			</c:if>
-			<c:if test="${paging.nowPage == 1 }">
+			<c:if test="${paging.nowPage == 1 && paging.total != 1}">
 				<img src="resources/imgs/page_back_disabled.svg" id="page_back_disabled">
 			</c:if>
 			
@@ -92,21 +92,21 @@
 				</c:when>
 				<c:when test="${p != paging.nowPage}">
 					<a
-						href="board_list?nowPage=${p}&cntPerPage=${paging.cntPerPage}&title=${title}"
+						href="library_list?nowPage=${p}&cntPerPage=${paging.cntPerPage}&title=${title}"
 						class="paging_1">${p}</a>
 				</c:when>
 			</c:choose>
 		</c:forEach>
 		
 		<c:if test="${paging.total != paging.lastPage && paging.nowPage != paging.lastPage}">
-			<a href="board_list?nowPage=${paging.nowPage+1}&cntPerPage=${paging.cntPerPage}&title=${title}"
+			<a href="library_list?nowPage=${paging.nowPage+1}&cntPerPage=${paging.cntPerPage}&title=${title}"
 				class="paging_next"><img src="resources/imgs/page_next.svg"></a>
 		</c:if>
-		<c:if test="${paging.nowPage == paging.lastPage }">
+		<c:if test="${paging.nowPage == paging.lastPage && paging.total != 1}">
 			<img src="resources/imgs/page_next_disabled.svg" id="page_next_disabled">
 		</c:if>
 		<c:if test="${paging.total > 4}">
-			<a href="board_list?nowPage=${paging.lastPage}&cntPerPage=${paging.cntPerPage}&title=${title}"
+			<a href="library_list?nowPage=${paging.lastPage}&cntPerPage=${paging.cntPerPage}&title=${title}"
 				class="paging_next2"><img src="resources/imgs/page_next2.svg"></a>
 		</c:if>
       </div>
@@ -131,10 +131,10 @@
       <div class = "m_pagearea">
       		<c:if test="${paging.total != 1 && paging.nowPage != 1}">
 			<a
-				href="board_list?nowPage=${paging.nowPage - 1}&cntPerPage=${paging.cntPerPage}&title=${title}"
+				href="library_list?nowPage=${paging.nowPage - 1}&cntPerPage=${paging.cntPerPage}&title=${title}"
 				class="paging_back"><img src="resources/imgs/page_back.svg"></a>
 			</c:if>
-			<c:if test="${paging.nowPage == 1 }">
+			<c:if test="${paging.nowPage == 1 && paging.total != 1}">
 				<img src="resources/imgs/page_back_disabled.svg" id="page_back_disabled">
 			</c:if>
 			
@@ -143,10 +143,10 @@
 		</div>
 		
 		<c:if test="${paging.total != paging.lastPage && paging.nowPage != paging.lastPage}">
-			<a href="board_list?nowPage=${paging.nowPage+1}&cntPerPage=${paging.cntPerPage}&title=${title}"
+			<a href="library_list?nowPage=${paging.nowPage+1}&cntPerPage=${paging.cntPerPage}&title=${title}"
 				class="paging_next"><img src="resources/imgs/mobile_page_next.svg"></a>
 		</c:if>
-		<c:if test="${paging.nowPage == paging.lastPage }">
+		<c:if test="${paging.nowPage == paging.lastPage && paging.total != 1}">
 			<img src="resources/imgs/page_next_disabled.svg" id="page_next_disabled">
 		</c:if>
       </div>
