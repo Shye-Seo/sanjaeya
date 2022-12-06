@@ -56,7 +56,7 @@
 						<c:if test="${libraryFile_list != null}">
 							<c:forEach var="files" items="${libraryFile_list}" varStatus="st">
 								<a href="lib_download?filename=${files.address}">${files.address}</a>
-								<img src="resources/imgs/download_icon.svg">
+								<a href="lib_download?filename=${files.address}"><img src="resources/imgs/download_icon.svg"></a>
 							</c:forEach>
 						</c:if>
 					</div>

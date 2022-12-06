@@ -11,30 +11,21 @@
 <script>
 	$(function() {
 		$('.category_1').click(function () {
-			var id = $("#user_id").val();
-			if (id == "" || id == "null") {
-				location.href = "Checklist_s1";
-			} else{
-				location.href = "Checklist_1";
-			}
+			var pageNum = 1;
+			sessionStorage.setItem("pageNum", pageNum);
+			location.href = "Checklist_1";
 			
 			});
 		$('.category_2').click(function () {
-			var id = $("#user_id").val();
-			if (id == "" || id == "null") {
-				location.href = "Checklist_s2";
-			} else{
-				location.href = "Checklist_2";
-			}
+			var pageNum = 1;
+			sessionStorage.setItem("pageNum", pageNum);
+			location.href = "Checklist_2";
 			
 			});
 		$('.category_3').click(function () {
-			var id = $("#user_id").val();
-			if (id == "" || id == "null") {
-				location.href = "Checklist_s3";
-			} else{
-				location.href = "Checklist_3";
-			}
+			var pageNum = 1;
+			sessionStorage.setItem("pageNum", pageNum);
+			location.href = "Checklist_3";
 			
 			});
 		$("#categoryscroll").click(function () {
@@ -83,28 +74,12 @@
             modal.style.height = '0'
         });
 		
-		$(window).scroll( function(){
-			$('.manual_img_secsion').each( function(i){
-				var bottom_of_object = $(this).offset().top + $(this).outerHeight();
-				var bottom_of_window = $(window).scrollTop() + $(window).height();
-				console.log( bottom_of_object ) ;
-				console.log( bottom_of_window ) ;
-				console.log( bottom_of_window > bottom_of_object/2 ) ;
-				if( bottom_of_window > (bottom_of_object/2)+4936 ){
-					// $(this).animate({'opacity':'1'},500);
-					$(this).css("animation", "manual_fade 1s both");
-				}
-			}); 
-    });
+		
 		
 	})
 	
 	</script>
 <body>
-	<%
-	String user_id = (String) session.getAttribute("user_id");
-	%>
-<input type="hidden" id="user_id" value="<%=user_id%>">
 	<div id="headers"><jsp:include
 				page="/WEB-INF/views/header/header.jsp"></jsp:include></div>
 	<div class="modal">
@@ -186,39 +161,7 @@
 		<div class="wrap_container">
 			<h2>더욱 편리하게</h2>
 			<h4>산재 승인 여부를 통화없이 간편하게 확인하세요.</h4>
-			<!-- <img id="manual_img" src="resources/imgs/manual_img.svg"> -->
-			<div id="manual_img">
-				<div class="manual_img_secsion">
-					<img src="resources/imgs/manual_img_1.svg" alt="manual_img_1">
-					<div class="manual_txtbox manual_right">
-						<p>Step 01. 로그인</p>
-						<hr>
-						<div class="square"></div>
-						<p>간단한 기본정보만 입력하면<br><b>회원가입 완료!</b></p>
-						<p>비회원도 사용가능하며<br>회원과 비회원의 별도 서비스는 다르게 적용됩니다.</p>
-					</div>
-				</div>
-				<div class="manual_img_secsion">
-					<div class="manual_txtbox">
-						<p>Step 02. 체크리스트 작성</p>
-						<hr>
-						<div class="square"></div>
-						<p>체크리스트 클릭 몇번으로 <br><b>산재 가능성 확인!</b></p>
-						<p>조금 더 자세한 내용이 필요하면 로그인을 한 후<br>심층진단을 클릭합니다.</p> 
-					</div>
-					<img class="manual_right" src="resources/imgs/manual_img_2.svg" alt="manual_img_2">
-				</div>
-				<div class="manual_img_secsion">
-					<img src="resources/imgs/manual_img_3.svg" alt="manual_img_3">
-					<div class="manual_txtbox manual_right">
-						<p>Step 03. 산재상담신청</p>
-						<hr>
-						<div class="square"></div>
-						<p>산재가능성 확인 후 <br><b>노무법인으로 빠른 상담신청!</b></p>
-						<p>비회원도 사용가능하며<br>회원과 비회원의 별도 서비스는 다르게 적용됩니다.</p>
-					</div>
-				</div>
-			</div>
+			<img id="manual_img" src="resources/imgs/manual_img.svg">
 			<img id="m_img" src="resources/imgs/m_img.png">
 			<div class="button_area">
 				<a id="categoryscroll2"><button type="button">진단 시작하기</button></a>
@@ -258,7 +201,7 @@
 								<div id="list_div">
 									<a href="readLibrary?id=${list.id}" id="list_title">${list.title}</a>
 									<span id="list_date"><div id="date_area"><fmt:formatDate value = "${list.date}" pattern = "yyyy.MM.dd"/></div></span>
-									<a href="#" id="plusBtn"><div id="plusbtn_area"><img src="resources/imgs/plusbtn.svg"></div></a>
+									<a href="readLibrary?id=${list.id}" id="plusBtn"><div id="plusbtn_area"><img src="resources/imgs/plusbtn.svg"></div></a>
 								</div>
 								</c:forEach>
 							</div>
