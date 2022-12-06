@@ -668,7 +668,7 @@ section .notice {
 		font-size: 16px;
 		height: 30px;
 		line-height: 30px;
-		margin: auto 0;
+		margin: 0 auto;
 	}
 	#footer {
 		display: none;
