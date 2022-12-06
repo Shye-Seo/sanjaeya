@@ -81,7 +81,7 @@
 		<div class="type">
 			<label for="mem" id="label">
 				<div class="member">
-					<input id="mem" type="radio" name="check"> <img
+					<input id="mem" type="radio" name="check" checked> <img
 						src="resources/imgs/member.svg">
 					<input type="hidden" id="user_id" value="<%=user_id%>">
 					<h4>회원이세요?</h4>

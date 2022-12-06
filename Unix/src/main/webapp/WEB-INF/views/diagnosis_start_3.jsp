@@ -38,10 +38,10 @@
 				if (id == "" || id == "null") {
 					alert("회원으로 진행 하시려면 로그인이 필요합니다.")
 				} else{
-					location.href = "Checklist_1";
+					location.href = "Checklist_3";
 				}
 			} else{
-				location.href = "Checklist_1";
+				location.href = "Checklist_3";
 			}
 
 		});
@@ -79,7 +79,7 @@
 			<div class="type">
 			<label for="mem" id="label">
 				<div class="member">
-					<input id="mem" type="radio" name="check"> <img
+					<input id="mem" type="radio" name="check" checked> <img
 						src="resources/imgs/member.svg">
 						<input type="hidden" id="user_id" value="<%=user_id%>">
 					<h4>회원이세요?</h4>
