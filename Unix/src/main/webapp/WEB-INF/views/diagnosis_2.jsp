@@ -178,7 +178,7 @@
 							<div class="answer11">
 								<label for="${answer11.id}"><input type="checkbox"
 									class="11" id="${answer11.id}" name="answerList11"
-									value="${answer11.id}">
+									value="${answer11.id}" onclick="NoMultiChk(this)">
 								<c:out value='${answer11.contents}' /></label>
 <%-- 								<div class="answerpoint"><c:out value='${answer11.point}' /></div> --%>
 							</div>

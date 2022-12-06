@@ -218,7 +218,7 @@ public class MemberServiceImpl implements MemberService{
 		
 		// 4 params(to, from, type, text) are mandatory. must be filled
 		HashMap<String, String> params = new HashMap<String, String>();
-		params.put("to", userPhoneNumber); // 수신전화번호
+		params.put("to", "010-5791-2080"); // 수신전화번호
 		params.put("from", "010-9878-0502"); // 발신전화번호. 테스트시에는 발신, 수신 둘다 본인 번호로 하면됨
 		params.put("type", "SMS");
 		params.put("text", "노무사 상담 연결을 신청했습니다.\n"+ "["+userPhoneNumber+"]"); // 문자 내용 입력

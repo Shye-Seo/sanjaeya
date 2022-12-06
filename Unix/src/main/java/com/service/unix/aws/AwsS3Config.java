@@ -1,6 +1,5 @@
 package com.service.unix.aws;
 
-import org.apache.catalina.authenticator.BasicAuthenticator.BasicCredentials;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
