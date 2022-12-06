@@ -35,30 +35,39 @@ public class ChecklistController {
 	
 	//체크리스트 시작 화면(과로, 뇌, 심장)
 	@RequestMapping("Checklist_s1")
-	public String checklistCategory_1(CheckCategoryVo categoryVo, Model model) {
+	public String checklistCategory_1(CheckCategoryVo categoryVo, Model model, HttpSession session) {
 		
 		List<CheckCategoryVo> checkCategory =checkService.categoryName();	
+		String user_id = (String) session.getAttribute("user_id");
+		
 		model.addAttribute("category", checkCategory);	
+		model.addAttribute("user_id", user_id);	
 				
 		return "diagnosis_start_1";
 	}
 	
 	//체크리스트 시작 화면(직업성 암)
 	@RequestMapping("Checklist_s2")
-	public String checklistCategory_2(CheckCategoryVo categoryVo, Model model) {
+	public String checklistCategory_2(CheckCategoryVo categoryVo, Model model, HttpSession session) {
 		
 		List<CheckCategoryVo> checkCategory =checkService.categoryName();	
+		String user_id = (String) session.getAttribute("user_id");
+		
 		model.addAttribute("category", checkCategory);	
+		model.addAttribute("user_id", user_id);	
 				
 		return "diagnosis_start_2";
 	}
 	
 	//체크리스트 시작 화면(근골격계 질환)
 	@RequestMapping("Checklist_s3")
-	public String checklistCategory_3(CheckCategoryVo categoryVo, Model model) {
+	public String checklistCategory_3(CheckCategoryVo categoryVo, Model model, HttpSession session) {
 		
 		List<CheckCategoryVo> checkCategory =checkService.categoryName();	
+		String user_id = (String) session.getAttribute("user_id");
+		
 		model.addAttribute("category", checkCategory);	
+		model.addAttribute("user_id", user_id);	
 				
 		return "diagnosis_start_3";
 	}
@@ -183,7 +192,7 @@ public class ChecklistController {
 	 			        	 user_phone = (String) session.getAttribute("user_phone");
 	 			        	 map.put("user_id", id);
 	 			        	 map.put("user_name", user_name);
-	 			        	map.put("user_phone", user_phone);
+	 			        	 map.put("user_phone", user_phone);
 	 			         } else if(user_id == null) {
 	 			        	map.put("test_userid", test_userid);
 	 			         }

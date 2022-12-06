@@ -29,10 +29,29 @@
 				member.style.outline = 'none'
 
 		});
+		$('#nextbtn').click(function() {
+			var mem = $('input[id=mem]').is(":checked");
+			var id = $("#user_id").val();
+			console.log("id: "+id)
+			
+			if (mem == true) {
+				if (id == "" || id == "null") {
+					alert("회원으로 진행 하시려면 로그인이 필요합니다.")
+				} else{
+					location.href = "Checklist_1";
+				}
+			} else{
+				location.href = "Checklist_1";
+			}
+
+		});
 	});
 
 </script>
 <body>
+<%
+	String user_id = (String) session.getAttribute("user_id");
+	%>
 	<div id="wrap">
 		<div id="headers"><jsp:include page="/WEB-INF/views/header/header.jsp"></jsp:include></div>
 		
@@ -62,6 +81,7 @@
 				<div class="member">
 					<input id="mem" type="radio" name="check"> <img
 						src="resources/imgs/member.svg">
+						<input type="hidden" id="user_id" value="<%=user_id%>">
 					<h4>회원이세요?</h4>
 					<p>회원님에게 제공하는 다양한 서비스를 사용해보세요.</p>
 				</div>
@@ -77,7 +97,7 @@
 		</div>
 			<div class="next">
 				<input type="button" value="이전" id="before" onclick="location.href='Home'">
-				<input type="button" value="다음" onclick="location.href='Checklist_3'">
+				<input type="button" value="다음" id="nextbtn">
 			</div>
 		</section>
 		<jsp:include page="/WEB-INF/views/footer/footer.jsp"></jsp:include>
