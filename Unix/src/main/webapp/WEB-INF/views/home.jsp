@@ -11,21 +11,30 @@
 <script>
 	$(function() {
 		$('.category_1').click(function () {
-			var pageNum = 1;
-			sessionStorage.setItem("pageNum", pageNum);
-			location.href = "Checklist_s1";
+			var id = $("#user_id").val();
+			if (id == "" || id == "null") {
+				location.href = "Checklist_s1";
+			} else{
+				location.href = "Checklist_1";
+			}
 			
 			});
 		$('.category_2').click(function () {
-			var pageNum = 1;
-			sessionStorage.setItem("pageNum", pageNum);
-			location.href = "Checklist_s2";
+			var id = $("#user_id").val();
+			if (id == "" || id == "null") {
+				location.href = "Checklist_s2";
+			} else{
+				location.href = "Checklist_2";
+			}
 			
 			});
 		$('.category_3').click(function () {
-			var pageNum = 1;
-			sessionStorage.setItem("pageNum", pageNum);
-			location.href = "Checklist_s3";
+			var id = $("#user_id").val();
+			if (id == "" || id == "null") {
+				location.href = "Checklist_s3";
+			} else{
+				location.href = "Checklist_3";
+			}
 			
 			});
 		$("#categoryscroll").click(function () {
@@ -92,6 +101,10 @@
 	
 	</script>
 <body>
+	<%
+	String user_id = (String) session.getAttribute("user_id");
+	%>
+<input type="hidden" id="user_id" value="<%=user_id%>">
 	<div id="headers"><jsp:include
 				page="/WEB-INF/views/header/header.jsp"></jsp:include></div>
 	<div class="modal">

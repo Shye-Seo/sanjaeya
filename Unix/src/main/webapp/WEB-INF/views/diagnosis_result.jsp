@@ -17,7 +17,6 @@
 	$(function() {
 		var result = '${ResultPoint}';
 
-		console.log(result);
 		if (0 <= result && result <= 29) {
 			jQuery('.result_img1').css("display", "block");
 

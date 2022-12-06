@@ -34,7 +34,6 @@
 		$('#nextbtn').click(function() {
 			var mem = $('input[id=mem]').is(":checked");
 			var id = $("#user_id").val();
-			console.log("id: "+id)
 			
 			if (mem == true) {
 				if (id == "" || id == "null") {
