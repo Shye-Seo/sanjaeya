@@ -148,7 +148,7 @@
 			</c:if>
 			
 		<div id="m_paging">
-			${paging.nowPage}/${paging.total}
+			${paging.nowPage}/${paging.lastPage}
 		</div>
 		
 		<c:if test="${paging.total != paging.lastPage && paging.nowPage != paging.lastPage}">
