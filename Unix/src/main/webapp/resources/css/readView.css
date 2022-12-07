@@ -180,6 +180,7 @@
 
 .board_main #content {
 	width: 920px;
+	height: auto;
     min-height: 250px;
     margin: 50px auto;
 }
@@ -304,7 +305,59 @@ a {
 	text-decoration: none;
 	color: #333;
 }
-
+/* 태블릿 */
+@media all and (min-width:768px) and (max-width:1023px) {
+	html, body {
+		min-width: unset;
+		overflow-x: hidden;
+		font-family: 'pretendard';
+	}
+	.page-title .title {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+	}
+	.homeiconboard {
+		width: 104px;
+		margin-top: 15px;
+	}
+	.board_btnarea {
+		width: 100%;
+	}
+	#readForm {
+		width: 100%;
+	}
+	.board_main_title {
+		width: 90%
+	}
+	.board_main #content {
+		width: 90%;
+	}
+	.board_main .file {
+		width: 90%;
+	}
+	.mlist_button {
+		display: block;
+		width: 100%;
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+	.mlist_button a {
+		margin: 0 auto;
+		padding: 10px 45px;
+		font: 26px;
+		color: #FFFFFF;
+		background: #326DFB;
+	}
+	#mbtn {
+		margin: 0 auto;
+		text-align: center;
+	}
+	#btn_area {
+		display: none;
+	}
+}
 @media all and (min-width:320px) and (max-width:767px) {
 	html, body {
 		min-width: unset;
