@@ -470,6 +470,18 @@ section .notice {
 	background-color: none;
 }
 
+#searchResult {
+    width: 100%;
+    height: 300px;
+    display: flex;
+}
+
+#searchResult #non_search {
+    margin: 100px auto;
+    font-size: small;
+    color: #AAAAAA;
+}
+
 /* 태블릿 */
 @media all and (min-width:768px) and (max-width:1023px) {
 	html, body {
@@ -669,6 +681,9 @@ section .notice {
 		height: 30px;
 		line-height: 30px;
 		margin: 0 auto;
+	}
+	#searchResult #non_search{
+		margin: auto;
 	}
 	#footer {
 		display: none;

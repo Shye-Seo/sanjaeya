@@ -40,9 +40,13 @@ public class MypageController {
 	
 	@RequestMapping(value="MyPage", method=RequestMethod.GET)
 	public ModelAndView boardList(@ModelAttribute MemberVo membervo, HttpSession session, Criteria criteria
-			,@RequestParam(value="year", required=false, defaultValue="2022") int year
-			,@RequestParam(value="month", required=false, defaultValue="11") int month) throws Exception {
+			,@RequestParam(value="year", required=false, defaultValue="0") int year
+			,@RequestParam(value="month", required=false, defaultValue="0") int month) throws Exception {
 		
+		if(year==0) {
+			year=this.year;
+			month=this.month;
+		}
 		// DB 맵핑을 위해 연월 우선 처리
 		if(this.month > month) { // 이전 연월 처리 
 			if(month==0) {
