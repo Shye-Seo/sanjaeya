@@ -162,7 +162,7 @@ public class BoardDaoImpl
 	public int search_count_lib(String title) throws Exception {
 		return this.sqlsession.selectOne("boardMapper.search_count_lib", title);
 	}
-	
+
 	@Override
 	public String check_authority(String user_id) throws Exception {
 		return sqlsession.selectOne("boardMapper.check_authority", user_id);

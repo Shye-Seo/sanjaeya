@@ -84,7 +84,7 @@
 						
 					<div class="mlist_button">
 						<div id="mbtn">
-							<a href="board_list">목록</a>
+							<a href="library_list">목록</a>
 						</div>
 					</div>
 					

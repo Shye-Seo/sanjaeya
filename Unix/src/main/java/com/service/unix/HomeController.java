@@ -89,14 +89,15 @@ public class HomeController {
 	
 	// 로그인 처리
 	@RequestMapping("LoginProc")
-	public ModelAndView loginCheck(@ModelAttribute MemberVo memberVo, HttpSession session) {
+	public ModelAndView loginCheck(@ModelAttribute MemberVo memberVo, HttpSession session) throws Exception {
 		boolean result = memberService.loginCheck(memberVo, session);
 		ModelAndView mav = new ModelAndView();
 		
 		if(result == true) { // 로그인 성공
 			// home.jsp로 이동
 			System.out.println("로그인성공");
-			session.setAttribute("user_id", memberService.viewMember(memberVo).getUser_id());			
+			session.setAttribute("user_id", memberService.viewMember(memberVo).getUser_id());
+			System.out.println("user_id : "+session.getAttribute("user_id"));
 			mav.setViewName("home");
 			mav.addObject("msg", "succcess");
 		}else { // 로그인 실패
@@ -104,6 +105,11 @@ public class HomeController {
 			mav.setViewName("login");
 			mav.addObject("msg", "failure");
 		}
+		List<BoardVo> board_list = service.getmainBoard();
+		mav.addObject("board_list", board_list);
+		
+		List<LibraryVo> library_list = service.getmainLibrary();
+		mav.addObject("library_list", library_list);
 		
 		return mav;
 	}
@@ -166,7 +172,7 @@ public class HomeController {
 	public String logout(HttpSession session) {
 		session.invalidate();
 		
-		return "home";
+		return "redirect:Home";
 	}
 	
 	@RequestMapping("MyPage") // 마이페이지

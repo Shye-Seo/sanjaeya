@@ -324,8 +324,25 @@
 <!-- 				<input type="button" value="저장" id="submit_btn"> -->
 <!-- 				<input type="button" value="취소" id="back_btn"> -->
 		<script type="text/javascript">
-		$('#submit_btn').click(function () {
-			uploadFile();
+		$(function () {
+			$('#submit_btn').click(function () {
+				var title = $('#title').val();
+				var writer = $('#writer').val();
+				var content = $('#content').val();
+				
+				if(!title) {
+					alert('제목을 입력해주세요.');
+					return false;
+				} else if (!writer) {
+					alert('작성자를 입력해주세요.');
+					return false;
+				} else if (!content) {
+					alert('내용을 입력해주세요.');
+					return false;
+				} else {
+					uploadFile();
+				}
+			});
 		});
 		
 		$(function () {
