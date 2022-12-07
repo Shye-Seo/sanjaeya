@@ -323,8 +323,7 @@ public class BoardController
   {
 	
 	  String user_id = (String) session.getAttribute("user_id");
-		System.out.println("user_id : "+user_id);
-		
+	  System.out.println("user_id : "+user_id);
 		
 	  if(user_id == null) {
 			modelMap.addAttribute("authority", 0);
@@ -350,7 +349,70 @@ public class BoardController
 			total = service.library_count(pagingvo);
 		} if(total == 0) {
 			total = 1;
+
 		}
+		
+		modelMap.addAttribute("total", total);
+		
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "10";
+		} else if (nowPage == null) {
+			nowPage = "1";
+		} else if (cntPerPage == null) {
+			cntPerPage = "10";
+		}
+		
+		pagingvo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		modelMap.addAttribute("paging", pagingvo);
+		System.out.println("paging : " + pagingvo);
+		
+		if (total != 0) {
+			pagingvo.setSql(sql);
+			List<LibraryVo> library_list = service.library_list(pagingvo);
+			
+			System.out.println("검색 ===========================>");
+			System.out.println("검색결과 : " + total);
+			
+			modelMap.addAttribute("library_list", library_list);
+		}
+    
+    return "/board/library_list";
+  }
+  
+  @RequestMapping(value="library_list", method=RequestMethod.POST)
+  public String library_list_post(ModelMap modelMap, PagingVO pagingvo, LibraryVo libraryvo, 
+		  HttpSession session, HttpServletRequest request, HttpServletResponse response, 
+		  @RequestParam(value = "nowPage", required = false) String nowPage,
+		  @RequestParam(value = "cntPerPage", required = false) String cntPerPage,
+		  @RequestParam(value = "title", required = false) String title)
+    throws Exception
+  {
+	  String user_id = (String) session.getAttribute("user_id");
+	  System.out.println("user_id : "+user_id);
+		
+	  if(user_id == null) {
+			modelMap.addAttribute("authority", 0);
+	  }else if(service.check_authority(user_id) == null) {
+			modelMap.addAttribute("authority", 0);
+	  } else {
+			String authority = service.check_authority(user_id);
+			modelMap.addAttribute("authority", authority);
+	  }
+	  System.out.println("authority : "+modelMap.getAttribute("authority"));
+		
+	  String sql = "";
+	  int total = 0;
+	  if(title != null) { //검색 시 total set
+			modelMap.addAttribute("title", title);
+			sql = "where title like '%" + title + "%'";
+			pagingvo.setTitle(title);
+			pagingvo.setTotal(service.search_count_lib(title));
+			total = pagingvo.getTotal();
+	  }else {
+			pagingvo.setSql(sql);
+			total = service.library_count(pagingvo);
+	  }
 		
 		modelMap.addAttribute("total", total);
 		
