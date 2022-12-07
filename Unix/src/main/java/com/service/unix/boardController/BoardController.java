@@ -373,6 +373,7 @@ public class BoardController
 		
 		pagingvo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
 		modelMap.addAttribute("paging", pagingvo);
+		System.out.println("paging : " + pagingvo);
 		
 		if (total != 0) {
 			pagingvo.setSql(sql);
@@ -434,9 +435,6 @@ public class BoardController
 		
 		pagingvo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
 		modelMap.addAttribute("paging", pagingvo);
-		
-		System.out.println("검색22222222 ===========================>");
-		System.out.println("검색결과222222 : " + total);
 		
 		if (total != 0) {
 			pagingvo.setSql(sql);

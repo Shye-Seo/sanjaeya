@@ -85,12 +85,12 @@
 			<a href="library_list?nowPage=1&cntPerPage=${paging.cntPerPage}&title=${title}"
 				class="paging_back2"><img src="resources/imgs/page_back2.svg"></a>
 			</c:if>
-      		<c:if test="${paging.total != 1 && paging.nowPage != 1}">
+      		<c:if test="${paging.total > 1 && paging.nowPage != 1}">
 			<a
 				href="library_list?nowPage=${paging.nowPage - 1}&cntPerPage=${paging.cntPerPage}&title=${title}"
 				class="paging_back"><img src="resources/imgs/page_back.svg"></a>
 			</c:if>
-			<c:if test="${paging.nowPage == 1 && paging.total != 1}">
+			<c:if test="${paging.nowPage == 1 && paging.total != 0}">
 				<img src="resources/imgs/page_back_disabled.svg" id="page_back_disabled">
 			</c:if>
 			
@@ -111,7 +111,7 @@
 			<a href="library_list?nowPage=${paging.nowPage+1}&cntPerPage=${paging.cntPerPage}&title=${title}"
 				class="paging_next"><img src="resources/imgs/page_next.svg"></a>
 		</c:if>
-		<c:if test="${paging.nowPage == paging.lastPage && paging.total != 1}">
+		<c:if test="${paging.nowPage == paging.lastPage && paging.total != 0}">
 			<img src="resources/imgs/page_next_disabled.svg" id="page_next_disabled">
 		</c:if>
 		<c:if test="${paging.total > 4}">
@@ -152,7 +152,7 @@
 				href="library_list?nowPage=${paging.nowPage - 1}&cntPerPage=${paging.cntPerPage}&title=${title}"
 				class="paging_back"><img src="resources/imgs/page_back.svg"></a>
 			</c:if>
-			<c:if test="${paging.nowPage == 1 && paging.total != 1}">
+			<c:if test="${paging.nowPage == 1 && paging.total != 0}">
 				<img src="resources/imgs/page_back_disabled.svg" id="page_back_disabled">
 			</c:if>
 			
@@ -164,7 +164,7 @@
 			<a href="library_list?nowPage=${paging.nowPage+1}&cntPerPage=${paging.cntPerPage}&title=${title}"
 				class="paging_next"><img src="resources/imgs/mobile_page_next.svg"></a>
 		</c:if>
-		<c:if test="${paging.nowPage == paging.lastPage && paging.total != 1}">
+		<c:if test="${paging.nowPage == paging.lastPage && paging.total != 0}">
 			<img src="resources/imgs/page_next_disabled.svg" id="page_next_disabled">
 		</c:if>
       </div>
