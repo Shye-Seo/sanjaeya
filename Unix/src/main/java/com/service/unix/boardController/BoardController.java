@@ -125,9 +125,6 @@ public class BoardController
 		pagingvo.setSql(sql);
 		List<BoardVo> board_list = service.board_list(pagingvo);
 		
-		System.out.println("검색 ===========================>");
-		System.out.println("검색결과 : " + total);
-		
 		modelMap.addAttribute("board_list", board_list);
 	}
 	
@@ -182,15 +179,10 @@ public class BoardController
 	pagingvo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
 	modelMap.addAttribute("paging", pagingvo);
 	
-	System.out.println("검색222222 ===========================>");
-	System.out.println("검색결과22222222 : " + total);
 	
 	if (total != 0) {
 		pagingvo.setSql(sql);
 		List<BoardVo> board_list = service.board_list(pagingvo);
-		
-		System.out.println("검색222222 ===========================>");
-		System.out.println("검색결과22222222 : " + total);
 		
 		modelMap.addAttribute("board_list", board_list);
 	}
@@ -342,8 +334,7 @@ public class BoardController
   {
 	
 	  String user_id = (String) session.getAttribute("user_id");
-		System.out.println("user_id : "+user_id);
-		
+	  System.out.println("user_id : "+user_id);
 		
 	  if(user_id == null) {
 			modelMap.addAttribute("authority", 0);
@@ -367,8 +358,6 @@ public class BoardController
 		}else {
 			pagingvo.setSql(sql);
 			total = service.library_count(pagingvo);
-		}if(total == 0) {
-			total = 1;
 		}
 		
 		modelMap.addAttribute("total", total);
@@ -406,10 +395,8 @@ public class BoardController
 		  @RequestParam(value = "title", required = false) String title)
     throws Exception
   {
-	
 	  String user_id = (String) session.getAttribute("user_id");
-		System.out.println("user_id : "+user_id);
-		
+	  System.out.println("user_id : "+user_id);
 		
 	  if(user_id == null) {
 			modelMap.addAttribute("authority", 0);
@@ -423,17 +410,16 @@ public class BoardController
 		
 	  String sql = "";
 	  int total = 0;
-	  
-		if(title != null) { //검색 시 total set
+	  if(title != null) { //검색 시 total set
 			modelMap.addAttribute("title", title);
 			sql = "where title like '%" + title + "%'";
 			pagingvo.setTitle(title);
 			pagingvo.setTotal(service.search_count_lib(title));
 			total = pagingvo.getTotal();
-		}else {
+	  }else {
 			pagingvo.setSql(sql);
 			total = service.library_count(pagingvo);
-		}
+	  }
 		
 		modelMap.addAttribute("total", total);
 		
@@ -448,6 +434,9 @@ public class BoardController
 		
 		pagingvo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
 		modelMap.addAttribute("paging", pagingvo);
+		
+		System.out.println("검색22222222 ===========================>");
+		System.out.println("검색결과222222 : " + total);
 		
 		if (total != 0) {
 			pagingvo.setSql(sql);

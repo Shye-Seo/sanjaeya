@@ -129,6 +129,7 @@
      </c:if>
     
     <!-- 모바일 -->
+    <div id="mobile_content">
     <div id="mobile">
         <c:forEach var="nl" items="${library_list}" varStatus="st">
         	<table id="mobile_list">
@@ -140,7 +141,8 @@
 					<td id="mdate"><fmt:formatDate value = "${nl.date}" pattern = "yyyy-MM-dd"/></td>
 				</tr>
 			</table>
-			</c:forEach>
+		</c:forEach>
+    </div>
     </div>
     
     <div class = "m_pagewrap">
