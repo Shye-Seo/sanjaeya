@@ -93,7 +93,18 @@
 					$(this).css("animation", "manual_fade 1s both");
 				}
 			}); 
-    });
+			$('.m_img').each( function(i){
+				var bottom_of_object = $(this).offset().top + $(this).outerHeight();
+				// 마진값으로 밀린 크기
+				console.log(bottom_of_object);
+				console.log($(window).scrollTop() );
+				console.log($(window).scrollTop() > (bottom_of_object/2));
+				var manual_object_magin = $(this).css("--n") * 1;
+				if( $(window).scrollTop() > (bottom_of_object/2) + manual_object_magin){
+					$(this).css("animation", "manual_fade 1s both");
+				}
+			}); 
+    	});
 		
 	})
 	
@@ -113,17 +124,17 @@
 			<p class="modal_con2">선택을 하면 자가진단 페이지로 이동됩니다.</p>
 			<p class="modal_con3">질병 선택하기</p>
 			<div class="category2">
-			<div class="category_1"></div>
-			<div class="category_2"></div>
-			<div class="category_3"></div>
-				<div class="modal_img_wrap">
-					<div class="category_1">뇌심혈관질환/과로</div>
+				<div class="category_1">
+					<p class="cate_img1"></p>
+					<p class="cate_p1">뇌심혈관질환/과로</p>
 				</div>
-				<div class="modal_img_wrap">
-					<div class="category_2">직업성 암</div>
+				<div class="category_2">
+					<p class="cate_img2"></p>
+					<p class="cate_p2">직업성 암</p>
 				</div>
-				<div class="modal_img_wrap">
-					<div class="category_3">근골격계 질환</div>
+				<div class="category_3">
+					<p class="cate_img3" onclick="location.href='Checklist_s3'"></p>
+					<p class="cate_p3">근골격계 질환</p>
 				</div>
 			</div>
 			<div class="closeBtn"></div>
@@ -217,7 +228,10 @@
 					</div>
 				</div>
 			</div>
-			<img id="m_img" src="resources/imgs/m_img.png">
+			
+			<img class="m_img" src="resources/imgs/m_img_01.png" style="--n:-150">
+			<img class="m_img" src="resources/imgs/m_img_02.png" style="--n:150">
+			<img class="m_img" src="resources/imgs/m_img_03.png" style="--n:300">
 			<div class="button_area">
 				<a id="categoryscroll2"><button type="button">진단 시작하기</button></a>
 			</div>
