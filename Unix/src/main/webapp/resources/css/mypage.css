@@ -798,6 +798,7 @@ input::-webkit-calendar-picker-indicator {
 	.memo_form {
 		width:102%;
 		height:103%;
+		top:56%;
 	}
 	
 	.memo_form hr {
