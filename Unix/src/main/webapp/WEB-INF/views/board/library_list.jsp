@@ -45,18 +45,11 @@
 	<div class = "search_area">
 	    <div class = "search">
 	    <form method="post" id="searchform">
-	    		<c:if test="${title == null }">
-	    			<input type="text" class = "listsearch" placeholder="검색어를 입력하세요." name = "title">
-	    		</c:if>
-	    		<c:if test="${title != null }">
-		      		<input type="text" class = "listsearch" placeholder="검색어를 입력하세요." name = "title" value="${title}">
-	    		</c:if>
+	      <input type="text" class = "listsearch" placeholder="검색어를 입력하세요." name = "title" value="${title}"/>
 	    	<button class ="searchbtn" type = "submit"><img src = "resources/imgs/searchbtn.svg"></button>
-	    	</form>
+	    </form>
 	    </div>
  	</div>
- 	
- 	<c:if test="${total != 0}">
     <div class = "doclist">
       <table id="list_">
       			<tr>
@@ -66,6 +59,7 @@
 				<tr>
 					<td>${li.id}</td>
 					<td><a href="readLibrary?id=${li.id}">${li.title}</a></td>
+<%-- 					<td>${li.title}</td> --%>
 					<td>${li.writer}</td>
 					<td><fmt:formatDate value = "${li.date}" pattern = "yyyy-MM-dd"/></td>
 				</tr>
@@ -120,13 +114,6 @@
 		</c:if>
       </div>
      </div>
-     </c:if>
-     
-     <c:if test="${total == 0}">
-     	<div id="searchResult">
-     		<div id="non_search">검색결과가 없습니다.</div>
-     	</div>
-     </c:if>
     
     <!-- 모바일 -->
     <div id="mobile_content">

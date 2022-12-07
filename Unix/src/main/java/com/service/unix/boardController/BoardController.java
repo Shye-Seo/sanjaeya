@@ -105,6 +105,8 @@ public class BoardController
 	}else {
 		pagingvo.setSql(sql);
 		total = service.board_count(pagingvo);
+	}if(total == 0) {
+		total = 1;
 	}
 	
 	modelMap.addAttribute("total", total);
@@ -129,6 +131,13 @@ public class BoardController
 	}
 	
     return "/board/list";
+  }
+  
+  @RequestMapping(value={"write_board"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
+  public String write_board()
+    throws Exception
+  {
+    return "/board/write_board";
   }
   
   @RequestMapping(value="board_list", method=RequestMethod.POST)
@@ -190,13 +199,6 @@ public class BoardController
     return "/board/list";
   }
   
-  @RequestMapping(value={"write_board"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
-  public String write_board()
-    throws Exception
-  {
-    return "/board/write_board";
-  }
-  
   @ResponseBody
   @RequestMapping(value={"write_board"}, method={org.springframework.web.bind.annotation.RequestMethod.POST})
   public String write_board(HttpServletRequest request, ModelMap modelMap, BoardVo vo, List<MultipartFile> board_file)
@@ -233,23 +235,10 @@ public class BoardController
   }
   
   @RequestMapping(value={"readView"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
-  public String read(BoardVo boardVo, Model model, List<MultipartFile> board_file, 
-		  HttpSession session, HttpServletRequest request, HttpServletResponse response)
+  public String read(BoardVo boardVo, Model model, List<MultipartFile> board_file)
     throws Exception
   {
-	String user_id = (String) session.getAttribute("user_id");
-	System.out.println("============>"+user_id);
-    
-	if(user_id == null) {
-		model.addAttribute("authority", 0);
-	}else if(service.check_authority(user_id) == null) {
-		model.addAttribute("authority", 0);
-	} else {
-		String authority = service.check_authority(user_id);
-		model.addAttribute("authority", authority);
-	}
-	
-	model.addAttribute("read", service.read(boardVo.getId()));
+    model.addAttribute("read", service.read(boardVo.getId()));
     
     List<BoardFileVo> boardFile_list = service.get_board_files(boardVo.getId());
     model.addAttribute("boardFile_list", boardFile_list);
@@ -358,6 +347,9 @@ public class BoardController
 		}else {
 			pagingvo.setSql(sql);
 			total = service.library_count(pagingvo);
+      
+		} if(total == 0) {
+			total = 1;
 		}
 		
 		modelMap.addAttribute("total", total);
@@ -491,20 +483,9 @@ public class BoardController
   }
   
   @RequestMapping(value={"readLibrary"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
-  public String readLibrary(LibraryVo libraryVo, Model model, List<MultipartFile> library_file,
-		  HttpSession session, HttpServletRequest request, HttpServletResponse response)
+  public String readLibrary(LibraryVo libraryVo, Model model, List<MultipartFile> library_file)
     throws Exception
   {
-	String user_id = (String) session.getAttribute("user_id");
-	if(user_id == null) {
-		model.addAttribute("authority", 0);
-	}else if(service.check_authority(user_id) == null) {
-		model.addAttribute("authority", 0);
-	} else {
-		String authority = service.check_authority(user_id);
-		model.addAttribute("authority", authority);
-	}
-	
     model.addAttribute("read", service.readLibrary(libraryVo.getId()));
     
     List<LibraryFileVo> libraryFile_list = service.get_library_files(libraryVo.getId());

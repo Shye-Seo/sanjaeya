@@ -55,8 +55,6 @@
 	    	</form>
 	    </div>
  	</div>
- 	
- 	<c:if test="${total != 0}">
     <div class = "boardlist">
       <table id="list_">
       			<tr>
@@ -120,13 +118,6 @@
 		</c:if>
       </div>
      </div>
-     </c:if>
-     
-     <c:if test="${total == 0}">
-     	<div id="searchResult">
-     		<div id="non_search">검색결과가 없습니다.</div>
-     	</div>
-     </c:if>
       
     <!-- 모바일 -->
     <div id="mobile_content">
@@ -157,7 +148,7 @@
 			</c:if>
 			
 		<div id="m_paging">
-			${paging.nowPage}/${paging.lastPage}
+			${paging.nowPage}/${paging.total}
 		</div>
 		
 		<c:if test="${paging.total != paging.lastPage && paging.nowPage != paging.lastPage}">

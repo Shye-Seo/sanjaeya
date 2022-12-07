@@ -23,7 +23,7 @@
 
 	<!-- 로그인할때 -->
 	<select id="selectLoginMem" resultType="String">
-		select id, user_id, user_name, user_phone from
+		select * from
 		nm_user
 		where user_id = #{user_id} and user_pass = #{user_pass}
 	</select>

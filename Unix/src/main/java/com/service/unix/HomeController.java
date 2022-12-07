@@ -177,7 +177,7 @@ public class HomeController {
 	
 	@RequestMapping("MyPage") // 마이페이지
 	public String mypage(HttpSession session, Model model) {
-
+		
 		return "/mypage";
 	}
 	

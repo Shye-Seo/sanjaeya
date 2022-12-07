@@ -49,6 +49,7 @@ public class MemberServiceImpl implements MemberService{
 			session.setAttribute("id", memberVo1.getId());
 			session.setAttribute("user_name", memberVo1.getUser_name());
 			session.setAttribute("user_phone", memberVo1.getUser_phone());
+			session.setAttribute("user_mail", memberVo1.getUser_mail());
 		}
 		return result;
 	}
