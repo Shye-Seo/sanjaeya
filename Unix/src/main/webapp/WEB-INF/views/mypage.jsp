@@ -63,7 +63,7 @@
                                 </div>
                                 <div class="value_item">
                                     <div class="pw_wrap">
-                                        <input class="member_pw" id="user_pass" name="user_pass" type="password" placeholder="비밀번호를 입력해주세요."/>
+                                        <input class="member_pw" id="user_pass" name="user_pass" type="password" value="${user_pass}"placeholder="비밀번호를 입력해주세요."/>
                                         <p>(영문 대소문자/숫자/특수문자 중 2가지 이상조합, 10~16자)</p>
                                         <span id="member_pw"></span>
                                     </div>
@@ -85,7 +85,7 @@
                                     <p>이름</p>
                                 </div>
                                 <div class="value_item">
-                                    <input type="text" name="user_name" placeholder="이름을 입력해주세요." id="user_name" value="${memberVo.user_name}" readonly="readonly">
+                                    <input type="text" name="user_name" placeholder="이름을 입력해주세요." id="user_name" value="${user_name}">
                                 </div>
                             </div>
                             <div class="infomation_item">
@@ -94,7 +94,7 @@
                                     <p>이메일</p>
                                 </div>
                                 <div class="value_item form">
-                                    <input type="text" name="user_mail_id" class="mail_item_1" id="user_mail_id" placeholder="이메일을 입력" value="${mail_id}">@
+                                    <input type="text" name="user_mail_id" class="mail_item_1" id="user_mail_id" placeholder="이메일을 입력" value="${user_mail}">@
                                         <input type="text" name="user_mail_domain" maxlength="50" class="mail_item_2" id="user_mail_domain" placeholder="직접입력" value="${mail_domain}">
                                     <select name="sel_email" class="mail_item_3" onclick="setEmailDomain(this.value);return false;">
                                         <option value="">직접입력</option>
@@ -114,7 +114,7 @@
                                 </div>
             
                                 <div class="value_item">
-                                    <input type="text" name="user_phone" placeholder="연락처를 입력해주세요" class="input" id="user_phone" value="${memberVo.user_phone}">
+                                    <input type="text" name="user_phone" placeholder="연락처를 입력해주세요" class="input" id="user_phone" value="0${user_phone}">
                                     <input type="button" value="인증하기" class="certification_button">
                                     <input type="button" id="sms_certification" value="" name="sms_certification">
                                 </div>
