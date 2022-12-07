@@ -221,9 +221,21 @@ public class BoardController
   }
   
   @RequestMapping(value={"readView"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
-  public String read(BoardVo boardVo, Model model, List<MultipartFile> board_file)
+  public String read(BoardVo boardVo, Model model, List<MultipartFile> board_file,
+		  HttpSession session, HttpServletRequest request, HttpServletResponse response)
     throws Exception
   {
+	  String user_id = (String) session.getAttribute("user_id");
+		
+		if(user_id == null) {
+			model.addAttribute("authority", 0);
+		}else if(service.check_authority(user_id) == null) {
+			model.addAttribute("authority", 0);
+		} else {
+			String authority = service.check_authority(user_id);
+			model.addAttribute("authority", authority);
+		}
+		
     model.addAttribute("read", service.read(boardVo.getId()));
     
     List<BoardFileVo> boardFile_list = service.get_board_files(boardVo.getId());
@@ -451,9 +463,21 @@ public class BoardController
   }
   
   @RequestMapping(value={"readLibrary"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
-  public String readLibrary(LibraryVo libraryVo, Model model, List<MultipartFile> library_file)
+  public String readLibrary(LibraryVo libraryVo, Model model, List<MultipartFile> library_file,
+		  HttpSession session, HttpServletRequest request, HttpServletResponse response)
     throws Exception
   {
+	  String user_id = (String) session.getAttribute("user_id");
+		
+		if(user_id == null) {
+			model.addAttribute("authority", 0);
+		}else if(service.check_authority(user_id) == null) {
+			model.addAttribute("authority", 0);
+		} else {
+			String authority = service.check_authority(user_id);
+			model.addAttribute("authority", authority);
+		}
+		
     model.addAttribute("read", service.readLibrary(libraryVo.getId()));
     
     List<LibraryFileVo> libraryFile_list = service.get_library_files(libraryVo.getId());

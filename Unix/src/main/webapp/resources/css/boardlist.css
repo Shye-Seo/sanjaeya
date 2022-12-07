@@ -298,6 +298,7 @@ section .notice {
 .doclist {
 	position: relative;
 	padding-top: 20px;
+	min-height: 300px;
 }
 
 .boardlist {
