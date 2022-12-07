@@ -50,6 +50,8 @@
 	    </form>
 	    </div>
  	</div>
+ 	
+ 	<c:if test="${total != 0}">
     <div class = "doclist">
       <table id="list_">
       			<tr>
@@ -59,7 +61,6 @@
 				<tr>
 					<td>${li.id}</td>
 					<td><a href="readLibrary?id=${li.id}">${li.title}</a></td>
-<%-- 					<td>${li.title}</td> --%>
 					<td>${li.writer}</td>
 					<td><fmt:formatDate value = "${li.date}" pattern = "yyyy-MM-dd"/></td>
 				</tr>
@@ -114,6 +115,13 @@
 		</c:if>
       </div>
      </div>
+     </c:if>
+     
+     <c:if test="${total == 0}">
+     	<div id="searchResult">
+     		<div id="non_search">게시물이 없습니다.</div>
+     	</div>
+     </c:if>
     
     <!-- 모바일 -->
     <div id="mobile_content">
