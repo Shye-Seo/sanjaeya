@@ -119,7 +119,7 @@
      
      <c:if test="${total == 0}">
      	<div id="searchResult">
-     		<div id="non_search">검색결과가 없습니다.</div>
+     		<div id="non_search">게시물이 없습니다.</div>
      	</div>
      </c:if>
     
