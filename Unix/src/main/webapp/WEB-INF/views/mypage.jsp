@@ -94,8 +94,8 @@
                                     <p>이메일</p>
                                 </div>
                                 <div class="value_item form">
-                                    <input type="text" name="user_mail_id" class="mail_item_1" id="user_mail_id" placeholder="이메일을 입력" value="${user_mail}">@
-                                        <input type="text" name="user_mail_domain" maxlength="50" class="mail_item_2" id="user_mail_domain" placeholder="직접입력" value="${mail_domain}">
+                                    <input type="text" name="user_mail_id" class="mail_item_1" id="user_mail_id" placeholder="이메일을 입력" value="${mail_1}"><span id="at">@</span>
+                                        <input type="text" name="user_mail_domain" maxlength="50" class="mail_item_2" id="user_mail_domain" placeholder="직접입력" value="${mail_2}">
                                     <select name="sel_email" class="mail_item_3" onclick="setEmailDomain(this.value);return false;">
                                         <option value="">직접입력</option>
                                         <option value="naver.com">naver.com</option>

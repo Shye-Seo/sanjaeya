@@ -590,6 +590,9 @@ input::-webkit-calendar-picker-indicator {
 	background:rgba(0,0,0,0.4);
 	z-index:0;
 }
+#at {
+	width:15px;
+}
 /* 태블릿 */
 @media all and (min-width:768px) and (max-width:1023px)  {
 	html, body {
@@ -798,7 +801,7 @@ input::-webkit-calendar-picker-indicator {
 	.memo_form {
 		width:102%;
 		height:103%;
-		top:56%;
+		top:58%;
 	}
 	
 	.memo_form hr {
