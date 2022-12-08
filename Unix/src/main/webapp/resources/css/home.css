@@ -325,8 +325,10 @@ ul {
 	width: 90%;
 	color: black;
 	font-size: 20px;
-	padding-left: 1%;
+	padding: 0 1%;
 	margin: 35px 0;
+	text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .tab_menu #list_date {
@@ -748,11 +750,16 @@ ul {
 	}
 	.tab_menu {
 		width: 95%;
-		left: 8%;
-		height: 550px;
+		left: 7%;
+		height: auto;
+		margin-bottom: 5%;
 	}
 	.tab_menu #list_title {
-    width: 86%;
+	    width: 86%;
+	    text-overflow: ellipsis;
+	    overflow: hidden;
+	    padding: 0;
+	    margin-right: 2%;
 }
 	.tab_menu .list li.list_wrap .list_123 {
 		width: 100%;
@@ -763,6 +770,7 @@ ul {
 	}
 	.tab_menu #list_date {
 		padding-right: 0;
+		padding-top: 2px;
 	}
 	.tab_menu .list_123 .list_re {
 		width: 100%;
@@ -935,8 +943,8 @@ ul {
 	}
 	.tab_menu {
 		width: 95%;
-		left: 8%;
-		height: 500px;
+		left: 10%;
+		height: auto;
 		padding-bottom: 27px;
     	margin-bottom: 27px;
 	}
@@ -975,10 +983,11 @@ ul {
 		font-size: 15px;
 	}
 	.tab_menu #list_title {
-/* 		width: 75%; */
 		color: black;
 		font-size: 13px;
 		margin: 13px 0;
+		text-overflow: ellipsis;
+    	overflow: hidden;
 	}
 	.wrap_container .mmorebtn {
 		display: block;
