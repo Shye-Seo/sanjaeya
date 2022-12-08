@@ -95,13 +95,15 @@ section .notice {
 .board_btnarea {
 	position: relative;
 	margin: 0 auto;
-	width: 1000px;
+	/* width: 1000px; */
+	width: 100%;
 	height: 50px;
 	text-align: center;
 }
 
 .board_btnarea #noticebtn {
 	width: 120px;
+	height: 100%;
 	color: #333333;
 	background-color: white;
 	border: 0;
@@ -109,6 +111,7 @@ section .notice {
 	font-size: 16px;
 	display: inline-block;
 	line-height: 50px;
+	box-sizing: border-box;
 }
 
 .board_btnarea #noticebtn:after {
@@ -123,7 +126,7 @@ section .notice {
 }
 
 .board_btnarea #noticebtn:hover {
-	z-index: 999;
+	/* z-index: 999; */
 	border-bottom: 2px solid #326DFB;
 	color: #326DFB;
 }
@@ -136,12 +139,14 @@ section .notice {
 */
 .board_btnarea #docbtn {
 	width: 120px;
+	height: 100%;
 	color: #333333;
 	background-color: white;
 	border: 0;
 	font-weight: 500;
 	font-size: 16px;
 	line-height: 50px;
+	box-sizing: border-box;
 }
 
 .board_btnarea #docbtn:after {
@@ -159,6 +164,11 @@ section .notice {
 .board_btnarea #docbtn:hover {
 	border-bottom: 2px solid #326DFB;
 	color: #326DFB;
+}
+
+.select_board_btn{
+	border-bottom: 2px solid #326DFB !important;
+	color: #326DFB !important;
 }
 
 .search_area {
@@ -208,10 +218,16 @@ section .notice {
 }
 
 .btnline {
-	position: relative;
+	/* position: relative;
 	bottom: 2px;
 	border-width: 100%;
-	border-bottom: 1px solid #EEEEEE;
+	border-bottom: 1px solid #EEEEEE; */
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 1px;
+	background-color: #EEEEEE;
+	z-index: -2;
 }
 
 #list_ {
