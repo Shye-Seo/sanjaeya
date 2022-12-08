@@ -61,6 +61,7 @@ public class MypageController {
 			}
 		}
 		
+		 
 		// 필요한 사전 작업(변수 선언 등) 
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		String str = (String) session.getAttribute("user_id");
@@ -93,6 +94,13 @@ public class MypageController {
 		model.addObject("user_id", str);
 		model.addObject("year", year);
 		model.addObject("month", month);
+		
+		 String user_mail = (String) session.getAttribute("user_mail");
+		 String [] mail_split = user_mail.split("@");
+		 String mail_1 = mail_split[0];
+		 String mail_2 = mail_split[1];
+		 model.addObject("mail_1", mail_1);
+		 model.addObject("mail_2", mail_2);
 		
 		this.tmp_year=year;
 		this.tmp_month=month;
