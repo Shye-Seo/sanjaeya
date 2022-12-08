@@ -244,9 +244,9 @@
 							<div class="list_re">
 								<c:forEach var="list" items="${board_list}" varStatus="st">
 								<div id="list_div">
-									<a href="readView?id=${list.id}" id="list_title">${list.title}</a>
+									<a href="/Unix/readView?id=${list.id}" id="list_title">${list.title}</a>
 									<span id="list_date"><div id="date_area"><fmt:formatDate value = "${list.date}" pattern = "yyyy.MM.dd"/></div></span> 
-									<a href="readView?id=${list.id}" id="plusBtn"><div id="plusbtn_area"><img src="resources/imgs/plusbtn.svg" /></div></a>
+									<a href="/Unix/readView?id=${list.id}" id="plusBtn"><div id="plusbtn_area"><img src="resources/imgs/plusbtn.svg" /></div></a>
 								</div>
 								</c:forEach>
 							</div>
@@ -256,9 +256,9 @@
 							<div class="list_re">
 								<c:forEach var="list" items="${library_list}" varStatus="st">
 								<div id="list_div">
-									<a href="readLibrary?id=${list.id}" id="list_title">${list.title}</a>
+									<a href="/Unix/readLibrary?id=${list.id}" id="list_title">${list.title}</a>
 									<span id="list_date"><div id="date_area"><fmt:formatDate value = "${list.date}" pattern = "yyyy.MM.dd"/></div></span>
-									<a href="#" id="plusBtn"><div id="plusbtn_area"><img src="resources/imgs/plusbtn.svg"></div></a>
+									<a href="/Unix/readLibrary?id=${list.id}" id="plusBtn"><div id="plusbtn_area"><img src="resources/imgs/plusbtn.svg"></div></a>
 								</div>
 								</c:forEach>
 							</div>
