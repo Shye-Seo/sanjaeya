@@ -145,6 +145,13 @@ button, html [type="button"], html [type="submit"] {
 	display: none;
 }
 
+.select_answer{
+	border: 1px solid #326DFB !important;
+}
+.unselect_answer{
+	opacity: 0.5 !important;
+}
+
 .lst1 .lst2 .answer1, .answer2, .answer3, .answer4, .answer5, .answer6,
 	.answer7, .answer8, .answer9, .answer10, .answer11, .answer12,
 	.answer13, .answer14, .answer15, .answer16, .answer17 {
@@ -157,6 +164,8 @@ button, html [type="button"], html [type="submit"] {
 	box-shadow: 0px 3px 6px #00000029;
 	border-radius: 9px;
 	opacity: 1;
+	border: 1px solid #00000000;
+    box-sizing: border-box;
 }
 
 .lst1 .lst2 input[type="checkbox"] {
