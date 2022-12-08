@@ -845,12 +845,16 @@ input::-webkit-calendar-picker-indicator {
 		margin-top:3%;
 		width:100%;
 		border: 1px solid #999999;
+		background-color:white;
+		z-index:1;
 	}
 	
 	.memo_form .memo_form_detail p input[type=date] {
 		margin-top:3%;
 		width:100%;
 		border: 1px solid #999999;
+		background-color:white;
+		white-space:nowrap;
 	}
 	
 	.memo_form .memo_form_detail input[type=date]:before {
@@ -876,5 +880,14 @@ input::-webkit-calendar-picker-indicator {
 	
 	.memo_form .member_submit input[type=reset] {
 		display:none;
+	}
+	
+	input::-webkit-calendar-picker-indicator {
+		display:block;
+		width:100%;
+		pointer-events: auto; 
+		cursor:pointer;
+		background:none;
+		z-index:0;
 	}
 }
