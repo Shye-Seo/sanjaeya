@@ -329,6 +329,12 @@
 										}
 									});
 								});
+								
+								$(function () {
+									$('.cnl_btn').click(function () {
+											location.href="library_list";
+									});
+								});
 				</script>
     	<jsp:include page="/WEB-INF/views/footer/footer.jsp"></jsp:include>
     	</div>

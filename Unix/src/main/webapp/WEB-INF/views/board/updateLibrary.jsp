@@ -268,7 +268,7 @@
 						</tr>
 						<tr>
 							<td class="td3"><span>작성자</span></td>
-							<td><input type="text" name="writer" id="writer" class="td4" value="${library.writer}"></td>
+							<td><input type="text" name="writer" id="writer" class="td4" value="${library.writer}" disabled></td>
 						</tr>
 						<tr>
 							<td class="td5"><span>첨부파일</span></td>
