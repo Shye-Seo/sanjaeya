@@ -29,11 +29,11 @@ String user_id = (String)session.getAttribute("user_id");
 		
 			<c:choose>
 				<c:when test="${sessionScope.user_id == null}">
-					<a href="Login">로그인</a>&nbsp;|&nbsp;<a href="MemInsert">회원가입</a>
+					<span class="login_before"><a href="Login">로그인</a>&nbsp;|&nbsp;<a href="MemInsert">회원가입</a></span>
 				</c:when>
 				<c:otherwise>
 				<div style="color:black"><%=user_id %> 님 환영합니다!</div>
-					<a href="Logout">로그아웃</a>&nbsp;|&nbsp;<a href="MyPage">마이페이지</a>
+					<span><a href="Logout">로그아웃</a>&nbsp;|&nbsp;<a href="MyPage">마이페이지</a></span>
 				</c:otherwise>
 			</c:choose>
 			

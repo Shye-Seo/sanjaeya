@@ -83,19 +83,28 @@
             modal.style.height = '0'
         });
 		
+		//메뉴얼 그림 스크롤 애니메이션
 		$(window).scroll( function(){
 			$('.manual_img_secsion').each( function(i){
 				var bottom_of_object = $(this).offset().top + $(this).outerHeight();
-				var bottom_of_window = $(window).scrollTop() + $(window).height();
-				console.log( bottom_of_object ) ;
-				console.log( bottom_of_window ) ;
-				console.log( bottom_of_window > bottom_of_object/2 ) ;
-				if( bottom_of_window > (bottom_of_object/2)+4936 ){
-					// $(this).animate({'opacity':'1'},500);
+				// 마진값으로 밀린 크기
+				var manual_object_magin = $(this).css("--n") * 1;
+				if( $(window).scrollTop() > (bottom_of_object/2) + manual_object_magin){
 					$(this).css("animation", "manual_fade 1s both");
 				}
 			}); 
-    });
+			$('.m_img').each( function(i){
+				var bottom_of_object = $(this).offset().top + $(this).outerHeight();
+				// 마진값으로 밀린 크기
+				console.log(bottom_of_object);
+				console.log($(window).scrollTop() );
+				console.log($(window).scrollTop() > (bottom_of_object/2));
+				var manual_object_magin = $(this).css("--n") * 1;
+				if( $(window).scrollTop() > (bottom_of_object/2) + manual_object_magin){
+					$(this).css("animation", "manual_fade 1s both");
+				}
+			}); 
+    	});
 		
 	})
 	
@@ -115,9 +124,18 @@
 			<p class="modal_con2">선택을 하면 자가진단 페이지로 이동됩니다.</p>
 			<p class="modal_con3">질병 선택하기</p>
 			<div class="category2">
-			<div class="category_1"></div>
-			<div class="category_2"></div>
-			<div class="category_3"></div>
+				<div class="category_1">
+					<p class="cate_img1"></p>
+					<p class="cate_p1">뇌심혈관질환/과로</p>
+				</div>
+				<div class="category_2">
+					<p class="cate_img2"></p>
+					<p class="cate_p2">직업성 암</p>
+				</div>
+				<div class="category_3">
+					<p class="cate_img3" onclick="location.href='Checklist_s3'"></p>
+					<p class="cate_p3">근골격계 질환</p>
+				</div>
 				<div class="modal_img_wrap">
 					<div class="category_1">뇌심혈관질환/과로</div>
 				</div>
@@ -188,7 +206,7 @@
 			<h4>산재 승인 여부를 통화없이 간편하게 확인하세요.</h4>
 			<!-- <img id="manual_img" src="resources/imgs/manual_img.svg"> -->
 			<div id="manual_img">
-				<div class="manual_img_secsion">
+				<div class="manual_img_secsion" style="--n:-150">
 					<img src="resources/imgs/manual_img_1.svg" alt="manual_img_1">
 					<div class="manual_txtbox manual_right">
 						<p>Step 01. 로그인</p>
@@ -198,7 +216,7 @@
 						<p>비회원도 사용가능하며<br>회원과 비회원의 별도 서비스는 다르게 적용됩니다.</p>
 					</div>
 				</div>
-				<div class="manual_img_secsion">
+				<div class="manual_img_secsion" style="--n:150">
 					<div class="manual_txtbox">
 						<p>Step 02. 체크리스트 작성</p>
 						<hr>
@@ -208,7 +226,7 @@
 					</div>
 					<img class="manual_right" src="resources/imgs/manual_img_2.svg" alt="manual_img_2">
 				</div>
-				<div class="manual_img_secsion">
+				<div class="manual_img_secsion" style="--n:300">
 					<img src="resources/imgs/manual_img_3.svg" alt="manual_img_3">
 					<div class="manual_txtbox manual_right">
 						<p>Step 03. 산재상담신청</p>
@@ -219,7 +237,10 @@
 					</div>
 				</div>
 			</div>
-			<img id="m_img" src="resources/imgs/m_img.png">
+			
+			<img class="m_img" src="resources/imgs/m_img_01.png" style="--n:-150">
+			<img class="m_img" src="resources/imgs/m_img_02.png" style="--n:150">
+			<img class="m_img" src="resources/imgs/m_img_03.png" style="--n:300">
 			<div class="button_area">
 				<a id="categoryscroll2"><button type="button">진단 시작하기</button></a>
 			</div>

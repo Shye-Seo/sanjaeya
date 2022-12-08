@@ -42,6 +42,10 @@
 }
 #header1_right a{
 	padding: 7px;
+    font-weight: 500;
+}
+#header1_right .login_before{
+    line-height: 45px;
 }
 .header {
 	display:none;
