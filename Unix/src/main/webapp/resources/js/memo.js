@@ -1,5 +1,7 @@
 // mypage 메모장에 사용된 기능들에 관련된 코드들 
+var options = { hour: "numeric", minute: "numeric", second: "numeric", hour12: false };
 document.getElementById('date_form').value=new Date().toISOString().substring(0, 10);
+document.getElementById('time_form').value=new Date().toLocaleTimeString("en-US", options).substring(0,5);
 
 $(function() {
 	
@@ -34,6 +36,14 @@ $(function() {
 		$("#update_memo_form").fadeOut();
 		$('#memo').off('scroll touchmove mousewheel');
 	});
+	
+	$("#time_form").on("change", function() {
+	    this.setAttribute(
+	        "data-time",
+	        moment(this.value, "HH:mm")
+	        .format( this.getAttribute("data-time-format") )
+	    );
+	}).trigger("change");
 	
 	$("#date_form").on("change", function() {
 	    this.setAttribute(
@@ -95,6 +105,13 @@ $(function() {
 		}).done(function(update_memo) { // 가져온 데이터들을 value 값에 설정 
 			$("#update_title").attr('value', update_memo.title);
 			$("#update_time").attr('value', update_memo.time);
+			$("#update_time").on("change", function() {
+			    this.setAttribute(
+			        "data-time",
+			        moment(this.value, "HH:mm")
+			        .format( this.getAttribute("data-time-format") )
+			    );
+			}).trigger("change");
 			$("#date_form2").attr('value', update_memo.date);
 			$("#date_form2").on("change", function() {
 		    this.setAttribute(
