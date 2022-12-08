@@ -432,7 +432,8 @@ ul {
 
 .modal_content {
 	width: 51%;
-	height: 580px;
+	/* height: 580px; */
+	height: 0;
 	border-radius: 15px;
 	position: relative;
 	top: 20%;
@@ -443,6 +444,7 @@ ul {
 	line-height: 23px;
 	/* cursor:pointer; */
 	background-color: #FAFAFA;
+	padding-bottom: 30%;
 }
 
 .closeBtn {
@@ -491,7 +493,7 @@ ul {
 .modal .category2 {
 	display: flex;
 	justify-content: center;
-	padding-top: 50px;
+	padding-top: 5%;
 }
 
 .modal .category_1, .modal .category_2, .modal .category_3 {
@@ -846,7 +848,9 @@ ul {
 		left: 50%;
 		transform: translate(-50%, -50%);
 		width: 77%;
-		height: 500px;
+		/* height: 500px; */
+		height: 0;
+		padding-bottom: 50%;
 	}
 }
 /* 모바일 */
@@ -1109,7 +1113,7 @@ ul {
 	.modal .category2 .modal_img_wrap .category_1 {
 		display: block;
 		border-radius: 10px;
-		/* 		box-shadow: 0 3px 15px #00000029; */
+		box-shadow: none;
 		width: 100%;
 		height: 65px;
 		background: none;
@@ -1119,11 +1123,12 @@ ul {
 		margin-bottom: 5px;
 		line-height: 60px;
 /* 		border: 1px solid #AAA */
+		padding: 0;
 	}
 	.modal .category2 .modal_img_wrap .category_2 {
 		display: block;
 		border-radius: 10px;
-		/* 		box-shadow: 0 3px 15px #00000029; */
+		box-shadow: none;
 		width: 100%;
 		height: 65px;
 		background: none;
@@ -1133,11 +1138,12 @@ ul {
 		margin-bottom: 5px;
 		line-height: 60px;
 /* 		border: 1px solid #AAA */
+		padding: 0;
 	}
 	.modal .category2 .modal_img_wrap .category_3 {
 		display: block;
 		border-radius: 10px;
-		/* 		box-shadow: 0 3px 15px #00000029; */
+		box-shadow: none;
 		width: 100%;
 		height: 65px;
 		background: none;
@@ -1147,13 +1153,14 @@ ul {
 		margin-bottom: 5px;
 		line-height: 60px;
 /* 		border: 1px solid #AAA */
+		padding: 0;
 	}
 .modal .category2 .modal_img_wrap .category_1:hover {
 	outline: solid 1px #326DFB;
 	color: black;
 	cursor: pointer;
 	color:#FFFFFF;
-	background:linear-gradient(to right, #326DFB, #204396);
+	background:#326DFB;
 			box-shadow: 0 3px 15px #00000029;
 }
 
@@ -1162,7 +1169,7 @@ ul {
 	color: black;
 	cursor: pointer;
 	color:#FFFFFF;
-	background:linear-gradient(to right, #326DFB, #204396);
+	background:#326DFB;
 				box-shadow: 0 3px 15px #00000029;
 	
 }
@@ -1172,7 +1179,7 @@ ul {
 	color: black;
 	cursor: pointer;
 	color:#FFFFFF;
-	background:linear-gradient(to right, #326DFB, #204396);
+	background:#326DFB;
 				box-shadow: 0 3px 15px #00000029;
 }
 }

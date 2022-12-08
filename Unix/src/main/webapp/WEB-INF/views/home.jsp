@@ -136,6 +136,15 @@
 					<p class="cate_img3" onclick="location.href='Checklist_s3'"></p>
 					<p class="cate_p3">근골격계 질환</p>
 				</div>
+				<div class="modal_img_wrap">
+					<div class="category_1">뇌심혈관질환/과로</div>
+				</div>
+				<div class="modal_img_wrap">
+					<div class="category_2">직업성 암</div>
+				</div>
+				<div class="modal_img_wrap">
+					<div class="category_3">근골격계 질환</div>
+				</div>
 			</div>
 			<div class="closeBtn"></div>
 			<div class="closeBtnM"></div>
