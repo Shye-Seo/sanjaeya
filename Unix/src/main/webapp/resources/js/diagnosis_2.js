@@ -269,6 +269,26 @@ $(function() {
 	});
 
 
+	//체크박스 선택 효과
+	$("input:checkbox").on('click', function() {
+		$(".answer"+idx+" input:checkbox").each(function(){
+			if ( $(this).prop('checked') ) {
+				$(this).parent().parent().removeClass("unselect_answer");
+				$(this).parent().parent().addClass("select_answer");
+			} else {
+				$(this).parent().parent().removeClass("select_answer");
+				$(this).parent().parent().addClass("unselect_answer");
+			}
+		})
+		if($(".answer"+idx+" input:checkbox").filter(':checked').length == 0){
+			$(".answer"+idx+" input:checkbox").each(function(){
+				$(this).parent().parent().removeClass("unselect_answer");
+				$(this).parent().parent().removeClass("select_answer");
+			})
+		}
+		
+	});
+
 })
 
 function NoMultiChk(chk) {

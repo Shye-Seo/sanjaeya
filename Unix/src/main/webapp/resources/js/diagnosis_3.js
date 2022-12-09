@@ -321,11 +321,43 @@ $(function() {
 
 			$("#checkform").submit();
 		}
-
-
-
 	});
 
+	//체크박스 선택 효과
+	$("input:checkbox").on('click', function() {
+		$(".answer"+idx+" input:checkbox").each(function(){
+			if ( $(this).prop('checked') ) {
+				$(this).parent().parent().removeClass("unselect_answer");
+				$(this).parent().parent().addClass("select_answer");
+			} else {
+				$(this).parent().parent().removeClass("select_answer");
+				if(idx!=13){
+					$(this).parent().parent().addClass("unselect_answer");
+				}
+			}
+		})
+		if($(".answer"+idx+" input:checkbox").filter(':checked').length == 0){
+			$(".answer"+idx+" input:checkbox").each(function(){
+				$(this).parent().parent().removeClass("unselect_answer");
+				$(this).parent().parent().removeClass("select_answer");
+			})
+		}
+		//해당없음 눌렀을때
+		if(idx==13){
+			if($(".answer"+idx+" input:checkbox").last().prop('checked')){
+				$(".answer"+idx+" input:checkbox").each(function(){
+					if($(this) != $(".answer"+idx+" input:checkbox").last()){
+						$(this).parent().parent().addClass("unselect_answer");
+						$(this).parent().parent().removeClass("select_answer");
+						$(this).prop("checked", false);
+					}
+				});
+				$(".answer"+idx+" input:checkbox").last().parent().parent().addClass("select_answer");
+				$(".answer"+idx+" input:checkbox").last().parent().parent().removeClass("unselect_answer");
+				$(".answer"+idx+" input:checkbox").last().prop("checked", true);
+			}
+		}
+	});
 })
 function NoMultiChk(chk) {
 
