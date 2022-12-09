@@ -31,7 +31,7 @@
 			</div>
 			
 			<div class="board_btnarea">
-				<input type="button" id = "noticebtn" onclick="location.href='board_list'" value="공지사항" />
+				<input type="button" id = "noticebtn" onclick="location.href='board_list'" value="공지사항" class="select_board_btn"/>
 				<input type="button" id = "docbtn" onclick="location.href='library_list'" value="자료실"/>
 				<div class="btnline"></div>
 			</div>
