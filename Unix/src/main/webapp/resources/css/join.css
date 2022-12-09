@@ -173,6 +173,8 @@ a {
 
 #join .infomation_item .value_item .id_wrap #user_id {
 	width: 70%;
+	height: 40px;
+	margin-right: 10px;
 }
 
 #join .infomation_item .value_item .id_wrap .idchk_button {
@@ -210,14 +212,17 @@ a {
 
 #join .infomation_item .value_item .member_pw {
 	width: 80%;
+	height: 40px;
 }
 
 #join .infomation_item .value_item .member_pw_check {
 	width: 80%;
+	height: 40px;
 }
 
 #join .infomation_item .value_item .member_name {
 	width: 80%;
+	height: 40px;
 }
 
 #join .infomation_item .value_item span {
@@ -232,17 +237,20 @@ a {
 #join .infomation_item .value_item .mail_wrap {
 	position: absolute;
 	width: 80%;
+	height: 40px;
 }
 
 #join .infomation_item .value_item .mail_item_1 {
 	width: 30%;
 	margin-right: 10px;
+	height: 40px;
 }
 
 #join .infomation_item .value_item .mail_item_2 {
 	width: 30%;
 	margin-left: 10px;
 	margin-right: 10px;
+	height: 40px;
 }
 
 #join .infomation_item .value_item .mail_item_3 {
@@ -398,6 +406,8 @@ a {
 	height: 300px;
 	width: 100%;
 	resize: none;
+	padding: 20px;
+    box-sizing: border-box;
 }
 
 #join .agreement .agreement_area .check_area {
@@ -497,12 +507,15 @@ h2 {
 		box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
 	}
 	#join {
-		width: 700px;
+		/* width: 700px; */
+		width: 90%;
 	}
 	/*     #joinform { */
 	/*         background-color: #FFFFFF; */
 	/*     } */
-
+	#join .infomation_item .value_item .id_wrap{
+		width: 100%;
+	}
 	    #join .infomation_item .name_item  {
 	        width: 28%;
 	    }
