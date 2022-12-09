@@ -606,7 +606,7 @@ ul {
 
 }
 
-.modal .cate_p1,.modal .cate_p2,.modal .cate_p3{
+.modal .cate_p1,.modal .cate_p2,.modal .cate_p3 { 
 	font-size: 18px;
     font-weight: bold;
 	margin-top: 40px;
@@ -616,26 +616,27 @@ ul {
 }
 
 .modal .category_1:hover>.cate_img1 {
-	background: url(../imgs/category_on1.svg);
+	/* background: url(../imgs/category_on1.svg); */
 	width: 50%;
     height: 0;
 	padding-bottom: 50%;
 }
 
 .modal .category_2:hover>.cate_img2 {
-	background: url(../imgs/category_on2.svg);
+	/* background: url(../imgs/category_on2.svg); */
 	width: 50%;
     height: 0;
 	padding-bottom: 50%;
 }
 
 .modal .category_3:hover>.cate_img3 {
-	background: url(../imgs/category_on3.svg);
+	/* background: url(../imgs/category_on3.svg); */
+	background-size: cover;
 	width: 33%;
     height: 0;
 	padding-bottom: 50%;
-    margin: 0 auto;
-    margin-top: 40px;
+	margin: 0 auto;
+	margin-top: 40px;
 }
 
 #manual_img{
@@ -875,6 +876,15 @@ ul {
 	.modal .cate_p1, .modal .cate_p2, .modal .cate_p3{
 		font-size: 15px;
 		bottom: 10%;
+	}
+	.modal .category_3:hover>.cate_img3 {
+		/* background: url(../imgs/category_on3.svg); */
+		background-size: cover;
+		width: 33%;
+		height: 0;
+		padding-bottom: 50%;
+		margin: 0 auto;
+		margin-top: 17%;
 	}
 }
 /* 모바일 */
