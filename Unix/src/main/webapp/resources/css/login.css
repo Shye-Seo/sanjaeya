@@ -239,7 +239,7 @@ input[type=checkbox] {
 
 @media all and (min-width:320px) and (max-width:767px){
 	#logwrap {
-		width: 320px;
+		width: 90%;
 	}
 	body {
 		min-width: unset;
@@ -263,6 +263,9 @@ input[type=checkbox] {
 		background-color: #ffffff;
 		z-index: 10000;
 		box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+	}
+	.content{
+		height: auto;
 	}
 	.checkwrap {
 		font-size: 14px;

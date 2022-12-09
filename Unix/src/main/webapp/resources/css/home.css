@@ -216,8 +216,6 @@ h4 {
 	background-size: cover;
 	width: 100px;
 	height: 100px;
-	margin-top: 40px;
-	margin-left: 60px;
 }
 
 .category_2:hover>.cate_img2 {
@@ -225,8 +223,6 @@ h4 {
 	background-size: cover;
 	width: 100px;
 	height: 100px;
-	margin-top: 40px;
-	margin-left: 70px;
 }
 
 .category_3:hover>.cate_img3 {
@@ -234,8 +230,6 @@ h4 {
 	background-size: cover;
 	width: 70px;
 	height: 107px;
-	margin-top: 40px;
-	margin-left: 75px;
 }
 
 .wrap_container button {
@@ -432,9 +426,8 @@ ul {
 	align-items: center;
 }
 
-.modal_content {
+/* .modal_content {
 	width: 51%;
-	/* height: 580px; */
 	height: 0;
 	border-radius: 15px;
 	position: relative;
@@ -444,9 +437,25 @@ ul {
 	box-sizing: border-box;
 	padding: 44px 0;
 	line-height: 23px;
-	/* cursor:pointer; */
 	background-color: #FAFAFA;
 	padding-bottom: 30%;
+} */
+
+.modal_content{
+	width: 1000px;
+	height: 580px;
+	border-radius: 15px;
+	position: relative;
+	top: 20%;
+	left: 50%;
+	margin-left: -500px;
+	background-color: #FAFAFA;
+	line-height: 23px;
+	text-align: center;
+	box-sizing: border-box;
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .closeBtn {
@@ -499,11 +508,11 @@ ul {
 }
 
 .modal .category_1, .modal .category_2, .modal .category_3 {
-	width: 30%;
+	width: 25%;
     height: 0;
-    padding-bottom: 30%;
+    padding-bottom: 25%;
 	background-color: #fcfcfc;
-	margin: 30px 10px;
+	margin: 30px 20px;
 	text-align: center;
 	box-shadow: 0 3px 6px #00000029;
 	border-radius: 26px;
@@ -611,8 +620,6 @@ ul {
 	width: 50%;
     height: 0;
 	padding-bottom: 50%;
-    margin: 0 auto;
-    margin-top: 40px;
 }
 
 .modal .category_2:hover>.cate_img2 {
@@ -620,8 +627,6 @@ ul {
 	width: 50%;
     height: 0;
 	padding-bottom: 50%;
-    margin: 0 auto;
-    margin-top: 40px;
 }
 
 .modal .category_3:hover>.cate_img3 {
@@ -845,11 +850,13 @@ ul {
 	.closeBtn {
 		position: absolute;
 		top: 4%;
-		left: 90%;
+		left: unset;
+		right: -20px;
 	}
 	.modal_con1 {
 		color: #326DFB;
 		font: normal normal 400 20px/42px Pretendard;
+		padding-top: 7%;
 	}
 	.modal_content {
 		top: 50%;
@@ -859,6 +866,15 @@ ul {
 		/* height: 500px; */
 		height: 0;
 		padding-bottom: 50%;
+		margin-left: 0;
+		display: block;
+	}
+	.category2 .cate_img1, .category2 .cate_img2, .category2 .cate_img3{
+		margin-top: 17%;
+	}
+	.modal .cate_p1, .modal .cate_p2, .modal .cate_p3{
+		font-size: 15px;
+		bottom: 10%;
 	}
 }
 /* 모바일 */
@@ -1078,6 +1094,8 @@ ul {
 		height: 350px;
 		overflow: scroll;
 		overflow-x: hidden;
+		display: block;
+		margin-left: 0;
 	}
 	.closeBtn {
 		display: none;
@@ -1089,7 +1107,8 @@ ul {
 		display: block;
 		position: absolute;
 		top: 4%;
-		left: 90%;
+		left: unset;
+   		right: -25px;
 	}
 	.modal_con1 {
 		display: none;
@@ -1106,6 +1125,7 @@ ul {
 	.modal_con3 {
 		display: block;
 		font: normal normal 800 18px/42px Pretendard;
+		margin-top: 40px;
 	}
 	.modal_img_wrap {
 		width: 100%;
@@ -1164,31 +1184,31 @@ ul {
 /* 		border: 1px solid #AAA */
 		padding: 0;
 	}
-.modal .category2 .modal_img_wrap .category_1:hover {
-	outline: solid 1px #326DFB;
-	color: black;
-	cursor: pointer;
-	color:#FFFFFF;
-	background:#326DFB;
-			box-shadow: 0 3px 15px #00000029;
-}
-
-.modal .category2 .modal_img_wrap  .category_2:hover {
-	outline: solid 1px #326DFB;
-	color: black;
-	cursor: pointer;
-	color:#FFFFFF;
-	background:#326DFB;
+	.modal .category2 .modal_img_wrap .category_1:hover {
+		outline: solid 1px #326DFB;
+		color: black;
+		cursor: pointer;
+		color:#FFFFFF;
+		background:#326DFB;
 				box-shadow: 0 3px 15px #00000029;
-	
-}
+	}
 
-.modal .category2 .modal_img_wrap .category_3:hover {
-	outline: solid 1px #326DFB;
-	color: black;
-	cursor: pointer;
-	color:#FFFFFF;
-	background:#326DFB;
-				box-shadow: 0 3px 15px #00000029;
-}
+	.modal .category2 .modal_img_wrap  .category_2:hover {
+		outline: solid 1px #326DFB;
+		color: black;
+		cursor: pointer;
+		color:#FFFFFF;
+		background:#326DFB;
+					box-shadow: 0 3px 15px #00000029;
+		
+	}
+
+	.modal .category2 .modal_img_wrap .category_3:hover {
+		outline: solid 1px #326DFB;
+		color: black;
+		cursor: pointer;
+		color:#FFFFFF;
+		background:#326DFB;
+		box-shadow: 0 3px 15px #00000029;
+	}
 }

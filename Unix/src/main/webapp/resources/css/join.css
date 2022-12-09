@@ -597,7 +597,7 @@ h2 {
 		box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
 	}
 	#join {
-		width: 300px;
+		width: 90%;
 	}
 	#joinform {
 		background-color: #FFFFFF;
@@ -625,19 +625,29 @@ h2 {
 		width: 100%;
 	}
 	#join .infomation_item .value_item .id_wrap #user_id {
-		width: 50%;
+		width: calc(100% - 153px);
+    	margin-right: 10px;
 	}
 	#join .infomation_item .value_item .member_pw {
-		width: 84%;
+		width: 100%;
+		box-sizing: border-box;
+		height: 72px;
 	}
 	#join .infomation_item .value_item .member_pw_check {
-		width: 84%;
+		width: 100%;
+		box-sizing: border-box;
+		height: 72px;
 	}
 	#join .infomation_item .value_item .member_name {
-		width: 84%;
+		width: 100%;
+		box-sizing: border-box;
+		height: 72px;
 	}
 	#join .infomation_item .value_item .mail_wrap {
 		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 	}
 	#join .infomation_item .value_item #user_phone {
 		width: 70%;
@@ -649,14 +659,14 @@ h2 {
 		padding: 20px;
 	}
 	#join .infomation_item .value_item .mail_item_1 {
-		width: 15%;
+		width: 25%;
 	}
 	#join .infomation_item .value_item .mail_item_2 {
-		width: 15%;
+		width: 25%;
 	}
 	#join .infomation_item .value_item .mail_item_3 {
 		width: 22%;
-		height: 70px;
+		height: 72px;
 		text-indent: 5%;
 		font-weight: 600;
 		cursor: pointer;
@@ -665,11 +675,11 @@ h2 {
 		font-size: 1px;
 	}
 	#join .infomation_item .value_item #user_phone {
-		width: 50%;
+		width: calc(70% - 56px);
 	}
 	#join .infomation_item .value_item #phoneChk {
 		width: 30%;
-		height: 70px;
+		height: 72px;
 	}
 	#join .agreement .agree_title_area .check_area span {
 		font-size: 13px;

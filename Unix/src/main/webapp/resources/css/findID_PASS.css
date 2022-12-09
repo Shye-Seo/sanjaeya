@@ -130,6 +130,8 @@ input:focus {
 	color: #326DFB;
 	padding: 7px 7px 7px 7px;
 	cursor: pointer;
+	margin-left: 10px;
+    width: 90px;
 }
 
 #tab1 p {
@@ -189,11 +191,14 @@ input:focus {
 		box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
 	}
 	header {
-		width: 1920px;
+		width: 100%;
 		height: 100px;
 	}
+	.tab{
+		margin-top: 150px;
+	}
 	#footer{
-	display: block;
+		display: block;
 	}
 }
 
@@ -229,18 +234,22 @@ input:focus {
 		width: 1920px;
 		height: 100px;
 	}
+	.tab{
+		width: 100%;
+	}
 	.tab_container {
-		width: 320px;
+		width: 90%;
 		margin: 20px auto;
 	}
 	.tab_title li {
-		width: 130px;
+		width: calc(50% - 30px);
 	}
 	input[type=text] {
-		width: 200px;
+		width: calc(100% - 115px);
 		font: normal normal 600 14px/19px Pretendard;
 	}
 	.tab_cont .on #user_id {
-		width: 300px;
+		width: 100%;
+   	 	box-sizing: border-box;
 	}
 }
