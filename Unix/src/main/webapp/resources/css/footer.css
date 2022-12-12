@@ -16,6 +16,7 @@ footer #footer_1, #footer_2, .footer_imgLR {
 	padding: 15px 50px;
 	max-width: 1420px;
     margin: 0 auto;
+	padding-top: 25px;
 }
 
 #footer_2 {
@@ -42,7 +43,7 @@ hr {
 	justify-content: space-between;
     align-items: center;
     flex-direction: row;
-    padding-bottom:50px;
+    padding-bottom: 90px;
 }
 .footer_imgLR img{
 	width:84%;
@@ -62,7 +63,7 @@ hr {
 }
 footer span {
 	width:100px;
-	font-size: 13px;
+	font-size: 16px;
 	
 }
 
