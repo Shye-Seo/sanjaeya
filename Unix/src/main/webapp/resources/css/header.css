@@ -10,6 +10,22 @@
 	font-family: 'Pretendard';
 }
 
+body::-webkit-scrollbar {
+    width: 12px;  
+}
+
+body::-webkit-scrollbar-thumb {
+    height: 30%; 
+    background: #326DFB; 
+    border-radius: 10px;
+    background-clip: padding-box;
+    border: 1px solid transparent;
+}
+
+body::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
 .header1 {
 	display: flex;
 	justify-content: space-between;

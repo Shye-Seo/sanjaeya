@@ -90,4 +90,26 @@
 <select id="check_authority" resultType="String">
 		select authority from nm_user where user_id = #{user_id}
 </select>
+
+<!-- 이전글 / 다음글 -->
+<select id="get_board_pre" parameterType="int" resultType="com.service.unix.boardVo.BoardVo">
+	select id, title from nm_board where 
+	   id IN (SELECT id FROM nm_board WHERE id <![CDATA[<]]> #{this_id}) ORDER BY id DESC LIMIT 1
+</select>
+
+<select id="get_board_next" parameterType="int" resultType="com.service.unix.boardVo.BoardVo">
+	select id, title from nm_board where 
+	   id IN (SELECT id FROM nm_board WHERE id <![CDATA[>]]> #{this_id}) ORDER BY id LIMIT 1
+</select>
+
+<select id="get_library_pre" parameterType="int" resultType="com.service.unix.boardVo.LibraryVo">
+	select id, title from nm_library where 
+	   id IN (SELECT id FROM nm_library WHERE id <![CDATA[<]]> #{this_id}) ORDER BY id DESC LIMIT 1
+</select>
+
+<select id="get_library_next" parameterType="int" resultType="com.service.unix.boardVo.LibraryVo">
+	select id, title from nm_library where 
+	   id IN (SELECT id FROM nm_library WHERE id <![CDATA[>]]> #{this_id}) ORDER BY id LIMIT 1
+</select>
+
 </mapper> 

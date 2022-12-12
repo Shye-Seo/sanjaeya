@@ -236,8 +236,50 @@ section .notice {
 	width: 1000px;
 	height: 60px;
 	border-collapse: collapse;
+	table-layout: fixed;
 }
 
+#list_ tr {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    box-sizing: border-box;
+    border-bottom: 1px solid #DDDDDD;
+	color: #666666;
+}
+
+#list_ tr:first-child {
+    background: #F8F8F8;
+    color: #999999;
+	border-top: 2px solid #333333;
+}
+
+#list_ th:nth-child(1), #list_ th:nth-child(3){
+	width: 10%;
+}
+#list_ th:nth-child(4){
+	width: 15%;
+}
+
+#list_ td:nth-child(2){
+	text-align: left;
+	padding: 0 30px;
+}
+
+#list_ a {
+    width: 100%;
+    height: 20px;
+    overflow: hidden;
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#list_ a:hover {
+	color: #326DFB
+}
+
+/* 
 #list_ th {
 	font-weight: 400;
 	border-collapse: collapse;
@@ -266,7 +308,6 @@ section .notice {
 	height: 21px;
 	max-width: 550px;
 	overflow: hidden;
-	white-space: nowrap;
 	text-overflow: ellipsis;
 }
 
@@ -274,15 +315,11 @@ section .notice {
 	color: #666666;
 }
 
-#list_ td:nth-child(2) a:hover {
-	color: #326DFB
-}
-
 #list_ th:nth-child(3), table td:nth-child(3) {
 	text-align: center;
 	width: 150px;
 	height: 21px;
-}
+} */
 
 .notinsertbtn #insert{
   width:116px;
@@ -304,12 +341,12 @@ section .notice {
     text-align: center;
     justify-content: space-around;
 }
-
+/* 
 #list_ th:last-child, table td:last-child {
 	text-align: center;
 	width: 180px;
 	height: 21px;
-}
+} */
 
 .doclist {
 	position: relative;
@@ -404,7 +441,6 @@ section .notice {
 
 .pagewrap {
 	display: block;
-	padding-bottom: 10%;
 }
 
 .pagearea {
@@ -413,8 +449,8 @@ section .notice {
 	display: flex;
 	width: max-content;
 	margin: 0 auto;
-	margin-top: 5%;
-	margin-bottom: 5%;
+	margin-top: 60px;
+    margin-bottom: 120px;
 }
 
 .pagearea p {
@@ -581,6 +617,7 @@ section .notice {
 	#mobile_list {
 		border-top: 1px solid #DDDDDD;
 		width: 100%;
+		table-layout: fixed;
 	}
 	#mobile #mlist {
 		margin: 0 10px;
@@ -596,7 +633,7 @@ section .notice {
 		float: left;
 		text-align: left;
 		/* 		flex-direction: row; */
-		/* 	    width: 90%; */
+		width: 90%;
 	}
 	#mobile #mdate {
 		color: #999999;
