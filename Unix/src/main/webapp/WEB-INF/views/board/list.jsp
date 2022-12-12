@@ -135,7 +135,7 @@
         	<table id="mobile_list">
 				<tr id="mlist">
 					<td id="mtitle"><a href="readView?id=${nl.id}">${nl.title}</a></td>
-					<td id="icon" rowspan="2"><img src="resources/imgs/mobile_list_icon.svg"></td>
+					<td id="icon" rowspan="2"><a href="readView?id=${nl.id}"><img src="resources/imgs/mobile_list_icon.svg"></a></td>
 				</tr>
 				<tr id="mdate_area">
 					<td id="mdate"><fmt:formatDate value = "${nl.date}" pattern = "yyyy-MM-dd"/></td>

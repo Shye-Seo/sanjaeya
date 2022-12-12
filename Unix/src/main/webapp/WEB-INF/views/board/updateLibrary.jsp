@@ -108,6 +108,13 @@
                // 확장자
                var ext = fileNameArr[fileNameArr.length - 1];
                
+               var special_pattern = /[\{\}\[\]|<>\"]/gi;
+
+               if(special_pattern.test($("input[name='file']").val())){
+                   alert('파일명에 특수문자를 제거해주세요.');
+                   return false;
+               }
+               
                var fileSize = files[i].size; // 파일 사이즈(단위 :byte)
                console.log("fileSize="+fileSize);
                if (fileSize <= 0) {
@@ -129,16 +136,6 @@
                    console.log("fileSize="+parseInt(fileSize));
                    fileSizeStr = parseInt(fileSize) + " byte";
                }
-				
-               /* if ($.inArray(ext, [ 'exe', 'bat', 'sh', 'java', 'jsp', 'html', 'js', 'css', 'xml' ]) >= 0) {
-                   // 확장자 체크
-                   alert("등록 불가 확장자");
-                   break; */
-//                if (fileSizeMb > uploadSize) {
-//                    // 파일 사이즈 체크
-//                    alert("용량 초과\n업로드 가능 용량 : " + uploadSize + " MB");
-//                    break;
-//                } else {
                    // 전체 파일 사이즈
                    totalFileSize += fileSizeMb;
                    // 파일 배열에 넣기
@@ -149,8 +146,6 @@
                    addFileList(fileIndex, fileName, fileSizeStr);
                    // 파일 번호 증가
                    fileIndex++;
-                   debugger;
-//                }
            }
        } else {
            alert("ERROR");
@@ -165,7 +160,6 @@
                + "<img src='resources/imgs/close.svg' href='#' onclick='deleteFile(" + fIndex + "); return false;'"
        html += "    </div>"
        html += "</div>"
-       debugger;
        
        $('#fileTableTbody').append(html);
    }
@@ -192,6 +186,23 @@
             $("#fileListTable").hide();
         }
     }
+   
+   function deleteAll() {
+	   for (var i = 0; i < files.length; i++) {
+	   // 전체 파일 사이즈 수정
+       totalFileSize -= fileSizeList[i];
+       // 파일 배열에서 삭제
+       delete fileList[i];
+       // 파일 사이즈 배열 삭제
+       delete fileSizeList[i];
+		
+       // 업로드 파일 테이블 목록에서 삭제
+       $("#fileTr_" + i).remove();
+	   }
+	   
+	   $("#fileDragDesc").show(); 
+       $("#fileListTable").hide();
+	}
    
    // 파일 등록
    function uploadFile() {
@@ -275,7 +286,7 @@
 							<td class="td6">
 								<div id="dropZone" class="drop_area">
 								<div id="fileDragDesc" class="add_file">
-									<div id="text">파일을 끌어다 놓으세요.</div>
+									<div id="text">파일을 끌어다 놓으세요.<br>파일명은 최대 200자로 제한되며, 파일명에 특수문자([ ] { } ^ | " < >)는 제거해주세요.</div>
 								</div>
 								
 								<div id="fileListTable" class="add_file">
@@ -286,7 +297,7 @@
 							</div>
 								<label for="input_file" class="add_file_btn_label">파일추가</label>
 								<input type="file" id="input_file" multiple="multiple" name="file" hidden/>
-								<span>전체삭제</span>
+								<span onclick="deleteAll();">전체삭제</span>
 							</td>
 						</tr>
 						<tr>

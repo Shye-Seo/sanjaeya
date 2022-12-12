@@ -595,8 +595,10 @@ section .notice {
 		font-weight: bold;
 		float: left;
 		text-align: left;
-		/* 		flex-direction: row; */
-		/* 	    width: 90%; */
+		width: 250px;
+		text-overflow: ellipsis;
+	    overflow: hidden;
+	    white-space: nowrap;
 	}
 	#mobile #mdate {
 		color: #999999;

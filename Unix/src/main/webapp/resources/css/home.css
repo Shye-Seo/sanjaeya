@@ -323,6 +323,7 @@ ul {
 	margin: 35px 0;
 	text-overflow: ellipsis;
     overflow: hidden;
+    white-space: nowrap;
 }
 
 .tab_menu #list_date {
@@ -803,6 +804,7 @@ ul {
 	    overflow: hidden;
 	    padding: 0;
 	    margin-right: 2%;
+	    white-space: nowrap;
 }
 	.tab_menu .list li.list_wrap .list_123 {
 		width: 100%;
@@ -1057,6 +1059,7 @@ ul {
 		margin: 13px 0;
 		text-overflow: ellipsis;
     	overflow: hidden;
+    	white-space: nowrap;
 	}
 	.wrap_container .mmorebtn {
 		display: block;
