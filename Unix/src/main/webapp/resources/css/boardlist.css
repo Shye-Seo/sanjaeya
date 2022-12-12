@@ -87,8 +87,7 @@ section .notice {
 	height: 15px;
 	padding-left: 15px;
 	color: #AAAAAA;
-	font-size: 12px;
-	margin-top: 3px;
+	font-size: 15px;
 	opacity: 1;
 }
 
@@ -112,6 +111,7 @@ section .notice {
 	display: inline-block;
 	line-height: 50px;
 	box-sizing: border-box;
+	cursor: pointer;
 }
 
 .board_btnarea #noticebtn:after {
@@ -147,6 +147,7 @@ section .notice {
 	font-size: 16px;
 	line-height: 50px;
 	box-sizing: border-box;
+	cursor: pointer;
 }
 
 .board_btnarea #docbtn:after {
@@ -266,7 +267,7 @@ section .notice {
 	padding: 0 30px;
 }
 
-#list_ a {
+#list_ a, #mlist a {
     width: 100%;
     height: 20px;
     overflow: hidden;
