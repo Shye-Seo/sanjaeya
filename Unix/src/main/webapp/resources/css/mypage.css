@@ -510,7 +510,7 @@
 
 .memo_form .memo_form_detail input[type=time]:before {
 	position:absolute;
-	top:39.5%; left:22%;
+	top:38.5%; left:21%;
 	content: attr(data-time);
 	display:inline-block;
 	color:black;
@@ -518,7 +518,7 @@
 
 .memo_form .memo_form_detail input[type=date]:before {
 	position:absolute;
-	top:51%; left:22%;
+	top:50.5%; left:21%;
 	content: attr(data-date);
 	display:inline-block;
 	color:black;
@@ -853,6 +853,7 @@ input::-webkit-calendar-picker-indicator {
 		width:100%;
 		border: 1px solid #999999;
 		background-color:white;
+		white-space:nowrap;
 		z-index:1;
 	}
 	

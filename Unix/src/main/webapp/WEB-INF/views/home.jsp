@@ -162,10 +162,12 @@
 				<div class="textArea_p1">
 					<div id="divf"></div>Your Best Partner&nbsp;&nbsp;<div id="divb"></div>
 				</div>
-				<div class="textArea_p2">산재로 인정이 될까요?</div>
+				<div class="textArea_p2">나도 산재일까?</div>
 				<div class="textArea_p3">
-					다년간의 실무경험과 전문성을 보유한 공인노무사가<br> 속해 있는 인사노무 전문 그룹으로서<br>
-					귀사와 귀하의 노동법률 문제 해결에 최선의 방안을 제시하겠습니다.
+				산재법, 승인사례 등을 기반으로 만든 체크리스트로 당신의 산재 가능성을 확인해보세요.<br>
+				자가진단 후에는 다년간의 실무경험과 노하우를 가진 공인노무사의 무료상담도 받을 수 있습니다.
+<!-- 					다년간의 실무경험과 전문성을 보유한 공인노무사가<br> 속해 있는 인사노무 전문 그룹으로서<br> -->
+<!-- 					귀사와 귀하의 노동법률 문제 해결에 최선의 방안을 제시하겠습니다. -->
 				</div>
 				<a id="categoryscroll"><button type="button">진단 시작하기</button></a>
 			</div>

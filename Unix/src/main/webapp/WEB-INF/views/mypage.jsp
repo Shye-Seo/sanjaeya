@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 <title>마이페이지</title>
-<link rel="stylesheet" href="resources/css/mypage.css?1446">
+<link rel="stylesheet" href="resources/css/mypage.css?1456">
 <script type="text/javascript" src="resources/js/mypage.js?43"></script>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
