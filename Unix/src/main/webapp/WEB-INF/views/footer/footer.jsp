@@ -27,6 +27,19 @@
 			<div id="right_2"><img alt="" src="resources/imgs/footer_right_2.svg"></div>
 		</div>
 		</div>
+		<div class="m_footer_img">
+			<div class="footer_img_wrap">
+				<p>┃ 컨소시엄 ┃</p>
+				<img alt="m_footer" src="resources/imgs/footer_unix.svg">
+				<img alt="m_footer" src="resources/imgs/footer_thewell.svg">
+				<img alt="m_footer" src="resources/imgs/footer_dsu.svg">
+			</div>
+			<div class="footer_img_wrap">
+				<p>┃ 지원기관 ┃</p>
+				<img alt="m_footer" src="resources/imgs/footer_right_1.svg">
+				<img alt="m_footer" src="resources/imgs/footer_right_2.svg">
+			</div>
+		</div>
 	</footer>
 </body>
 </html>

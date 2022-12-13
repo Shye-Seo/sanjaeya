@@ -11,12 +11,12 @@
 }
 
 body::-webkit-scrollbar {
-    width: 12px;  
+    width: 8px;  
 }
 
 body::-webkit-scrollbar-thumb {
     height: 30%; 
-    background: #326DFB; 
+    background: #DDDDDD; 
     border-radius: 10px;
     background-clip: padding-box;
     border: 1px solid transparent;

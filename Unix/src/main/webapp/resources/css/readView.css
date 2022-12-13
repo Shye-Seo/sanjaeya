@@ -79,6 +79,7 @@
 	font-size: 15px;
 	/* margin-top: 3px; */
 	opacity: 1;
+	width: 52px;
 }
 
 .board_btnarea {
@@ -277,6 +278,10 @@
 		padding-box;
 	transform: rotate(180deg);
 }
+.pre_next a:hover .pre_next1{
+	color: #326DFB;
+}
+
 
 .list_button {
 	margin: 5% auto;
