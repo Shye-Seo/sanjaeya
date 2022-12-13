@@ -89,6 +89,7 @@ section .notice {
 	color: #AAAAAA;
 	font-size: 15px;
 	opacity: 1;
+	width: 52px;
 }
 
 .board_btnarea {

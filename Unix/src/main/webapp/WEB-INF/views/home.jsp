@@ -101,10 +101,13 @@
 					$(this).css("animation", "manual_fade 1s both");
 				}
 			}); 
-    	});
-		
+		});
 	})
 	
+	function scrollup(){
+		window.scrollTo({ top: 0, behavior: "smooth" });
+	}
+
 	</script>
 <body>
 	<%
@@ -146,8 +149,12 @@
 			<div class="closeBtn"></div>
 			<div class="closeBtnM"></div>
 		</div>
-		
 	</div>
+
+	<div class="upBtn" onclick="scrollup()">
+		<div class="upBtnImg"></div>
+	</div>
+
 	<header>
 		<img />
 		<div class="main_BackgrounArea">
