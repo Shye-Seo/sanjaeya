@@ -213,7 +213,7 @@ input[type=radio]{
 .next {
 	background-color: white;
 	text-align: center;
-	padding: 3%;
+	padding: 50px;
 }
 
 .next #before {
@@ -244,13 +244,13 @@ input[type=radio]{
 
 /* 태블릿 */
 @media all and (min-width:768px) and (max-width:1023px) {
-	html, body {
+	/* html, body {
 		min-width: unset;
 		overflow-x: hidden;
 	}
 	.nav {
 		background-image: none;
-		/* 		display: none; */
+				display: none;
 		width: 0;
 		height: 100px;
 	}
@@ -292,7 +292,7 @@ input[type=radio]{
 	}
 	.type .memimg {
 		background: url(../imgs/member.svg) no-repeat;
-		/* background-size: cover; */
+		background-size: cover;
 		margin-top: 55px;
 		margin-left: 40%;
 		margin-bottom: 45.5px;
@@ -301,7 +301,7 @@ input[type=radio]{
 	}
 	.type .nonmemimg {
 		background: url(../imgs/member.svg) no-repeat;
-		/* background-size: cover; */
+		background-size: cover;
 		margin-top: 55px;
 		margin-left: 40%;
 		margin-bottom: 45.5px;
@@ -314,6 +314,10 @@ input[type=radio]{
 		background-color: #ffffff;
 		z-index: 10000;
 		box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+	} */
+
+	.category ul li{
+		width: 30%;
 	}
 }
 /* 모바일 */
@@ -351,12 +355,13 @@ input[type=radio]{
 	.type .member {
 		width: 320px;
 		height: 240px;
+		margin: 0;
 	}
 	.type .nonmember {
 		width: 320px;
 		height: 240px;
 		margin-top: 20px;
-		margin-right: 10px;
+		margin-right: 0;
 	}
 	.type .memimg2 {
 		background: url(../imgs/member.svg) no-repeat;
@@ -392,7 +397,7 @@ input[type=radio]{
 		box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
 	}
 	.next {
-		padding-left: 6%;
+		/* padding-left: 6%; */
 	}
 	.category ul li {
 		width: 30%;
