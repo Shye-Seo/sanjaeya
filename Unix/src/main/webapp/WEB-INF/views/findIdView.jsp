@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>JSP Title</title>
+<title>아이디/비밀번호 찾기</title>
 <link rel="stylesheet" href="resources/css/findIdView.css">
 <script type="text/javascript" src="resources/js/join.js"></script>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>

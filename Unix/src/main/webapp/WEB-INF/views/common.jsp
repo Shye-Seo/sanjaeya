@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>JSP Title</title>
+<title>common</title>
 <script type="text/javascript" src="resources/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
