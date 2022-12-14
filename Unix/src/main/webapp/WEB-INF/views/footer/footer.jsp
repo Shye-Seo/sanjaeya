@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>JSP Title</title>
+<title></title>
 <link rel="stylesheet" href="resources/css/footer.css">
 </head>
 <body>
