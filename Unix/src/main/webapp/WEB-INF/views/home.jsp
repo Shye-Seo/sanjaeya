@@ -5,6 +5,7 @@
 
 <title>산재야</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no,  maximum-scale=1.0, minimum-scale=1.0" />
+<meta name="naver-site-verification" content="af7be637cdbaefb0fb0eb9d4e2efe43874deb158" />
 <link rel="stylesheet" href="resources/css/home.css">
 <%@ include file ="/WEB-INF/views/common.jsp" %>
 </head>
