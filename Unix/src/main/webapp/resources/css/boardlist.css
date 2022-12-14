@@ -256,8 +256,11 @@ section .notice {
 	border-top: 2px solid #333333;
 }
 
-#list_ th:nth-child(1), #list_ th:nth-child(3){
+#list_ th:nth-child(1) {
 	width: 10%;
+}
+#list_ th:nth-child(3) {
+	width: 15%;
 }
 #list_ th:nth-child(4){
 	width: 15%;
@@ -653,11 +656,12 @@ section .notice {
 		width: 10%;
 		height: 100%;
 		float: right;
-		padding-top: 12px;
+		/* padding-top: 12px; */
+		transform: translateY(30px);
 	}
 	#mobile #icon img {
 		float: right;
-		padding-top: 20px;
+		/* padding-top: 20px; */
 	}
 	.page-title {
 		display: none;
