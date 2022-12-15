@@ -97,18 +97,18 @@
 			$('.m_img').each( function(i){
 				var bottom_of_object = $(this).offset().top + $(this).outerHeight();
 				// 마진값으로 밀린 크기
-				console.log(bottom_of_object);
-				console.log($(window).scrollTop() );
-				console.log($(window).scrollTop() > (bottom_of_object/2));
 				var manual_object_magin = $(this).css("--n") * 1;
 				if( $(window).scrollTop() > (bottom_of_object/2) + manual_object_magin){
 					$(this).css("animation", "manual_fade 1s both");
 				}
 			}); 
-    	});
-		
+		});
 	})
 	
+	function scrollup(){
+		window.scrollTo({ top: 0, behavior: "smooth" });
+	}
+
 	</script>
 <body>
 	<%
@@ -150,8 +150,12 @@
 			<div class="closeBtn"></div>
 			<div class="closeBtnM"></div>
 		</div>
-		
 	</div>
+
+	<div class="upBtn" onclick="scrollup()">
+		<div class="upBtnImg"></div>
+	</div>
+
 	<header>
 		<img />
 		<div class="main_BackgrounArea">

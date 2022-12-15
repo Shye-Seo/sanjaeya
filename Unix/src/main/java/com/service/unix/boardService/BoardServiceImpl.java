@@ -167,4 +167,22 @@ public class BoardServiceImpl
 	}
 
 
+	//
+	@Override
+	public BoardVo get_board_pre(int this_id) throws Exception {
+		return boardDao.get_board_pre(this_id);
+	}
+	@Override
+	public BoardVo get_board_next(int this_id) throws Exception {
+		return boardDao.get_board_next(this_id);
+	}
+	@Override
+	public LibraryVo get_library_pre(int this_id) throws Exception {
+		return boardDao.get_library_pre(this_id);
+	}
+	@Override
+	public LibraryVo get_library_next(int this_id) throws Exception {
+		// TODO Auto-generated method stub
+		return boardDao.get_library_next(this_id);
+	}
 }

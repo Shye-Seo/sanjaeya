@@ -79,5 +79,11 @@ public abstract interface BoardDao
   public abstract int search_count_lib(String title) throws Exception;
 
   public abstract String check_authority(String user_id) throws Exception;
+  
+//  
+  public abstract BoardVo get_board_pre(int this_id) throws Exception;
+  public abstract BoardVo get_board_next(int this_id) throws Exception;
+  public abstract LibraryVo get_library_pre(int this_id) throws Exception;
+  public abstract LibraryVo get_library_next(int this_id) throws Exception;
 
 }

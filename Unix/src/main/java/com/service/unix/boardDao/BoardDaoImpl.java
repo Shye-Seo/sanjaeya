@@ -167,4 +167,23 @@ public class BoardDaoImpl
 	public String check_authority(String user_id) throws Exception {
 		return sqlsession.selectOne("boardMapper.check_authority", user_id);
 	}
+	
+	
+	//
+	@Override
+	public BoardVo get_board_pre(int this_id) throws Exception {
+		return (BoardVo)this.sqlsession.selectOne("boardMapper.get_board_pre", this_id);
+	}
+	@Override
+	public BoardVo get_board_next(int this_id) throws Exception {
+		return (BoardVo)this.sqlsession.selectOne("boardMapper.get_board_next", this_id);
+	}
+	@Override
+	public LibraryVo get_library_pre(int this_id) throws Exception {
+		return (LibraryVo)this.sqlsession.selectOne("boardMapper.get_library_pre", this_id);
+	}
+	@Override
+	public LibraryVo get_library_next(int this_id) throws Exception {
+		return (LibraryVo)this.sqlsession.selectOne("boardMapper.get_library_next", this_id);
+	}
 }

@@ -237,6 +237,8 @@ public class BoardController
 		}
 		
     model.addAttribute("read", service.read(boardVo.getId()));
+    model.addAttribute("pre", service.get_board_pre(boardVo.getId()));
+    model.addAttribute("next", service.get_board_next(boardVo.getId()));
     
     List<BoardFileVo> boardFile_list = service.get_board_files(boardVo.getId());
     model.addAttribute("boardFile_list", boardFile_list);
@@ -479,6 +481,8 @@ public class BoardController
 		}
 		
     model.addAttribute("read", service.readLibrary(libraryVo.getId()));
+    model.addAttribute("pre", service.get_library_pre(libraryVo.getId()));
+    model.addAttribute("next", service.get_library_next(libraryVo.getId()));
     
     List<LibraryFileVo> libraryFile_list = service.get_library_files(libraryVo.getId());
     model.addAttribute("libraryFile_list", libraryFile_list);

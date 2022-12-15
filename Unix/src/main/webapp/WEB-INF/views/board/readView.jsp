@@ -31,7 +31,7 @@
 			</div>
 			
 			<div class="board_btnarea">
-				<input type="button" id = "noticebtn" onclick="location.href='board_list'" value="공지사항" />
+				<input type="button" id = "noticebtn" onclick="location.href='board_list'" value="공지사항" class="select_board_btn"/>
 				<input type="button" id = "docbtn" onclick="location.href='library_list'" value="자료실"/>
 				<div class="btnline"></div>
 			</div>
@@ -64,14 +64,25 @@
 				</form>
 				
 				<!-- 이전글, 다음글 부분 -->
-<!-- 				<div class="pre_next"> -->
-<!-- 					<div class="pre_next1">공지사항 테스트!@#$$%%%^ NOTICE</div> -->
-<!-- 					<div class="pre_next2">이전글 <input type="button" class="pre_next3"/></div> -->
-<!-- 				</div> -->
-<!-- 				<div class="pre_next"> -->
-<!-- 					<div class="pre_next1">공지사항 테스트!@#$$%%%^ NOTICE</div> -->
-<!-- 					<div class="pre_next2">다음글 <input type="button" class="pre_next4"/></div> -->
-<!-- 				</div> -->
+				<div class="pre_next_wrap">
+					<c:if test="${pre != null}">
+						<div class="pre_next">
+							<a href="readView?id=${pre.getId()}">
+								<div class="pre_next1">${pre.getTitle()}</div>
+								<div class="pre_next2">이전글 <input type="button" class="pre_next3"/></div>
+							</a>
+						</div>
+					</c:if>
+					<c:if test="${next != null}">
+					<div class="pre_next">
+						<a href="readView?id=${next.getId()}">
+							<div class="pre_next1">${next.getTitle()}</div>
+							<div class="pre_next2">다음글 <input type="button" class="pre_next4"/></div>
+						</a>
+					</div>
+					</c:if>
+				</div>
+				
 					<div class="list_button">
 						<div id="btn_area">
 							<c:if test="${authority == 11}">
