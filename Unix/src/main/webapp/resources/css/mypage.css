@@ -83,8 +83,8 @@
             font-weight:700;
             /* border-radius:3px 3px 0 0; */
             background:#fff;
-            color:black;
-            border:1px solid black;
+            color:#444343;
+            border:1px solid #707070;
             /* border-width:1px 1px 0 */
         }
         #css_tabs > label:hover {
@@ -92,12 +92,12 @@
         }
         #css_tabs label[for=tab1] {
             /* margin-left:1.5em */
-            border-radius: 5px 0 0 5px;
+            /* border-radius: 5px 0 0 5px; */
             border-right:none;
         }
         #css_tabs label[for=tab2] {
             /* margin-left:1.5em */
-            border-radius: 0 5px 5px 0;
+            /* border-radius: 0 5px 5px 0; */
             border-left:none;
         }
         /* 선택된 라벨, 커서를 올린 라벨 스타일 지정 */
@@ -247,7 +247,8 @@
             border-bottom: solid;
             border-width: 1px;
             border-color: #707070;
-            height: 30px;
+            /* height: 30px; */
+            height: 39px;
             text-indent: 1%; /* 들여쓰기 */
             font-size: 1rem;
         }
@@ -273,7 +274,8 @@
         } 
         #join .infomation_item .value_item .mail_item_3 {
             width:166px;
-            height: 39px;
+            /* height: 39px; */
+            height: 40px;
             text-indent: 3%;
             font-weight: 600;
             cursor: pointer;
@@ -284,12 +286,14 @@
         }
         #join .infomation_item .value_item .certification_button{
             width: 104px;
-            height: 39px;
+            /* height: 39px; */
+            height: 40px;
             background: white;
             border: solid 1px #707070;
             font-size: 0.8rem;
             font-weight: 600;
             cursor: pointer;
+            margin-left: 10px;
         }
         #join .infomation_item .value_item #sms_certification{
             display: none;
@@ -620,9 +624,12 @@ input::-webkit-calendar-picker-indicator {
 	
 	#css_tabs label {
 		width:50%;
-		height:37px;
+		/* height:37px;
 		font-size:14px;
-		line-height:34px;
+		line-height:34px; */
+        height: 80px;
+        font-size: 20px;
+        line-height: 80px;
 	}
 	
 	#memo h4 {
