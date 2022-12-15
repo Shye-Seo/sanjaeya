@@ -1,58 +1,58 @@
 // mypage 메모장에 사용된 기능들에 관련된 코드들 
 var options = { hour: "numeric", minute: "numeric", second: "numeric", hour12: false };
-document.getElementById('date_form').value=new Date().toISOString().substring(0, 10);
-document.getElementById('time_form').value=new Date().toLocaleTimeString("en-US", options).substring(0,5);
+document.getElementById('date_form').value = new Date().toISOString().substring(0, 10);
+document.getElementById('time_form').value = new Date().toLocaleTimeString("en-US", options).substring(0, 5);
 
 $(function() {
-	
-	
+
+
 	$("#add_memo").click(function() {
 		$("#add_memo_form").fadeIn();
 		$('#memo').on('scroll touchmove mousewheel', function(event) {
-	        event.preventDefault();
-	        event.stopPropagation();
-	        return false;
-	    }); 
+			event.preventDefault();
+			event.stopPropagation();
+			return false;
+		});
 	});
-	
+
 	$("#close").click(function() {
 		$("#add_memo_form").fadeOut();
 		$('#memo').off('scroll touchmove mousewheel');
 	});
-	
-	
+
+
 	$("#close1").click(function() {
 		$("#add_memo_form").fadeOut();
 		$('#memo').off('scroll touchmove mousewheel');
 	});
-	
+
 	$("#close2").click(function() {
 		$("#update_memo_form").fadeOut();
 		$('#memo').off('scroll touchmove mousewheel');
 	});
-	
-	
+
+
 	$("#close3").click(function() {
 		$("#update_memo_form").fadeOut();
 		$('#memo').off('scroll touchmove mousewheel');
 	});
-	
+
 	$("#time_form").on("change", function() {
-	    this.setAttribute(
-	        "data-time",
-	        moment(this.value, "HH:mm")
-	        .format( this.getAttribute("data-time-format") )
-	    );
+		this.setAttribute(
+			"data-time",
+			moment(this.value, "HH:mm")
+				.format(this.getAttribute("data-time-format"))
+		);
 	}).trigger("change");
-	
+
 	$("#date_form").on("change", function() {
-	    this.setAttribute(
-	        "data-date",
-	        moment(this.value, "YYYY-MM-DD")
-	        .format( this.getAttribute("data-date-format") )
-	    );
+		this.setAttribute(
+			"data-date",
+			moment(this.value, "YYYY-MM-DD")
+				.format(this.getAttribute("data-date-format"))
+		);
 	}).trigger("change");
-	
+
 	/* 
 		지금 메모장 div 안에 메모 삭제 div가 중첩되어 있어서 우선은 memo_delete0부터 memo_delete6까지 하나하나 지정했습니다.
 		$("#memo_delete0").click(function(event) {
@@ -69,62 +69,67 @@ $(function() {
 		참고하셔야 할 것 같아서 이 내용을 적습니다. 
 	*/
 	$("#memo_delete0").click(function(event) {
-		event.stopPropagation();  
+		event.stopPropagation();
 	});
 	$("#memo_delete1").click(function(event) {
-		event.stopPropagation();  
+		event.stopPropagation();
 	});
 	$("#memo_delete2").click(function(event) {
-		event.stopPropagation();  
+		event.stopPropagation();
 	});
 	$("#memo_delete3").click(function(event) {
-		event.stopPropagation();  
+		event.stopPropagation();
 	});
 	$("#memo_delete4").click(function(event) {
-		event.stopPropagation();  
+		event.stopPropagation();
 	});
 	$("#memo_delete5").click(function(event) {
-		event.stopPropagation();  
+		event.stopPropagation();
 	});
 	$("#memo_delete6").click(function(event) {
-		event.stopPropagation();  
+		event.stopPropagation();
 	});
-	
-	
+
+
 	// 메모장 클릭 시 이벤트 
 	$(".memo_box").click(function() {
 		var update_memo_id = $(this).attr("id");
 		var tmp_update_memo_content;
 		$("#update_memo_form").fadeIn();
-	   
+
 		$.ajax({
-			url:"Readmemo.do",
-			data:{id:update_memo_id},
-			type:"GET",
-			dataType:"json"
+			url: "Readmemo.do",
+			data: { id: update_memo_id },
+			type: "GET",
+			dataType: "json"
 		}).done(function(update_memo) { // 가져온 데이터들을 value 값에 설정 
 			$("#update_title").attr('value', update_memo.title);
 			$("#update_time").attr('value', update_memo.time);
 			$("#update_time").on("change", function() {
-			    this.setAttribute(
-			        "data-time",
-			        moment(this.value, "HH:mm")
-			        .format( this.getAttribute("data-time-format") )
-			    );
+				this.setAttribute(
+					"data-time",
+					moment(this.value, "HH:mm")
+						.format(this.getAttribute("data-time-format"))
+				);
 			}).trigger("change");
 			$("#date_form2").attr('value', update_memo.date);
 			$("#date_form2").on("change", function() {
-		    this.setAttribute(
-			        "data-date",
-			        moment(this.value, "YYYY-MM-DD")
-			        .format( this.getAttribute("data-date-format"))
-			    );
+				this.setAttribute(
+					"data-date",
+					moment(this.value, "YYYY-MM-DD")
+						.format(this.getAttribute("data-date-format"))
+				);
 			}).trigger("change");
-			tmp_update_memo_content=update_memo.content.replace(/(<br>|<br\/>|<br \/>)/g, '\r\n');
+			tmp_update_memo_content = update_memo.content.replace(/(<br>|<br\/>|<br \/>)/g, '\r\n');
 			$("#update_content").val(tmp_update_memo_content);
 			$("#id").attr('value', update_memo_id);
 		})
 	});
-	
+
+	$("#time_form").timepicker();
+	$("#update_time").timepicker();
+	$("#date_form").datepicker();
+	$("#date_form2").datepicker();
+
 });
 
