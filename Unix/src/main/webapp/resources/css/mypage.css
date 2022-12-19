@@ -220,6 +220,10 @@
 			color: #707070;
 			opacity: 1;
         }
+        #join .infomation_item .value_item input:focus-visible{
+            outline: none;
+        }
+
         #join .infomation_item .value_item .id_wrap {
             position: absolute;
             width:70%;

@@ -109,7 +109,15 @@ a {
 	display: flex; /* 가로 배치를 할껀데 */
 	flex-direction: column;
 	/* 한줄에 하나의 컬럼만 배치 infomation_item div가 한줄에 하나씩*/
-	background-color: #F4F2F2;
+	/* background-color: #F4F2F2; */
+	background-color: #F8F8F8;
+}
+
+#joinform input:focus{
+	outline: none;
+}
+#joinform select:focus-visible{
+	outline: none;
 }
 
 #join .infomation_item {
@@ -128,7 +136,7 @@ a {
 #join .infomation_item .name_item {
 	position: relative;
 	width: 25%; /* infomation_item안에 name_item */
-	background-color: #F4F2F2;
+	/* background-color: #F4F2F2; */
 	display: flex;
 	font-size: 1.2rem;
 	/* height: 100%; */
@@ -201,10 +209,12 @@ a {
 
 #join .infomation_item .value_item input {
 	width: 80%;
-	border: none;
+	/* border: none;
 	border-bottom: solid;
 	border-width: 1px;
-	border-color: #707070;
+	border-color: #707070; */
+	border: 1px solid #00000000;
+    border-bottom: 1px solid #707070;
 	height: 30px;
 	text-indent: 1%; /* 들여쓰기 */
 	font-size: 1rem;
@@ -401,7 +411,7 @@ a {
 }
 
 #join .agreement .agreement_area textarea {
-	background-color: #F4F2F2;
+	background-color: #F8F8F8;
 	border: none;
 	height: 300px;
 	width: 100%;
