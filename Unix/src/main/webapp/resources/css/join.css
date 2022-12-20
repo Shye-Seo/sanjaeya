@@ -648,7 +648,7 @@ h2 {
 		width: 100%;
 	}
 	#join .infomation_item .value_item .id_wrap #user_id {
-		width: calc(100% - 153px);
+		width: calc(100% - 165px);
     	margin-right: 10px;
 	}
 	#join .infomation_item .value_item .member_pw {
@@ -698,7 +698,7 @@ h2 {
 		font-size: 1px;
 	}
 	#join .infomation_item .value_item #user_phone {
-		width: calc(70% - 56px);
+		width: calc(70% - 70px);
 	}
 	#join .infomation_item .value_item #phoneChk {
 		width: 30%;
@@ -728,7 +728,8 @@ h2 {
 		display: none;
 	}
 	#join #contact {
-		height: 210px;
+		/* height: 210px; */
+		padding-bottom: 15px;
 	}
 	#join .agreement .agreement_area .title_span {
 		width: 100%;
