@@ -109,6 +109,32 @@
             background:#326DFB;
             color:#fff
         }
+
+        /* input date, time 기본값 제거 */
+        input[type=date]::datetime-edit-text { 
+            appearance: none; 
+            display: none; 
+          } 
+          
+        input[type=date]::datetime-edit-month-field { 
+        appearance: none; 
+        display: none; 
+        } 
+        
+        input[type=date]::datetime-edit-day-field {
+        appearance: none; 
+        display: none; 
+        } 
+        
+        input[type=date]::datetime-edit-year-field { 
+        appearance: none; 
+        display: none; 
+        }
+        
+
+
+
+
         /* 실제 내용이 담긴 div 요소 스타일 지정 */
         #css_tabs .tab1_content, #css_tabs .tab2_content {
             /* padding:2em; */
