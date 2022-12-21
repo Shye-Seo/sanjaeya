@@ -159,7 +159,7 @@
 
         #join {
             width:100%;
-            margin: 4% auto;
+            margin: 50px auto;
             color: #444343;
             /* border:1px solid red; */
         }
@@ -175,9 +175,9 @@
             display: flex;
             width: 100%;
             justify-content: space-between;
-            margin-top: 3%;
+            /* margin-top: 3%; */
             font-weight: 600;
-            margin-bottom: 1%;
+            margin-bottom: 10px;
         }
         .text_area .item_1 {
             font-size: 1.3rem;
@@ -337,11 +337,11 @@
             
         }
 
-        #join .member_submit input {
+        /* #join .member_submit input {
             background-color: #326DFB;
             border: none;
             color: white;
-           /*  padding:10px 30px; */
+             padding:10px 30px; 
             width:106px;
             height:40px;
             font-size: 1.5rem;
@@ -356,7 +356,7 @@
             border:1px solid #326DFB;
             color: #326DFB;
             
-        }
+        } */
      
         
 /* memo start */
@@ -464,6 +464,32 @@
     flex-direction: column;
     gap: 30px;
 }
+.form_line{
+    display: flex;
+    align-items: center;
+}
+.memo_line{
+    align-items: flex-start;
+}
+.memo_form_icon{
+    width: 17px; height: 17px;
+    margin-right: 10px;
+}
+.form_line:nth-child(1) .memo_form_icon{
+    background: url("../imgs/memo_title.svg") center / contain no-repeat;
+}
+.form_line:nth-child(2) .memo_form_icon{
+    background: url("../imgs/memo_time.svg") center / contain no-repeat;
+    width: 15px;
+}
+.form_line:nth-child(3) .memo_form_icon{
+    background: url("../imgs/memo_calendar.svg") center / contain no-repeat;
+}
+.form_line:nth-child(4) .memo_form_icon{
+    background: url("../imgs/memo_text.svg") center / contain no-repeat;
+    height: 14px;
+    margin-top: 12px;
+}
 .memo_form_detail span{
     font-size: 20px;
     font-weight: 600;
@@ -475,21 +501,22 @@
     border: 2px solid #707070;
     padding: 15px;
     font-size: 15px;
+    width: 430px;
 }
 .memo_form_detail input[name="title"]{
-    width: 450px; height: 50px;
+    height: 50px;
 }
 .memo_form_detail input[name="time"], .memo_form_detail input[name="date"]{
     width: 230px; height: 50px;
 }
 #arg{
     vertical-align: top;
-    line-height: 50px;
+    margin-top: 7px;
 }
 .member_submit{
     width: 100%;
     text-align: center;
-    margin-top: 20px;
+    /* margin-top: 20px; */
 }
 .member_submit input{
     width: 95px; height: 35px;
@@ -497,7 +524,7 @@
     border: 1px solid #326DFB;
     font-size: 15px;
 }
-.member_submit input[type="submit"]{
+.member_submit input[type="submit"], .member_submit #member_submit_btn{
     color: #ffffff;
     background-color: #326DFB;
     margin-right: 10px;
@@ -1017,17 +1044,33 @@ input::-webkit-calendar-picker-indicator {
     .memo_form_detail{
         padding-left:0;
     }
-    .memo_form_detail p{
+    .form_line{
+        display: unset;
+        position: relative;
+    }
+    .memo_form_icon{
+        position: absolute;
+        top: 4px;
+    }
+    /* .memo_form_detail p{
         display: flex;
         flex-direction: column;
         gap: 10px;
-    }
+    } */
     .memo_form_detail input, .memo_form_detail textarea{
         width: 100% !important;
+        margin-top: 10px;
+        background-color: #ffffff;
+    }
+    .memo_form_detail span{
+        margin-left: 25px;
     }
     #arg{
         line-height:normal;
 
+    }
+    .form_line:nth-child(4) .memo_form_icon{
+        margin-top:0;
     }
 	/* #memo h4 {
 		margin-top:6%;

@@ -167,10 +167,10 @@
 								<h1>Add</h1>
 								<hr>
 								<div class="memo_form_detail">
-									<p><span>제목</span>  <input type="text" name="title" value=""></p>
-									<p><span>시간</span> <input type="time" id="time_form" name="time" data-time="" data-time-format="HH시 mm분" value=""></p>
-									<p><span>날짜</span> <input type="date" id="date_form" name="date" data-date="" data-date-format="YYYY년 MM월 DD일" value=""></p>
-									<p><span id="arg">메모</span> <textarea rows="10" cols="50" name="content"></textarea></p>
+									<div class="form_line"><div class="memo_form_icon"></div><span>제목</span> <input type="text" name="title" value=""></div>
+									<div class="form_line"><div class="memo_form_icon"></div><span>시간</span> <input type="time" id="time_form" name="time" data-time="" data-time-format="HH시 mm분" value=""></div>
+									<div class="form_line"><div class="memo_form_icon"></div><span>날짜</span> <input type="date" id="date_form" name="date" data-date="" data-date-format="YYYY년 MM월 DD일" value=""></div>
+									<div class="form_line memo_line"><div class="memo_form_icon"></div><span id="arg">메모</span> <textarea rows="10" cols="50" name="content"></textarea></div>
 									<input type="text" name="writer" value="${user_id }" hidden>
 								</div>
 								<hr>
@@ -191,10 +191,10 @@
 								<h1>Update</h1>
 								<hr>
 								<div class="memo_form_detail">
-									<p><span>제목</span>  <input type="text" name="title" id="update_title" value=""></p>
-									<p><span>시간</span> <input type="time" name="time" id="update_time" data-time="" data-time-format="HH시 mm분" value=""></p>
-									<p><span>날짜</span> <input type="date" id="date_form2" name="date" data-date="" data-date-format="YYYY년 MM월 DD일" value=""></p>
-									<p><span id="arg">메모</span> <textarea rows="10" cols="50" name="content" id="update_content"></textarea></p>
+									<div class="form_line"><div class="memo_form_icon"></div><span>제목</span>  <input type="text" name="title" id="update_title" value=""></div>
+									<div class="form_line"><div class="memo_form_icon"></div><span>시간</span> <input type="time" name="time" id="update_time" data-time="" data-time-format="HH시 mm분" value=""></div>
+									<div class="form_line"><div class="memo_form_icon"></div><span>날짜</span> <input type="date" id="date_form2" name="date" data-date="" data-date-format="YYYY년 MM월 DD일" value=""></div>
+									<div class="form_line memo_line"><div class="memo_form_icon"></div><span id="arg">메모</span> <textarea rows="10" cols="50" name="content" id="update_content"></textarea></div>
 									<input type="text" name="writer" value="${user_id }" hidden>
 									<input type="text" name="id" id="id" value="" hidden>
 								</div>

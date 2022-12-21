@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+  <g id="그룹_1953" data-name="그룹 1953" transform="translate(-20 -467)">
+    <g id="사각형_7114" data-name="사각형 7114" transform="translate(20 469.753)" fill="none" stroke="#424242" stroke-width="1.2">
+      <rect width="11.348" height="11.247" rx="2" stroke="none"/>
+      <rect x="0.6" y="0.6" width="10.148" height="10.047" rx="1.4" fill="none"/>
+    </g>
+    <path id="Icon_awesome-pen" data-name="Icon awesome-pen" d="M5.246,1.668l2.31,2.29L2.54,8.929.48,9.154A.431.431,0,0,1,0,8.68L.231,6.638Zm3.739-.341L7.9.252a.872.872,0,0,0-1.225,0L5.654,1.263l2.31,2.29,1.02-1.011a.853.853,0,0,0,0-1.215Z" transform="translate(24.761 467)" fill="#424242"/>
+  </g>
+</svg>
