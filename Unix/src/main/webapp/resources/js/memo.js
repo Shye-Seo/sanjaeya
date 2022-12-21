@@ -126,10 +126,10 @@ $(function() {
 		})
 	});
 
-	$("#time_form").timepicker();
-	$("#update_time").timepicker();
-	$("#date_form").datepicker();
-	$("#date_form2").datepicker();
+	// $("#time_form").timepicker();
+	// $("#update_time").timepicker();
+	// $("#date_form").datepicker();
+	// $("#date_form2").datepicker();
 
 });
 

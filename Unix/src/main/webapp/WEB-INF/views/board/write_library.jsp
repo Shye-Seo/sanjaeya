@@ -51,24 +51,32 @@
            e.stopPropagation();
            e.preventDefault();
            // 드롭다운 영역 css
-           dropZone.css('background-color', '#E3F2FC');
+           /* dropZone.css('background-color', '#E3F2FC'); */
+           $("#fileDragDesc").css('border-color', '#326DFB');
+           $("#fileListTable").css('border-color', '#326DFB');
        });
        dropZone.on('dragleave', function(e) {
            e.stopPropagation();
            e.preventDefault();
            // 드롭다운 영역 css
-           dropZone.css('background-color', '#FFFFFF');
+           /* dropZone.css('background-color', '#FFFFFF'); */
+           $("#fileDragDesc").css('border-color', '#DDDDDD');
+           $("#fileListTable").css('border', '1px solid #DDDDDD');
        });
        dropZone.on('dragover', function(e) {
            e.stopPropagation();
            e.preventDefault();
            // 드롭다운 영역 css
-           dropZone.css('background-color', '#E3F2FC');
+           /* dropZone.css('background-color', '#E3F2FC'); */
+           $("#fileDragDesc").css('border-color', '#326DFB');
+           $("#fileListTable").css('border', '1px dashed #326DFB');
        });
        dropZone.on('drop', function(e) {
            e.preventDefault();
            // 드롭다운 영역 css
-           dropZone.css('background-color', '#FFFFFF');
+           /* dropZone.css('background-color', '#FFFFFF'); */
+           $("#fileDragDesc").css('border-color', '#DDDDDD');
+           $("#fileListTable").css('border', '1px solid #DDDDDD');
            var files = e.originalEvent.dataTransfer.files;
            if (files != null) {
                if (files.length < 1) {
@@ -267,7 +275,7 @@
         </div>
         <div class="board_btnarea">
 			<input type="button" id = "noticebtn" onclick="location.href='board_list'" value="공지사항" />
-			<input type="button" id = "docbtn" onclick="location.href='library_list'" value="자료실"/>
+			<input type="button" id = "docbtn" class="select_board_btn" onclick="location.href='library_list'" value="자료실"/>
 			<div class="btnline"></div>
 		</div>
 			
@@ -289,6 +297,7 @@
 							<td class="td6">
 								<div id="dropZone" class="drop_area">
 								<div id="fileDragDesc" class="add_file">
+                                    <img src="resources/imgs/board_fileIcon.svg" alt="file_icon">
 									<div id="text">파일을 끌어다 놓으세요.<br>파일명은 최대 200자로 제한되며, 파일명에 특수문자([ ] { } ^ | " < >)는 제거해주세요.</div>
 								</div>
 								
@@ -339,7 +348,7 @@
 									});
 								});
 				</script>
-    	<jsp:include page="/WEB-INF/views/footer/footer.jsp"></jsp:include>
     	</div>
+        <jsp:include page="/WEB-INF/views/footer/footer.jsp"></jsp:include>
 	</body>
 </html>
