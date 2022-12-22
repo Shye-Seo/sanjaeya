@@ -338,6 +338,7 @@ input::-webkit-date-and-time-value {
             background-color: white;
             text-align: center;
             padding-top:50px;
+            margin: 0;
             
         }
 
@@ -397,6 +398,7 @@ input::-webkit-date-and-time-value {
     padding: 15px;
     position: relative;
     line-height: 25px;
+    cursor: pointer;
 }
 .memo_box h3{
     text-align: center;

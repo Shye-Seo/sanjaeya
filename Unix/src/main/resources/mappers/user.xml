@@ -83,6 +83,8 @@
 	<!-- 마이페이지 수정 -->
 	<update id="mypageUpdate">
 		update nm_user set user_pass = #{user_pass},
+		user_mail = #{user_mail},
+		user_name = #{user_name},
 		user_phone = #{user_phone}
 		where user_id = #{user_id}
 	</update>

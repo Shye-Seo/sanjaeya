@@ -188,7 +188,7 @@ public class HomeController {
 		memberService.mypageUpdate(memberVo);
 		session.invalidate();
 		
-		return "/";
+		return "redirect:Home";
 		
 	}
 

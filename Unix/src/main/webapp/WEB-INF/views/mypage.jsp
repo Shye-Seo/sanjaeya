@@ -15,7 +15,29 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $(function(){
+
+        // 이메일 도메인에 맞게 option 선택
+        if('${mail_2}' == 'naver.com'){
+            $("#email_domain").val("naver.com").prop("selected", true);
+        }
+        else if('${mail_2}' == 'hanmail.net'){
+            $("#email_domain").val("hanmail.net").prop("selected", true);
+        }
+        else if('${mail_2}' == 'gmail.com'){
+            $("#email_domain").val("gmail.com").prop("selected", true);
+        }
+        else if('${mail_2}' == 'yahoo.com'){
+            $("#email_domain").val("yahoo.com").prop("selected", true);
+        }
+        else if('${mail_2}' == 'nate.com'){
+            $("#email_domain").val("nate.com").prop("selected", true);
+        }
+    })
+    
+</script>
 </head>
 <body>
 	<div id="wrap">
@@ -45,7 +67,7 @@
                     </div>
     
                     <div id="member">
-                        <form id="updateform" name="updateform" method="post" action="MyPage_Update.do">
+                        <form id="updateform" name="updateform" method="post" action="MyPageUpdate.do">
                             <div class="infomation_item">
                                 <div class="name_item">
                                     <span>*</span>
@@ -98,7 +120,7 @@
                                 <div class="value_item form">
                                     <input type="text" name="user_mail_id" class="mail_item_1" id="user_mail_id" placeholder="이메일을 입력" value="${mail_1}"><span id="at">@</span>
                                         <input type="text" name="user_mail_domain" maxlength="50" class="mail_item_2" id="user_mail_domain" placeholder="직접입력" value="${mail_2}">
-                                    <select name="sel_email" class="mail_item_3" onclick="setEmailDomain(this.value);return false;">
+                                    <select name="sel_email" id="email_domain" class="mail_item_3" onclick="setEmailDomain(this.value);return false;">
                                         <option value="">직접입력</option>
                                         <option value="naver.com">naver.com</option>
                                         <option value="hanmail.net">hanmail.net</option>
@@ -106,7 +128,7 @@
                                         <option value="yahoo.com">yahoo.com</option>
                                         <option value="nate.com">nate.com</option>
                                     </select>
-                                    <input type="hidden" id="email_check" value="">
+                                    <input type="hidden" name="user_mail" id="user_mail" value="">
                                 </div>
                             </div>
                             <div class="infomation_item" style="border-bottom:1px solid #707070;">
