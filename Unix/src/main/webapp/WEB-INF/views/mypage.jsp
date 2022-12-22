@@ -131,7 +131,7 @@
                                     <input type="hidden" name="user_mail" id="user_mail" value="">
                                 </div>
                             </div>
-                            <div class="infomation_item" style="border-bottom:1px solid #707070;">
+                            <div class="infomation_item">
                                 <div class="name_item">
                                     <span>*</span>
                                     <p>연락처</p>

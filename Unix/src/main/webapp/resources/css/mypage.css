@@ -215,7 +215,9 @@ input::-webkit-date-and-time-value {
             align-items: center;
             height:120px;
         }
-      
+      #join .infomation_item:nth-child(6){
+        border-bottom: 1px solid #707070;
+      }
      
 
         #join .infomation_item .name_item {
@@ -1014,10 +1016,13 @@ input::-webkit-calendar-picker-indicator {
 		z-index: 10000;
 		box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
 	}
+    .nav{
+        display: none;
+    }
 	#css_tabs {
-		
-		width:85%;
-	}
+		width: 85%;
+        padding-top: 110px;
+    }
 	
 	#css_tabs label {
 		width:50%;
@@ -1025,6 +1030,50 @@ input::-webkit-calendar-picker-indicator {
 		font-size:14px;
 		line-height:34px;
 	}
+
+
+    #join .infomation_item .name_item{
+        display: none;
+    }
+    .text_area{
+        display: none;
+    }
+    #updateform{
+        background-color:#ffffff;
+        gap: 10px;
+    }
+    #join .infomation_item{
+        border: 0;
+    }
+    #join .infomation_item:nth-child(6){
+        border-bottom: 0;
+    }
+    #join .infomation_item .value_item{
+        width: 100%;
+        padding: 0;
+    }
+    #join .infomation_item .value_item input{
+        border: 1px solid #000000;
+        border-radius: 8px;
+        padding: 20px;
+        font-size: 15px;
+        height: 40px;
+        width: 100%;
+        box-sizing: content-box;
+    }
+    #join .infomation_item .value_item .id_wrap, #join .infomation_item .value_item .member_pw{
+        width:calc(100% - 40px);
+    }
+    #join .infomation_item .value_item .member_pw_check{
+        width: 100%;
+    }
+    #join .infomation_item .value_item .mail_item_3{
+        border: 1px solid #707070;
+        border-radius: 8px;
+        height: 82px;
+        
+    }
+
     .memo_box{
         width: 100%; height: 250px;
     }
