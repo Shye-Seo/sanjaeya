@@ -1099,7 +1099,8 @@ input::-webkit-calendar-picker-indicator {
         left: 0;
         /* 모바일 스크롤 문제로 인해 스크롤추가 */
         overflow: scroll;
-        
+        -webkit-overflow-scrolling: touch;
+        -webkit-transform: translateZ(0);
     }
     /* #add_memo_form::-webkit-scrollbar, #update_memo_form::-webkit-scrollbar {
         display: none;
@@ -1107,7 +1108,7 @@ input::-webkit-calendar-picker-indicator {
     .modal_layer{
         display: none;
     }
-    .memo_form{
+    .memo_form{ 
         /* 모바일 스크롤 문제로 인해 height=120% */
         width: 100%; height: 120%;
         top: 0; left: 0;
