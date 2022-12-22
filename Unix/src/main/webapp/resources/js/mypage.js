@@ -3,14 +3,14 @@
             // 비밀번호 영문 대소문자/숫자/특수문자 중 2가지 이상조합으로 10~16자리
             var pwdCheck = /^(?!((?:[A-Za-z]+)|(?:[~!@#$%^&*()_+=]+)|(?=[0-9]+))$)[A-Za-z\d~!@#$%^&*()_+=]{10,16}$/;
 
-            var pw = document.getElementById("pw");
-            var repw = document.getElementById("repw");
-            var name = document.getElementById("name");
+            var pw = document.getElementById("user_pass");
+            var repw = document.getElementById("re_user_pass");
+            var name = document.getElementById("user_name");
             var email_rule =  /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-            var email_id = $("#email_id").val();
-            var email_domain = $("#email_domain").val();
+            var email_id = $("#user_mail_id").val();
+            var email_domain = $("#user_mail_domain").val();
             var mail = "";
-            var tel = document.getElementById("tel");
+            var tel = document.getElementById("user_phone");
 
             if(pw.value == "") {
                 alert("비밀번호를 입력하세요.");
@@ -42,14 +42,13 @@
 
             // 합칠변수 mail에 아이디와 도메인을 합침
             mail = email_id+"@"+email_domain;
-            $("#mail").val(mail);
+            $("#user_mail").val(mail);
 
             if(!email_rule.test(mail)) {
                 alert("이메일을 형식에 맞게 입력해주세요.");
                 return false;
             }
 
-            
 
             var reg = /^[0-9]+/g; // 숫자만 입력하는 정규식
             if(tel.value == "") {
@@ -63,10 +62,10 @@
                 return false;
             }
 
-            document.join_form.submit();
+            document.updateform.submit();
           }
 
            // 이메일 선택했을때 도메인 자동 입력되게
             function setEmailDomain(domain) {
-                $("#email_domain").val(domain);
+                $("#user_mail_domain").val(domain);
             }

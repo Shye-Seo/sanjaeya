@@ -638,7 +638,7 @@ h2 {
 		border: 1px solid #000000;
 		border-radius: 8px;
 		padding: 20px;
-		font-size: 12px;
+		font-size: 15px;
 	}
 	#join .infomation_item .value_item {
 		width: 100%;
@@ -695,7 +695,7 @@ h2 {
 		cursor: pointer;
 		border: 1px solid #707070;
 		border-radius: 8px;
-		font-size: 1px;
+		font-size: 12px;
 	}
 	#join .infomation_item .value_item #user_phone {
 		width: calc(70% - 70px);

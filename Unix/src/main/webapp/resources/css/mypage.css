@@ -1,8 +1,14 @@
 @charset "UTF-8";
  
- /* input, button, html [type="button"] {
+/* 아이폰 input css안먹을때 */
+input, button, html [type="time"], html [type="date"]{
   -webkit-appearance: none;   
-} */
+}
+/* 아이폰 input date, time 텍스트 왼쪽정렬 */
+input::-webkit-date-and-time-value {
+    text-align: left;
+}
+
  *,html,body {
             margin: 0;
             padding: 0;
@@ -154,12 +160,10 @@
             display: block;
             clear:both;  */
         }
-        
-
 
         #join {
             width:100%;
-            margin: 4% auto;
+            margin: 50px auto;
             color: #444343;
             /* border:1px solid red; */
         }
@@ -175,9 +179,9 @@
             display: flex;
             width: 100%;
             justify-content: space-between;
-            margin-top: 3%;
+            /* margin-top: 3%; */
             font-weight: 600;
-            margin-bottom: 1%;
+            margin-bottom: 10px;
         }
         .text_area .item_1 {
             font-size: 1.3rem;
@@ -211,7 +215,9 @@
             align-items: center;
             height:120px;
         }
-      
+      #join .infomation_item:nth-child(6){
+        border-bottom: 1px solid #707070;
+      }
      
 
         #join .infomation_item .name_item {
@@ -334,14 +340,15 @@
             background-color: white;
             text-align: center;
             padding-top:50px;
+            margin: 0;
             
         }
 
-        #join .member_submit input {
+        /* #join .member_submit input {
             background-color: #326DFB;
             border: none;
             color: white;
-           /*  padding:10px 30px; */
+             padding:10px 30px; 
             width:106px;
             height:40px;
             font-size: 1.5rem;
@@ -356,7 +363,7 @@
             border:1px solid #326DFB;
             color: #326DFB;
             
-        }
+        } */
      
         
 /* memo start */
@@ -393,6 +400,7 @@
     padding: 15px;
     position: relative;
     line-height: 25px;
+    cursor: pointer;
 }
 .memo_box h3{
     text-align: center;
@@ -420,6 +428,8 @@
 /* 모달 */
 #add_memo_form, #update_memo_form{
     display: none;
+    z-index: 999999;
+    position: relative;
 }
 .modal_layer {
 	position:fixed;
@@ -464,6 +474,32 @@
     flex-direction: column;
     gap: 30px;
 }
+.form_line{
+    display: flex;
+    align-items: center;
+}
+.memo_line{
+    align-items: flex-start;
+}
+.memo_form_icon{
+    width: 17px; height: 17px;
+    margin-right: 10px;
+}
+.form_line:nth-child(1) .memo_form_icon{
+    background: url("../imgs/memo_title.svg") center / contain no-repeat;
+}
+.form_line:nth-child(2) .memo_form_icon{
+    background: url("../imgs/memo_time.svg") center / contain no-repeat;
+    width: 15px;
+}
+.form_line:nth-child(3) .memo_form_icon{
+    background: url("../imgs/memo_calendar.svg") center / contain no-repeat;
+}
+.form_line:nth-child(4) .memo_form_icon{
+    background: url("../imgs/memo_text.svg") center / contain no-repeat;
+    height: 14px;
+    margin-top: 12px;
+}
 .memo_form_detail span{
     font-size: 20px;
     font-weight: 600;
@@ -475,16 +511,17 @@
     border: 2px solid #707070;
     padding: 15px;
     font-size: 15px;
+    width: 430px;
 }
 .memo_form_detail input[name="title"]{
-    width: 450px; height: 50px;
+    height: 50px;
 }
 .memo_form_detail input[name="time"], .memo_form_detail input[name="date"]{
     width: 230px; height: 50px;
 }
 #arg{
     vertical-align: top;
-    line-height: 50px;
+    margin-top: 7px;
 }
 .member_submit{
     width: 100%;
@@ -497,7 +534,7 @@
     border: 1px solid #326DFB;
     font-size: 15px;
 }
-.member_submit input[type="submit"]{
+.member_submit input[type="submit"], .member_submit #member_submit_btn{
     color: #ffffff;
     background-color: #326DFB;
     margin-right: 10px;
@@ -515,6 +552,13 @@
     gap: 10px;
     justify-content: center;
 }
+	
+.selected_page {
+    text-decoration: underline;
+    text-underline-position: under;
+    font-weight: 600;
+}
+
 
 /* memo end */
 
@@ -972,10 +1016,13 @@ input::-webkit-calendar-picker-indicator {
 		z-index: 10000;
 		box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
 	}
+    .nav{
+        display: none;
+    }
 	#css_tabs {
-		
-		width:85%;
-	}
+		width: 85%;
+        padding-top: 110px;
+    }
 	
 	#css_tabs label {
 		width:50%;
@@ -983,6 +1030,50 @@ input::-webkit-calendar-picker-indicator {
 		font-size:14px;
 		line-height:34px;
 	}
+
+
+    #join .infomation_item .name_item{
+        display: none;
+    }
+    .text_area{
+        display: none;
+    }
+    #updateform{
+        background-color:#ffffff;
+        gap: 10px;
+    }
+    #join .infomation_item{
+        border: 0;
+    }
+    #join .infomation_item:nth-child(6){
+        border-bottom: 0;
+    }
+    #join .infomation_item .value_item{
+        width: 100%;
+        padding: 0;
+    }
+    #join .infomation_item .value_item input{
+        border: 1px solid #000000;
+        border-radius: 8px;
+        padding: 20px;
+        font-size: 15px;
+        height: 40px;
+        width: 100%;
+        box-sizing: content-box;
+    }
+    #join .infomation_item .value_item .id_wrap, #join .infomation_item .value_item .member_pw{
+        width:calc(100% - 40px);
+    }
+    #join .infomation_item .value_item .member_pw_check{
+        width: 100%;
+    }
+    #join .infomation_item .value_item .mail_item_3{
+        border: 1px solid #707070;
+        border-radius: 8px;
+        height: 82px;
+        
+    }
+
     .memo_box{
         width: 100%; height: 250px;
     }
@@ -1004,7 +1095,6 @@ input::-webkit-calendar-picker-indicator {
         width: 100%; height: 100%;
         top: 0; left: 0;
         border-radius: 0;
-        z-index: 99999;
         padding: 20px;
     }
     .memo_form hr {
@@ -1017,17 +1107,33 @@ input::-webkit-calendar-picker-indicator {
     .memo_form_detail{
         padding-left:0;
     }
-    .memo_form_detail p{
+    .form_line{
+        display: unset;
+        position: relative;
+    }
+    .memo_form_icon{
+        position: absolute;
+        top: 4px;
+    }
+    /* .memo_form_detail p{
         display: flex;
         flex-direction: column;
         gap: 10px;
-    }
+    } */
     .memo_form_detail input, .memo_form_detail textarea{
         width: 100% !important;
+        margin-top: 10px;
+        background-color: #ffffff;
+    }
+    .memo_form_detail span{
+        margin-left: 25px;
     }
     #arg{
         line-height:normal;
 
+    }
+    .form_line:nth-child(4) .memo_form_icon{
+        margin-top:0;
     }
 	/* #memo h4 {
 		margin-top:6%;

@@ -15,7 +15,29 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $(function(){
+
+        // 이메일 도메인에 맞게 option 선택
+        if('${mail_2}' == 'naver.com'){
+            $("#email_domain").val("naver.com").prop("selected", true);
+        }
+        else if('${mail_2}' == 'hanmail.net'){
+            $("#email_domain").val("hanmail.net").prop("selected", true);
+        }
+        else if('${mail_2}' == 'gmail.com'){
+            $("#email_domain").val("gmail.com").prop("selected", true);
+        }
+        else if('${mail_2}' == 'yahoo.com'){
+            $("#email_domain").val("yahoo.com").prop("selected", true);
+        }
+        else if('${mail_2}' == 'nate.com'){
+            $("#email_domain").val("nate.com").prop("selected", true);
+        }
+    })
+    
+</script>
 </head>
 <body>
 	<div id="wrap">
@@ -45,7 +67,7 @@
                     </div>
     
                     <div id="member">
-                        <form id="updateform" name="updateform" method="post" action="MyPage_Update.do">
+                        <form id="updateform" name="updateform" method="post" action="MyPageUpdate.do">
                             <div class="infomation_item">
                                 <div class="name_item">
                                     <span>*</span>
@@ -98,7 +120,7 @@
                                 <div class="value_item form">
                                     <input type="text" name="user_mail_id" class="mail_item_1" id="user_mail_id" placeholder="이메일을 입력" value="${mail_1}"><span id="at">@</span>
                                         <input type="text" name="user_mail_domain" maxlength="50" class="mail_item_2" id="user_mail_domain" placeholder="직접입력" value="${mail_2}">
-                                    <select name="sel_email" class="mail_item_3" onclick="setEmailDomain(this.value);return false;">
+                                    <select name="sel_email" id="email_domain" class="mail_item_3" onclick="setEmailDomain(this.value);return false;">
                                         <option value="">직접입력</option>
                                         <option value="naver.com">naver.com</option>
                                         <option value="hanmail.net">hanmail.net</option>
@@ -106,10 +128,10 @@
                                         <option value="yahoo.com">yahoo.com</option>
                                         <option value="nate.com">nate.com</option>
                                     </select>
-                                    <input type="hidden" id="email_check" value="">
+                                    <input type="hidden" name="user_mail" id="user_mail" value="">
                                 </div>
                             </div>
-                            <div class="infomation_item" style="border-bottom:1px solid #707070;">
+                            <div class="infomation_item">
                                 <div class="name_item">
                                     <span>*</span>
                                     <p>연락처</p>
@@ -167,10 +189,10 @@
 								<h1>Add</h1>
 								<hr>
 								<div class="memo_form_detail">
-									<p><span>제목</span>  <input type="text" name="title" value=""></p>
-									<p><span>시간</span> <input type="time" id="time_form" name="time" data-time="" data-time-format="HH시 mm분" value=""></p>
-									<p><span>날짜</span> <input type="date" id="date_form" name="date" data-date="" data-date-format="YYYY년 MM월 DD일" value=""></p>
-									<p><span id="arg">메모</span> <textarea rows="10" cols="50" name="content"></textarea></p>
+									<div class="form_line"><div class="memo_form_icon"></div><span>제목</span> <input type="text" name="title" value=""></div>
+									<div class="form_line"><div class="memo_form_icon"></div><span>시간</span> <input type="time" id="time_form" name="time" data-time="" data-time-format="HH시 mm분" value=""></div>
+									<div class="form_line"><div class="memo_form_icon"></div><span>날짜</span> <input type="date" id="date_form" name="date" data-date="" data-date-format="YYYY년 MM월 DD일" value=""></div>
+									<div class="form_line memo_line"><div class="memo_form_icon"></div><span id="arg">메모</span> <textarea rows="10" cols="50" name="content"></textarea></div>
 									<input type="text" name="writer" value="${user_id }" hidden>
 								</div>
 								<hr>
@@ -191,10 +213,10 @@
 								<h1>Update</h1>
 								<hr>
 								<div class="memo_form_detail">
-									<p><span>제목</span>  <input type="text" name="title" id="update_title" value=""></p>
-									<p><span>시간</span> <input type="time" name="time" id="update_time" data-time="" data-time-format="HH시 mm분" value=""></p>
-									<p><span>날짜</span> <input type="date" id="date_form2" name="date" data-date="" data-date-format="YYYY년 MM월 DD일" value=""></p>
-									<p><span id="arg">메모</span> <textarea rows="10" cols="50" name="content" id="update_content"></textarea></p>
+									<div class="form_line"><div class="memo_form_icon"></div><span>제목</span>  <input type="text" name="title" id="update_title" value=""></div>
+									<div class="form_line"><div class="memo_form_icon"></div><span>시간</span> <input type="time" name="time" id="update_time" data-time="" data-time-format="HH시 mm분" value=""></div>
+									<div class="form_line"><div class="memo_form_icon"></div><span>날짜</span> <input type="date" id="date_form2" name="date" data-date="" data-date-format="YYYY년 MM월 DD일" value=""></div>
+									<div class="form_line memo_line"><div class="memo_form_icon"></div><span id="arg">메모</span> <textarea rows="10" cols="50" name="content" id="update_content"></textarea></div>
 									<input type="text" name="writer" value="${user_id }" hidden>
 									<input type="text" name="id" id="id" value="" hidden>
 								</div>
@@ -223,7 +245,14 @@
 							
 							<!-- 번호 -->
 							<c:forEach var="num" begin="${makerpaging.startPage }" end="${makerpaging.endPage }">
-								<li><a href="MyPage?year=${year }&month=${month}&page=${num }">${num }</a></li>
+                                <c:choose>
+                                    <c:when test="${num == current_page}">
+                                        <li><a class="selected_page" href="MyPage?year=${year }&month=${month}&page=${num }">${num }</a></li>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <li><a href="MyPage?year=${year }&month=${month}&page=${num }">${num }</a></li>
+                                    </c:otherwise>
+                                </c:choose>
 							</c:forEach>
 							
 							<!-- 다음 -->
