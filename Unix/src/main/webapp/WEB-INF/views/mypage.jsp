@@ -223,7 +223,14 @@
 							
 							<!-- 번호 -->
 							<c:forEach var="num" begin="${makerpaging.startPage }" end="${makerpaging.endPage }">
-								<li><a href="MyPage?year=${year }&month=${month}&page=${num }">${num }</a></li>
+                                <c:choose>
+                                    <c:when test="${num == current_page}">
+                                        <li><a class="selected_page" href="MyPage?year=${year }&month=${month}&page=${num }">${num }</a></li>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <li><a href="MyPage?year=${year }&month=${month}&page=${num }">${num }</a></li>
+                                    </c:otherwise>
+                                </c:choose>
 							</c:forEach>
 							
 							<!-- 다음 -->

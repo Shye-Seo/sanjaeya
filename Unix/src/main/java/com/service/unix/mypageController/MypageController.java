@@ -73,6 +73,7 @@ public class MypageController {
 		// model 선언
 		ModelAndView model = new ModelAndView();
 		model.setViewName("mypage");
+		model.addObject("current_page", criteria.getPage());
 		
 		// 페이징 설정 
 		makerPaging.setCri(criteria); 
@@ -93,6 +94,7 @@ public class MypageController {
 		model.addObject("boardList", boardList);
 		model.addObject("user_id", str);
 		model.addObject("year", year);
+		model.addObject("month", month);
 		model.addObject("month", month);
 		
 		 String user_mail = (String) session.getAttribute("user_mail");
