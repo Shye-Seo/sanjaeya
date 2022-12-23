@@ -139,7 +139,7 @@
             
                                 <div class="value_item">
                                     <input type="text" name="user_phone" placeholder="연락처를 입력해주세요" class="input" id="user_phone" value="0${user_phone}">
-                                    <input type="button" value="인증하기" class="certification_button">
+                                    <!-- <input type="button" value="인증하기" class="certification_button"> -->
                                     <input type="button" id="sms_certification" value="" name="sms_certification">
                                 </div>
                             </div>
