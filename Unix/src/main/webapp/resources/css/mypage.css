@@ -508,7 +508,7 @@ input::-webkit-date-and-time-value {
 .memo_form_detail input, .memo_form_detail textarea{
     border-radius: 7px;
     outline: none;
-    border: 2px solid #707070;
+    border: 1px solid #707070;
     padding: 15px;
     font-size: 15px;
     width: 430px;
@@ -533,6 +533,7 @@ input::-webkit-date-and-time-value {
     border-radius: 7px;
     border: 1px solid #326DFB;
     font-size: 15px;
+    font-weight: 600;
 }
 .member_submit input[type="submit"], .member_submit #member_submit_btn{
     color: #ffffff;
