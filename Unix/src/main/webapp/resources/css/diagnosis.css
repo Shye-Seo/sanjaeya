@@ -214,7 +214,7 @@ button, html [type="button"], html [type="submit"] {
 .next {
 	background-color: white;
 	text-align: center;
-	padding: 3%;
+	padding: 40px;
 	display: flex;
 	justify-content: center;
 }

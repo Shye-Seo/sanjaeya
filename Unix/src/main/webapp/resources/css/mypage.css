@@ -508,7 +508,7 @@ input::-webkit-date-and-time-value {
 .memo_form_detail input, .memo_form_detail textarea{
     border-radius: 7px;
     outline: none;
-    border: 2px solid #707070;
+    border: 1px solid #707070;
     padding: 15px;
     font-size: 15px;
     width: 430px;
@@ -533,6 +533,7 @@ input::-webkit-date-and-time-value {
     border-radius: 7px;
     border: 1px solid #326DFB;
     font-size: 15px;
+    font-weight: 600;
 }
 .member_submit input[type="submit"], .member_submit #member_submit_btn{
     color: #ffffff;
@@ -1031,7 +1032,6 @@ input::-webkit-calendar-picker-indicator {
 		line-height:34px;
 	}
 
-
     #join .infomation_item .name_item{
         display: none;
     }
@@ -1071,8 +1071,8 @@ input::-webkit-calendar-picker-indicator {
         border: 1px solid #707070;
         border-radius: 8px;
         height: 82px;
-        
     }
+
 
     .memo_box{
         width: 100%; height: 250px;
@@ -1091,11 +1091,31 @@ input::-webkit-calendar-picker-indicator {
     }
 
     /* 모달 */
-    .memo_form{
-        width: 100%; height: 100%;
+    #add_memo_form, #update_memo_form{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        top: 0;
+        left: 0;
+        /* 모바일 스크롤 문제로 인해 스크롤추가 */
+        overflow: scroll;
+        -webkit-overflow-scrolling: touch;
+        -webkit-transform: translateZ(0);
+    }
+    /* #add_memo_form::-webkit-scrollbar, #update_memo_form::-webkit-scrollbar {
+        display: none;
+    } */
+    .modal_layer{
+        display: none;
+    }
+    .memo_form{ 
+        /* 모바일 스크롤 문제로 인해 height=120% */
+        width: 100%; height: 120%;
         top: 0; left: 0;
         border-radius: 0;
         padding: 20px;
+        position: absolute;
     }
     .memo_form hr {
         display: none;
@@ -1124,6 +1144,7 @@ input::-webkit-calendar-picker-indicator {
         width: 100% !important;
         margin-top: 10px;
         background-color: #ffffff;
+        height: 180px;
     }
     .memo_form_detail span{
         margin-left: 25px;

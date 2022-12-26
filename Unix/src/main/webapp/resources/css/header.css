@@ -227,6 +227,7 @@ body::-webkit-scrollbar-track {
         text-decoration: none;
         }
         #header_right img{
-        width:20px;
+        	width:20px;
+        	cursor: pointer;
         }
 }
