@@ -8,33 +8,33 @@ $(function() {
 
 	$("#add_memo").click(function() {
 		$("#add_memo_form").fadeIn();
-		$('#memo').on('scroll touchmove mousewheel', function(event) {
-			event.preventDefault();
-			event.stopPropagation();
-			return false;
-		});
+		// $('#memo').on('scroll touchmove mousewheel', function(event) {
+		// 	event.preventDefault();
+		// 	event.stopPropagation();
+		// 	return false;
+		// });
 	});
 
 	$("#close").click(function() {
 		$("#add_memo_form").fadeOut();
-		$('#memo').off('scroll touchmove mousewheel');
+		//$('#memo').off('scroll touchmove mousewheel');
 	});
 
 
 	$("#close1").click(function() {
 		$("#add_memo_form").fadeOut();
-		$('#memo').off('scroll touchmove mousewheel');
+		//$('#memo').off('scroll touchmove mousewheel');
 	});
 
 	$("#close2").click(function() {
 		$("#update_memo_form").fadeOut();
-		$('#memo').off('scroll touchmove mousewheel');
+		//$('#memo').off('scroll touchmove mousewheel');
 	});
 
 
 	$("#close3").click(function() {
 		$("#update_memo_form").fadeOut();
-		$('#memo').off('scroll touchmove mousewheel');
+		//$('#memo').off('scroll touchmove mousewheel');
 	});
 
 	$("#time_form").on("change", function() {
